@@ -1,0 +1,14 @@
+Use case: ads-marketing
+Asset type: premium landscape social-preview card for the bilingual FDE business-capability consulting website, approximately 16:9.
+Primary request: Create one cohesive, finished editorial marketing image with refined architectural imagery and exact, highly legible typography.
+Scene/backdrop: quiet white/ivory paper surface with generous intentional negative space reserved for the title.
+Subject: a refined architectural study of transparent teal and deep-navy modular layers connecting an open research folio to a precise working system. Tactile paper, glass, and metal. The folio pages contain no readable text.
+Style/medium: high-end rendered photography with premium editorial business-consulting art direction, sophisticated light and shadow.
+Composition/framing: wide landscape card; elegant hierarchy and spacious margins. Keep the architectural study subordinate to the title and separate from its negative space. All required copy fully visible and readable at social-preview size.
+Lighting/mood: precise, calm, confident; natural studio light, restrained dimensional shadows.
+Color palette: white/ivory; deep navy #001f3f; cobalt #3246ff as a restrained accent; restrained teal #007d86.
+Typography: crisp editorial sans-serif, exceptionally careful kerning and spacing; small brand line, dominant main headline, smaller supporting line. Render every line verbatim, exactly once.
+Text (verbatim), small brand: "FDE / BUSINESS CAPABILITY"
+Text (verbatim), main headline: "Expertise. Engineered."
+Text (verbatim), supporting line: "Decisions · Skills · Agents · Delivery"
+Constraints: only these three text strings; retain exact spelling, punctuation, slash, and middle dots. No people or portraits. No company logos other than the FDE text. No client names, claims, performance numbers, extra invented text, watermarks, or generic purple gradients. Produce one finished image, not a collage of alternatives.
