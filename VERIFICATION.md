@@ -31,3 +31,12 @@ The user's reported 404 did not reproduce in a fresh isolated Chromium session o
 A separate reproducible risk was identified in the preview server: reading build files directly while the exporter replaces its output can expose incomplete routes. The preview now retains the last complete in-memory snapshot and switches only after a finished build. The route, redirect and invalid-path behavior has regression coverage in scripts/test.mjs. This mitigation is not presented as proof of the original browser-specific cause.
 
 A confirmed deep-link bug was also corrected: an initial hydration effect reset a requested scenario to the server's default. URL updates now happen only on explicit filter actions, and language links reflect the current fragment. Browser checks verified a non-default scenario on direct entry, after switching languages and after refresh. Continuous CTA clicks during a rebuild completed without HTTP failures.
+
+## AIelsen brand update
+
+- The owner explicitly authorized AIelsen branding. The existing public-portal symbol and wordmark treatment are reused before the FDE service label in a shared header/footer component. The reference project was read only; no reference-project files were changed.
+- The favicon matches the existing AIelsen asset. Both languages now include AIelsen FDE in page titles and the social site name. Existing downloadable brochures and social-preview artwork are unchanged.
+- Rebuilt all seven content routes; TypeScript, lint and regression tests passed, including branded titles and two accessible brand links per exported page.
+- Isolated Chromium checks covered all six localized pages at 1440, 768, 375 and 320 pixels (24 layout checks). No horizontal overflow or brand/language overlap was observed; branding and language controls remain on one row. Brand links have a 44-pixel minimum height. Desktop, mobile and inverse footer treatments were inspected visually.
+- Clicked all three header navigation links in both languages, both homepage CTAs in both languages, both footer brand links, the header brand links and the process-page language switch. All reached their expected local destinations; no JavaScript errors or HTTP failures were observed. Keyboard focus on the brand link and the updated favicon response were checked.
+- This was a focused branding regression check, not a full accessibility or performance audit. No hosting deployment was performed.

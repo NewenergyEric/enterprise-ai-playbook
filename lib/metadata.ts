@@ -32,13 +32,13 @@ const descriptions = {
   },
 };
 export function pageMetadata(lang: Lang, view: View): Metadata {
-  const title = titles[view][lang] + ' · FDE';
+  const title = titles[view][lang] + ' · AIelsen FDE';
   const description = descriptions[view][lang];
   const path = localPath(lang, view);
   return {
     title,
     description,
-    icons: { icon: '/favicon.svg' },
+    icons: { icon: '/favicon.svg?v=aielsen' },
     robots: { index: true, follow: true },
     ...(siteURL
       ? {
@@ -59,7 +59,7 @@ export function pageMetadata(lang: Lang, view: View): Metadata {
       type: 'website',
       locale: lang === 'zh' ? 'zh_CN' : 'en_US',
       alternateLocale: [lang === 'zh' ? 'en_US' : 'zh_CN'],
-      siteName: 'FDE / Business Capability',
+      siteName: 'AIelsen FDE / Business Capability',
       ...(siteURL
         ? {
             url: siteURL + path,

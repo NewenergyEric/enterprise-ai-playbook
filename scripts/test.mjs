@@ -57,6 +57,12 @@ try {
   for (const lang of ['zh', 'en'])
     for (const view of ['home', 'process', 'playbook']) {
       const metadata = publicMetadata.pageMetadata(lang, view);
+      assert.ok(metadata.title.endsWith(' · AIelsen FDE'));
+      assert.equal(
+        metadata.openGraph.siteName,
+        'AIelsen FDE / Business Capability',
+      );
+      assert.equal(metadata.icons.icon, '/favicon.svg?v=aielsen');
       assert.equal(
         metadata.alternates.canonical,
         'https://example.test' + localPath(lang, view),
@@ -191,6 +197,23 @@ if (built) {
       route + ' document language',
     );
     assert.ok(html.includes('<title>'), route + ' title');
+    assert.match(
+      html,
+      /<title>[^<]*AIelsen FDE<\/title>/,
+      route + ' branded title',
+    );
+    const brandLabel = lang === 'en' ? 'AIelsen FDE home' : 'AIelsen FDE 首页';
+    assert.equal(
+      (html.match(new RegExp('aria-label="' + brandLabel + '"', 'g')) || [])
+        .length,
+      2,
+      route + ' accessible header and footer brand links',
+    );
+    assert.equal(
+      (html.match(/class="brand-identity"/g) || []).length,
+      2,
+      route + ' AIelsen identity in header and footer',
+    );
     assert.ok(html.includes('og:title'), route + ' social metadata');
     assert.equal(
       (html.match(/<h1\b/g) || []).length,

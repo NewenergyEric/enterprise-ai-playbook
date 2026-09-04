@@ -157,26 +157,63 @@ svg {
   background: white;
 }
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -0.06em;
-  gap: 8px;
+  flex-shrink: 0;
+  min-height: 44px;
+  gap: 16px;
+  line-height: 1;
+  white-space: nowrap;
 }
-.brand > span {
-  font-size: 32px;
-  font-weight: 400;
+.brand-identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 30px;
+  font-weight: 760;
+  letter-spacing: 0;
   color: var(--blue);
 }
-.brand small {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  line-height: 1.55;
-  border-left: 1px solid var(--border);
-  padding-left: 15px;
-  margin-left: 7px;
+/* Reuse AIelsen's existing public-portal mark and its white footer variant. */
+.brand-mark {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 1em;
+  border: 0.133333em solid currentColor;
+  border-radius: 50%;
+}
+.brand-mark::after {
+  content: '';
+  position: absolute;
+  right: -0.233333em;
+  bottom: 0;
+  width: 0.466667em;
+  height: 0.166667em;
+  border-radius: 999px;
+  background: currentColor;
+  transform: rotate(-24deg);
+}
+.brand-divider {
+  width: 1px;
+  height: 27px;
+  background: currentColor;
+  opacity: 0.22;
+}
+.brand-service {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 28px;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+.brand-arrow {
+  color: var(--blue);
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 .site-header nav {
   display: flex;
@@ -431,7 +468,10 @@ svg {
 .site-footer .brand {
   color: white;
 }
-.site-footer .brand span {
+.site-footer .brand-identity {
+  color: white;
+}
+.site-footer .brand-arrow {
   color: var(--gold);
 }
 .site-footer p {
@@ -458,9 +498,6 @@ svg {
   }
   .site-header nav {
     gap: 22px;
-  }
-  .brand small {
-    display: none;
   }
   .home-hero {
     gap: 30px;
@@ -498,10 +535,21 @@ svg {
     row-gap: 6px;
   }
   .brand {
-    font-size: 30px;
+    gap: 11px;
   }
-  .brand > span {
-    font-size: 27px;
+  .brand-identity {
+    font-size: 24px;
+    gap: 8px;
+  }
+  .brand-divider {
+    height: 22px;
+  }
+  .brand-service {
+    font-size: 23px;
+    gap: 3px;
+  }
+  .brand-arrow {
+    font-size: 22px;
   }
   .site-header nav {
     order: 3;
@@ -575,6 +623,27 @@ svg {
   }
   .visual-card strong {
     font-size: 23px;
+  }
+}
+@media (max-width: 360px) {
+  .site-header {
+    column-gap: 12px;
+  }
+  .brand {
+    gap: 9px;
+  }
+  .brand-identity {
+    font-size: 22px;
+    gap: 7px;
+  }
+  .brand-divider {
+    height: 20px;
+  }
+  .brand-service {
+    font-size: 21px;
+  }
+  .brand-arrow {
+    display: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {

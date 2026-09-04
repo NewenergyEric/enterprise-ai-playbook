@@ -2,6 +2,7 @@
 import { useSyncExternalStore, type ReactNode } from 'react';
 import { ArrowUpRight, ArrowRight, Download } from 'lucide-react';
 import { localPath, type Lang, type View } from '@/lib/site';
+import { Brand } from './brand';
 import {
   subscribeFragment,
   getFragment,
@@ -37,18 +38,7 @@ export function Shell({
         </div>
       </div>
       <header className="site-header wrap">
-        <a
-          href={localPath(lang)}
-          className="brand"
-          aria-label={zh ? 'FDE 首页' : 'FDE home'}
-        >
-          FDE<span>↗</span>
-          <small>
-            BUSINESS
-            <br />
-            CAPABILITY
-          </small>
-        </a>
+        <Brand lang={lang} />
         <nav aria-label={zh ? '主导航' : 'Main navigation'}>
           <a
             href={localPath(lang)}
@@ -91,9 +81,7 @@ export function Shell({
       <footer className="site-footer">
         <div className="wrap footer-main">
           <div>
-            <a className="brand" href={localPath(lang)}>
-              FDE<span>↗</span>
-            </a>
+            <Brand lang={lang} />
             <p>
               {zh
                 ? '真实问题。专业方法。持续可用的能力。'
