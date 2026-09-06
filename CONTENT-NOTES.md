@@ -26,7 +26,9 @@ Each play states its basis:
 - Content production depends on tooling, assets and runtime.
 - Packaging, compilation or generation alone do not establish business effectiveness.
 
-The separate “More opportunities” atlas has a stricter claim boundary. Its 12 entries are candidate extensions derived from anonymized project patterns or adaptable enterprise Skills. They show a business question and representative outputs, but they are not counted as detailed plays, finished products or completed customer cases. Data access, permissions, integrations and business acceptance must be confirmed before any pilot.
+The 66 additional applications live inside the More tab of their corresponding core play. Each includes a business question, inputs, method and representative outputs. Basis labels distinguish project-derived methods, application prototypes and enterprise Skill extensions. These labels describe the reference material; they do not claim that every application is a production deployment, finished product, independently delivered project or completed customer case. Several applications can derive from different tasks in one project. Scope and integration dependencies are confirmed per engagement.
+
+Source material is translated into anonymized business patterns, not reproduced. Public copy omits project and client identities, internal paths, private data, scoring formulas and deployment details. Imported open-source projects and catalog Skills are not presented as proprietary inventions. The added clinic application concerns service coordination and approved education, not diagnosis or prescribing.
 
 No verified customer ROI, success percentage, customer count, guaranteed timeline or pricing is advertised.
 
@@ -46,4 +48,4 @@ The pilot brief is a downloadable Markdown template. The visitor completes it lo
 
 Keep Chinese and English fields aligned in lib/content.ts and lib/more-scenarios.ts. Both should communicate the same business scope and limitations, without forcing literal sentence-by-sentence translation.
 
-The four PDF downloads are earlier reference editions, not PDF exports of this website. Their Playbook has eight plays; this website adds a ninth market-entry play.
+The four PDF downloads are earlier reference editions, not PDF exports of this website. Their Playbook has eight plays; this website has nine core plays and contextual applications in More. This update does not regenerate those PDFs.

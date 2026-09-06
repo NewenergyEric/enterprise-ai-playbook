@@ -1,10 +1,10 @@
 # CAPABILITY
 
-Add a bilingual “More opportunities” atlas to the Enterprise Playbook. It lets a buyer see the breadth of business problems that can be evaluated without presenting every direction as a finished offer or completed client case.
+Expand the bilingual Enterprise Playbook with practical applications inside each existing play. A buyer should recognize a concrete task, understand our approach and see what their team could receive.
 
 # CONSTRAINTS
 
-- Keep the existing nine detailed plays, their search, filters, deep links and artifacts unchanged.
+- Preserve the nine core plays, their artifacts, category filters and parent deep links. Extend search to nested applications.
 - Present the new entries as candidate extensions, not as ready-made products, guaranteed outcomes or customer references.
 - Derive the opportunity language from anonymized project patterns and reusable enterprise Skills; publish no source paths, customer identities, credentials, private metrics or proprietary implementation details.
 - Maintain Chinese and English field parity, responsive behavior, accessible structure and static export compatibility.
@@ -13,24 +13,39 @@ Add a bilingual “More opportunities” atlas to the Enterprise Playbook. It le
 # IMPLEMENTATION CONTRACT
 
 - Primary actor: a prospective enterprise buyer looking for a credible first AI deployment problem.
-- Surface: a separate opportunity-atlas section after the nine-play explorer and before the page CTA.
-- Each entry must contain a business question, three representative outputs, a business-area label and a visible capability-basis label.
-- The atlas does not participate in the nine-play filter, selector, artifact view or URL hash selection.
+- Surface: a fifth More tab inside each play, beside Value, Method, Deliverables and Evaluation. Remove the detached atlas.
+- Reuse the white/navy/teal editorial system, typography, borders and existing tab styling. Do not introduce a second dark marketing section.
+- Each application contains a business question, inputs, a concrete method, three representative outputs and a source-basis label.
+- Use expandable rows to keep the overview scannable. One row is open at a time; keyboard activation must work.
+- Search matches core plays or individual applications. Matching child content opens in More. A multi-term query must match one application, not unrelated terms scattered across siblings.
 - Content lives in a dedicated typed module so a candidate can later be promoted into a full play without rewriting the page structure.
-- Success: all 12 candidates render in both languages, remain clearly separated from the detailed plays and reveal no local or client-specific source information.
+- Success: 66 additional applications across all nine core plays, Chinese/English parity, usable desktop/mobile layouts, functioning search and no confidential source material in public assets.
+
+## Application distribution
+
+| Core play | More applications |
+| --- | ---: |
+| Market entry | 8 |
+| Prospect intelligence | 7 |
+| Creator partnerships | 6 |
+| Content production | 7 |
+| Frontline support | 8 |
+| Business analysis | 8 |
+| Inventory and planning | 8 |
+| Market intelligence | 7 |
+| Knowledge capability | 7 |
 
 # NON-GOALS
 
-- Do not create twelve new detailed artifacts or imply that integrations already exist for every enterprise system.
+- Do not imply that every application has an existing production integration, or count applications as delivered projects.
 - Do not change source projects, enterprise Skill libraries, the six-stage delivery process or downloadable Playbook PDFs in this increment.
 - Do not lead with approval routing or generic chatbot use cases.
 
 # OPEN QUESTIONS
 
-- Which candidates earn promotion to a full play after field validation and a representative artifact exists?
-- Which sectors should receive tailored versions of the opportunity atlas in later campaigns?
-- Should a future release let buyers assemble two or three candidates into one pilot brief?
+- Which applications merit their own visual output samples after field validation?
+- Which combinations should become a tailored industry offer?
 
 # HANDOFF
 
-- Implementation-ready: dedicated data model, bilingual content, opportunity-atlas UI, boundary copy, metadata updates and regression coverage.
+- Typed bilingual data, contextual More UI, nested search, metadata, updated content boundaries and regression coverage. Hosting deployment remains with the owner's deployment Agent.

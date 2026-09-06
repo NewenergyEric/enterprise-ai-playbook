@@ -2,6 +2,20 @@
 
 Date: 2026-09-04
 
+Update 2026-09-07: replaced the detached Opportunity Atlas with a contextual More tab in each of the nine existing plays. Expanded from 12 additional directions to 66 bilingual applications. The earlier atlas notes below are historical and superseded by this update.
+
+## Contextual More verification — 2026-09-07
+
+- Every application has a valid parent play, bilingual question/inputs/method/outputs, a unique ID and a source-basis label. Counts by play: 8 / 7 / 6 / 7 / 8 / 8 / 8 / 7 / 7.
+- The existing white, navy and teal system is reused. Removed the separate atlas and its dark-section styles. The original sample artifacts and core play copy are unchanged.
+- Production export, TypeScript, lint and regression checks passed. Nested search tests cover parent selection, category constraints, case/width normalization, multi-term queries, unknown parents and empty results. Terms split across unrelated applications cannot create a false match.
+- Browser interactions covered all nine More tabs in both languages. All 66 application rows appeared under the expected parents. Each Chinese play's final application was expanded; one panel remained open and showed three outputs.
+- Searches for clinic scheduling, test drives and advertising budget opened the relevant parent and its More content. A conflicting category produced an empty state; clearing filters restored all nine plays. Keyboard Enter collapsed and reopened an application. Language switching retained a non-default parent fragment.
+- Inspected More at 375×812, 768×900 and 1440×900 in both languages. No page or tab overflow remained. English phone labels use Outputs/Measures; the Chinese phone label uses 更多. Desktop labels are unchanged. Checked desktop, tablet and phone screenshots.
+- Browser console errors and warnings: zero during the recorded checks. This is focused interaction and layout verification, not a full accessibility or Core Web Vitals audit.
+- Rebuilt the locally bundled font subset to include the added Chinese copy. Reference projects, Skill libraries, PDF guides and the FDE process page were not modified.
+- Hosting deployment is separate. The deployment owner should build the updated repository with the real SITE_URL and publish dist/client.
+
 Update 2026-09-06: removed the visible generated-image caption from the Chinese and English homepage hero, and reclaimed its reserved spacing. The synthetic-sample boundary statement remains in the site footer.
 
 Update 2026-09-06: added a separate bilingual Opportunity Atlas with 12 candidate directions across four business systems. The existing nine detailed plays, filters, deep links and artifacts remain unchanged.
@@ -45,7 +59,7 @@ A confirmed deep-link bug was also corrected: an initial hydration effect reset 
 - Clicked all three header navigation links in both languages, both homepage CTAs in both languages, both footer brand links, the header brand links and the process-page language switch. All reached their expected local destinations; no JavaScript errors or HTTP failures were observed. Keyboard focus on the brand link and the updated favicon response were checked.
 - This was a focused branding regression check, not a full accessibility or performance audit. No hosting deployment was performed.
 
-## More opportunities update
+## Earlier More opportunities update — 2026-09-06 (superseded)
 
 - Reference project folders and the enterprise Skill library were reviewed read-only. Public copy contains no source paths, customer identities, credentials, private metrics or proprietary implementation details.
 - Candidate entries are visibly labeled either as an anonymized project pattern or an adaptable enterprise Skill. The page also states that they are not out-of-the-box products and require data, permission, integration and business-acceptance scoping.

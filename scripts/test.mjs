@@ -16,9 +16,10 @@ async function loadSource(file) {
   );
 }
 const { plays, stages, faqs } = await loadSource('lib/content.ts');
-const { moreScenarios, moreScenarioCategories, moreScenarioBasis } =
-  await loadSource('lib/more-scenarios.ts');
-const { filterPlays } = await loadSource('lib/playbook.ts');
+const { moreScenarios, moreScenarioBasis } = await loadSource(
+  'lib/more-scenarios.ts',
+);
+const { filterPlays, filterApplications } = await loadSource('lib/playbook.ts');
 const { localPath } = await loadSource('lib/site.ts');
 // Check production SEO configuration without advertising a made-up domain.
 const siteModule = ts.transpileModule(await readFile('lib/site.ts', 'utf8'), {
@@ -85,30 +86,36 @@ console.log(
 );
 assert.equal(plays.length, 9);
 assert.equal(new Set(plays.map((p) => p.id)).size, 9);
-assert.equal(moreScenarios.length, 12);
-assert.equal(new Set(moreScenarios.map((scenario) => scenario.id)).size, 12);
-assert.equal(
-  new Set(moreScenarios.map((scenario) => scenario.number)).size,
-  12,
-);
-assert.equal(Object.keys(moreScenarioCategories).length, 4);
-assert.equal(Object.keys(moreScenarioBasis).length, 2);
 assert.ok(
-  moreScenarios.filter((scenario) => scenario.basis === 'project-pattern')
-    .length >= 4,
+  moreScenarios.length > 12,
+  'Expanded applications beyond the old atlas',
 );
+assert.equal(
+  new Set(moreScenarios.map((scenario) => scenario.id)).size,
+  moreScenarios.length,
+);
+for (const play of plays)
+  assert.ok(
+    filterApplications(moreScenarios, 'zh', play.id).length > 0,
+    play.id + ' has contextual More applications',
+  );
 for (const scenario of moreScenarios) {
-  assert.ok(moreScenarioCategories[scenario.category]);
+  assert.ok(
+    plays.some((play) => play.id === scenario.playId),
+    scenario.id + ' belongs to a real play',
+  );
   assert.ok(moreScenarioBasis[scenario.basis]);
   for (const lang of ['zh', 'en']) {
-    assert.ok(scenario.title[lang]);
-    assert.ok(scenario.question[lang]);
+    for (const field of ['title', 'question', 'inputs', 'method'])
+      assert.ok(scenario[field][lang]);
     assert.equal(scenario.outputs[lang].length, 3);
     if (lang === 'en')
       assert.ok(
         !/[\u3400-\u9fff]/.test(
           scenario.title[lang] +
             scenario.question[lang] +
+            scenario.inputs[lang] +
+            scenario.method[lang] +
             scenario.outputs[lang].join(' '),
         ),
         'Chinese leakage in English more scenario ' + scenario.id,
@@ -164,6 +171,60 @@ assert.equal(
   0,
 );
 assert.equal(filterPlays(plays, 'en', 'capability', '  ').length, 1);
+// Nested search returns the right parent, searches the actual application
+// content, and never bypasses the selected business-area filter.
+assert.deepEqual(
+  filterPlays(plays, 'zh', 'all', '诊所', moreScenarios).map((play) => play.id),
+  ['frontline-support'],
+);
+assert.equal(
+  filterPlays(plays, 'en', 'operations', 'test drives', moreScenarios).length,
+  0,
+);
+assert.equal(
+  filterApplications(moreScenarios, 'en', 'frontline-support', 'TEST DRIVES')[0]
+    .id,
+  'store-visit-conversion',
+);
+assert.equal(
+  filterApplications(moreScenarios, 'zh', 'frontline-support', '型号 页码')[0]
+    .id,
+  'manual-troubleshooting',
+);
+assert.ok(
+  filterApplications(moreScenarios, 'en', 'knowledge-capability', 'ＰＤＦ')
+    .length > 0,
+);
+assert.equal(
+  filterApplications(
+    moreScenarios,
+    'en',
+    'frontline-support',
+    'impossible-query-9xyz',
+  ).length,
+  0,
+);
+assert.equal(filterApplications(moreScenarios, 'en', 'missing-play').length, 0);
+const nestedFixtures = ['quartz-only', 'cobalt-only'].map((word, i) => ({
+  ...moreScenarios[0],
+  id: 'fixture-' + i,
+  playId: plays[0].id,
+  title: { zh: word, en: word },
+  question: { zh: '', en: '' },
+  inputs: { zh: '', en: '' },
+  method: { zh: '', en: '' },
+  outputs: { zh: [], en: [] },
+}));
+assert.equal(
+  filterPlays(plays, 'en', 'all', 'quartz-only cobalt-only', nestedFixtures)
+    .length,
+  0,
+  'Do not combine unrelated children to satisfy a query',
+);
+assert.equal(
+  filterPlays(plays, 'en', 'all', 'quartz-only', nestedFixtures)[0].id,
+  plays[0].id,
+);
 for (const lang of ['zh', 'en'])
   for (const view of ['home', 'process', 'playbook']) {
     const route = localPath(lang, view);
@@ -182,7 +243,7 @@ for (const lang of ['zh', 'en'])
         (resource === 'pilot-brief-' ? '.md' : '.pdf'),
     );
 console.log(
-  'PASS · 9 detailed plays, 12 candidate opportunities, 6 stages, bilingual field parity, filters, routes and downloads.',
+  `PASS · 9 detailed plays, ${moreScenarios.length} contextual applications, 6 stages, bilingual parity, nested search, filters, routes and downloads.`,
 );
 let built = true;
 try {
@@ -262,14 +323,10 @@ if (built) {
       route + ' no local source paths',
     );
     if (route.includes('/playbook/')) {
+      assert.ok(!html.includes('id="more"'), route + ' no detached More atlas');
       assert.ok(
-        html.includes('id="more"'),
-        route + ' more-opportunities anchor',
-      );
-      assert.equal(
-        (html.match(/data-scenario-id=/g) || []).length,
-        12,
-        route + ' twelve candidate opportunities',
+        html.includes('more-tab-count'),
+        route + ' contextual More tab',
       );
     }
     for (const match of html.matchAll(/(?:href|src)="(\/[^"]*)"/g)) {

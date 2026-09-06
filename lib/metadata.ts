@@ -27,8 +27,8 @@ const descriptions = {
     en: 'Understand real work, capture methods, assemble workflows and evaluate on comparable tasks. Leave your team with reusable capability.',
   },
   playbook: {
-    zh: '探索 9 个完整业务打法，以及来自匿名化项目模式和企业 Skill 的 12 个可评估扩展方向。',
-    en: 'Explore nine detailed business plays and twelve additional directions grounded in anonymized project patterns and adaptable enterprise Skills.',
+    zh: '探索市场进入、客户开发、红人合作、内容、一线服务、经营分析、供应链、情报与知识复用，在各场景的 More 中查看具体应用、专业方法和交付产物。',
+    en: 'Explore practical applications within nine business plays, from market entry and sales to operations and knowledge reuse. Each More tab connects real work to methods and useful outputs.',
   },
 };
 export function pageMetadata(lang: Lang, view: View): Metadata {

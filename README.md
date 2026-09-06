@@ -31,7 +31,7 @@ The website requires **no API key, model service, database, authentication or ba
 | ------------- | ------------- | ---------------------------------------------------------------------------------------- |
 | /zh/          | /en/          | Positioning, sample brief, modular services, resources                                   |
 | /zh/process/  | /en/process/  | Six-stage FDE process, tangible deliverables, field lessons                              |
-| /zh/playbook/ | /en/playbook/ | Nine detailed plays plus 12 candidate opportunities, output samples and pilot evaluation |
+| /zh/playbook/ | /en/playbook/ | Nine detailed plays with 66 contextual More applications, output samples and pilot evaluation |
 
 The root path / shows the Chinese homepage. Language switching retains the page and the selected Playbook hash.
 
@@ -39,6 +39,7 @@ The root path / shows the Chinese homepage. Language switching retains the page 
 
 - A restrained editorial visual system: navy, white, teal and cobalt; local Chinese/Latin variable font.
 - Nine detailed bilingual plays: market entry, prospecting, creator partnerships, content, frontline support, business analysis, inventory/planning, intelligence and knowledge capability.
+- Each play has its own More tab with expandable applications in the existing visual system. The 66 applications include the business question, inputs, method, representative outputs and source-basis label. Search covers nested applications and opens matching More content.
 - Interactive decision-brief tabs, scenario selection, category filtering, search and detailed method/output/evaluation tabs.
 - A four-layer proposed service architecture: products/runtime → enterprise Skills → role Agents → FDE delivery.
 - Four previously prepared reference PDFs: separate Chinese/English Process and Playbook guides. These guides contain 14/20 pages and the Playbook PDFs cover eight earlier plays; the website adds market entry as the ninth.
@@ -47,7 +48,8 @@ The root path / shows the Chinese homepage. Language switching retains the page 
 
 ## Edit / 维护
 
-- Business content: lib/content.ts
+- Core business content: lib/content.ts
+- Contextual applications and search: lib/more-scenarios.ts, lib/playbook.ts
 - Localized routing and metadata: lib/site.ts, lib/metadata.ts
 - Page components and sample artifacts: components/fde/
 - Visual styles: app/globals.css, app/site.css

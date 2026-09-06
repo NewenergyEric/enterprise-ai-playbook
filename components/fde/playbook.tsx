@@ -1,7 +1,6 @@
 'use client';
 import { useState, useSyncExternalStore } from 'react';
 import {
-  ArrowDown,
   ArrowUpRight,
   ArrowRight,
   Search,
@@ -18,13 +17,10 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Shell, CallToAction } from './shell';
 import { Artifact } from './artifact';
+import { PlayApplications } from './play-applications';
 import { plays, categories, type Category } from '@/lib/content';
-import {
-  moreScenarios,
-  moreScenarioBasis,
-  moreScenarioCategories,
-} from '@/lib/more-scenarios';
-import { filterPlays } from '@/lib/playbook';
+import { moreScenarios } from '@/lib/more-scenarios';
+import { filterApplications, filterPlays } from '@/lib/playbook';
 import { localPath, type Lang } from '@/lib/site';
 import {
   subscribeFragment,
@@ -41,12 +37,31 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
     getFragment,
     getServerFragment,
   );
-  const visible = filterPlays(plays, lang, category, query);
+  const visible = filterPlays(plays, lang, category, query, moreScenarios);
   const selected = visible.find((p) => p.id === hash) ?? visible[0];
+  const applications = selected
+    ? filterApplications(moreScenarios, lang, selected.id)
+    : [];
+  const matchingApplications = selected
+    ? filterApplications(moreScenarios, lang, selected.id, query)
+    : [];
+  const showApplicationMatches =
+    query.trim().length > 0 && matchingApplications.length > 0;
+  const visibleApplicationCount = visible.reduce(
+    (sum, play) =>
+      sum + filterApplications(moreScenarios, lang, play.id, query).length,
+    0,
+  );
   // Only explicit filter actions may change the URL. An initial hydration
   // effect would overwrite a valid deep link with the server's default play.
   function updateFilters(nextCategory: Category | 'all', nextQuery: string) {
-    const matches = filterPlays(plays, lang, nextCategory, nextQuery);
+    const matches = filterPlays(
+      plays,
+      lang,
+      nextCategory,
+      nextQuery,
+      moreScenarios,
+    );
     const next = matches.find((p) => p.id === getFragment()) ?? matches[0];
     setCategory(nextCategory);
     setQuery(nextQuery);
@@ -74,7 +89,8 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
       <section className="playbook-heading wrap">
         <div>
           <p className="eyebrow">
-            ENTERPRISE PLAYBOOK / 9 DEEP DIVES + 12 MORE
+            ENTERPRISE PLAYBOOK / {plays.length} PLAYS · {moreScenarios.length}{' '}
+            MORE APPLICATIONS
           </p>
           <h1>
             {zh ? (
@@ -89,15 +105,11 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
           </h1>
           <p>
             {zh
-              ? '先展开 9 个完整打法，看方法、产出和价值验证；再继续浏览更多可评估的业务机会。'
-              : 'Explore nine detailed plays with methods, outputs and evaluation—then continue into a wider set of opportunities to assess.'}
+              ? `从 9 个主场景找到业务方向，再在每个场景的 More 中探索 ${moreScenarios.length} 项具体应用：从市场判断、销售机会，到经营诊断与岗位知识。`
+              : `Find your direction in nine core plays, then explore ${moreScenarios.length} practical applications inside their More tabs—from market decisions and sales opportunities to operating insight and role knowledge.`}
           </p>
         </div>
         <div className="playbook-heading-actions">
-          <a className="text-link" href="#more">
-            {zh ? '浏览更多场景' : 'Browse more opportunities'}
-            <ArrowDown />
-          </a>
           <a className="text-link" href={localPath(lang, 'process')}>
             {zh ? '先看怎样交付' : 'See how delivery works'}
             <ArrowUpRight />
@@ -157,8 +169,8 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
         </div>
         <output className="results-summary" aria-live="polite">
           {zh
-            ? `找到 ${visible.length} 个业务场景`
-            : `${visible.length} business ${visible.length === 1 ? 'play' : 'plays'}`}
+            ? `${visible.length} 个主场景 · ${visibleApplicationCount} 项${query.trim() ? '匹配' : '更多'}应用`
+            : `${visible.length} core plays · ${visibleApplicationCount} ${query.trim() ? 'matching' : 'more'} applications`}
           <span>
             {zh
               ? '所有样张为合成示意；能力成熟度按场景标注。'
@@ -184,6 +196,10 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
                   <span>
                     <strong>{p.title[lang]}</strong>
                     <small>{p.promise[lang]}</small>
+                    <span className="option-more">
+                      More ·{' '}
+                      {filterApplications(moreScenarios, lang, p.id).length}
+                    </span>
                   </span>
                   <ArrowUpRight />
                 </button>
@@ -209,7 +225,11 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
               <div className="play-sample">
                 <Artifact id={selected.id} lang={lang} />
               </div>
-              <Tabs defaultValue="value" className="detail-tabs">
+              <Tabs
+                key={`${selected.id}:${query}`}
+                defaultValue={showApplicationMatches ? 'more' : 'value'}
+                className="detail-tabs"
+              >
                 <TabsList aria-label={zh ? '场景说明' : 'Play details'}>
                   {(zh
                     ? [
@@ -225,10 +245,35 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
                         ['evaluation', 'Evaluation'],
                       ]
                   ).map(([value, label]) => (
-                    <TabsTrigger key={value} value={value}>
-                      {label}
+                    <TabsTrigger
+                      key={value}
+                      value={value}
+                      className={
+                        !zh && ['deliverables', 'evaluation'].includes(value)
+                          ? 'has-short-label'
+                          : undefined
+                      }
+                    >
+                      <span className="tab-label-full">{label}</span>
+                      {!zh && ['deliverables', 'evaluation'].includes(value) ? (
+                        <span className="tab-label-short">
+                          {value === 'deliverables' ? 'Outputs' : 'Measures'}
+                        </span>
+                      ) : null}
                     </TabsTrigger>
                   ))}
+                  <TabsTrigger
+                    value="more"
+                    className={`more-tab${zh ? ' has-short-label' : ''}`}
+                  >
+                    <span className="tab-label-full">
+                      {zh ? 'More · 更多' : 'More'}
+                    </span>
+                    {zh ? <span className="tab-label-short">更多</span> : null}
+                    <span className="more-tab-count">
+                      {applications.length}
+                    </span>
+                  </TabsTrigger>
                 </TabsList>
                 <TabsContent value="value">
                   <div className="detail-tab-body">
@@ -321,6 +366,19 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
                     </p>
                   </div>
                 </TabsContent>
+                <TabsContent value="more">
+                  <PlayApplications
+                    applications={
+                      showApplicationMatches
+                        ? matchingApplications
+                        : applications
+                    }
+                    lang={lang}
+                    playNumber={selected.number}
+                    total={applications.length}
+                    filtered={showApplicationMatches}
+                  />
+                </TabsContent>
               </Tabs>
               <div className="judgment-note">
                 <Info />
@@ -378,117 +436,6 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
             </Button>
           </div>
         )}
-      </section>
-      <section
-        className="more-scenarios"
-        id="more"
-        aria-labelledby="more-scenarios-title"
-      >
-        <div className="wrap">
-          <header className="more-scenarios-heading">
-            <div>
-              <p className="eyebrow">OPPORTUNITY ATLAS / 12 MORE</p>
-              <h2 id="more-scenarios-title">
-                {zh ? (
-                  <>
-                    还有很多问题，
-                    <br />
-                    <em>值得被做成能力。</em>
-                  </>
-                ) : (
-                  <>
-                    More business problems deserve to become{' '}
-                    <em>lasting capability.</em>
-                  </>
-                )}
-              </h2>
-              <p>
-                {zh
-                  ? '这些不是为了凑数量的“AI 用例”。它们来自匿名化项目模式与企业 Skill：先把问题和产物说清楚，经过现场验证后，才会升级为上方的完整打法。'
-                  : 'These are not AI use cases added for volume. They come from anonymized project patterns and enterprise Skills: define the problem and output first, then promote only field-validated work into a detailed play above.'}
-              </p>
-            </div>
-            <div
-              className="more-scenarios-summary"
-              aria-label={zh ? '更多场景概览' : 'More-opportunity summary'}
-            >
-              <div>
-                <strong>{moreScenarios.length}</strong>
-                <span>{zh ? '个新增方向' : 'additional directions'}</span>
-              </div>
-              <div>
-                <strong>
-                  {new Set(moreScenarios.map((item) => item.category)).size}
-                </strong>
-                <span>{zh ? '类业务系统' : 'business systems'}</span>
-              </div>
-            </div>
-          </header>
-          <div
-            className="more-scenarios-legend"
-            aria-label={zh ? '能力依据图例' : 'Capability basis legend'}
-          >
-            <span className="project-pattern">
-              <i aria-hidden="true" />
-              {moreScenarioBasis['project-pattern'][lang]}
-            </span>
-            <span className="enterprise-skill">
-              <i aria-hidden="true" />
-              {moreScenarioBasis['enterprise-skill'][lang]}
-            </span>
-          </div>
-          <div className="more-scenarios-grid">
-            {moreScenarios.map((scenario) => (
-              <article
-                className="more-scenario"
-                data-basis={scenario.basis}
-                data-scenario-id={scenario.id}
-                key={scenario.id}
-              >
-                <div className="more-scenario-topline">
-                  <span>{scenario.number}</span>
-                  <small>
-                    {moreScenarioCategories[scenario.category][lang]}
-                  </small>
-                </div>
-                <h3>{scenario.title[lang]}</h3>
-                <p className="more-scenario-question">
-                  {scenario.question[lang]}
-                </p>
-                <div className="more-scenario-output">
-                  <span>{zh ? '代表性产物' : 'REPRESENTATIVE OUTPUTS'}</span>
-                  <ul>
-                    {scenario.outputs[lang].map((output) => (
-                      <li key={output}>{output}</li>
-                    ))}
-                  </ul>
-                </div>
-                <p className="more-scenario-basis">
-                  <i aria-hidden="true" />
-                  {moreScenarioBasis[scenario.basis][lang]}
-                </p>
-              </article>
-            ))}
-          </div>
-          <footer className="more-scenarios-boundary">
-            <div>
-              <strong>{zh ? '候选范围说明' : 'SCOPE NOTE'}</strong>
-              <p>
-                {zh
-                  ? '这些方向代表可复用的问题结构与专业方法，不等同于开箱即用。实际范围取决于数据、权限、系统集成和业务验收。'
-                  : 'These directions represent reusable problem structures and expert methods, not out-of-the-box availability. Actual scope depends on data, permissions, integrations and business acceptance.'}
-              </p>
-            </div>
-            <a
-              className="text-link"
-              href={'/resources/pilot-brief-' + lang + '.md'}
-              download
-            >
-              {zh ? '带一个问题发起试点' : 'Bring one problem into a pilot'}
-              <ArrowUpRight />
-            </a>
-          </footer>
-        </div>
       </section>
       <CallToAction lang={lang} />
     </Shell>
