@@ -84,11 +84,6 @@ export function HomePage({ lang }: { lang: Lang }) {
           <div className="visual-topline">
             FIELDNOTES / 001<span>BUSINESS CAPABILITY</span>
           </div>
-          <figcaption>
-            {zh
-              ? 'AI 生成概念图 · 非真实客户现场'
-              : 'AI-generated concept · Not a client site'}
-          </figcaption>
           <div className="visual-card">
             <small>
               {zh ? '我们留下的，不只是一份答案' : 'MORE THAN AN ANSWER'}
@@ -249,8 +244,8 @@ export function HomePage({ lang }: { lang: Lang }) {
         </div>
         <a className="text-link all-plays" href={localPath(lang, 'playbook')}>
           {zh
-            ? '浏览全部 9 个业务场景与样张'
-            : 'Explore all 9 plays and sample outputs'}
+            ? '探索 9 个详细打法与更多业务机会'
+            : 'Explore 9 detailed plays and more opportunities'}
           <ArrowRight />
         </a>
       </section>

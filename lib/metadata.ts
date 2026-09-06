@@ -13,8 +13,8 @@ const titles = {
     en: 'The FDE process · From real work to lasting capability',
   },
   playbook: {
-    zh: '企业 Playbook · 9 个业务切入点',
-    en: 'Enterprise Playbook · 9 business starting points',
+    zh: '企业 Playbook · 详细打法与更多业务场景',
+    en: 'Enterprise Playbook · Detailed plays and more opportunities',
   },
 };
 const descriptions = {
@@ -27,8 +27,8 @@ const descriptions = {
     en: 'Understand real work, capture methods, assemble workflows and evaluate on comparable tasks. Leave your team with reusable capability.',
   },
   playbook: {
-    zh: '探索市场进入、客户开发、红人合作、内容生产、销售支持、经营分析、库存计划、情报与知识沉淀的具体打法。',
-    en: 'Explore market entry, prospecting, creators, content, frontline support, analysis, planning, intelligence and knowledge capability.',
+    zh: '探索 9 个完整业务打法，以及来自匿名化项目模式和企业 Skill 的 12 个可评估扩展方向。',
+    en: 'Explore nine detailed business plays and twelve additional directions grounded in anonymized project patterns and adaptable enterprise Skills.',
   },
 };
 export function pageMetadata(lang: Lang, view: View): Metadata {

@@ -16,6 +16,8 @@ async function loadSource(file) {
   );
 }
 const { plays, stages, faqs } = await loadSource('lib/content.ts');
+const { moreScenarios, moreScenarioCategories, moreScenarioBasis } =
+  await loadSource('lib/more-scenarios.ts');
 const { filterPlays } = await loadSource('lib/playbook.ts');
 const { localPath } = await loadSource('lib/site.ts');
 // Check production SEO configuration without advertising a made-up domain.
@@ -83,6 +85,36 @@ console.log(
 );
 assert.equal(plays.length, 9);
 assert.equal(new Set(plays.map((p) => p.id)).size, 9);
+assert.equal(moreScenarios.length, 12);
+assert.equal(new Set(moreScenarios.map((scenario) => scenario.id)).size, 12);
+assert.equal(
+  new Set(moreScenarios.map((scenario) => scenario.number)).size,
+  12,
+);
+assert.equal(Object.keys(moreScenarioCategories).length, 4);
+assert.equal(Object.keys(moreScenarioBasis).length, 2);
+assert.ok(
+  moreScenarios.filter((scenario) => scenario.basis === 'project-pattern')
+    .length >= 4,
+);
+for (const scenario of moreScenarios) {
+  assert.ok(moreScenarioCategories[scenario.category]);
+  assert.ok(moreScenarioBasis[scenario.basis]);
+  for (const lang of ['zh', 'en']) {
+    assert.ok(scenario.title[lang]);
+    assert.ok(scenario.question[lang]);
+    assert.equal(scenario.outputs[lang].length, 3);
+    if (lang === 'en')
+      assert.ok(
+        !/[\u3400-\u9fff]/.test(
+          scenario.title[lang] +
+            scenario.question[lang] +
+            scenario.outputs[lang].join(' '),
+        ),
+        'Chinese leakage in English more scenario ' + scenario.id,
+      );
+  }
+}
 assert.equal(stages.length, 6);
 const fields = [
   'title',
@@ -150,7 +182,7 @@ for (const lang of ['zh', 'en'])
         (resource === 'pilot-brief-' ? '.md' : '.pdf'),
     );
 console.log(
-  'PASS · 9 plays, 6 stages, bilingual field parity, English copy, filters, routes and downloads.',
+  'PASS · 9 detailed plays, 12 candidate opportunities, 6 stages, bilingual field parity, filters, routes and downloads.',
 );
 let built = true;
 try {
@@ -215,6 +247,11 @@ if (built) {
       route + ' AIelsen identity in header and footer',
     );
     assert.ok(html.includes('og:title'), route + ' social metadata');
+    assert.ok(
+      !html.includes('AI 生成概念图 · 非真实客户现场') &&
+        !html.includes('AI-generated concept · Not a client site'),
+      route + ' no visible hero-image disclaimer',
+    );
     assert.equal(
       (html.match(/<h1\b/g) || []).length,
       1,
@@ -224,6 +261,17 @@ if (built) {
       !/file:\/\/|[A-Z]:[\\/](?:Business|AI(?: Project)?)[\\/]/.test(html),
       route + ' no local source paths',
     );
+    if (route.includes('/playbook/')) {
+      assert.ok(
+        html.includes('id="more"'),
+        route + ' more-opportunities anchor',
+      );
+      assert.equal(
+        (html.match(/data-scenario-id=/g) || []).length,
+        12,
+        route + ' twelve candidate opportunities',
+      );
+    }
     for (const match of html.matchAll(/(?:href|src)="(\/[^"]*)"/g)) {
       const url = match[1].split(/[?#]/)[0];
       if (url.startsWith('//')) continue;

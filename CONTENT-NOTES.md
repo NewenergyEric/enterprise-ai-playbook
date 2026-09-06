@@ -26,6 +26,8 @@ Each play states its basis:
 - Content production depends on tooling, assets and runtime.
 - Packaging, compilation or generation alone do not establish business effectiveness.
 
+The separate “More opportunities” atlas has a stricter claim boundary. Its 12 entries are candidate extensions derived from anonymized project patterns or adaptable enterprise Skills. They show a business question and representative outputs, but they are not counted as detailed plays, finished products or completed customer cases. Data access, permissions, integrations and business acceptance must be confirmed before any pilot.
+
 No verified customer ROI, success percentage, customer count, guaranteed timeline or pricing is advertised.
 
 ## Samples and attribution
@@ -42,6 +44,6 @@ The pilot brief is a downloadable Markdown template. The visitor completes it lo
 
 ## Bilingual maintenance
 
-Keep Chinese and English fields aligned in lib/content.ts. Both should communicate the same business scope and limitations, without forcing literal sentence-by-sentence translation.
+Keep Chinese and English fields aligned in lib/content.ts and lib/more-scenarios.ts. Both should communicate the same business scope and limitations, without forcing literal sentence-by-sentence translation.
 
 The four PDF downloads are earlier reference editions, not PDF exports of this website. Their Playbook has eight plays; this website adds a ninth market-entry play.

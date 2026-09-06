@@ -2,6 +2,10 @@
 
 Date: 2026-09-04
 
+Update 2026-09-06: removed the visible generated-image caption from the Chinese and English homepage hero, and reclaimed its reserved spacing. The synthetic-sample boundary statement remains in the site footer.
+
+Update 2026-09-06: added a separate bilingual Opportunity Atlas with 12 candidate directions across four business systems. The existing nine detailed plays, filters, deep links and artifacts remain unchanged.
+
 ## Passed / 已通过
 
 - Production static build with Node 24.19.0: all seven content routes rendered, none skipped; bilingual 404 included.
@@ -40,3 +44,11 @@ A confirmed deep-link bug was also corrected: an initial hydration effect reset 
 - Isolated Chromium checks covered all six localized pages at 1440, 768, 375 and 320 pixels (24 layout checks). No horizontal overflow or brand/language overlap was observed; branding and language controls remain on one row. Brand links have a 44-pixel minimum height. Desktop, mobile and inverse footer treatments were inspected visually.
 - Clicked all three header navigation links in both languages, both homepage CTAs in both languages, both footer brand links, the header brand links and the process-page language switch. All reached their expected local destinations; no JavaScript errors or HTTP failures were observed. Keyboard focus on the brand link and the updated favicon response were checked.
 - This was a focused branding regression check, not a full accessibility or performance audit. No hosting deployment was performed.
+
+## More opportunities update
+
+- Reference project folders and the enterprise Skill library were reviewed read-only. Public copy contains no source paths, customer identities, credentials, private metrics or proprietary implementation details.
+- Candidate entries are visibly labeled either as an anonymized project pattern or an adaptable enterprise Skill. The page also states that they are not out-of-the-box products and require data, permission, integration and business-acceptance scoping.
+- Production build, TypeScript, lint and regression checks passed. Both exported Playbook pages contain exactly 12 candidate entries in addition to the nine detailed plays, and no removed homepage image caption.
+- Browser checks covered the Opportunity Atlas at 1280×720, 768×900 and 375×812. The layout changed from three to two to one column without horizontal overflow; Chinese and English anchor navigation and language switching retained `#more`; browser console errors and warnings were zero.
+- This was a focused feature and responsive-layout check, not a full accessibility or performance audit. Deployment remains separate from local verification.

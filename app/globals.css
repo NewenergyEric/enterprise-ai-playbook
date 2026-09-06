@@ -368,18 +368,10 @@ svg {
   color: white;
   text-shadow: 0 1px 4px #001f3f;
 }
-.hero-visual figcaption {
-  position: absolute;
-  bottom: 17px;
-  left: 25px;
-  color: #fff;
-  font-size: 9px;
-  text-shadow: 0 1px 4px #001f3f;
-}
 .visual-card {
   position: absolute;
   left: 25px;
-  bottom: 56px;
+  bottom: 25px;
   right: 25px;
   background: #ffffffed;
   padding: 22px 25px;

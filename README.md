@@ -27,11 +27,11 @@ The website requires **no API key, model service, database, authentication or ba
 
 ## Pages / 页面
 
-| 中文          | English       | Purpose                                                          |
-| ------------- | ------------- | ---------------------------------------------------------------- |
-| /zh/          | /en/          | Positioning, sample brief, modular services, resources           |
-| /zh/process/  | /en/process/  | Six-stage FDE process, tangible deliverables, field lessons      |
-| /zh/playbook/ | /en/playbook/ | Nine plays, search, filters, output samples and pilot evaluation |
+| 中文          | English       | Purpose                                                                                  |
+| ------------- | ------------- | ---------------------------------------------------------------------------------------- |
+| /zh/          | /en/          | Positioning, sample brief, modular services, resources                                   |
+| /zh/process/  | /en/process/  | Six-stage FDE process, tangible deliverables, field lessons                              |
+| /zh/playbook/ | /en/playbook/ | Nine detailed plays plus 12 candidate opportunities, output samples and pilot evaluation |
 
 The root path / shows the Chinese homepage. Language switching retains the page and the selected Playbook hash.
 
