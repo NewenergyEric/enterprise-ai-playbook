@@ -10,6 +10,8 @@
 | public/resources/*.pdf               | Previously prepared anonymized bilingual reference brochures                        | Process and Playbook remain separate                                   |
 | public/resources/pilot-brief-*.md    | Authored pilot-scoping templates                                                    | Editable, local-only use                                               |
 | Interface icons                      | lucide-react                                                                        | Governed by the package license                                        |
+| docs/media/fde-cover.png              | Original AIelsen repository-cover composition; see docs/brand/                       | Abstract field-to-delivery diagram; not a customer or product screenshot |
+| docs/media/evals-*.svg, states-*.svg   | Unchanged exports of original Academy teaching boards                               | Bilingual course previews; repository-only assets, outside public/      |
 
 Image generation prompt for the social preview: design/social-image-prompt.txt.
 
