@@ -10,6 +10,8 @@ import {notes,totalSections,preparation} from '../content/course.mjs';
 import {renderNotes} from './lesson-markdown.mjs';
 import {boards,boardSvg,illustrateLecture} from './visual-boards.mjs';
 import {metric,gate,taskCost,difference,ActionSimulator} from '../public/assets/lab-logic.js';
+import {studyFor,studySearch} from './case-study-render.mjs';
+import {readingById} from './reading-render.mjs';
 
 let checks=0;
 function check(name,fn){fn();checks++;console.log('PASS '+name);}
@@ -20,7 +22,7 @@ check('curriculum completeness',()=>{
  for(const w of weeks){assert.equal(w.lessons.length,4);assert.equal(w.tasks.length,3);assert.equal(w.rubric.length,3);assert.equal(w.quiz.options.length,3);assert.ok(w.quiz.answer>=0&&w.quiz.answer<=2);assert.ok(templates.some(t=>t.id===w.template));for(const ref of w.refs)assert.ok(sourceById[ref],ref);for(const lesson of w.lessons)for(const item of lesson)for(const l of ['zh','en'])assert.ok(item[l]?.length>10);}
 });
 check('paths, cases, references and worksheets',()=>{
- assert.equal(cases.length,9);assert.equal(fieldCases.length,10);assert.equal(paths.length,5);assert.equal(templates.length,16);assert.equal(glossary.length,30);assert.equal(sources.length,21);
+ assert.equal(cases.length,9);assert.equal(fieldCases.length,10);assert.equal(paths.length,5);assert.equal(templates.length,16);assert.equal(glossary.length,30);assert.equal(sources.length,22);
  for(const c of [...cases,...fieldCases])for(const w of c.weeks)assert.ok(weeks.some(x=>x.id===w));
  for(const p of paths)for(const w of p.weeks)assert.ok(weeks.some(x=>x.id===w));
  assert.ok(!JSON.stringify(paths).includes('119'));
@@ -39,6 +41,20 @@ check('expanded practitioner manuscripts and safe rendering',()=>{
  assert.ok(renderNotes('## One\n\n<script>alert(1)</script>').html.includes('&lt;script&gt;'));
  assert.throws(()=>renderNotes('## One\n\n[bad](javascript:alert)'),/Unsupported/);
  assert.throws(()=>renderNotes('## One\n\n```python\nunclosed'),/Unclosed/);
+});
+check('19 substantive bilingual studies with case-specific engineering assignments',()=>{
+ for(const c of [...cases,...fieldCases]){
+  const s=studyFor(c);assert.ok(s,'Missing study '+c.id);
+  assert.equal(s.discovery.length,2);assert.equal(s.moves.length,4);assert.equal(s.decisions.length,2);
+  assert.equal(s.worked.rows.length,3);assert.equal(s.coursework.length,3);
+  for(const l of ['zh','en']){
+   const body=studySearch(c,l);
+   assert.ok(body.length>(l==='zh'?650:1800),'Substantive teaching content '+c.id+' '+l);
+   assert.ok(s.review[l].length>20&&s.reuse[l].length>20,'Acceptance and reuse guidance '+c.id+' '+l);
+   for(const assignment of s.coursework){assert.ok(weeks.some(w=>w.id===assignment.week));assert.ok(assignment.action[l]&&assignment.output[l]&&assignment.check[l]);}
+  }
+ }
+ for(const s of sources){assert.ok(readingById[s.id]);assert.ok(weeks.some(w=>w.id===readingById[s.id].week));}
 });
 check('metric contract and rejected inputs',()=>{
  assert.deepEqual(metric(240,1000,1200),{rate:24,rawRate:20,gap:4});
@@ -81,6 +97,17 @@ await walk(root);
 const ids=new Map();const htmlMap=new Map();
 for(const file of allFiles.filter(p=>p.endsWith('.html'))){const html=await readFile(file,'utf8');htmlMap.set(file,html);const values=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(values).size,values.length,'Duplicate IDs: '+file);ids.set(file,new Set(values));}
 for(const [file,html] of htmlMap){assert.ok(!html.includes('把方法带走。')&&!html.includes('把下一次做得更好。'),'Retired slogan '+file);}
+for(const [file,html] of htmlMap){
+ assert.ok(html.includes('/assets/case-studies.css')||file===path.join(root,'index.html'),'Footer contrast stylesheet '+file);
+ assert.ok(!/来源支持什么|不能从中推导什么|对原始教研线索的加工|原始教研材料|下载课程营销 PDF|不得据此宣称|How curriculum leads were processed|What does the source support/.test(html),'Audience-facing teaching rather than authoring notes '+file);
+}
+for(const c of [...cases,...fieldCases])for(const l of ['zh','en']){
+ const slug=(fieldCases.includes(c)?'field-':'')+c.id;
+ const html=await readFile(path.join(root,l,'cases',slug,'index.html'),'utf8');
+ for(const id of ['context','discovery','solution','decisions','worked','coursework','review'])assert.ok(html.includes('id="'+id+'"'));
+ assert.equal((html.match(/class="case-week-link"/g)||[]).length,3);
+ assert.ok(html.includes('data-teaching-board='),'Contextual diagram '+slug);
+}
 for(const w of weeks){
  const page=await readFile(path.join(root,'zh','curriculum',w.id,'index.html'),'utf8');
  assert.equal((page.match(/class="lecture-section"/g)||[]).length,renderNotes(notes[w.id]).toc.length);
@@ -99,6 +126,13 @@ for(const w of weeks){
 const expandedSearch=JSON.parse(await readFile(path.join(root,'assets','search-zh.json'),'utf8'));
 assert.equal(expandedSearch.filter(s=>s.type==='详细讲义').length,totalSections);
 for(const item of expandedSearch.filter(s=>s.type==='详细讲义'))assert.ok(item.text.length>80,'Searchable section content');
+for(const l of ['zh','en']){
+ const search=JSON.parse(await readFile(path.join(root,'assets',`search-${l}.json`),'utf8'));
+ for(const c of [...cases,...fieldCases]){
+  const item=search.find(s=>s.url.endsWith('/cases/'+(fieldCases.includes(c)?'field-':'')+c.id+'/'));
+  assert.equal(item.text,studySearch(c,l),'Expanded case content is searchable '+c.id);
+ }
+}
 let links=0;
 for(const [file,html] of htmlMap){
  if(path.basename(path.dirname(file))!=='dist')assert.equal([...html.matchAll(/<h1(?:\s|>)/g)].length,1,'One h1: '+file);
