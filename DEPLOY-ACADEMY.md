@@ -31,6 +31,8 @@
 
 使用 Node 24 LTS。Windows 本地验证版本为 24.19.0；避免已知有 native shutdown 问题的 Windows 24.13.0。以下命令在仓库根目录运行，不需要进入任何原始参考项目。
 
+保留本分支更新后的 `package-lock.json`。其中已补齐全新环境所需的可选 WASM 依赖；不要换回旧 main 的锁文件，也不要用跳过依赖检查的方式掩盖安装失败。
+
 ```powershell
 git fetch origin
 git switch --detach origin/feat/fde-academy-20260908

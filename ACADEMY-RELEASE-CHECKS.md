@@ -4,6 +4,8 @@ Checked locally on 2026-09-08, Windows, Node 24.19.0. This is a code handoff, no
 
 ## Passed
 
+- Clean-directory `npm ci` dependency-resolution validation with npm 11.19.1. The original lockfile omitted optional WASM peer records; it was regenerated without changing direct dependency version pins.
+
 - `npm run check`: TypeScript, source lint, service content/interaction tests and integration tests.
 - `SITE_URL=https://fde.aielsen.com npm run build`: both sites exported successfully; Academy's 13 regression groups passed.
 - Integrated export: 98 HTML files (including flat/index mirrors and error documents), 90 public entry routes, 3,946 local links/assets/anchors checked.
