@@ -25,7 +25,10 @@ export async function readSnapshot(root) {
     }
   }
   await visit(root);
-  for (const route of requiredPaths) {
+  for (const route of new Set([
+    ...requiredPaths,
+    ...JSON.parse(before).routes,
+  ])) {
     if (!files.has(route + 'index.html'))
       throw new Error('Incomplete build: ' + route);
   }
@@ -50,5 +53,11 @@ export function resolveSnapshot(snapshot, pathname) {
     if (!decoded.endsWith('/')) return { status: 308, location: decoded + '/' };
     return { status: 200, file: index };
   }
-  return { status: 404, file: '/404.html' };
+  return {
+    status: 404,
+    file:
+      decoded.startsWith('/academy/') && snapshot.files.has('/academy/404.html')
+        ? '/academy/404.html'
+        : '/404.html',
+  };
 }

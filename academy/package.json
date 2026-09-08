@@ -1,0 +1,14 @@
+{
+  "name": "aielsen-fde-academy",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Independent FDE learning source, integrated under /academy/ by the root build.",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs",
+    "test": "node scripts/test.mjs",
+    "check": "npm run build && npm test"
+  }
+}

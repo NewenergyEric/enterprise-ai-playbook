@@ -1,5 +1,7 @@
 # FDE · Business Capability
 
+**FDE Academy integration:** the additive training site now lives in `academy/` and is assembled under `/academy/zh/` and `/academy/en/`. Both sites use one build and one static publish directory. Start with [DEPLOY-ACADEMY.md](DEPLOY-ACADEMY.md) for the exact entrances, deployment steps and acceptance checklist. The existing service pages and per-play More applications are preserved.
+
 独立的中英文企业营销网站：品牌价值首页、FDE 交付流程、可交互的企业 Playbook。不会连接或修改任何参考项目，也不包含客户数据、内部系统入口、真实专家背书或未经验证的 ROI。
 
 A standalone bilingual marketing website with a value-led homepage, a dedicated FDE process and an interactive enterprise Playbook. No client data, internal system links, real-person endorsements or unverified ROI claims are included.

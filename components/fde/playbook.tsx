@@ -1,4 +1,5 @@
 'use client';
+import { PlayLearningLink } from './academy';
 import { useState, useSyncExternalStore } from 'react';
 import {
   ArrowUpRight,
@@ -405,6 +406,7 @@ export function PlaybookPage({ lang }: { lang: Lang }) {
                   <ArrowUpRight />
                 </a>
               </div>
+              <PlayLearningLink lang={lang} playId={selected.id} />
               <p className="evidence-basis">
                 {zh ? '能力依据：' : 'Capability basis: '}
                 {selected.evidence[lang]}

@@ -1,0 +1,16 @@
+{
+  "synthetic": true,
+  "version": "1.0",
+  "objects": {
+    "Member": {"key": "member", "attributes": ["store", "contact_permission"], "sensitive_fields_excluded": ["name", "phone"]},
+    "Order": {"key": "order_id", "attributes": ["day", "amount_cents", "status"]},
+    "Store": {"key": "store"},
+    "Offer": {"key": "request_token", "attributes": ["amount_cents", "status"]}
+  },
+  "links": [
+    {"from": "Member", "to": "Order", "name": "placed", "cardinality": "1:n"},
+    {"from": "Order", "to": "Store", "name": "purchased_at", "cardinality": "n:1"}
+  ],
+  "actions": [{"name": "issue_synthetic_offer", "preconditions": ["authorized store", "eligible synthetic recipients", "bound confirmation", "remaining budget"], "idempotency": "preview token + payload fingerprint"}],
+  "boundary": "A teaching model, not a customer ontology or licensed commercial platform."
+}

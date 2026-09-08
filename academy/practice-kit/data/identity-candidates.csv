@@ -1,0 +1,5 @@
+left_id,right_id,signal,conflict,teaching_decision
+legacy-01,new-01,verified_migration_key,none,merge_with_lineage
+raw-02,raw-03,shared_household_contact,different_verified_person_id,keep_separate
+raw-04,raw-05,similar_display_name,unknown,manual_review
+raw-06,raw-07,exact_alias,expired_identity_mapping,manual_review

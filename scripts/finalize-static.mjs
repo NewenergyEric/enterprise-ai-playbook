@@ -1,5 +1,6 @@
 import { readFile, writeFile, stat, mkdir, copyFile } from 'node:fs/promises';
 import path from 'node:path';
+import { assembleAcademy } from './build-academy.mjs';
 const root = path.resolve('dist/client');
 const routes = [
   '/',
@@ -29,6 +30,15 @@ for (const route of routes) {
 const origin = process.env.SITE_URL?.replace(/\/$/, '');
 if (origin && !/^https?:\/\/[^\s]+$/.test(origin))
   throw new Error('SITE_URL must be an absolute HTTP(S) URL.');
+if (origin && new URL(origin).origin !== origin)
+  throw new Error(
+    'SITE_URL must be an origin without a path, query, credentials or fragment.',
+  );
+const academy = await assembleAcademy({
+  output: path.join(root, 'academy'),
+  origin,
+});
+routes.push(...academy.routes);
 const xmlEscape = (value) =>
   value.replace(
     /[<>&"']/g,
@@ -67,6 +77,8 @@ if (origin) {
         ),
       )
       .join('\n') +
+    '\n' +
+    academy.entries +
     '\n</urlset>\n';
   await writeFile(path.join(root, 'sitemap.xml'), xml);
   robots += 'Sitemap: ' + origin + '/sitemap.xml\n';
@@ -87,9 +99,17 @@ await writeFile(
       routes,
       mode: 'static',
       requiresBackend: false,
+      academy: {
+        prefix: '/academy/',
+        contentRoutes: academy.routes.length - 1,
+      },
     },
     null,
     2,
   ) + '\n',
 );
-console.log('Static handoff ready: dist/client · 7 routes · no backend.');
+console.log(
+  'Static handoff ready: dist/client · ' +
+    routes.length +
+    ' routes · services + Academy · no backend.',
+);

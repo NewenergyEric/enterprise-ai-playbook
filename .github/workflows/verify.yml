@@ -1,0 +1,32 @@
+name: Verify static site and Academy
+
+on:
+  push:
+    branches: [main, feat/fde-academy-20260908]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://fde.aielsen.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+      - run: npm test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fde-services-and-academy
+          path: dist/client/
+          if-no-files-found: error
+          retention-days: 7
