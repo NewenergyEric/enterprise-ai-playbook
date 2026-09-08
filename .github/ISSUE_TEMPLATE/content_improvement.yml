@@ -1,0 +1,38 @@
+name: 教学与内容改进 / Content improvement
+description: Improve a case, lesson, diagram or business scenario for its intended reader.
+title: "[Content] "
+body:
+  - type: markdown
+    attributes:
+      value: "请描述读者遇到的具体问题，而不只是要求增加字数。Only use public sources and synthetic examples."
+  - type: input
+    id: location
+    attributes:
+      label: 章节、案例或场景 / Module, case or play
+    validations:
+      required: true
+  - type: textarea
+    id: reader
+    attributes:
+      label: 谁在读，卡在哪里 / Reader and learning problem
+    validations:
+      required: true
+  - type: textarea
+    id: improvement
+    attributes:
+      label: 建议补充的判断、行动或可视化 / Proposed improvement
+      description: What should the reader be able to decide, build or verify after the change?
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: 公开依据与验证方法 / Public sources and validation
+      description: Link primary sources where appropriate. Distinguish facts from teaching inferences.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 内容检查 / Publication check
+      options:
+        - label: "未包含客户资料或未经授权的原始材料。No private client data or unauthorized source material is included."
+          required: true
