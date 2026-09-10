@@ -1,0 +1,221 @@
+{
+  "schemaVersion": "proposal-1",
+  "name": "AIelsen FDE Toolkit",
+  "status": "design-proposal",
+  "publishedPackage": false,
+  "asOf": "2026-09-10",
+  "agentInstructions": "Selection metadata only. Do not install, execute, redistribute, fetch a guessed repository, or infer ownership from this proposal. Null source information requires verification. External writes require task authorization.",
+  "taskGroups": [
+    "业务诊断",
+    "产品与营销",
+    "知识与数据",
+    "Agent 工程",
+    "评估验收",
+    "交接复用"
+  ],
+  "layers": [
+    "method-core",
+    "scenario-recipes",
+    "capability-adapters",
+    "private-project-layer"
+  ],
+  "candidates": [
+    {
+      "id": "market-research",
+      "sourceSkillName": "market-research",
+      "stage": "业务诊断",
+      "title": {
+        "zh": "市场研究简报",
+        "en": "Market research brief"
+      },
+      "problem": "Identify customer and market assumptions; distinguish evidence from estimates.",
+      "deliverable": "Evidence-linked research brief",
+      "status": "candidate",
+      "installable": false,
+      "bundled": false,
+      "ownership": "unverified",
+      "upstreamUrl": null,
+      "upstreamCommit": null,
+      "licenseEvidenceStatus": "pending-review",
+      "rightsNote": "MIT declaration; upstream and scope unverified",
+      "prerequisites": "Research access; source dates; no paid data assumed",
+      "behaviorTested": false,
+      "testedAt": null,
+      "installation": null
+    },
+    {
+      "id": "competitive-analysis",
+      "sourceSkillName": "competitive-analysis",
+      "stage": "产品与营销",
+      "title": {
+        "zh": "竞品与差异化判断",
+        "en": "Competitive differentiation"
+      },
+      "problem": "Turn competitor information into testable differentiation hypotheses.",
+      "deliverable": "Comparison table with dated sources",
+      "status": "candidate",
+      "installable": false,
+      "bundled": false,
+      "ownership": "unverified",
+      "upstreamUrl": null,
+      "upstreamCommit": null,
+      "licenseEvidenceStatus": "pending-review",
+      "rightsNote": "MIT declaration; upstream and scope unverified",
+      "prerequisites": "Public or authorized sources; no copied competitor assets",
+      "behaviorTested": false,
+      "testedAt": null,
+      "installation": null
+    },
+    {
+      "id": "kol-pitch-workflow",
+      "sourceSkillName": "kol-pitch-workflow",
+      "stage": "产品与营销",
+      "title": {
+        "zh": "创作者合作提案",
+        "en": "Creator partnership pitch"
+      },
+      "problem": "Match creators to a product and develop individual collaboration angles.",
+      "deliverable": "Shortlist rationale, pitch drafts and reply handoff",
+      "status": "candidate",
+      "installable": false,
+      "bundled": false,
+      "ownership": "unverified",
+      "upstreamUrl": null,
+      "upstreamCommit": null,
+      "licenseEvidenceStatus": "pending-review",
+      "rightsNote": "Ownership and redistribution pending",
+      "prerequisites": "Private-system coupling needs adapter; sending needs separate authority",
+      "behaviorTested": false,
+      "testedAt": null,
+      "installation": null
+    },
+    {
+      "id": "product-capability",
+      "sourceSkillName": "product-capability",
+      "stage": "Agent 工程",
+      "title": {
+        "zh": "Agent 能力契约",
+        "en": "Agent capability contract"
+      },
+      "problem": "Expose constraints, interfaces and open decisions before implementation.",
+      "deliverable": "Capability contract with invariants and unresolved decisions",
+      "status": "candidate",
+      "installable": false,
+      "bundled": false,
+      "ownership": "unverified",
+      "upstreamUrl": null,
+      "upstreamCommit": null,
+      "licenseEvidenceStatus": "pending-review",
+      "rightsNote": "Upstream/license verification pending",
+      "prerequisites": "Repair template references; approved repository access only",
+      "behaviorTested": false,
+      "testedAt": null,
+      "installation": null
+    },
+    {
+      "id": "api-design",
+      "sourceSkillName": "api-design",
+      "stage": "Agent 工程",
+      "title": {
+        "zh": "接口与联调契约",
+        "en": "API and integration contract"
+      },
+      "problem": "Align resources, pagination, errors and version assumptions.",
+      "deliverable": "Interface specification and integration checklist",
+      "status": "candidate",
+      "installable": false,
+      "bundled": false,
+      "ownership": "unverified",
+      "upstreamUrl": null,
+      "upstreamCommit": null,
+      "licenseEvidenceStatus": "pending-review",
+      "rightsNote": "Upstream/license verification pending",
+      "prerequisites": "Confirm current framework/API version; no deployment implied",
+      "behaviorTested": false,
+      "testedAt": null,
+      "installation": null
+    },
+    {
+      "id": "agent-eval",
+      "sourceSkillName": "agent-eval",
+      "stage": "评估验收",
+      "title": {
+        "zh": "编码 Agent 对照评估",
+        "en": "Coding-agent comparison"
+      },
+      "problem": "Compare coding agents on the same reproducible tasks.",
+      "deliverable": "Pass rate, cost, duration and consistency record",
+      "status": "candidate",
+      "installable": false,
+      "bundled": false,
+      "ownership": "unverified",
+      "upstreamUrl": null,
+      "upstreamCommit": null,
+      "licenseEvidenceStatus": "pending-review",
+      "rightsNote": "Upstream/license verification pending",
+      "prerequisites": "External CLI and isolated worktrees; not business-agent acceptance",
+      "behaviorTested": false,
+      "testedAt": null,
+      "installation": null
+    },
+    {
+      "id": "architecture-decision-records",
+      "sourceSkillName": "architecture-decision-records",
+      "stage": "交接复用",
+      "title": {
+        "zh": "工程决策记录",
+        "en": "Engineering decision record"
+      },
+      "problem": "Explain context, alternatives and the reason for an architectural decision.",
+      "deliverable": "ADR with context and alternatives",
+      "status": "candidate",
+      "installable": false,
+      "bundled": false,
+      "ownership": "unverified",
+      "upstreamUrl": null,
+      "upstreamCommit": null,
+      "licenseEvidenceStatus": "pending-review",
+      "rightsNote": "Upstream/license verification pending",
+      "prerequisites": "Scope-limited repository access; scrub identities",
+      "behaviorTested": false,
+      "testedAt": null,
+      "installation": null
+    },
+    {
+      "id": "sop-builder",
+      "sourceSkillName": "sop-builder",
+      "stage": "交接复用",
+      "title": {
+        "zh": "业务操作与异常手册",
+        "en": "Operational runbook"
+      },
+      "problem": "Make a process transferable to another operator.",
+      "deliverable": "Runbook with prerequisites, exceptions and completion checks",
+      "status": "candidate",
+      "installable": false,
+      "bundled": false,
+      "ownership": "unverified",
+      "upstreamUrl": null,
+      "upstreamCommit": null,
+      "licenseEvidenceStatus": "pending-review",
+      "rightsNote": "MIT declaration; upstream and scope unverified",
+      "prerequisites": "Actual operator walkthrough; no implied credentials",
+      "behaviorTested": false,
+      "testedAt": null,
+      "installation": null
+    }
+  ],
+  "gaps": [
+    "Grounded knowledge retrieval evaluation",
+    "Data and metric contracts",
+    "Safe business-action execution",
+    "Business-level acceptance"
+  ],
+  "releaseGates": [
+    "Provenance and rights",
+    "Privacy and attribution",
+    "Complete resources and dependencies",
+    "Behavioral tests in target runtime",
+    "Versioned small-pack pilot"
+  ]
+}

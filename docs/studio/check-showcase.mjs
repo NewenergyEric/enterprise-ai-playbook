@@ -1,0 +1,36 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+import assert from 'node:assert/strict';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+const docs=['README.md','README.en.md','ASSETS.md','docs/FDE-TOOLKIT.md','docs/FDE-TOOLKIT.en.md','docs/studio/README.md'];
+let refs=0;
+for(const file of docs){
+ const t=await fs.readFile(path.join(root,file),'utf8');
+ assert(!/C:[\\/]Users[\\/]|E:[\\/](?:AI|Business)|sk-[A-Za-z0-9_-]{24,}|gh[pousr]_[A-Za-z0-9]{20,}/.test(t),`Sensitive path/token pattern in ${file}`);
+ const links=[...t.matchAll(/(?:href|src)="([^"]+)"/g),...t.matchAll(/\]\(([^)]+)\)/g)].map(m=>m[1]);
+ for(const link of links){
+   if(/^(?:https?:|#|mailto:)/.test(link)) continue;
+   const target=path.resolve(root,path.dirname(file),decodeURIComponent(link.split('#')[0]));
+   assert(target.startsWith(root+path.sep),`Reference escapes repository: ${file}`);
+   await fs.access(target);refs++;
+ }
+}
+const zh=await fs.readFile(path.join(root,'README.md'),'utf8'),en=await fs.readFile(path.join(root,'README.en.md'),'utf8');
+assert(zh.includes('fde-showcase-zh.gif')&&!zh.includes('fde-showcase-en.gif'));
+assert(en.includes('fde-showcase-en.gif')&&!en.includes('fde-showcase-zh.gif'));
+assert(!/youtube\.com|youtu\.be|<iframe|<video/.test(zh+en),'No YouTube/embed block');
+const data=JSON.parse(await fs.readFile(path.join(root,'docs/toolkit-blueprint.json'),'utf8'));
+assert.equal(data.candidates.length,8);assert.equal(new Set(data.candidates.map(x=>x.id)).size,8);
+assert(data.candidates.every(x=>!x.installable&&!x.bundled&&!x.behaviorTested&&x.status==='candidate'&&x.upstreamUrl===null));
+assert.equal(data.publishedPackage,false);
+if(process.env.SHARP_MODULE){
+ const sharp=createRequire(import.meta.url)(process.env.SHARP_MODULE);
+ for(const lang of ['zh','en']){
+   const file=path.join(root,`docs/media/fde-showcase-${lang}.gif`),m=await sharp(file,{animated:true}).metadata();
+   assert.equal(m.width,1100);assert.equal(m.pageHeight,650);assert.equal(m.loop,0);assert(m.pages>10);
+   assert(m.delay.reduce((a,b)=>a+b,0)>=18000);assert((await fs.stat(file)).size<5e6);
+ }
+}
+console.log(JSON.stringify({result:'pass',documents:docs.length,localReferences:refs,bilingualHeroes:true,noVideoEmbed:true,candidates:8,installableCandidates:0}));

@@ -20,3 +20,8 @@ Output samples are authored HTML interfaces: briefs, tables, method maps and man
 The previously prepared PDF brochures and social-preview illustration retain their FDE artwork. The AIelsen update applies to the website header, footer, favicon and page metadata.
 
 Review assets and wording before public release. No license or exclusivity claim is made for generated imagery beyond the rights applicable to the generation service.
+# GitHub comic showcase (2026-09-10)
+
+The `docs/media/fde-comic-art.png` artwork is an original conceptual illustration generated for this repository; no customer attachments or third-party reference images were supplied. The Chinese and English `fde-showcase-*.gif` / PNG files combine that artwork with editable SVG typography and scene timing. They illustrate the FDE method, not actual customer records or measured outcomes. The badge SVGs are original code-native graphics using the existing AIelsen navy and teal palette.
+
+Reference repositories informed the presentation format only. No reference animation, illustration, source code or YouTube video is included. [Editable composition, asset brief and regeneration notes](docs/studio/README.md).
