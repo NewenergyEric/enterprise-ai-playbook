@@ -5,9 +5,10 @@
 <p align="center">
   <strong>中文</strong> · <a href="README.en.md">English</a><br>
   <a href="https://fde.aielsen.com/zh/">FDE 服务站</a> ·
-  <a href="https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908/academy">学院课程源码</a> ·
-  <a href="https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOY-ACADEMY.md">部署指南</a> ·
-  <a href="https://github.com/NewenergyEric/FDE-web/actions/workflows/verify.yml?query=branch%3Afeat%2Ffde-academy-20260908">构建验证</a>
+  <a href="agent-cases/README.md">Agent 实战案例</a> ·
+  <a href="academy">学院课程源码</a> ·
+  <a href="DEPLOY-AGENT-CASES.md">完整部署指南</a> ·
+  <a href="https://github.com/NewenergyEric/FDE-web/actions/workflows/verify.yml?query=branch%3Afeat%2Fagent-cases-20260910">构建验证</a>
 </p>
 
 # AIelsen FDE
@@ -16,20 +17,33 @@
 
 FDE（Forward Deployed Engineer，前线部署工程师）的工作，不止于让模型回答问题：还要理解现场、定义指标、接通数据与工具，并拿出业务和工程都能检验的结果。
 
-这个项目把这套工作方式做成两个相互连接的入口：面向企业的 **FDE 服务与 Playbook**，以及面向工程师和交付团队的 **FDE Academy**。前者说明值得做什么、怎样交付；后者训练如何判断、实现、验证和复盘。
+这个项目把这套工作方式做成三个相互连接的入口：面向企业的 **FDE 服务与 Playbook**，面向工程师和交付团队的 **FDE Academy**，以及把实际工作展开的 **Agent 实战案例**。服务说明值得做什么，课程训练怎样交付，案例说明从需求到产物具体发生了什么。
 
-> **完整版本入口：** 服务站与学院的集成代码位于 [`feat/fde-academy-20260908`](https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908)。本次 `main` 的更新仅涉及仓库展示文档，不代表学院代码已合并或线上站点已更新。请按下方命令获取完整版本。
+> **完整版本入口：** 服务站、学院与案例集的集成代码位于 [`feat/agent-cases-20260910`](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910)。该分支保留学院完整版本，新增主导航「Agent 案例 / Agent Cases」。代码交付不等于生产部署，不能从旧 `main` 构建后就认为包含全部内容。请按 [完整部署指南](DEPLOY-AGENT-CASES.md) 操作。
 
 ## 从你关心的问题开始
 
 | 你是谁 | 你想解决什么 | 从这里开始 |
 | --- | --- | --- |
 | 企业业务负责人 | 哪些 AI 应用能进入真实工作？如何界定试点与验收？ | [业务 Playbook](https://fde.aielsen.com/zh/playbook/) · [六阶段交付流程](https://fde.aielsen.com/zh/process/) |
-| FDE / AI / 数据工程师 | 怎样把访谈、数据、Agent、评估与生产交付连起来？ | [12 周课程与讲义](https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908/academy/content/notes) · [工程实训包](https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908/academy/practice-kit) |
-| 解决方案负责人 / 培训组织者 | 如何培养可独立交付的人，而不只培训工具操作？ | [培训介绍 PDF](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf) · [学院内容说明](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/academy/README.md) |
-| 开发者 / 部署 Agent | 如何接手、验证和增量发布，同时保留业务站？ | [部署与验收清单](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOY-ACADEMY.md) · [协作规范](CONTRIBUTING.md) |
+| FDE / AI / 数据工程师 | 怎样把访谈、数据、Agent、评估与生产交付连起来？ | [12 周课程与讲义](academy/content/notes) · [工程实训包](academy/practice-kit) |
+| 解决方案负责人 / 培训组织者 | 如何培养可独立交付的人，而不只培训工具操作？ | [培训介绍 PDF](academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf) · [学院内容说明](academy/README.md) |
+| 开发者 / 部署 Agent | 如何接手、验证和增量发布，同时保留业务站？ | [部署与验收清单](DEPLOY-AGENT-CASES.md) · [协作规范](CONTRIBUTING.md) |
 
-## 一个项目，两条路径
+## 从案例看到具体的工作
+
+九个匿名案例均有完整中英文页面、场景摄影、可放大的工作图解和可编辑工作表。沿着 **业务问题 → 关键判断 → 连续行动 → 交付物 → 前后变化 → 可复用方法** 阅读，而不是只看一张效果图。
+
+| 案例 | 看什么 |
+| --- | --- |
+| Bella · 全案营销 | 从需求、研究和 FAB，走到全案文案、分镜与 TVC 对照 |
+| Ruby · 海外创作者合作 | 筛选频道，把家庭体感产品写成个性化 pitch，再处理回复和商务交接 |
+| Oliva · 产品与售后客服 | 接通资料、客户上下文、建议回复与人工修订，让客服有依据地回答 |
+| Steve · 工程交接 | 核对广告分析工具的文档与实际规则，说明待验证项并留下交接材料 |
+
+另有 Velia、Atlas、Nora、Leo、Iris；[查看九案目录与维护说明](agent-cases/README.md)。共 20 页、28 张双语图解、18 份工作表。展示化名不是真实 Agent 身份；场景插图与真实对照分别说明，交付材料不等于销售或收益证明。
+
+## 服务与课程基础
 
 | FDE 服务与 Playbook | FDE Academy |
 | --- | --- |
@@ -68,14 +82,14 @@ FDE（Forward Deployed Engineer，前线部署工程师）的工作，不止于�
 
 例如：从航空运营的数据协同讨论业务对象与适配边界；从企业知识应用讨论检索和分层评估；从服务型助手讨论任务解决率与升级路径。配套实作覆盖市场研究、客户研究、投放复盘、经营分析、服务与知识反馈等工作。
 
-公开事实保留来源，课堂推演明确标注；合成数据用于练习，不冒充真实客户记录。[查看案例内容](https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908/academy/content) · [下载培训介绍 PDF](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
+公开事实保留来源，课堂推演明确标注；合成数据用于练习，不冒充真实客户记录。[查看案例内容](academy/content) · [下载培训介绍 PDF](academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
 
 ## 本地启动完整版本
 
 使用 **Node.js 24.19+** 和 npm。建议检出到新目录，不覆盖已有工作区。
 
 ```sh
-git clone --branch feat/fde-academy-20260908 https://github.com/NewenergyEric/FDE-web.git
+git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/FDE-web.git
 cd FDE-web
 npm ci
 npm run check
@@ -92,18 +106,19 @@ npm run preview
 | 交付流程 | `/zh/process/` | `/en/process/` |
 | 业务 Playbook | `/zh/playbook/` | `/en/playbook/` |
 | 学院 | `/academy/zh/` | `/academy/en/` |
+| Agent 实战案例 | `/agent-cases/` | `/agent-cases/en/` |
 | 课程 / 案例 / 教学资源 | `/academy/zh/curriculum/` · `/academy/zh/cases/` · `/academy/zh/resources/` | 对应 `/academy/en/` 下的同名路径 |
 
 开发模式：`npm run dev -- --host 127.0.0.1 --port 4178`。修改学院源文件后重启开发服务；完整验收以组合静态构建为准。
 
 ## 给维护者和部署 Agent
 
-- **一次构建，一个发布目录：`dist/client`。** 学院增量接入 `/academy/`，与业务站的样式、脚本保持独立。保留原业务 CTA、9 个场景和 66 个 More 应用。
+- **一次构建，一个发布目录：`dist/client`。** 服务、学院 `/academy/` 和案例 `/agent-cases/` 共 110 条入口；各模块样式与脚本独立。保留原业务 CTA、9 个场景和 66 个 More 应用。入口和后续部署优先遵循 [DEPLOY-AGENT-CASES.md](DEPLOY-AGENT-CASES.md)。
 - 正式构建前设置 `SITE_URL` 为 HTTPS 域名，不附加 `/academy`。深层路由直接访问应可用，未知路径必须返回真实 404，不用 SPA 首页兜底。
 - 技术构成：React / TypeScript / Vinext 服务站 + 原生 JavaScript 静态学院。运行网站无需模型密钥、数据库或后端服务；Python 仅用于离线工程练习和可选 PDF 维护。
 - 内容、站内链接、双语字段、画板和静态输出由自动测试检查；视觉、键盘交互和实际部署仍需按清单验收。
 
-[部署操作与验收](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOY-ACADEMY.md) · [静态托管要求](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOYMENT.md) · [学院编辑地图](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/academy/README.md) · [协作规范](CONTRIBUTING.md)
+[部署操作与验收](DEPLOY-AGENT-CASES.md) · [静态托管要求](DEPLOYMENT.md) · [学院编辑地图](academy/README.md) · [协作规范](CONTRIBUTING.md)
 
 ## 内容使用与边界
 

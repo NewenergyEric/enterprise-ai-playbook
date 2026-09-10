@@ -5,9 +5,10 @@
 <p align="center">
   <a href="README.md">中文</a> · <strong>English</strong><br>
   <a href="https://fde.aielsen.com/en/">FDE services</a> ·
-  <a href="https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908/academy">Academy source</a> ·
-  <a href="https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOY-ACADEMY.md">Deployment guide</a> ·
-  <a href="https://github.com/NewenergyEric/FDE-web/actions/workflows/verify.yml?query=branch%3Afeat%2Ffde-academy-20260908">Build checks</a>
+  <a href="agent-cases/README.md">Agent case studies</a> ·
+  <a href="academy">Academy source</a> ·
+  <a href="DEPLOY-AGENT-CASES.md">Combined deployment guide</a> ·
+  <a href="https://github.com/NewenergyEric/FDE-web/actions/workflows/verify.yml?query=branch%3Afeat%2Fagent-cases-20260910">Build checks</a>
 </p>
 
 # AIelsen FDE
@@ -16,20 +17,33 @@
 
 A Forward Deployed Engineer does more than make a model answer questions. The job is to understand the operating context, define meaningful measures, connect data and tools, and deliver something that stands up to both business and engineering review.
 
-This project connects **FDE services and an enterprise Playbook** with **FDE Academy**, a practitioner-focused learning site. The service site explores what is worth building and how delivery works. The Academy develops the judgment and engineering skills needed to discover, implement, validate and improve it.
+This project connects **FDE services and an enterprise Playbook**, **FDE Academy** and **Agent case studies**. Services explain what is worth building; the Academy develops delivery skills; the cases trace how a brief becomes decisions, working outputs and a usable handoff.
 
-> **Complete edition:** the integrated service site and Academy are on [`feat/fde-academy-20260908`](https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908). The current `main` update changes repository presentation only; it does not mean the Academy has been merged or deployed. Use the checkout instructions below.
+> **Complete edition:** services, Academy and Agent cases are integrated on [`feat/agent-cases-20260910`](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910). The branch retains the complete Academy and adds a bilingual “Agent Cases” navigation entry. Code delivery does not mean production deployment; an older `main` checkout does not include this complete edition. Follow the [combined deployment guide](DEPLOY-AGENT-CASES.md).
 
 ## Find your starting point
 
 | Audience | What you need to answer | Start here |
 | --- | --- | --- |
 | Business leaders | Which AI applications belong in real work? How should a pilot be scoped and accepted? | [Enterprise Playbook](https://fde.aielsen.com/en/playbook/) · [Delivery process](https://fde.aielsen.com/en/process/) |
-| FDEs, AI and data engineers | How do discovery, data, agents, evaluation and production delivery fit together? | [Course source](https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908/academy/content) · [Engineering practice kit](https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908/academy/practice-kit) |
-| Solutions leads and training organizers | How do we develop independent delivery capability, beyond tool familiarity? | [Training brochure (Chinese)](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf) · [Academy guide](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/academy/README.md) |
-| Developers and deployment agents | How do we maintain, verify and release an additive update? | [Deployment checklist](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOY-ACADEMY.md) · [Contribution guide](CONTRIBUTING.md) |
+| FDEs, AI and data engineers | How do discovery, data, agents, evaluation and production delivery fit together? | [Course source](academy/content) · [Engineering practice kit](academy/practice-kit) |
+| Solutions leads and training organizers | How do we develop independent delivery capability, beyond tool familiarity? | [Training brochure (Chinese)](academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf) · [Academy guide](academy/README.md) |
+| Developers and deployment agents | How do we maintain, verify and release an additive update? | [Deployment checklist](DEPLOY-AGENT-CASES.md) · [Contribution guide](CONTRIBUTING.md) |
 
-## One project, two connected experiences
+## See the work in nine Agent cases
+
+Each anonymized case includes a full Chinese and English narrative, scenario photography, working diagrams and an editable workbook. Follow **business problem → key decisions → continuous work → deliverables → before / after → reusable methods**.
+
+| Case | Work to explore |
+| --- | --- |
+| Bella · Integrated marketing | Brief, research and FAB through campaign copy, storyboards and TVC comparisons |
+| Ruby · Creator partnerships | Channel selection, personalized family-gaming pitches, replies and business handoff |
+| Oliva · Product and after-sales support | Source material and customer context become reviewable drafts and maintained knowledge |
+| Steve · Engineering handoff | Compare an advertising tool's documented rules with its actual behavior and open questions |
+
+Velia, Atlas, Nora, Leo and Iris complete the collection. [Explore the case source and maintenance guide](agent-cases/README.md). The collection has 20 pages, 28 localized diagrams and 18 workbooks. Names are public aliases; illustrative scenes are distinct from original comparison evidence. Deliverables are not sales or ROI claims.
+
+## The service and learning foundations
 
 | FDE services & Playbook | FDE Academy |
 | --- | --- |
@@ -68,14 +82,14 @@ Every study follows **problem → discovery → actions → key decisions → wo
 
 Aviation operations introduce business objects and integration boundaries. Enterprise knowledge applications lead into retrieval and layered evaluation. Service assistants raise questions about task resolution and escalation. Field exercises extend into market and account research, campaign review, business analysis, service and knowledge feedback.
 
-Reported public context retains its sources; teaching inferences are labeled separately. Exercise data is synthetic, not private customer records. [Explore case content](https://github.com/NewenergyEric/FDE-web/tree/feat/fde-academy-20260908/academy/content) · [Training brochure (Chinese)](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
+Reported public context retains its sources; teaching inferences are labeled separately. Exercise data is synthetic, not private customer records. [Explore case content](academy/content) · [Training brochure (Chinese)](academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
 
 ## Run the complete edition locally
 
 Use **Node.js 24.19+** and npm. Clone into a new directory rather than overwriting an existing working tree.
 
 ```sh
-git clone --branch feat/fde-academy-20260908 https://github.com/NewenergyEric/FDE-web.git
+git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/FDE-web.git
 cd FDE-web
 npm ci
 npm run check
@@ -92,6 +106,7 @@ The repository is currently private; cloning requires access. Preview at `http:/
 | Delivery process | `/zh/process/` | `/en/process/` |
 | Enterprise Playbook | `/zh/playbook/` | `/en/playbook/` |
 | Academy | `/academy/zh/` | `/academy/en/` |
+| Agent case studies | `/agent-cases/` | `/agent-cases/en/` |
 | Curriculum / cases / resources | `/academy/zh/curriculum/` · `/academy/zh/cases/` · `/academy/zh/resources/` | The same paths under `/academy/en/` |
 
 For development: `npm run dev -- --host 127.0.0.1 --port 4178`. Restart dev after editing Academy source; validate the combined static build before release.
@@ -103,7 +118,7 @@ For development: `npm run dev -- --host 127.0.0.1 --port 4178`. Restart dev afte
 - Stack: React / TypeScript / Vinext for the service site; native JavaScript static generation for the Academy. The website needs no model keys, database or backend. Python is only for offline practice and optional PDF maintenance.
 - Automated checks cover authored content, internal links, language fields, diagrams and static output. Visual, keyboard and live-host acceptance remain explicit release steps.
 
-[Deployment and acceptance](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOY-ACADEMY.md) · [Static hosting contract](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOYMENT.md) · [Academy editing map](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/academy/README.md) · [Contribution guide](CONTRIBUTING.md)
+[Deployment and acceptance](DEPLOY-AGENT-CASES.md) · [Static hosting contract](DEPLOYMENT.md) · [Academy editing map](academy/README.md) · [Contribution guide](CONTRIBUTING.md)
 
 ## Use and boundaries
 

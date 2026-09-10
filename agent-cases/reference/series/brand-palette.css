@@ -1,0 +1,149 @@
+/* Shared with the live FDE visual language: white, navy and teal.
+   Keep this final stylesheet independent of content, photography and layouts. */
+:root {
+  --navy: #001f3f;
+  --ink: #001f3f;
+  --blue: #3246ff;
+  --teal: #007d86;
+  --teal-text: #006d76;
+  --gold: #f0d242;
+  --mint: #83d2d1;
+  --paper: #ffffff;
+  --surface: #ffffff;
+  --wash: #f3f6f7;
+  --soft: #eef4f5;
+  --accent-wash: #e7f5f3;
+  --line: #d9e1e5;
+  --edge: #bacdd5;
+  --muted: #576c7c;
+  --on-dark: #ffffff;
+  --on-dark-muted: #cbdbe5;
+  --on-dark-dim: #abc3d1;
+}
+
+/* The service site leads on white. Reserve dark fields for selected sections. */
+.series-header, .topbar { background: var(--paper); color: var(--ink); }
+.series-header .brand b, .topbar .brand b { color: var(--blue); }
+.series-header nav a:hover, .topbar nav a:hover { color: var(--blue); }
+.series-header .language-switcher, .topbar .language-switcher,
+.language-switcher a + a { border-color: var(--line); }
+.language-switcher a { color: var(--ink); background: var(--paper); }
+.series-header .language-switcher a[aria-current=page],
+.topbar .language-switcher a[aria-current=page] { background: var(--navy); color: var(--on-dark); }
+.language-switcher a:hover { box-shadow: inset 0 -2px 0 var(--blue); }
+
+.collection-hero, .case-hero, .field-bella .hero {
+  background: var(--paper);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.collection-hero .eyebrow, .field-bella .hero .eyebrow,
+.collection-intro h1 span, .case-name span, .hero-name span,
+.field-bella .hero .mint { color: var(--teal); }
+.collection-intro p, .case-hero-note > p, .case-breadcrumb, .case-facts,
+.collection-foot { color: var(--muted); }
+.case-facts { border-color: var(--line); }
+.case-facts span::before { color: var(--teal); }
+.case-status { background: var(--soft); color: var(--teal-text); border-color: var(--line); }
+.case-scene figcaption { color: var(--muted); border-color: var(--edge); }
+.report-shortcut { color: var(--ink); }
+
+.mint-button, .download-panel .button, .playbook-title .button {
+  background: var(--navy);
+  color: var(--on-dark);
+  border-color: var(--navy);
+}
+.mint-button:hover, .download-panel .button:hover, .playbook-title .button:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--on-dark);
+}
+.field-series .name-wall { background: var(--wash); border-color: var(--line); }
+.field-series .name-wall a:nth-child(n) { border-color: var(--line); color: var(--ink); }
+.field-series .name-wall a:hover { background: var(--paper); }
+.name-wall a > span { color: var(--teal-text); }
+.name-wall b { color: var(--navy); }
+.name-wall small { color: var(--muted); }
+
+/* Bella retains its original comparisons and image treatment. */
+.field-bella .hero-intro { color: var(--ink); }
+.field-bella .hero-intro p + p,
+.field-bella .hero-edition,
+.field-bella .hero-visual figcaption,
+.field-bella .hero-visual figcaption small,
+.field-bella .hero-foot p,
+.field-bella .hero-foot > span { color: var(--muted); }
+.field-bella .hero-foot { border-color: var(--line); }
+.field-bella .hero-foot strong { color: var(--ink); }
+.bridge-tag { background: var(--gold); color: var(--navy); }
+.label-dot.live { background: var(--teal); }
+.collection-ribbon { color: var(--on-dark-muted); }
+.stage-takeaway, .copy-card .observed, .tag { color: var(--teal-text); }
+
+/* Neutral reading surfaces replace the previous cream and sage-grey panels. */
+.business-brief { background: var(--paper); border-color: var(--line); }
+.business-value, .pitch-source-note { border-color: var(--teal); }
+.business-value p, .business-delivery li, .business-pilot > p { color: var(--ink); }
+.business-chain, .business-chain li + li { border-color: var(--line); }
+.business-chain b { color: var(--teal-text); }
+.business-delivery small { color: var(--muted); }
+.business-pilot { background: var(--soft); }
+.business-pilot > a { border-color: var(--edge); }
+.evidence-section, .engineering-details .evidence-section,
+.report-section, .pitch-section, .engineering-details { background: var(--wash); border-color: var(--line); }
+.engineering-details[open] > summary { border-color: var(--line); }
+.engineering-details > summary > span, .engineering-details > summary > b { color: var(--teal-text); }
+.engineering-details > summary > p { color: var(--muted); }
+
+.artifact-primary .artifact-image, .artifact-concept .artifact-image,
+.artifact-image, .artifact-dialog, .artifact-viewport, .artifact-dialog img,
+.tile-visual, .case-scene-image { background: var(--paper); border-color: var(--line); }
+.artifact-image:hover { border-color: var(--teal); }
+.artifact-caption { color: var(--muted); border-color: var(--line); }
+.artifact-reading p, .extension-route p, .artifact-dialog-tools > p { color: var(--muted); }
+.artifact-label { color: var(--muted); }
+.artifact-label > span, .artifact-reading b, .extension-route span,
+.artifact-concept .artifact-label small { color: var(--teal-text); }
+.artifact-extension { background: var(--soft); border-top-color: var(--teal); }
+.extension-route article { border-color: var(--edge); }
+.artifact-dialog { color: var(--ink); }
+.artifact-dialog button { background: var(--paper); color: var(--ink); border-color: var(--edge); }
+.artifact-dialog button[data-artifact-close], .image-expand,
+.artifact-concept .image-expand { background: var(--navy); color: var(--on-dark); }
+.artifact-dialog button:hover { border-color: var(--blue); }
+.learning-card { background: var(--paper); border-color: var(--edge); box-shadow: 6px 6px 0 var(--line); }
+.event-row.is-excluded { text-decoration-color: var(--muted); }
+
+/* Report and pitch hierarchy stays intact; semantic decision colours stay distinct. */
+.report-sheet, .report-spread, .pitch-variant { background: var(--paper); border-color: var(--line); }
+.report-sheet { border-top-color: var(--navy); box-shadow: 8px 8px 0 var(--soft); }
+.report-table thead, .report-before-after > div, .pitch-before { background: var(--soft); }
+.report-table th, .report-table td, .pitch-before, .mail-body h4,
+.pitch-variant > header, .pitch-reading > aside, .pitch-english { border-color: var(--line); }
+.report-table thead th, .report-table tbody td:nth-child(2),
+.report-insight, .report-before-after p, .report-trace p, .report-outputs p,
+.mail-body p, .pitch-reading > aside p, .pitch-handoff p { color: var(--ink); }
+.report-scroll-hint, .report-footnote, .report-before-after span,
+.pitch-source-note p, .pitch-before > div:first-child > span { color: var(--muted); }
+.report-before-after > div + div { background: var(--accent-wash); border-color: var(--line); }
+.report-trace li, .report-outputs article, .pitch-handoff article { border-color: var(--edge); }
+.report-trace li > span, .mail-label, .pitch-reading > aside span,
+.pitch-english > summary, .pitch-handoff b, .pitch-source-note b { color: var(--teal-text); }
+.report-decision { background: var(--accent-wash); color: var(--teal-text); border-color: var(--edge); }
+.report-decision.is-watch { background: #fff8da; color: #735b0a; border-color: #e5d88a; }
+.report-decision.is-hold { background: #fff0eb; color: #943e2c; border-color: #e0b9af; }
+.pitch-variant { box-shadow: 8px 8px 0 var(--soft); }
+.pitch-variant > header { background: var(--navy); color: var(--on-dark); }
+.pitch-variant > header > span { color: var(--mint); }
+.pitch-reading > aside, .pitch-handoff article > div { background: var(--wash); }
+
+.field-series :is(a, button, summary, [tabindex]):focus-visible,
+.field-bella :is(a, button, summary, [tabindex]):focus-visible { outline-color: var(--blue); }
+.series-footer a:focus-visible, .footer a:focus-visible,
+.collection-ribbon a:focus-visible { outline-color: var(--gold); }
+@media (max-width:560px) {
+  .report-sheet, .pitch-variant { box-shadow: 4px 4px 0 var(--soft); }
+}
+@media print {
+  .field-bella .hero { background: var(--paper)!important; color: var(--ink); }
+}

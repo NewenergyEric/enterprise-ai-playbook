@@ -1,6 +1,7 @@
 import { readFile, writeFile, stat, mkdir, copyFile } from 'node:fs/promises';
 import path from 'node:path';
 import { assembleAcademy } from './build-academy.mjs';
+import { assembleAgentCases } from './assemble-agent-cases.mjs';
 const root = path.resolve('dist/client');
 const routes = [
   '/',
@@ -39,6 +40,11 @@ const academy = await assembleAcademy({
   origin,
 });
 routes.push(...academy.routes);
+const agentCases = await assembleAgentCases({
+  output: path.join(root, 'agent-cases'),
+  origin,
+});
+routes.push(...agentCases.routes);
 const xmlEscape = (value) =>
   value.replace(
     /[<>&"']/g,
@@ -79,6 +85,8 @@ if (origin) {
       .join('\n') +
     '\n' +
     academy.entries +
+    '\n' +
+    agentCases.entries +
     '\n</urlset>\n';
   await writeFile(path.join(root, 'sitemap.xml'), xml);
   robots += 'Sitemap: ' + origin + '/sitemap.xml\n';
@@ -103,6 +111,11 @@ await writeFile(
         prefix: '/academy/',
         contentRoutes: academy.routes.length - 1,
       },
+      agentCases: {
+        prefix: '/agent-cases/',
+        contentRoutes: agentCases.routes.length,
+        languages: ['zh-CN', 'en'],
+      },
     },
     null,
     2,
@@ -111,5 +124,5 @@ await writeFile(
 console.log(
   'Static handoff ready: dist/client · ' +
     routes.length +
-    ' routes · services + Academy · no backend.',
+    ' routes · services + Academy + Agent cases · no backend.',
 );

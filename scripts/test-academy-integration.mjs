@@ -59,8 +59,15 @@ if (!built) {
 } else {
   const snapshot = await readSnapshot(root);
   const info = JSON.parse(snapshot.marker);
-  assert.equal(info.routes.length, 90);
   assert.equal(info.academy.contentRoutes, 82);
+  assert.equal(info.agentCases.prefix, '/agent-cases/');
+  assert.equal(info.agentCases.contentRoutes, 20);
+  assert.deepEqual(info.agentCases.languages, ['zh-CN', 'en']);
+  assert.equal(new Set(info.routes).size, info.routes.length);
+  assert.equal(
+    info.routes.length,
+    7 + 1 + info.academy.contentRoutes + info.agentCases.contentRoutes,
+  );
   assert.equal(resolveSnapshot(snapshot, '/academy').location, '/academy/');
   assert.equal(
     resolveSnapshot(snapshot, '/academy/en/curriculum/05').location,
@@ -197,7 +204,10 @@ if (!built) {
   if (process.env.SITE_URL) {
     const origin = process.env.SITE_URL.replace(/\/$/, '');
     const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
-    assert.equal((sitemap.match(/<url>/g) || []).length, 88);
+    assert.equal(
+      (sitemap.match(/<url>/g) || []).length,
+      6 + info.academy.contentRoutes + info.agentCases.contentRoutes,
+    );
     for (const route of info.routes.filter((p) => /\/(?:zh|en)\//.test(p)))
       assert.ok(sitemap.includes('<loc>' + origin + route + '</loc>'));
     const course = await readFile(
@@ -219,7 +229,7 @@ if (!built) {
     'No private/build/source directories published',
   );
   console.log(
-    `PASS · ${pages.size} HTML files, ${links} local links/assets/anchors, both search indexes, downloads, service returns and 90 public routes.`,
+    `PASS · ${pages.size} HTML files, ${links} local links/assets/anchors, both search indexes, downloads, service returns and ${info.routes.length} public routes.`,
   );
   if (process.env.TEST_BASE_URL) {
     const base = process.env.TEST_BASE_URL.replace(/\/$/, '');

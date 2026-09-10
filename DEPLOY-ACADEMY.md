@@ -1,5 +1,7 @@
 # FDE 学院集成 · 给部署 Agent 的执行说明
 
+> 本文保留学院初次接入的历史说明。当前包含双语 Agent 案例的新完整分支是 `feat/agent-cases-20260910`，共有 110 条入口。部署当前版本请先按 [DEPLOY-AGENT-CASES.md](DEPLOY-AGENT-CASES.md) 操作；下文旧分支与 90 条入口数字仅描述早期学院版本，不是当前完整发布目标。
+
 ## 目标与边界
 
 仓库：`https://github.com/NewenergyEric/FDE-web`

@@ -1,8 +1,8 @@
-name: Verify static site and Academy
+name: Verify services, Academy and Agent cases
 
 on:
   push:
-    branches: [main, feat/fde-academy-20260908]
+    branches: [main, feat/fde-academy-20260908, feat/agent-cases-20260910]
   pull_request:
   workflow_dispatch:
 
@@ -26,7 +26,7 @@ jobs:
       - run: npm test
       - uses: actions/upload-artifact@v4
         with:
-          name: fde-services-and-academy
+          name: fde-services-academy-agent-cases
           path: dist/client/
           if-no-files-found: error
           retention-days: 7

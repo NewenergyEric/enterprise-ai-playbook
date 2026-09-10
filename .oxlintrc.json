@@ -32,7 +32,9 @@
     "next-env.d.ts",
     "components/ui/**",
     "hooks/**",
-    "academy/**"
+    "academy/**",
+    "agent-cases/site/**",
+    ".generated/**"
   ],
   "rules": {
     "no-array-constructor": "error",
