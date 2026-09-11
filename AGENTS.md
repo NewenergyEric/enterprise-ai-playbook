@@ -4,7 +4,7 @@
 
 Read `DEPLOY-AGENT-CASES.md` for the current combined release, `DEPLOY-ACADEMY.md` for the earlier Academy integration and `DEPLOYMENT.md` for the static host contract. Follow the user's authority: updating GitHub is not permission to change DNS or deploy production.
 
-The additive Toolkit entrance is documented in `DEPLOY-TOOLKIT.md`. It links the current-language home `#toolkit` section to the separate private toolkit repository, with an access notice. Do not bundle the skill collection into the website or change repository visibility. Entry routes remain 110.
+The owner's decision is to keep the FDE Toolkit off this website. Read `DEPLOY-TOOLKIT.md` for this separation boundary. Do not add Toolkit navigation, homepage sections, footer links, download links, repository URLs or bundled skill files to the public website. The separate private GitHub repository remains independent. Entry routes remain 110.
 
 ## Boundaries
 

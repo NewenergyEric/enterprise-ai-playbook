@@ -64,9 +64,6 @@ export function Shell({
           <a href={agentCasesPath(lang)} hrefLang={zh ? 'zh-CN' : 'en'}>
             {zh ? 'Agent 案例' : 'Agent Cases'}
           </a>
-          <a href={localPath(lang) + '#toolkit'}>
-            {zh ? 'FDE 工具包' : 'FDE Toolkit'}
-          </a>
         </nav>
         <div className="language" aria-label={zh ? '语言' : 'Language'}>
           {(['zh', 'en'] as Lang[]).map((l) => (
@@ -98,10 +95,6 @@ export function Shell({
             </p>
           </div>
           <div className="footer-links">
-            <a href={localPath(lang) + '#toolkit'}>
-              {zh ? 'FDE 工具包' : 'FDE Toolkit'}
-              <ArrowUpRight />
-            </a>
             <a href={agentCasesPath(lang)} hrefLang={zh ? 'zh-CN' : 'en'}>
               {zh ? 'Agent 实战案例' : 'Agent case studies'}
               <ArrowUpRight />

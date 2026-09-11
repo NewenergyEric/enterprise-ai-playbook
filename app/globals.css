@@ -230,28 +230,6 @@ svg {
   align-items: center;
 }
 
-.toolkit-section {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 64px;
-  padding-block: 80px;
-  border-top: 1px solid var(--border);
-  scroll-margin-top: 28px;
-}
-.toolkit-section h2 { max-width: 620px; margin-top: 18px; font-size: clamp(30px, 3.1vw, 46px); line-height: 1.25; }
-.toolkit-section > div > p:not(.eyebrow) { margin-top: 22px; color: var(--muted-foreground); line-height: 1.85; }
-.toolkit-access { display: block; margin-top: 18px; color: var(--muted-foreground); line-height: 1.8; }
-.toolkit-workflows { display: grid; gap: 20px; }
-.toolkit-workflows article { padding: 28px; border: 1px solid var(--border); background: var(--soft); }
-.toolkit-workflows article > svg { color: var(--teal); width: 26px; height: 26px; margin-bottom: 18px; }
-.toolkit-workflows h3 { font-size: 23px; line-height: 1.5; margin-bottom: 20px; }
-.toolkit-workflows article > p:last-child { color: var(--muted-foreground); font-size: 14px; line-height: 1.8; margin-top: 18px; }
-.toolkit-workflows ol { display: flex; flex-wrap: wrap; list-style: none; gap: 9px 16px; margin: 0; padding: 0; }
-.toolkit-workflows li { font-size: 13px; color: var(--ink); line-height: 1.6; }
-.toolkit-workflows li:not(:last-child)::after { content: '→'; margin-left: 16px; color: var(--teal); }
-@media (max-width: 1000px) { .toolkit-section { grid-template-columns: 1fr; gap: 30px; } }
-@media (max-width: 760px) { .toolkit-section { padding-block: 48px; } .toolkit-workflows article { padding: 22px; } }
-
 .case-related {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
