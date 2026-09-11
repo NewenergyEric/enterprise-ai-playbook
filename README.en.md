@@ -12,7 +12,7 @@
   <a href="https://fde.aielsen.com/en/playbook/">Find your use case</a> ·
   <a href="#see-an-agent-carry-the-work-through">Agent cases</a> ·
   <a href="#build-the-capability-to-deliver">FDE Academy</a> ·
-  <a href="docs/FDE-TOOLKIT.en.md">Toolkit proposal</a>
+  <a href="https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/README.en.md">FDE Toolkit</a>
 </p>
 <p align="center"><img src="docs/media/fde-motion-en.gif" alt="Continuous FDE animation: information converges into a brief, tasks travel through a workflow, deliverables unfold, and outputs become a reusable delivery kit." width="100%"></p>
 <p align="center"><sub>18 seconds of continuous motion · 20 FPS / 360 frames · Silent loop · <a href="docs/media/fde-motion-en.png">Static version</a> · <a href="docs/studio/README.md">Animation source and production notes</a></sub></p>
@@ -30,10 +30,10 @@ This repository connects our delivery approach, engineering practice and anonymi
 | Find a valuable business application | [Business Playbook](https://fde.aielsen.com/en/playbook/) | 9 plays and 66 in-context More applications: problems, inputs, methods, outputs and pilot evaluation |
 | See how an agent carries work forward | [9 Agent cases](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/agent-cases/README.md) | Business context, key decisions, successive actions, deliverables, comparisons and worksheets |
 | Train engineers to deliver | [FDE Academy](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910/academy) | A 12-week curriculum, detailed notes, visual boards, interactive labs and engineering practice |
-| Organize reusable skills for a team | [FDE Toolkit proposal](docs/FDE-TOOLKIT.en.md) | Task-based selection, 8 starter candidates, provenance and runtime release gates |
+| Organize reusable skills for a team | [AIelsen FDE Toolkit](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/README.en.md) | 539 adapted catalog records, 8 starter skill bundles, 2 delivery recipes and worked outputs |
 | Take over and release the website | [Combined deployment guide](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) | Explicit branch, build commands, output directory, routes and acceptance checks |
 
-**The services, Academy and case modules have implementation code. The Toolkit is a selection and design proposal, not a released installable package.**
+**The services, Academy and case modules have implementation code. The Toolkit now has its own repository, starter bundles and limited synthetic-trial records. Both repositories are private and require authorized access. Host UI import has not been tested.**
 
 ## See an agent carry the work through
 
@@ -69,13 +69,20 @@ The Academy includes **100 detailed Chinese lessons, 19 bilingual cases and exer
 
 [Lesson notes](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910/academy/content/notes) · [Engineering practice kit](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910/academy/practice-kit) · [Training brochure PDF](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
 
-## Next: organize skills around the work
+## FDE Toolkit: capabilities organized around the work
 
 A useful toolkit answers three questions: **Where is the work stuck? Which capabilities belong together? What output establishes completion?**
 
-The proposed task groups are discovery, product and marketing, knowledge and data, agent engineering, evaluation, and handoff. Keep the distinction between original methods, community capabilities and private customer adaptations. Preserve authorship and upstream licenses instead of renaming collected skills as proprietary work.
+Built on the existing WorkBuddy-adapted collection, the Toolkit uses six task entrances: discovery, product and marketing, knowledge and data, agent engineering, evaluation, and handoff. The catalog contains **539 records and 516 distinct operational bodies**. The first **8 bundles** include focused guidance, templates, synthetic inputs and complete worked outputs. Provenance, adaptation changes and tested scope are recorded separately; catalog size is not a tested-capability count.
 
-[Structure, first 8 candidates and release gates →](docs/FDE-TOOLKIT.en.md) · [Machine-readable proposal](docs/toolkit-blueprint.json)
+| Delivery recipe | Connected capabilities | Concrete outputs |
+| --- | --- | --- |
+| [Product and creator partnerships](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/creator-partnerships.en.md) | Research → alternatives → FAB and campaign → creator selection → pitch and reply handoff | Evidence brief, 15-second storyboard, individual pitch and commercial handoff |
+| [Requirement to engineering handoff](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/engineering-handoff.en.md) | Capability contract → consequential decisions → operating procedure | State and interface requirements, ADR and exception-handling rules |
+
+[Open the Toolkit →](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/README.en.md) · [Download bundles](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/releases) · [Verification scope](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/docs/verification.md) · [Website entry deployment](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-TOOLKIT.md)
+
+The original [selection proposal](docs/FDE-TOOLKIT.en.md) remains an archive. Use the independent repository for current packages. The website entry is integrated on the complete website branch; production has not been deployed automatically.
 
 ## Run the complete version locally
 

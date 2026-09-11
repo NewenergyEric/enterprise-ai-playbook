@@ -17,7 +17,7 @@
   <a href="https://fde.aielsen.com/zh/playbook/">寻找业务切入点</a> ·
   <a href="#先看-agent-如何把一件事做完">看 Agent 案例</a> ·
   <a href="#把交付方法练成团队能力">学习 FDE</a> ·
-  <a href="docs/FDE-TOOLKIT.md">探索工具包</a>
+  <a href="https://github.com/NewenergyEric/AIelsen-FDE-Toolkit">FDE 工具包</a>
 </p>
 
 <p align="center">
@@ -38,10 +38,10 @@ FDE（Forward Deployed Engineer，前线部署工程师）要解决的，不只�
 | 找到 AI 能切入的业务环节 | [业务 Playbook](https://fde.aielsen.com/zh/playbook/) | 9 类场景、66 个 More 应用，从痛点看到输入、方法、产出与试点评估 |
 | 看清 Agent 如何持续完成工作 | [9 个 Agent 案例](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/agent-cases/README.md) | 业务问题、关键判断、连续行动、交付物、前后变化与工作表 |
 | 训练能够独立交付的 FDE | [FDE Academy](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910/academy) | 12 周课程、详细讲义、可视化画板、交互实验与工程实训 |
-| 为团队组织可复用的 Skill | [FDE Toolkit 设计稿](docs/FDE-TOOLKIT.md) | 按任务选能力的方案、8 个首批候选、来源与运行条件的准入规则 |
+| 为团队组织可复用的 Skill | [AIelsen FDE Toolkit](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit) | 539 条加工目录、8 个首发能力包、2 条完整工作流程与参考产出 |
 | 接手、验证并增量发布网站 | [完整部署指南](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) | 明确分支、构建命令、发布目录、路由和回滚验收点 |
 
-**服务、课程和案例已有代码；Toolkit 目前是选型与设计稿，不是已发布的安装包。**
+**服务、课程和案例已有代码；Toolkit 已独立建库，提供首批能力包与有限合成试用记录。两个仓库均为私有，访问和下载需要授权；宿主界面导入尚未实测。**
 
 ## 先看 Agent 如何把一件事做完
 
@@ -79,13 +79,20 @@ FDE（Forward Deployed Engineer，前线部署工程师）要解决的，不只�
 
 [课程与讲义](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910/academy/content/notes) · [工程实训包](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910/academy/practice-kit) · [培训介绍 PDF](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
 
-## 下一步：让 Skill 按业务任务组织
+## FDE Toolkit：按业务任务组织的能力包
 
 一份有价值的工具包，应该能回答三个问题：**现在卡在哪里？该组合哪些能力？完成后拿什么验收？**
 
-拟按六类任务组织：业务诊断 / 产品与营销 / 知识与数据 / Agent 工程 / 评估验收 / 交接复用。保留作者与上游来源，区分自研方法、社区能力和客户私有适配；不会把本地收集的 Skill 直接改名当作自研发布。
+基于已有 WorkBuddy 加工版继续整理，按六类任务组织：业务诊断 / 产品与营销 / 知识与数据 / Agent 工程 / 评估验收 / 交接复用。全量目录为 **539 条记录、516 份不同操作正文**；首发 **8 个能力包**补齐用途说明、模板、合成输入和完整参考产出。来源、加工增量与测试范围分别记录，不把目录规模当作已验证能力数量。
 
-[阅读工具包结构、首批 8 个候选与发布门槛 →](docs/FDE-TOOLKIT.md) · [机器可读设计稿](docs/toolkit-blueprint.json)
+| 完整工作流程 | 能力如何连接 | 看得见的产物 |
+| --- | --- | --- |
+| [产品与创作者合作](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/creator-partnerships.md) | 研究 → 竞品 → FAB 与全案 → 创作者筛选 → 邀约与回复交接 | 证据简报、15 秒分镜、个性化 Pitch、商务交接 |
+| [需求到工程交接](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/engineering-handoff.md) | 能力契约 → 关键决策 → 操作规程 | 状态与接口要求、ADR、异常核对与交接规则 |
+
+[进入工具包仓库 →](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit) · [下载首发包](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/releases) · [试用与检查范围](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/docs/verification.md) · [网站入口部署说明](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-TOOLKIT.md)
+
+原[选型设计稿](docs/FDE-TOOLKIT.md)保留为历史记录；当前可用内容以独立仓库为准。网站入口已在完整网站分支接入，未自动部署线上。
 
 ## 本地启动完整版本
 

@@ -1,5 +1,7 @@
 # AIelsen FDE Toolkit · 设计与选型稿
 
+> **历史设计稿，已由实际工具包接续。** 当前目录、8 个首发能力包、工作流程与试用记录见 [AIelsen-FDE-Toolkit](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit)。下文和机器可读设计稿保留当时的候选状态，不作为当前安装或发布清单。
+
 [English](FDE-TOOLKIT.en.md) · [返回首页](../README.md) · [机器可读设计稿](toolkit-blueprint.json)
 
 **目标：让 FDE 按“要完成的工作”选能力，并拿到可核对的交付物。**
