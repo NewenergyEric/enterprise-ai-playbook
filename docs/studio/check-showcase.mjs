@@ -18,8 +18,8 @@ for(const file of docs){
  }
 }
 const zh=await fs.readFile(path.join(root,'README.md'),'utf8'),en=await fs.readFile(path.join(root,'README.en.md'),'utf8');
-assert(zh.includes('fde-showcase-zh.gif')&&!zh.includes('fde-showcase-en.gif'));
-assert(en.includes('fde-showcase-en.gif')&&!en.includes('fde-showcase-zh.gif'));
+assert(zh.includes('fde-motion-zh.gif')&&!zh.includes('fde-motion-en.gif'));
+assert(en.includes('fde-motion-en.gif')&&!en.includes('fde-motion-zh.gif'));
 assert(!/youtube\.com|youtu\.be|<iframe|<video/.test(zh+en),'No YouTube/embed block');
 const data=JSON.parse(await fs.readFile(path.join(root,'docs/toolkit-blueprint.json'),'utf8'));
 assert.equal(data.candidates.length,8);assert.equal(new Set(data.candidates.map(x=>x.id)).size,8);
@@ -28,9 +28,12 @@ assert.equal(data.publishedPackage,false);
 if(process.env.SHARP_MODULE){
  const sharp=createRequire(import.meta.url)(process.env.SHARP_MODULE);
  for(const lang of ['zh','en']){
-   const file=path.join(root,`docs/media/fde-showcase-${lang}.gif`),m=await sharp(file,{animated:true}).metadata();
-   assert.equal(m.width,1100);assert.equal(m.pageHeight,650);assert.equal(m.loop,0);assert(m.pages>10);
-   assert(m.delay.reduce((a,b)=>a+b,0)>=18000);assert((await fs.stat(file)).size<5e6);
+   const file=path.join(root,`docs/media/fde-motion-${lang}.gif`),m=await sharp(file,{animated:true}).metadata();
+   const record=JSON.parse(await fs.readFile(path.join(root,`docs/media/fde-motion-${lang}.json`),'utf8'));
+   assert.equal(m.width,1100);assert.equal(m.pageHeight,650);assert.equal(m.loop,0);assert.equal(m.pages,360);
+   assert.equal(m.delay.length,360);assert(m.delay.every(d=>d===50));
+   assert.equal(m.delay.reduce((a,b)=>a+b,0),18000);assert((await fs.stat(file)).size<5e6);
+   assert.equal(record.uniqueSourceFrames,360);assert.equal(record.uniqueObjectStates,360);
  }
 }
 console.log(JSON.stringify({result:'pass',documents:docs.length,localReferences:refs,bilingualHeroes:true,noVideoEmbed:true,candidates:8,installableCandidates:0}));

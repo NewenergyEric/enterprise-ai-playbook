@@ -14,8 +14,8 @@
   <a href="#build-the-capability-to-deliver">FDE Academy</a> ·
   <a href="docs/FDE-TOOLKIT.en.md">Toolkit proposal</a>
 </p>
-<p align="center"><img src="docs/media/fde-showcase-en.gif" alt="Four-part FDE comic: identify the business problem, connect an agent workflow, verify its outputs, and hand over reusable team capability." width="100%"></p>
-<p align="center"><sub>Original 19-second silent loop · <a href="docs/media/fde-showcase-en.png">Static version</a> · <a href="docs/studio/README.md">Animation source and production notes</a></sub></p>
+<p align="center"><img src="docs/media/fde-motion-en.gif" alt="Continuous FDE animation: information converges into a brief, tasks travel through a workflow, deliverables unfold, and outputs become a reusable delivery kit." width="100%"></p>
+<p align="center"><sub>18 seconds of continuous motion · 20 FPS / 360 frames · Silent loop · <a href="docs/media/fde-motion-en.png">Static version</a> · <a href="docs/studio/README.md">Animation source and production notes</a></sub></p>
 
 A Forward Deployed Engineer has to solve more than whether a model can answer. **Unclear requirements, fragmented knowledge, broken handoffs and untestable outputs** are often the real obstacles to putting AI into enterprise work.
 

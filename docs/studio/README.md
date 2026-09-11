@@ -1,30 +1,41 @@
 # GitHub showcase studio
 
-The repository hero is an original, bilingual editorial comic. It is a method illustration, not a reconstruction of a customer system or proof of business outcomes. No reference-repository image, animation, code, logo or YouTube video is bundled.
+## Current hero: continuous motion, v2
 
-## Assets and timing
+The README uses original, bilingual **18-second / 20 FPS / 360-frame** motion graphics. These are method illustrations, not customer footage or measured business results. No YouTube, third-party animation, reference artwork or private material is embedded.
 
-- `../media/fde-comic-art.png`: original four-panel artwork, generated with the built-in image-generation tool. No customer material was provided to the generator.
-- `../media/fde-showcase-zh.gif` and `fde-showcase-en.gif`: independently typeset Chinese and English compositions, 1100 × 650, approximately 19 seconds, continuous loop.
-- Matching PNGs provide a static alternative and a useful first frame.
-- `render-showcase.mjs`: deterministic SVG composition, scene reveals and GIF encoding. The original bitmap is referenced inside SVG viewports; text remains editable in code. It does not execute a browser or connect to any business system.
+- `motion-scene.mjs`: editable vector scenes. Object positions, paths, rotations, chart drawing, filing and transitions are deterministic functions of time.
+- `render-motion.mjs`: renders every frame and encodes the two GIFs with an explicit 50 ms delay for **each** frame. It checks unique rendered frames and meaningful object positions, not just a moving footer.
+- `../media/fde-motion-zh.gif` and `fde-motion-en.gif`: current Chinese and English README animations.
+- Matching PNG files: static alternatives, with the corresponding language.
+- Matching JSON files: actual encoding metadata, size and motion-check counts.
+- `check-showcase.mjs`: links, language, proposal boundaries and encoded GIF timing checks.
+- [Local preview](preview.html): Chinese/English switch, play and static controls. It starts static when reduced motion is requested; explicit Play starts the animation.
 
-Story: discover a business problem → connect a complete workflow → verify the deliverables → hand over reusable capability. The opening and closing overview show all four panels. Scenes dwell long enough to read; there is no flashing or audio.
+The work itself moves: documents converge into a brief, packets travel between task and tools, charts/checks draw while a filmstrip advances, and files enter a reusable delivery kit. There are no multi-second still-frame holds. The loop starts within the first scene so its first frame already has visible content.
 
-## Regenerate
+### Regenerate
 
-Use Node 24 and Sharp 0.34.x. The website's dependency manifest and lockfile are intentionally unchanged. Install a compatible Sharp in a separate tools environment, then make it available to the renderer:
+Use Node 24 and Sharp 0.34.x in a separate tools environment. The website's package manifest and lockfile remain unchanged.
 
 ```sh
-SHARP_MODULE=/absolute/path/to/sharp node docs/studio/render-showcase.mjs
+SHARP_MODULE=/absolute/path/to/sharp node docs/studio/render-motion.mjs
+SHARP_MODULE=/absolute/path/to/sharp node docs/studio/check-showcase.mjs
+node docs/studio/serve-preview.mjs
 ```
 
-PowerShell: set `$env:SHARP_MODULE` to the installed Sharp module directory before running Node. `--poster-only` renders only the two PNGs. Font fallback uses Microsoft YaHei / Arial; the validated render was created on Windows. On another OS, install suitable licensed Chinese fonts and visually inspect the rendered characters.
+PowerShell: set `$env:SHARP_MODULE` before running Node. `--poster-only`, `--zh` and `--en` support targeted rendering. Set `SHOWCASE_REVIEW_DIR` to a separate local QA directory to export sample frames. Fonts fall back to Microsoft YaHei / Arial; on another OS install a suitable licensed Chinese font and visually recheck typography.
 
-Check both language files, the opening frame and each scene, dimensions, duration, loop and size. Keep each GIF below 5 MB. Review at README width and at narrow mobile width. All meaningful information also exists in README text; a static image link sits under the animation.
+The read-only preview listens on `127.0.0.1:4197` by default and serves only its HTML and the four current GIF/PNG assets. It is not an update to the business website and should not be used as its production server.
 
-## Artwork brief
+### Acceptance
 
-Built-in image generation; original four-panel editorial comic, equal 2 × 2 grid, white paper, ink-navy architectural pen lines, restrained teal and cobalt, no readable text, no real client or product. Panel 1 compares customer questions and product evidence; panel 2 connects data and tools at an engineer's desk; panel 3 compares deliverables with a storyboard and test strip; panel 4 hands over an organized modular field kit. Object-centric scenes and cropped hands rather than stock portraits. No neon, glossy robots, customer screenshots, third-party logos or performance claims.
+Check actual playback, both languages, pause/static controls, and 375 / 768 / 1440 widths. Each GIF must have 360 frames at 50 ms per frame, 18,000 ms total, continuous loop and size below 5 MB. Inspect main-stage motion separately from the footer progress indicator. Read metadata with an independent decoder where available; a GIF container alone does not prove correct animation timing.
 
-The reference repositories inspired the format (native GIF, badges, task-first navigation), not the artwork or wording: [huashu-design](https://github.com/alchaincyf/huashu-design), [huashu-skills](https://github.com/alchaincyf/huashu-skills).
+All explanatory content remains available in README text. GitHub embeds a GIF, not an interactive player; the static link is the alternative there. Local preview controls do not imply that GitHub supports custom JavaScript in README.
+
+## Archived v1 storyboard
+
+`fde-comic-art.png`, `fde-showcase-*.gif` / PNG and `render-showcase.mjs` are retained as the earlier four-panel storyboard. They are no longer README heroes. The v1 artwork was created with the built-in image-generation tool without customer references: white paper, navy pen lines, restrained teal/cobalt, research / connected tools / deliverable comparison / reusable handoff kit. It contains no client or product identity. Its scene-reveal animation was superseded by v2's continuously moving vector objects.
+
+The reference repositories inspired the format, not the artwork or code: [huashu-design](https://github.com/alchaincyf/huashu-design), [huashu-skills](https://github.com/alchaincyf/huashu-skills).

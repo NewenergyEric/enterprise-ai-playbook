@@ -21,9 +21,9 @@
 </p>
 
 <p align="center">
-  <img src="docs/media/fde-showcase-zh.gif" alt="四幕 FDE 漫画：发现业务卡点，连接 Agent 工作流程，核验交付结果，留下可复用的团队能力。" width="100%">
+  <img src="docs/media/fde-motion-zh.gif" alt="FDE 连续动画：资料聚合成简报，任务沿工作流传递，报告与分镜展开，成果归入可复用交付包。" width="100%">
 </p>
-<p align="center"><sub>19 秒原创分镜 · 无声循环 · <a href="docs/media/fde-showcase-zh.png">查看静态版</a> · <a href="docs/studio/README.md">动效源码与制作说明</a></sub></p>
+<p align="center"><sub>18 秒连续动画 · 20 FPS / 360 帧 · 无声循环 · <a href="docs/media/fde-motion-zh.png">查看静态版</a> · <a href="docs/studio/README.md">动效源码与制作说明</a></sub></p>
 
 FDE（Forward Deployed Engineer，前线部署工程师）要解决的，不只是模型能不能回答。**需求说不清、知识散落、工作交接断层、产出无法验收**，往往才是 AI 进入企业的真正难点。
 
