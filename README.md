@@ -90,9 +90,9 @@ FDE（Forward Deployed Engineer，前线部署工程师）要解决的，不只�
 | [产品与创作者合作](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/creator-partnerships.md) | 研究 → 竞品 → FAB 与全案 → 创作者筛选 → 邀约与回复交接 | 证据简报、15 秒分镜、个性化 Pitch、商务交接 |
 | [需求到工程交接](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/engineering-handoff.md) | 能力契约 → 关键决策 → 操作规程 | 状态与接口要求、ADR、异常核对与交接规则 |
 
-[进入工具包仓库 →](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit) · [下载首发包](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/releases) · [试用与检查范围](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/docs/verification.md) · [网站入口部署说明](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-TOOLKIT.md)
+[进入工具包仓库 →](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit) · [下载首发包](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/releases) · [试用与检查范围](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/docs/verification.md) · [工具包与网站隔离规则](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-TOOLKIT.md)
 
-原[选型设计稿](docs/FDE-TOOLKIT.md)保留为历史记录；当前可用内容以独立仓库为准。网站入口已在完整网站分支接入，未自动部署线上。
+原[选型设计稿](docs/FDE-TOOLKIT.md)保留为历史记录；当前可用内容以独立仓库为准。按维护者要求，工具包不放进业务网站：此前的导航、首页和页脚入口已撤回，仅在独立 GitHub 仓库维护。
 
 ## 本地启动完整版本
 

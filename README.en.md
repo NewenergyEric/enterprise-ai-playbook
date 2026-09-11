@@ -80,9 +80,9 @@ Built on the existing WorkBuddy-adapted collection, the Toolkit uses six task en
 | [Product and creator partnerships](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/creator-partnerships.en.md) | Research → alternatives → FAB and campaign → creator selection → pitch and reply handoff | Evidence brief, 15-second storyboard, individual pitch and commercial handoff |
 | [Requirement to engineering handoff](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/engineering-handoff.en.md) | Capability contract → consequential decisions → operating procedure | State and interface requirements, ADR and exception-handling rules |
 
-[Open the Toolkit →](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/README.en.md) · [Download bundles](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/releases) · [Verification scope](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/docs/verification.md) · [Website entry deployment](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-TOOLKIT.md)
+[Open the Toolkit →](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/README.en.md) · [Download bundles](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/releases) · [Verification scope](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/docs/verification.md) · [Toolkit / website separation](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-TOOLKIT.md)
 
-The original [selection proposal](docs/FDE-TOOLKIT.en.md) remains an archive. Use the independent repository for current packages. The website entry is integrated on the complete website branch; production has not been deployed automatically.
+The original [selection proposal](docs/FDE-TOOLKIT.en.md) remains an archive. Use the independent repository for current packages. At the owner's direction, the Toolkit stays off the business website: its navigation, homepage section and footer entry have been withdrawn. It is maintained in the separate GitHub repository only.
 
 ## Run the complete version locally
 
