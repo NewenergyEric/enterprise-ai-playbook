@@ -4,6 +4,8 @@
 
 Read `DEPLOY-AGENT-CASES.md` for the current combined release, `DEPLOY-ACADEMY.md` for the earlier Academy integration and `DEPLOYMENT.md` for the static host contract. Follow the user's authority: updating GitHub is not permission to change DNS or deploy production.
 
+The additive Toolkit entrance is documented in `DEPLOY-TOOLKIT.md`. It links the current-language home `#toolkit` section to the separate private toolkit repository, with an access notice. Do not bundle the skill collection into the website or change repository visibility. Entry routes remain 110.
+
 ## Boundaries
 
 - Existing service pages stay at `/zh/`, `/en/`, and their `process/` and `playbook/` children. Preserve the nine plays, all 66 per-play More applications, filters, language/hash behavior, and original business CTAs.
