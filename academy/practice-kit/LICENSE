@@ -1,0 +1,148 @@
+AIelsen Learning and Evaluation License 1.0
+License identifier: LicenseRef-AIelsen-Learning-Evaluation-1.0
+Effective date: 2026-10-10
+
+Copyright (c) 2026 the AIelsen project copyright holders.
+
+This is a source-available license, not an OSI-approved open-source license.
+It deliberately limits production and commercial reuse. By exercising the
+permissions below, you accept these terms. Rights otherwise available under
+applicable law, including quotation, fair use and fair dealing, are unaffected.
+
+1. Materials and parties
+
+"Materials" means the original software, course materials, diagrams, templates,
+documentation and other original works in this repository to which the relevant
+copyright holder ("Licensor") applies this license. "You" means the individual
+or organization exercising these permissions. Third-party works are excluded
+as explained in section 5. Each contributor licenses only rights they own or
+are authorized to license; no transfer of copyright ownership is implied.
+
+2. Limited permission
+
+Subject to these terms, Licensor grants You a worldwide, non-exclusive,
+royalty-free copyright license to access, copy, run, study and modify the
+Materials solely for:
+
+(a) personal learning and noncommercial research;
+(b) learning and training within Your organization for its own personnel,
+    including a commercial organization's salaried personnel; and
+(c) non-production evaluation, prototyping, testing and security research.
+
+Internal learning may use an access-controlled internal learning environment.
+Evaluation must be isolated from operational systems and must not perform real
+customer work, process live business transactions, or supply outputs relied
+upon for operational decisions. Use synthetic or properly de-identified test
+data, and comply with all applicable data and privacy obligations.
+
+You may share unmodified copies or Your modifications without charge for the
+permitted learning, research and evaluation purposes, including public source
+forks and noncommercial educational demonstrations. Such sharing must comply
+with section 4 and must not be a paid offering, commercial client deliverable,
+or a marketing/sales service for Your business. The narrow corporate internal
+learning permission above is not a general commercial-use permission.
+
+Reading or linking to the Licensor's public website, discussing this project,
+and accurately citing brief excerpts as permitted by applicable law do not
+require a commercial authorization.
+
+3. Uses requiring separate written authorization
+
+Unless Licensor separately authorizes the specific use in writing, You may not
+use, adapt, distribute or provide the Materials or derivative works for:
+
+(a) production use, even if internal, unpaid or operated by a nonprofit;
+(b) paid training, consulting, implementation or other client deliverables;
+(c) sale, resale, commercial licensing, paid bundles or commercial embedding;
+(d) SaaS, managed services or hosted offerings provided to third parties,
+    whether charged directly or supported by a commercial business model; or
+(e) operating or promoting a business using a reproduced website, course,
+    template library or other substantive part of the Materials.
+
+"Production use" means use in live operations, a customer-facing service, or
+actual business work, including real decisions, transactions and operational
+deliverables. A controlled noncommercial learning demonstration is not
+production use merely because students can access it online. Incorporating
+the Materials into a pilot that performs live business work is production use.
+Charging indirectly, bundling the Materials with a paid service, or renaming
+or translating them does not avoid these restrictions. Permission is required
+before the restricted use starts; silence is not permission.
+
+This license does not claim ownership of ideas, facts, general methods or
+skills. You remain free to apply what You learn in Your work and to create
+independent implementations without copying protected expression from the
+Materials. Mere similarity of business purpose does not create a derivative.
+
+4. Notices and distribution
+
+When sharing the Materials or derivatives, retain this license, applicable
+copyright and attribution notices, and third-party notices. Identify material
+changes and do not imply that a modified version is an official AIelsen
+release. Apply this license to copies and derivatives of the Materials; You
+must not grant recipients broader rights in them than You received. Rights
+in independently authored, separable works are not restricted by this clause.
+Recipients receive their permitted rights directly from the relevant Licensor.
+Do not remove usage restrictions or describe this project as MIT-licensed or
+as permitting unrestricted commercial use.
+
+5. Third-party materials, branding and personal rights
+
+Third-party dependencies, upstream component code, fonts and other separately
+licensed works retain their original licenses. This license neither replaces
+those licenses nor adds restrictions to rights granted by their owners. See
+THIRD_PARTY_NOTICES.md, public/licenses/ and the individual asset notices.
+
+Third-party photographs, film frames, quotations, trademarks and linked case
+materials are not sublicensed by this license. Their presence here is not a
+grant to extract, redistribute or commercially reuse them. Obtain permission
+from their rights holders when required. No trademark, trade-name, endorsement,
+likeness, privacy or publicity rights are granted. Factual attribution to
+AIelsen is allowed; using its name or logo as Your own identity is not.
+
+6. Patents
+
+To the extent Licensor controls patent claims necessarily infringed by its
+original contribution alone, Licensor grants a non-exclusive, worldwide,
+royalty-free patent license solely for the uses permitted by section 2.
+No rights are granted to other claims or third-party patents. This patent
+permission terminates if You bring a patent claim alleging that the Materials
+or a contribution to them infringes Your patent rights.
+
+7. Termination
+
+These permissions terminate automatically upon a material breach. If this is
+Your first breach and You cure it within 30 days after becoming aware of it,
+the permissions are reinstated prospectively. Cure does not erase liability
+for prior unauthorized use. Otherwise reinstatement requires Licensor's
+written agreement. On termination, stop all uses not otherwise authorized by
+law or a separate agreement. Sections 3-5 and 8-10 survive as applicable.
+Compliant downstream recipients do not lose their permissions because of
+another person's breach.
+
+8. No warranty or professional assurance
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE MATERIALS ARE PROVIDED "AS IS"
+AND "AS AVAILABLE", WITHOUT WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, ACCURACY, SECURITY OR NON-INFRINGEMENT. EXAMPLES
+ARE EDUCATIONAL AND DO NOT CONSTITUTE A PRODUCTION READINESS CERTIFICATION,
+LEGAL ADVICE OR A GUARANTEE OF BUSINESS RESULTS. NO SUPPORT IS PROMISED.
+
+9. Limitation of liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR AND CONTRIBUTORS ARE NOT
+LIABLE FOR DAMAGES ARISING FROM THE MATERIALS OR THEIR USE, INCLUDING LOST
+PROFITS, DATA LOSS, BUSINESS INTERRUPTION OR INDIRECT, SPECIAL, INCIDENTAL
+OR CONSEQUENTIAL DAMAGES, UNDER ANY THEORY OF LIABILITY, EVEN IF ADVISED
+OF THE POSSIBILITY. NOTHING EXCLUDES LIABILITY THAT CANNOT LAWFULLY BE
+EXCLUDED OR LIMITS MANDATORY RIGHTS.
+
+10. General
+
+All rights not expressly granted are reserved. A separate signed commercial
+agreement governs only the uses and parties it specifies. No additional
+rights arise from repository visibility, a download, a contribution or a
+failure to enforce these terms. If a provision is unenforceable, the remaining
+provisions continue to the extent permitted by law. No governing jurisdiction
+is selected here. This English text controls; translations and FAQs are
+explanatory and do not expand the grant. Contact the repository owner through
+the non-sensitive process described in COMMERCIAL.md for written authorization.

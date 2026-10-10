@@ -6,6 +6,14 @@ This repository only contains the static form. It does not include a mailbox, CR
 
 ## Request body / 请求字段
 
+### Publication security update (2026-10-10)
+
+Set **both** `TOOLKIT_LEAD_ENDPOINT` and `TOOLKIT_PRIVACY_URL` before enabling collection. Both must be public HTTPS URLs without userinfo, query strings or fragments; production loopback URLs are rejected. Never put a password, API key, signed token or private routing information in either value: configuration is embedded in public static output. Sanitization happens on the server/build side before client props are serialized.
+
+The privacy notice must identify the data controller, purpose, fields, retention period and a usable deletion/withdrawal channel. Missing/invalid configuration disables submission visibly. This code update does not supply or approve such a notice or receiving service. Browser requests omit credentials, reject redirects, time out after 15 seconds and require an explicit JSON `{ "ok": true }` acknowledgement. A timeout means receipt is unknown, not that a request could not have reached the receiver. Do not automatically retry or send the payload to an alternative endpoint.
+
+启用前须配置接收端和真实的隐私说明地址。生产地址不得包含密码、查询令牌或片段，也不能是本机回环地址。隐私说明和服务端的数据保留、删除、限流等措施仍须负责人审查；前端校验不能替代它们。
+
 The browser sends JSON over `POST` with `Content-Type: application/json`:
 
 ```json

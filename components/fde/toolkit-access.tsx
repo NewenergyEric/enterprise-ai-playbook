@@ -15,20 +15,6 @@ import { localPath, type Lang } from '@/lib/site';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
-function cleanEndpoint(value: string) {
-  const endpoint = value.trim();
-  if (!endpoint) return '';
-  try {
-    const url = new URL(endpoint);
-    const local = url.hostname === 'localhost' || url.hostname === '127.0.0.1';
-    if (url.protocol !== 'https:' && !(local && url.protocol === 'http:'))
-      return '';
-    return url.toString();
-  } catch {
-    return '';
-  }
-}
-
 function limit(value: string, length: number) {
   return value.trim().slice(0, length);
 }
@@ -36,12 +22,14 @@ function limit(value: string, length: number) {
 export function ToolkitAccessPage({
   lang,
   leadEndpoint,
+  privacyUrl,
 }: {
   lang: Lang;
   leadEndpoint: string;
+  privacyUrl: string;
 }) {
   const zh = lang === 'zh';
-  const endpoint = cleanEndpoint(leadEndpoint);
+  const endpoint = leadEndpoint;
   return (
     <Shell lang={lang} view="toolkit">
       <section className="toolkit-hero wrap">
@@ -165,7 +153,7 @@ export function ToolkitAccessPage({
             <ArrowRight />
           </a>
         </div>
-        <ToolkitAccessForm lang={lang} endpoint={endpoint} />
+        <ToolkitAccessForm lang={lang} endpoint={endpoint} privacyUrl={privacyUrl} />
       </section>
 
       <section className="toolkit-boundaries wrap">
@@ -198,9 +186,11 @@ export function ToolkitAccessPage({
 function ToolkitAccessForm({
   lang,
   endpoint,
+  privacyUrl,
 }: {
   lang: Lang;
   endpoint: string;
+  privacyUrl: string;
 }) {
   const zh = lang === 'zh';
   const [state, setState] = useState<FormState>('idle');
@@ -232,8 +222,8 @@ function ToolkitAccessForm({
       setState('error');
       setMessage(
         zh
-          ? '此页面尚未配置安全的接收地址；你的信息没有被提交。请让部署 Agent 配置 TOOLKIT_LEAD_ENDPOINT 后再启用。'
-          : 'This page has no secure receiving endpoint configured; nothing was submitted. Ask the deployment Agent to configure TOOLKIT_LEAD_ENDPOINT before enabling it.',
+          ? '申请暂未开放；你的信息没有被提交。'
+          : 'Requests are not open yet; nothing was submitted.',
       );
       return;
     }
@@ -258,6 +248,10 @@ function ToolkitAccessForm({
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
+        credentials: 'omit',
+        redirect: 'error',
+        referrerPolicy: 'no-referrer',
+        signal: AbortSignal.timeout(15000),
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           email,
@@ -272,7 +266,8 @@ function ToolkitAccessForm({
           website: '',
         }),
       });
-      if (!response.ok) throw new Error('lead endpoint rejected request');
+      if (!response.ok || (await response.json()).ok !== true)
+        throw new Error('lead endpoint did not confirm receipt');
       setState('success');
       setMessage(
         zh
@@ -283,13 +278,13 @@ function ToolkitAccessForm({
       setState('error');
       setMessage(
         zh
-          ? '暂时没有提交成功。请稍后重试；表单没有上传任何 Toolkit 文件。'
-          : 'The request was not submitted. Try again later; no Toolkit files were uploaded.',
+          ? '暂时无法确认接收结果，请稍后再检查或重试；未上传 Toolkit 文件。'
+          : 'Receipt could not be confirmed. Check again or retry later; no Toolkit files were uploaded.',
       );
     }
   }
 
-  const disabled = state === 'submitting' || state === 'success';
+  const disabled = !endpoint || state === 'submitting' || state === 'success';
   return (
     <form className="toolkit-form" onSubmit={submit} noValidate>
       <div className="toolkit-form-topline">
@@ -369,6 +364,8 @@ function ToolkitAccessForm({
         <input type="checkbox" name="consent" checked={form.consent} onChange={(event) => update('consent', event.target.checked)} />
         <span>{zh ? '我同意 AIelsen 仅为本次工具箱申请联系我，并理解访问与支付需另行确认。' : 'I agree that AIelsen may contact me about this toolkit request, with access and payment confirmed separately.'}</span>
       </label>
+      {privacyUrl ? <p><a href={privacyUrl} target="_blank" rel="noopener noreferrer">{zh ? '阅读隐私说明与删除联系方式的方法 ↗' : 'Read the privacy and contact-deletion notice ↗'}</a></p> : null}
+      {!endpoint ? <output>{zh ? '申请暂未开放；此表单不会提交信息。' : 'Requests are not open yet. This form will not submit information.'}</output> : null}
       <label className="toolkit-honeypot" aria-hidden="true">
         <span>Website</span>
         <input tabIndex={-1} autoComplete="off" name="website" value={form.website} onChange={(event) => update('website', event.target.value)} />

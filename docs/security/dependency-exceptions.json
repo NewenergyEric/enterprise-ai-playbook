@@ -1,0 +1,12 @@
+{
+  "reviewedOn": "2026-10-10",
+  "expiresOn": "2026-10-24",
+  "advisory": "GHSA-vfj7-8cjw-p6xm",
+  "package": "braces",
+  "version": "3.0.3",
+  "affectedChain": ["braces", "micromatch", "fast-glob", "vite-plugin-dynamic-import", "vite-plugin-commonjs", "vinext"],
+  "context": "Upstream has no patched braces release. Trusted local source/build glob processing only; no public pattern-processing endpoint or production Node server. Only dist/client is supported for hosting.",
+  "controls": ["Loopback-only development", "No secrets in PR builds", "Read-only workflow token", "Build timeouts", "Never build unreviewed source on a privileged machine"],
+  "notFixed": true,
+  "revisit": "Upgrade when a compatible upstream patch exists. Do not downgrade vinext to an obsolete release or use npm audit fix --force. Any new advisory, changed package version or expiry fails the policy."
+}

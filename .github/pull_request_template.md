@@ -8,6 +8,8 @@
 
 ## 验证 / Validation
 
+- [ ] 我有权提交这些材料，并同意 CONTRIBUTING.md 中的许可及原创贡献商业再许可条款 / I have the necessary rights and agree to the contribution licensing terms.
+
 记录实际运行的检查与结果；未运行的项目说明原因。文档改动检查链接、图片与内容范围；应用改动按部署清单验收。
 
 - [ ] 范围明确；没有覆盖无关修改 / Scope is explicit; unrelated work preserved

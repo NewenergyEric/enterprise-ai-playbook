@@ -1,0 +1,6 @@
+# Review requests; enforcement also requires repository rules.
+* @NewenergyEric
+/.github/ @NewenergyEric
+/LICENSE @NewenergyEric
+/SECURITY.md @NewenergyEric
+/docs/security/ @NewenergyEric
