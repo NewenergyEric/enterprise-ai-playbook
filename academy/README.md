@@ -1,5 +1,11 @@
 # AIelsen FDE Academy
 
+**[进入学院 · Learn online](https://fde.aielsen.com/academy/zh/)** · [English site](https://fde.aielsen.com/academy/en/) · [中文学习指南](../docs/FDE-ACADEMY.md) · [English learning guide](../docs/FDE-ACADEMY.en.md)
+
+学习者请先沿“项目判断 → 现场访谈 → 数据与语义 → Agent 工具 → 评估与受控执行 → 验收与复用”完成一个合成项目。详细学习指南列出了每周任务、评审问题、工程包边界与结业证据，不需要先了解网站构建方式。
+
+Learners: follow one synthetic project from qualification and discovery through semantics, tools, evaluation, controlled actions and handoff. The learning guides provide weekly tasks, review questions and capstone evidence. The sections below are the **source maintenance map**, not a substitute for the course.
+
 The maintained learning-site source for this repository. It is an addition to the FDE service site, not a replacement. The root build publishes it at `/academy/zh/` and `/academy/en/` without mixing its CSS or runtime with the service application.
 
 ## Content and boundaries

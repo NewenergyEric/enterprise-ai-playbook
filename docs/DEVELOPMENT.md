@@ -45,6 +45,6 @@ The practice kit runs independently with Python; follow its README. It provides 
 
 Read [AGENTS.md](../AGENTS.md), [CONTRIBUTING.md](../CONTRIBUTING.md) and [SECURITY.md](../SECURITY.md). Test changes in both languages, preserve the original workflows and diagrams, and use synthetic data for reproductions. Do not edit generated HTML or commit build outputs, personal paths, credentials or client records.
 
-The repository maintains only `main`. External contributors can use a branch in their own fork and target a pull request at `main`; this does not add a permanent branch here. Dependency advisories remain enabled. Dependency upgrades are reviewed manually instead of automatically opening update branches; run the security audit before proposing a version change.
+The repository maintains only `main`. External contributors can use a branch in their own fork and target a pull request at `main`; this does not add a permanent branch here. Ordinary dependency-update PRs are paused and routine upgrades are reviewed manually. Vulnerability alerts and automated security fixes remain enabled; a security PR may temporarily create a branch, removed after review and merge. Run the security audit before proposing a version change.
 
 Source availability does not grant production or commercial-use rights; see [LICENSING.md](../LICENSING.md). Maintainers who have separate publication authority can consult the [static hosting contract](../DEPLOYMENT.md). A repository update alone is not a production deployment.

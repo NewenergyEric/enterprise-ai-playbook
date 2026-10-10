@@ -24,7 +24,7 @@ Only read [DEPLOYMENT.md](DEPLOYMENT.md) when changing build or hosting behavior
 3. Run `npm run security:check`, `npm run security:audit`, `npm run check`, `npm run build`, then `npm test`. Fail closed on nonzero exits. The combined build must have 112 entries: 9 service/request, 83 Academy, 20 Agent cases.
 4. Preview the combined export. Check both languages, original CTAs, More, course deep links, search, image zoom, downloads, Toolkit disabled state, keyboard access and narrow layouts. Use synthetic contacts and local mocks only for form testing.
 5. Publish only `dist/client/` when separately authorized. Never publish repository source, `dist/server/` or standalone `academy/dist/`. Unknown routes must return real HTTP 404.
-6. Keep one maintained remote branch, `main`. Use contributor forks for PRs and remove temporary branches after reviewed merges. Automatic dependency-update PRs are paused; retain advisory alerts and scheduled security scans. Review upgrades manually without force fixes.
+6. Keep one maintained remote branch, `main`. Use contributor forks for PRs and remove temporary branches after reviewed merges. Ordinary version-update PRs are paused; retain automated security fixes, advisory alerts and scheduled security scans. Review routine upgrades manually without force fixes. Security fixes may use a temporary branch, removed after a reviewed merge.
 
 ## Editing map
 

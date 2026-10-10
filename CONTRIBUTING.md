@@ -4,11 +4,11 @@
 
 Contributions are welcome under the [project license](LICENSE). Keep third-party permissions and notices intact. No customer records or secrets belong in an issue or pull request.
 
-## 先确认版本 / Start with the right branch
+## 从 main 开始 / Start from main
 
-完整集成版本在 `feat/agent-cases-20260910`；学院维护分支为 `feat/fde-academy-20260908`。对应用功能提交 PR 时请选择相应分支，默认分支介绍不代表所有模块已合并。安全修复须检查三个受支持分支。
+`main` 是唯一维护分支，包含工作流程、Playbook、FDE 学院、全部 Agent 案例和可选 Toolkit 申请界面。请从自己的 fork 提交面向 `main` 的 PR，不再选择旧功能分支。先阅读[学院学习指南](docs/FDE-ACADEMY.md)和[源文件地图](docs/DEVELOPMENT.md)，找到对应读者任务。
 
-Read the [agent instructions](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/AGENTS.md), [Academy deployment guide](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOY-ACADEMY.md) and [hosting contract](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOYMENT.md) before changing deployment behavior. Inspect the working tree and remote state; preserve unrelated work and never force-push.
+The complete source is on `main`. Read the [agent instructions](AGENTS.md) before editing; consult the [hosting contract](DEPLOYMENT.md) only when changing build or hosting behavior. Inspect the working tree and remote state; preserve unrelated work and never force-push. Temporary contribution branches belong in contributor forks; merged in-repository branches should not accumulate. Routine dependency upgrades are reviewed manually; automated security fixes, advisory alerts and scheduled security checks remain enabled.
 
 ## 内容改进标准 / Editorial standard
 
@@ -22,13 +22,15 @@ Use the content-improvement issue form for a learning problem and the bug form f
 
 ## 编辑地图 / Editing map
 
-| Work | Location in the integration branch |
+| Work | Location on main |
 | --- | --- |
 | 服务内容 / Service copy | `lib/content.ts`, `lib/more-scenarios.ts` |
 | 场景检索 / Playbook behavior | `lib/playbook.ts`, `components/fde/` |
 | 路由与元信息 / Routing and metadata | `lib/site.ts`, `lib/metadata.ts` |
 | 学院导航与主站关联 / Academy integration | `lib/academy.ts`, `scripts/build-academy.mjs` |
-| 讲义、案例、画板 / Lectures, cases and boards | [Academy editing map](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/academy/README.md) |
+| 讲义、案例、画板 / Lectures, cases and boards | [Academy editing map](academy/README.md) |
+| Agent 工作案例 / Agent work cases | [Case source map](agent-cases/README.md) |
+| 可选申请界面 / Optional request UI | `components/fde/toolkit-access.tsx`, `lib/lead-endpoint.ts` |
 | 服务站样式 / Service styles | `app/globals.css`, `app/site.css` |
 | GitHub 展示 / Repository presentation | `README.md`, `README.en.md`, `docs/media/`, `docs/brand/` |
 

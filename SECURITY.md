@@ -10,11 +10,11 @@ Use GitHub's **Security → Report a vulnerability** for this repository:
 
 ## Supported scope
 
-Security fixes target the current heads of `main`, `feat/fde-academy-20260908` and `feat/agent-cases-20260910`. Old commits, archived teaching snapshots and unreviewed forks are not supported releases. The full application source is on the Agent cases integration branch; default-branch documentation is not evidence that all application modules have been merged.
+Security fixes target the current head of `main`, the single maintained branch containing the complete application. Older feature branches have been consolidated with their history preserved. Old commits, archived teaching snapshots and unreviewed forks are not supported releases.
 
 The supported deployment is **static files from `dist/client/` only**. There is no production Agent runtime, authentication service, customer database or model API in this repository. Academy records and brief exports are local to the browser. Examples and the Python practice kit use synthetic data and are not production authorization, identity or auditing controls.
 
-The Academy maintenance branch also contains an optional Toolkit lead form. It can submit contact details to a separately configured endpoint; it is **not** a browser-only note export. No receiving service is included or audited here. Enabling collection requires owner approval, a public privacy notice, secure endpoint validation, retention/deletion rules and server-side anti-abuse controls. Builds without that configuration must not submit. The Agent cases branch does not inherit this feature automatically.
+The integrated site contains an optional Toolkit request form. It can submit contact details to a separately configured endpoint; it is **not** a browser-only note export. No receiving service is included or audited here. Enabling collection requires owner approval, a public privacy notice, secure endpoint validation, retention/deletion rules and server-side anti-abuse controls. Builds without that configuration must not submit. Private Toolkit files and repository addresses remain outside the website.
 
 ## Safe operation
 
@@ -26,6 +26,8 @@ The Academy maintenance branch also contains an optional Toolkit lead form. It c
 - Pin workflow actions, keep tokens read-only by default, and never use `pull_request_target` to execute untrusted code. Security reports must remain private even when source is public.
 
 ## Review and known limitations
+
+Dependabot vulnerability alerts, automated security updates, secret scanning, push protection and scheduled security checks remain enabled. Ordinary version-update PR creation is paused; maintainers review routine upgrades manually. A security fix may still create a temporary PR branch, which should be reviewed promptly and removed after merging. Pausing routine update PRs is not a reason to dismiss or ignore an advisory.
 
 See [the dated publication review](docs/security/PUBLICATION-REVIEW-2026-10-10.md) and [dependency risk acceptance](docs/security/dependency-exceptions.json). A green test or zero secret matches is not a guarantee of safety. Automated scanning does not prove asset rights, perfect anonymization, absence of unknown vulnerabilities or production readiness.
 

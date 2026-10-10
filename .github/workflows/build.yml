@@ -1,7 +1,7 @@
 name: Verify services, Academy and Agent cases
 on:
   push:
-    branches: [main, feat/fde-academy-20260908, feat/agent-cases-20260910]
+    branches: [main]
   pull_request:
   workflow_dispatch:
 permissions:
@@ -21,6 +21,7 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci --ignore-scripts
+      - run: node docs/studio/check-showcase.mjs
       - run: npm run check
       - run: npm run build
       - run: npm test

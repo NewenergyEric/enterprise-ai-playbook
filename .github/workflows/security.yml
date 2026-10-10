@@ -1,7 +1,7 @@
 name: Security and publication checks
 on:
   push:
-    branches: [main, feat/fde-academy-20260908, feat/agent-cases-20260910]
+    branches: [main]
   pull_request:
   workflow_dispatch:
   schedule:

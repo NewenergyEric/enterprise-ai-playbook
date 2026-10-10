@@ -1,5 +1,7 @@
 # Publication security review — 2026-10-10
 
+> **Maintenance update:** the earlier three-branch snapshot below is historical. The owner subsequently approved consolidating the complete site and optional request UI into `main`, preserving both feature histories. Current support and operational boundaries are in [SECURITY.md](../../SECURITY.md) and [DEPLOYMENT.md](../../DEPLOYMENT.md). Ordinary dependency PRs are paused; automated security fixes and alerts remain enabled.
+
 ## Decision and scope
 
 **Source-available learning/evaluation release, not a production security certification.** Repository publication does not authorize commercial reuse and does not deploy the hosted site. This review covers the service site, Academy, Agent cases, repository metadata/history, downloadable materials and the optional lead-form source added during the review. It does not cover the independently maintained private Toolkit or the lead receiver/CRM/hosting infrastructure.

@@ -1,6 +1,6 @@
 # AIelsen FDE Toolkit · design and selection proposal
 
-> **Archived proposal, superseded by the implemented Toolkit.** Current catalog, 8 starter bundles, recipes and trial records are in [AIelsen-FDE-Toolkit](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/README.en.md). The candidate states below and in the JSON blueprint are historical, not a current install or release manifest.
+> **Archived method and selection proposal.** The candidate states below and in the JSON blueprint are historical, not a current install or release manifest. Private Toolkit contents are not published in this repository; begin with the [FDE Academy learning guide](FDE-ACADEMY.en.md) to study the workflows.
 
 [中文](FDE-TOOLKIT.md) · [Repository home](../README.en.md) · [Machine-readable proposal](toolkit-blueprint.json)
 

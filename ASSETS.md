@@ -15,7 +15,7 @@
 
 Image generation prompt for the social preview: design/social-image-prompt.txt.
 
-Output samples are authored HTML interfaces: briefs, tables, method maps and manifests. No real customer screenshots, raw records, portraits or business-application code were copied. The only reused source branding is the owner's explicitly requested AIelsen symbol, wordmark styling and favicon; the source project remains unchanged.
+The service site's output samples are authored HTML interfaces: briefs, tables, method maps and manifests. They are not copies of customer records or business-application code. The service branding uses the owner's approved AIelsen symbol, wordmark styling and favicon. The separate Agent case module includes reviewed comparison/product assets; its publication permissions and downstream reuse limits are described in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), not covered by this service-sample statement.
 
 The previously prepared PDF brochures and social-preview illustration retain their FDE artwork. The AIelsen update applies to the website header, footer, favicon and page metadata.
 

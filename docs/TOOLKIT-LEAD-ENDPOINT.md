@@ -53,7 +53,7 @@ Do not return Toolkit URLs, repository paths, internal review notes or a payment
 
 ## Required server controls / 服务端门禁
 
-1. Allow CORS only for the production FDE-web origin and an explicitly approved local preview origin. Reject arbitrary `Origin` values.
+1. Allow CORS only for the owner-approved production origin and an explicitly approved local preview origin. Reject arbitrary `Origin` values.
 2. Apply IP and contact-based rate limits, a payload-size limit and bot protection. The honeypot is not a complete bot defense.
 3. Use HTTPS, encrypted storage and least-privilege access. Do not write contact values to request logs, analytics events or error traces.
 4. Define a retention period, deletion path and owner for the email/WeChat data before enabling the endpoint.

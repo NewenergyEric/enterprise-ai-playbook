@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 // Check the public showcase, not an unrelated Toolkit blueprint that is absent
 // from the maintained application branches.
-const docs=['README.md','README.en.md','ASSETS.md','docs/studio/README.md'];
+const docs=['README.md','README.en.md','ASSETS.md','docs/studio/README.md','docs/FDE-ACADEMY.md','docs/FDE-ACADEMY.en.md','docs/DEVELOPMENT.md','CONTRIBUTING.md','academy/README.md'];
 let refs=0;
 for(const file of docs){
  const t=await fs.readFile(path.join(root,file),'utf8');
@@ -24,6 +24,11 @@ assert(zh.includes('fde-motion-zh.gif')&&!zh.includes('fde-motion-en.gif'));
 assert(en.includes('fde-motion-en.gif')&&!en.includes('fde-motion-zh.gif'));
 assert(!/youtube\.com|youtu\.be|<iframe|<video/.test(zh+en),'No YouTube/embed block');
 for(const text of [zh,en]){
+ const primary=text.indexOf('<h2 align="center"><a href="https://fde.aielsen.com/">');
+ assert(primary>0&&primary<text.indexOf('<img'),'Website is the prominent first call to action');
+ assert(text.indexOf('<a id="fde-academy">')<text.indexOf('<a id="agent-cases">'),'Academy precedes the case catalogue');
+ for(let week=1;week<=12;week++) assert(text.includes(`/curriculum/${String(week).padStart(2,'0')}/`),'All 12 weekly learning entrances');
+ assert(!/feat\/(?:fde-academy|agent-cases)|dist\/client|npm (?:ci|run build)|DEPLOYMENT\.md/.test(text),'README focuses on reader workflows, not deployment handoff');
  assert(text.includes('LICENSING.md')&&text.includes('SECURITY.md'),'Public usage and security guidance');
  assert(!text.includes('github.com/NewenergyEric/AIelsen-FDE-Toolkit'),'Do not advertise a private Toolkit download');
 }

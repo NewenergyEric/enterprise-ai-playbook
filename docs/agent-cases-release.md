@@ -41,4 +41,4 @@ Node 24.19.0, existing committed lockfile, no new external dependency.
 
 ## GitHub and production
 
-The delivery branch is `feat/agent-cases-20260910`. Use its actual CI run and commit when handing off; this local report does not assert remote CI success or production deployment. The workflow builds and uploads the complete static export only. Follow `DEPLOY-AGENT-CASES.md` for the authorized deployment and rollback procedure.
+This records the earlier Agent-case integration, not the current release target. The complete project is now maintained on `main`, including the optional request UI (112 entries). Use the current commit and CI; this historical local report does not assert production deployment. See [the current hosting contract](../DEPLOYMENT.md).

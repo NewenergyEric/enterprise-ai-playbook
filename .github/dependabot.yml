@@ -4,20 +4,11 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
-  - package-ecosystem: npm
-    directory: /
-    target-branch: feat/fde-academy-20260908
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 3
-  - package-ecosystem: npm
-    directory: /
-    target-branch: feat/agent-cases-20260910
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 3
+    # Single-branch maintenance: use advisory alerts and manually reviewed upgrades.
+    # Automated security-update PRs are controlled separately in repository settings.
+    open-pull-requests-limit: 0
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 0
