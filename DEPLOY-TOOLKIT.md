@@ -11,12 +11,14 @@
 
 ## 正确的网站版本
 
-使用 `NewenergyEric/FDE-web` 的 `feat/agent-cases-20260910` 分支最新提交，必须包含本次撤回。不要使用此前加入工具包入口的旧构建；也不要用 main 的旧业务代码替代完整网站分支。
+使用 `NewenergyEric/enterprise-ai-playbook` 的 `feat/agent-cases-20260910` 分支最新提交，必须包含本次撤回。公开的是网站仓库，不是独立私有工具包。不要使用此前加入工具包入口的旧构建；也不要用 main 的旧业务代码替代完整网站分支。
 
 沿用[完整部署说明](DEPLOY-AGENT-CASES.md)。本次只更新 GitHub 和本地预览，不部署生产、不修改 DNS 或服务器。
 
 ```sh
-npm ci
+npm ci --ignore-scripts
+npm run security:check
+npm run security:audit
 npm run build
 npm run check
 npm test

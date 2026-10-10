@@ -4,7 +4,9 @@ The current combined release is specified in [DEPLOY-AGENT-CASES.md](DEPLOY-AGEN
 
 ## Scope / 范围
 
-Target repository: https://github.com/NewenergyEric/FDE-web
+Target repository: https://github.com/NewenergyEric/enterprise-ai-playbook
+
+Public source access does not grant production or commercial-use rights. Read [LICENSING.md](LICENSING.md) and the [publication review](docs/security/PUBLICATION-REVIEW-2026-10-10.md) before deploying. Retain the existing production branch; repository publication is not deployment authorization.
 
 This is a **static marketing website**, not an Agent execution system. The user will arrange deployment separately. Do not upload reference projects, local caches, build-server artifacts or source research.
 
@@ -13,7 +15,7 @@ This is a **static marketing website**, not an Agent execution system. The user 
 ## Build / 构建
 
 1. Use Node.js 24.19+ and npm.
-2. Run npm ci.
+2. Run npm ci --ignore-scripts, then npm run security:check and npm run security:audit.
 3. Set SITE_URL to the real HTTPS origin, with no trailing slash or path.
 4. Run npm run check, npm run build, then npm test.
 5. Publish **dist/client** only.
@@ -22,7 +24,9 @@ PowerShell example (replace the example origin):
 
 ```powershell
 $env:SITE_URL='https://your-actual-domain.example'
-npm ci
+npm ci --ignore-scripts
+npm run security:check
+npm run security:audit
 npm run check
 npm run build
 npm test

@@ -2,7 +2,8 @@
 
 ## 这次代码已经接好了什么
 
-仓库：`https://github.com/NewenergyEric/FDE-web`  
+仓库：`https://github.com/NewenergyEric/enterprise-ai-playbook`
+
 完整交付分支：`feat/agent-cases-20260910`  
 基线：`feat/fde-academy-20260908` 的 `6de03f1`（包含已交付的学院）  
 正式 origin：`https://fde.aielsen.com`  
@@ -28,12 +29,12 @@
 使用新检出目录；如果已有其他修改，不重置或覆盖。示例：
 
 ```sh
-git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/FDE-web.git
-cd FDE-web
+git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/enterprise-ai-playbook.git
+cd enterprise-ai-playbook
 git log -1 --oneline
 ```
 
-仓库是私有仓库，使用自己的获授权凭据。不要复制作者电脑中的 token、原项目、私有附件或制作目录。
+仓库现已公开，可匿名读取；公开源码不等于允许生产使用或直接商用，请先阅读 [LICENSING.md](LICENSING.md)。推送仍需自己的获授权凭据。不要复制作者电脑中的 token、原项目、私有附件或制作目录。
 
 ## 构建与完整预览
 
@@ -43,7 +44,9 @@ PowerShell：
 
 ```powershell
 $env:SITE_URL='https://fde.aielsen.com'
-npm ci
+npm ci --ignore-scripts
+npm run security:check
+npm run security:audit
 npm run check
 npm run build
 npm test
@@ -116,4 +119,4 @@ npm test
 
 保留原依赖版本与锁文件。依赖安装若报告安全公告，先评估受影响路径，单独安排升级与回归；不将“构建通过”描述为全量安全认证。记录真实 commit、CI、完整构建、浏览器验收、实际发布状态及可回滚版本。
 
-本轮 `npm audit`（2026-09-10，完整依赖树）报告 17 项：9 high、7 moderate、1 low，来自既有 Vinext/Vite、RSC、图像处理及网络构建依赖链。本次没有新增外部依赖或修改 lockfile；没有运行 `npm audit fix --force`。当前发布物是静态文件，不能据此认定这些构建/开发依赖已无风险。不要公开开发服务器或发布 `dist/server`；部署负责人应将依赖升级作为单独的安全维护工作处理。
+2026-10-10 的公开安全维护已更新依赖和 lockfile，替代 2026-09-10 的旧审计结果。目前剩余 1 个上游尚未修复的 braces 构建期风险，npm 沿依赖链列为 6 项 high；有精确匹配、2026-10-24 到期的复核策略，未标记为已修复。完整范围与依据见 [公开审查报告](docs/security/PUBLICATION-REVIEW-2026-10-10.md)。不要公开开发服务器或发布 `dist/server`，不要执行 `npm audit fix --force` 触发框架回退；生产发布前须重新运行安全检查和完整回归。

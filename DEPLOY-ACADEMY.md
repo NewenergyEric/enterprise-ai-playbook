@@ -4,7 +4,7 @@
 
 ## 目标与边界
 
-仓库：`https://github.com/NewenergyEric/FDE-web`
+仓库：`https://github.com/NewenergyEric/enterprise-ai-playbook`
 
 交付分支：`feat/fde-academy-20260908`
 
