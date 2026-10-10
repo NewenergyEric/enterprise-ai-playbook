@@ -16,7 +16,7 @@ The work itself moves: documents converge into a brief, packets travel between t
 
 ### Regenerate
 
-Use Node 24 and Sharp 0.34.x in a separate tools environment. The website's package manifest and lockfile remain unchanged.
+Use Node 24 and Sharp 0.35.5 or a later security-reviewed release in a separate tools environment. Version 0.35.5 was checked on 2026-10-10; do not reuse the older 0.34.x recommendation. Recheck upstream advisories before installing. The website does not require Sharp, and its package manifest and lockfile remain unchanged by this optional rendering setup.
 
 ```sh
 SHARP_MODULE=/absolute/path/to/sharp node docs/studio/render-motion.mjs
