@@ -64,6 +64,12 @@ export function Shell({
           <a href={agentCasesPath(lang)} hrefLang={zh ? 'zh-CN' : 'en'}>
             {zh ? 'Agent 案例' : 'Agent Cases'}
           </a>
+          <a
+            href={localPath(lang, 'toolkit')}
+            aria-current={view === 'toolkit' ? 'page' : undefined}
+          >
+            {zh ? 'FDE 工具箱' : 'FDE Toolkit'}
+          </a>
         </nav>
         <div className="language" aria-label={zh ? '语言' : 'Language'}>
           {(['zh', 'en'] as Lang[]).map((l) => (
@@ -105,6 +111,10 @@ export function Shell({
             </a>
             <a href={academyPath(lang, 'enterprise')}>
               {zh ? '企业共训' : 'Team learning'}
+              <ArrowUpRight />
+            </a>
+            <a href={localPath(lang, 'toolkit')}>
+              {zh ? '申请工具箱访问' : 'Request Toolkit access'}
               <ArrowUpRight />
             </a>
             <a href={localPath(lang, 'process')}>
@@ -182,9 +192,13 @@ export function CallToAction({ lang }: { lang: Lang }) {
           </a>
           <small>
             {zh
-              ? '可编辑 Markdown · 本地填写 · 不上传数据'
-              : 'Editable Markdown · Complete locally · No data upload'}
+              ? '试点简报：可编辑 Markdown · 本地填写 · 不上传数据'
+              : 'Pilot brief: editable Markdown · Complete locally · No data upload'}
           </small>
+          <a className="text-link" href={localPath(lang, 'toolkit')}>
+            {zh ? '想把方法带回团队？申请工具箱访问' : 'Want reusable methods? Request Toolkit access'}
+            <ArrowRight />
+          </a>
         </div>
       </div>
     </section>

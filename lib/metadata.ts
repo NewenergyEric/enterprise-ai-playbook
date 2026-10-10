@@ -16,6 +16,10 @@ const titles = {
     zh: '企业 Playbook · 详细打法与更多业务场景',
     en: 'Enterprise Playbook · Detailed plays and more opportunities',
   },
+  toolkit: {
+    zh: 'FDE 工具箱 · 申请私有访问',
+    en: 'FDE Toolkit · Request private access',
+  },
 };
 const descriptions = {
   home: {
@@ -29,6 +33,10 @@ const descriptions = {
   playbook: {
     zh: '探索市场进入、客户开发、红人合作、内容、一线服务、经营分析、供应链、情报与知识复用，在各场景的 More 中查看具体应用、专业方法和交付产物。',
     en: 'Explore practical applications within nine business plays, from market entry and sales to operations and knowledge reuse. Each More tab connects real work to methods and useful outputs.',
+  },
+  toolkit: {
+    zh: '申请 AIelsen FDE 工具箱的私有预览或购买咨询。工具包不公开下载，访问范围、版本与支付方式在审核后单独确认。',
+    en: 'Request a private preview or purchase conversation for the AIelsen FDE Toolkit. The toolkit is not publicly downloadable; access, version and payment details are confirmed after review.',
   },
 };
 export function pageMetadata(lang: Lang, view: View): Metadata {

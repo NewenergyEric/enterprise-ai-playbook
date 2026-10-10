@@ -66,7 +66,7 @@ if (!built) {
   assert.equal(new Set(info.routes).size, info.routes.length);
   assert.equal(
     info.routes.length,
-    7 + 1 + info.academy.contentRoutes + info.agentCases.contentRoutes,
+    9 + 1 + info.academy.contentRoutes + info.agentCases.contentRoutes,
   );
   assert.equal(resolveSnapshot(snapshot, '/academy').location, '/academy/');
   assert.equal(
@@ -206,7 +206,7 @@ if (!built) {
     const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
     assert.equal(
       (sitemap.match(/<url>/g) || []).length,
-      6 + info.academy.contentRoutes + info.agentCases.contentRoutes,
+      8 + info.academy.contentRoutes + info.agentCases.contentRoutes,
     );
     for (const route of info.routes.filter((p) => /\/(?:zh|en)\//.test(p)))
       assert.ok(sitemap.includes('<loc>' + origin + route + '</loc>'));

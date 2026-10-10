@@ -9,6 +9,8 @@ const requiredPaths = [
   '/en/process/',
   '/zh/playbook/',
   '/en/playbook/',
+  '/zh/toolkit/',
+  '/en/toolkit/',
 ];
 
 export async function readSnapshot(root) {

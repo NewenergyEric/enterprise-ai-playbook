@@ -147,7 +147,7 @@ if (!built) {
   }
   assert.equal(expectedRoutes.length, 20);
   assert.equal(downloads, 18);
-  assert.equal(new Set(info.routes).size, 110);
+  assert.equal(new Set(info.routes).size, 112);
   assert.equal(
     resolveSnapshot(snapshot, '/agent-cases').location,
     '/agent-cases/',

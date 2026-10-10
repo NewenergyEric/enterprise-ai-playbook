@@ -1,86 +1,72 @@
-# Deployment Agent handoff / 部署 Agent 交接
+# Static build and hosting contract / 静态构建与托管契约
 
-The current combined release is specified in [DEPLOY-AGENT-CASES.md](DEPLOY-AGENT-CASES.md). The root build exports the service site, `/academy/` and bilingual `/agent-cases/`, with 110 entry routes. Keep using `dist/client` as the only publish directory. The earlier Academy-specific checklist remains in [DEPLOY-ACADEMY.md](DEPLOY-ACADEMY.md).
+This is maintainer documentation. Readers should start with the [guide](README.md) and [FDE Academy](docs/FDE-ACADEMY.md).
 
-## Scope / 范围
+`main` is the only maintained branch and contains all four areas: business workflows/Playbook, Academy, Agent cases and the optional Toolkit request UI. Older branch-specific instructions are superseded. Production or commercial use needs the rights described in [LICENSING.md](LICENSING.md); a GitHub update is not production deployment authorization.
 
-Target repository: https://github.com/NewenergyEric/enterprise-ai-playbook
+## Build a complete release
 
-Public source access does not grant production or commercial-use rights. Read [LICENSING.md](LICENSING.md) and the [publication review](docs/security/PUBLICATION-REVIEW-2026-10-10.md) before deploying. Retain the existing production branch; repository publication is not deployment authorization.
+Use Node 24 LTS, the committed lockfile, and a clean or otherwise safely isolated checkout. Do not reset unrelated work.
 
-This is a **static marketing website**, not an Agent execution system. The user will arrange deployment separately. Do not upload reference projects, local caches, build-server artifacts or source research.
-
-这是独立的静态营销网站，不是 Agent 执行系统。只部署本仓库构建出的公开站点文件。不要打包参考项目、原始研究、客户资料、缓存、开发日志或服务器构建文件。
-
-## Build / 构建
-
-1. Use Node.js 24.19+ and npm.
-2. Run npm ci --ignore-scripts, then npm run security:check and npm run security:audit.
-3. Set SITE_URL to the real HTTPS origin, with no trailing slash or path.
-4. Run npm run check, npm run build, then npm test.
-5. Publish **dist/client** only.
-
-PowerShell example (replace the example origin):
-
-```powershell
-$env:SITE_URL='https://your-actual-domain.example'
+```sh
+git clone https://github.com/NewenergyEric/enterprise-ai-playbook.git
+cd enterprise-ai-playbook
 npm ci --ignore-scripts
 npm run security:check
 npm run security:audit
 npm run check
 npm run build
 npm test
+npm run preview
 ```
 
-SITE_URL is read at **build time**. It sets canonical URLs, language alternates, absolute social-image URLs and sitemap.xml. If unset, local preview still works; no public origin or sitemap is invented. Rebuild after changing the domain.
+For an authorized release, set `SITE_URL` to the real HTTPS origin before building. It must have no path: the assembler adds `/academy/` and `/agent-cases/`. Without a configured origin, local preview still works and does not invent a production sitemap. On PowerShell use `$env:SITE_URL='https://your-approved-origin.example'`; on POSIX shells use `export SITE_URL=https://your-approved-origin.example`.
 
-No runtime secrets, AI keys or database bindings are needed. Preserve package-lock.json and use npm ci for reproducibility.
+Check `dist/client/build-info.json`:
 
-## Static host configuration / 静态托管配置
+| Area | Entries |
+| --- | ---: |
+| Service pages, root and two request pages | 9 |
+| Academy, including its language entry | 83 |
+| Agent cases, both languages | 20 |
+| **Unique entry routes** | **112** |
 
-- Output directory: dist/client
-- Framework behavior: static HTML, CSS, JS, fonts, images and documents.
-- Serve directories through index.html. /en/process/ must work as a direct entry and on refresh.
-- Use 404.html for unknown routes and return HTTP 404.
-- **Do not configure a catch-all SPA fallback to /index.html.** It would hide broken links and return Chinese content for missing English routes.
-- _headers is included for hosts that support it. On other hosts, configure equivalent MIME types and conservative security headers.
-- Serve .rsc as text/x-component if the platform requires an explicit MIME mapping. Public navigation uses ordinary anchors, not a server runtime.
-- Apply long immutable caching only to hashed /_next/static/ assets. Do not immutable-cache unversioned fonts, images, HTML or PDFs.
-- The optional local preview server binds 127.0.0.1 by default. It is for review, not a production Internet-facing server.
-- The local preview serves a complete in-memory build snapshot. While rebuilding it retains the previous complete version; a new build is swapped in only after its final readiness marker exists. HTML and 404 responses use no-store to avoid stale preview errors.
+The full build runs services → Academy → Agent cases → sitemap → readiness marker. A first check may skip absent generated files; the post-build `npm test` is mandatory. Do not suppress nonzero exits. The validated Windows runtime is Node 24.19.0; avoid the older 24.13.0 native shutdown issue.
 
-The pinned Vinext exporter requests bare paths during prerender. trailingSlash stays false to avoid redirect-skipped output; postbuild creates directory index mirrors for the public trailing-slash URLs. Keep this normalization unless a future framework upgrade is verified to make it unnecessary.
+## Optional contact collection: separate approval required
 
-Do **not** deploy dist/server. It contains build/runtime internals that are unnecessary for this static website.
+Both `TOOLKIT_LEAD_ENDPOINT` and `TOOLKIT_PRIVACY_URL` must be valid public HTTPS URLs and approved for collection. Leave them unset for ordinary study or review; the request pages remain visible but cannot submit.
 
-## Entry points / 验收入口
+The static UI is **not** a receiving service, CRM, payment system or private Toolkit download. Configuration is embedded in public output, so it must never contain tokens, credentials, signed query strings or private routing data. Read [the receiver contract](docs/TOOLKIT-LEAD-ENDPOINT.md); review server-side validation, rate limits, consent, retention and deletion before enabling collection. No endpoint or privacy notice has been created by this integration.
 
-- /, /zh/, /en/
-- /zh/process/, /en/process/
-- /zh/playbook/, /en/playbook/
-- /en/playbook/#creator-partnerships
-- /zh/playbook/#business-analysis
-- /resources/pilot-brief-zh.md, /resources/pilot-brief-en.md
-- Four PDF links on the homepage
-- /og.png, /favicon.svg, /robots.txt
-- /sitemap.xml after SITE_URL is set
+## Static host requirements
 
-## Release acceptance / 发布前验收
+- Publish only the complete `dist/client/` through an authorized atomic release/rollback mechanism.
+- Never publish source, `dist/server/`, `.git`, `.env`, logs or standalone module outputs.
+- Serve directory paths through `index.html`; preserve queries on trailing-slash redirects.
+- Unknown service, Academy and case paths must return HTTP 404. Do not use a wildcard SPA-homepage fallback.
+- Preserve MIME types for HTML, JS, CSS, SVG, WebP, WOFF2, Markdown, ZIP and PDF; use `text/x-component` for `.rsc` if needed.
+- Keep long immutable caching limited to hashed assets. HTML and unversioned course assets need revalidation. Translate `public/_headers` into equivalent host settings where necessary.
+- Preview binds loopback by default and is not an internet-facing production server. Do not expose Vite or Vinext development servers.
+- Retain static directory mirrors: the pinned exporter requests bare paths during prerender, while public links use trailing slashes.
 
-Automated checks cover content structure, static rendering, document language, headings, metadata and local resource links. Browser visual and interaction acceptance remains a separate release step:
+## Acceptance checklist
 
-- Review desktop and narrow mobile layouts in both languages.
-- Select every scenario; use all category filters; search in both languages; confirm the no-results and reset states.
-- Open all inner tabs, sample-brief tabs and FAQs with mouse and keyboard.
-- Refresh a hashed Playbook link and switch languages; the selected scenario should remain selected.
-- Check navigation, PDF downloads and editable brief downloads.
-- Verify real HTTP 404 behavior, response MIME types and no unexpected cross-origin requests.
-- Inspect canonical/hreflang/social preview against the final domain.
-- Confirm contact details or any future lead form with the owner before adding them. No mailbox, calendar or submission endpoint has been invented.
-- Confirm publication rights for all materials and final business wording.
+| Check | Expected result |
+| --- | --- |
+| Service / process / Playbook, both languages | Original CTAs, nine plays, 66 More applications, filters and language/hash behavior preserved |
+| Academy | 12 weeks, course deep links, search, 24 boards, zoom/Escape/focus return, labs and downloads work |
+| Agent cases | Nine cases in both languages, comparisons, diagrams, worksheets and related links remain present |
+| Toolkit request pages | Both languages and the six-item service navigation are present; missing configuration visibly disables submission |
+| Configured form, when separately authorized | Use synthetic contacts and a local mock; test consent, missing fields, errors, timeouts and explicit acknowledgement |
+| Sitemap and metadata | Approved origin, prefixed paths, matching canonical/hreflang, no localhost in release metadata |
+| Unknown or private paths | Real HTTP 404, including missing Academy/case paths, `.env` and module source files |
+| Desktop, tablet, phone and keyboard | No whole-page overflow, readable buttons, visible focus and usable navigation |
 
-There is no analytics tracker or business-data submission form. A hosting provider may still record ordinary access logs; set the deployment privacy policy accordingly.
+For local HTTP regression, set `TEST_BASE_URL` to the loopback preview origin and run `npm test` again.
 
-## Runtime note / 运行时说明
+CI validates and uploads `fde-static-site`; it does not deploy production. Record the exact commit, CI, build, browser checks and rollback artifact. An external deployment system must be separately pointed at the reviewed `main` version by its operator.
 
-The validated local build uses Node 24.19.0. An older Windows Node 24.13.0 runtime emitted a native libuv shutdown assertion, so avoid that combination. Do not suppress nonzero build exits: all 110 service, Academy and Agent case entry routes must exist before deployment.
+## Security
+
+Read [SECURITY.md](SECURITY.md) and the [dated publication review](docs/security/PUBLICATION-REVIEW-2026-10-10.md). The time-limited build-dependency exception remains in force until its stated expiry; it is not a fix or a safety guarantee. Re-run the audit before release and do not use `npm audit fix --force` to bypass it.

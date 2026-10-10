@@ -17,7 +17,7 @@
     "test": "node scripts/test.mjs && node scripts/test-academy-integration.mjs && node scripts/test-agent-cases-integration.mjs && node scripts/test-toolkit-boundary.mjs",
     "build:academy": "node scripts/build-academy.mjs",
     "check": "npm run typecheck && npm run lint && npm test",
-    "security:check": "node scripts/check-publication.mjs && node --test scripts/test-audit-policy.mjs",
+    "security:check": "node scripts/check-publication.mjs && node --test scripts/test-audit-policy.mjs scripts/test-lead-endpoint.mjs",
     "security:audit": "node scripts/audit-dependencies.mjs"
   },
   "dependencies": {

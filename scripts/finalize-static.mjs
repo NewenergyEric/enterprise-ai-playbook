@@ -11,6 +11,8 @@ const routes = [
   '/en/process/',
   '/zh/playbook/',
   '/en/playbook/',
+  '/zh/toolkit/',
+  '/en/toolkit/',
 ];
 // Export uses bare routes to avoid the framework's redirect during prerender.
 // Materialize directory indexes for ordinary static hosts and our public URLs.
@@ -59,7 +61,7 @@ const xmlEscape = (value) =>
   );
 let robots = 'User-agent: *\nAllow: /\n';
 if (origin) {
-  const pairs = ['', 'process/', 'playbook/'];
+  const pairs = ['', 'process/', 'playbook/', 'toolkit/'];
   const xml =
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
     pairs
