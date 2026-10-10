@@ -2,8 +2,8 @@
   <strong>中文</strong> · <a href="README.en.md">English</a>
 </p>
 
-<h1 align="center">AIelsen FDE</h1>
-<p align="center"><strong>从一个业务问题，到一段真正能交付的 AI 工作。</strong></p>
+<h1 align="center">Enterprise AI Playbook</h1>
+<p align="center"><strong>AIelsen · 企业 AI 应用、Agent 案例与 FDE 交付方法。</strong></p>
 
 <p align="center">
   <img src="docs/media/badge-bilingual.svg" alt="中文 / English">
@@ -17,7 +17,7 @@
   <a href="https://fde.aielsen.com/zh/playbook/">寻找业务切入点</a> ·
   <a href="#先看-agent-如何把一件事做完">看 Agent 案例</a> ·
   <a href="#把交付方法练成团队能力">学习 FDE</a> ·
-  <a href="https://github.com/NewenergyEric/AIelsen-FDE-Toolkit">FDE 工具包</a>
+  <a href="LICENSING.md">使用许可</a> · <a href="SECURITY.md">安全说明</a>
 </p>
 
 <p align="center">
@@ -29,19 +29,18 @@ FDE（Forward Deployed Engineer，前线部署工程师）要解决的，不只�
 
 这里把我们的交付方法、工程训练和匿名 Agent 案例放在一起：你既能看到值得做什么，也能看清从需求到产物之间，具体做了哪些工作。
 
-> **获取完整网站：** [`feat/agent-cases-20260910`](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910) 包含服务站、学院和案例集。`main` 本次只更新仓库展示，不代表业务代码已合并或线上已经部署。[部署 Agent 请从这里开始](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md)。
+> **获取完整网站：** [`feat/agent-cases-20260910`](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910) 包含服务站、学院和案例集。`main` 保留服务站及仓库入口，完整学院和案例代码仍在上述集成分支。此次安全更新不合并产品模块、不部署线上网站。[部署 Agent 请从这里开始](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md)。
 
 ## 30 秒找到你的入口
 
 | 你现在想做什么 | 打开什么 | 可以得到什么 |
 | --- | --- | --- |
 | 找到 AI 能切入的业务环节 | [业务 Playbook](https://fde.aielsen.com/zh/playbook/) | 9 类场景、66 个 More 应用，从痛点看到输入、方法、产出与试点评估 |
-| 看清 Agent 如何持续完成工作 | [9 个 Agent 案例](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/agent-cases/README.md) | 业务问题、关键判断、连续行动、交付物、前后变化与工作表 |
-| 训练能够独立交付的 FDE | [FDE Academy](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910/academy) | 12 周课程、详细讲义、可视化画板、交互实验与工程实训 |
-| 为团队组织可复用的 Skill | [AIelsen FDE Toolkit](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit) | 539 条加工目录、8 个首发能力包、2 条完整工作流程与参考产出 |
-| 接手、验证并增量发布网站 | [完整部署指南](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) | 明确分支、构建命令、发布目录、路由和回滚验收点 |
+| 看清 Agent 如何持续完成工作 | [9 个 Agent 案例](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/agent-cases/README.md) | 业务问题、关键判断、连续行动、交付物、前后变化与工作表 |
+| 训练能够独立交付的 FDE | [FDE Academy](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy) | 12 周课程、详细讲义、可视化画板、交互实验与工程实训 |
+| 接手、验证并增量发布网站 | [完整部署指南](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) | 明确分支、构建命令、发布目录、路由和回滚验收点 |
 
-**服务、课程和案例已有代码；Toolkit 已独立建库，提供首批能力包与有限合成试用记录。两个仓库均为私有，访问和下载需要授权；宿主界面导入尚未实测。**
+**本仓库开放交付方法、课程与案例的源文件，供学习和非生产评估。生产使用、收费培训/咨询交付、转售或 SaaS 须取得书面商业授权。** [许可边界](LICENSING.md) · [商业授权](COMMERCIAL.md)
 
 ## 先看 Agent 如何把一件事做完
 
@@ -49,7 +48,7 @@ FDE（Forward Deployed Engineer，前线部署工程师）要解决的，不只�
 
 不是只展示最后一张图。案例展开需求澄清、研究、沟通反馈、FAB 提炼、全案策划、文案、创意与分镜，再把前期建议与最终公开成片做具体对照。重点是 **Agent 如何贯穿全案工作**，而不是把某个画面相似当作完整成效证明。
 
-[查看 Bella 所在案例集与维护说明 →](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/agent-cases/README.md)
+[查看 Bella 所在案例集与维护说明 →](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/agent-cases/README.md)
 
 | 案例 | 工作从哪里开始 | Agent 做到哪里 | 页面里看什么 |
 | --- | --- | --- | --- |
@@ -77,31 +76,24 @@ FDE（Forward Deployed Engineer，前线部署工程师）要解决的，不只�
 
 课程包含 **100 节中文详细讲义、19 个双语案例与实作、24 张双语教学画板、6 个交互实验**，另有 30 个概念、57 项案例关联作业和离线 Python 实训。数字指内容规模，不是客户数量。**扩展讲义目前为中文**；英文版提供课程概要、案例、画板与实作指导。
 
-[课程与讲义](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910/academy/content/notes) · [工程实训包](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910/academy/practice-kit) · [培训介绍 PDF](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
+[课程与讲义](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy/content/notes) · [工程实训包](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy/practice-kit) · [培训介绍 PDF](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
 
-## FDE Toolkit：按业务任务组织的能力包
+## 公开范围与安全
 
-一份有价值的工具包，应该能回答三个问题：**现在卡在哪里？该组合哪些能力？完成后拿什么验收？**
+这里是企业 AI 采用与工程交付的学习资料，不是可直接接入客户数据的生产平台。独立维护的私有工具包不在本仓库的公开和许可范围内。
 
-基于已有 WorkBuddy 加工版继续整理，按六类任务组织：业务诊断 / 产品与营销 / 知识与数据 / Agent 工程 / 评估验收 / 交接复用。全量目录为 **539 条记录、516 份不同操作正文**；首发 **8 个能力包**补齐用途说明、模板、合成输入和完整参考产出。来源、加工增量与测试范围分别记录，不把目录规模当作已验证能力数量。
-
-| 完整工作流程 | 能力如何连接 | 看得见的产物 |
-| --- | --- | --- |
-| [产品与创作者合作](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/creator-partnerships.md) | 研究 → 竞品 → FAB 与全案 → 创作者筛选 → 邀约与回复交接 | 证据简报、15 秒分镜、个性化 Pitch、商务交接 |
-| [需求到工程交接](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/recipes/engineering-handoff.md) | 能力契约 → 关键决策 → 操作规程 | 状态与接口要求、ADR、异常核对与交接规则 |
-
-[进入工具包仓库 →](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit) · [下载首发包](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/releases) · [试用与检查范围](https://github.com/NewenergyEric/AIelsen-FDE-Toolkit/blob/main/docs/verification.md) · [工具包与网站隔离规则](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-TOOLKIT.md)
-
-原[选型设计稿](docs/FDE-TOOLKIT.md)保留为历史记录；当前可用内容以独立仓库为准。按维护者要求，工具包不放进业务网站：此前的导航、首页和页脚入口已撤回，仅在独立 GitHub 仓库维护。
+[公开前安全审查](docs/security/PUBLICATION-REVIEW-2026-10-10.md)记录了历史、下载文件、依赖和自动化检查的覆盖范围。仍有一个上游未修复的构建期依赖风险（在 npm 中沿依赖链显示为 6 项高危），设有明确边界和到期复核；不声称“零风险”。[私密漏洞报告](SECURITY.md)
 
 ## 本地启动完整版本
 
-使用 **Node.js 24.19+**。仓库目前为私有，克隆需要获授权的 GitHub 账号。
+使用 **Node.js 24.19+**。先阅读 [学习与非生产评估许可](LICENSING.md)，再获取相应分支。
 
 ```sh
-git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/FDE-web.git
-cd FDE-web
-npm ci
+git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/enterprise-ai-playbook.git
+cd enterprise-ai-playbook
+npm ci --ignore-scripts
+npm run security:check
+npm run security:audit
 npm run check
 npm run build
 npm test
@@ -117,13 +109,13 @@ npm run preview
 | 学院 | `/academy/zh/` | `/academy/en/` |
 | Agent 案例 | `/agent-cases/` | `/agent-cases/en/` |
 
-部署不要用案例集覆盖域名根目录，不要发布源码或 `dist/server`。保留原业务 CTA、9 类场景、66 个 More 应用、中英文切换和真实 404。[完整验收清单](https://github.com/NewenergyEric/FDE-web/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) · [CI 运行记录](https://github.com/NewenergyEric/FDE-web/actions?query=branch%3Afeat%2Fagent-cases-20260910)
+部署不要用案例集覆盖域名根目录，不要发布源码或 `dist/server`。保留原业务 CTA、9 类场景、66 个 More 应用、中英文切换和真实 404。[完整验收清单](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) · [CI 运行记录](https://github.com/NewenergyEric/enterprise-ai-playbook/actions?query=branch%3Afeat%2Fagent-cases-20260910)
 
 ## 使用与维护边界
 
 - 网站是服务介绍、工程培训和案例展示，不是已托管的生产 Agent 执行平台；没有学员账号、云端学习记录或认证服务。
 - 原始客户资料、真实 Agent 身份、内部路径与密钥不进入仓库。公开引用不表示合作或背书。
-- 原始课程、文案和设计**尚未授予开源许可**；第三方依赖、字体和未来收录的社区 Skill 保留各自许可。
-- 动效为原创方法示意；原网站配色、内容和运行依赖不因仓库装修而改变。
+- 原创内容采用 **AIelsen Learning and Evaluation License 1.0**，不是 MIT 或 OSI 开源许可；[第三方材料](THIRD_PARTY_NOTICES.md)保留自己的许可。
+- 动效为原创方法示意。真实对照图片经所有者确认可随仓库公开，但仍可能被反向识别；不授予第三方素材的再次利用权。
 
 [贡献与协作](CONTRIBUTING.md) · [内容规范](CONTENT-NOTES.md) · [素材说明](ASSETS.md) · [展示素材维护](docs/studio/README.md)

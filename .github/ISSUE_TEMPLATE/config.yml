@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Private security report / 私密安全报告
+    url: https://github.com/NewenergyEric/enterprise-ai-playbook/security/advisories/new
+    about: Do not disclose vulnerabilities, secrets or customer data in public issues.
+  - name: Licensing / 商业与生产使用授权
+    url: https://github.com/NewenergyEric/enterprise-ai-playbook/blob/main/COMMERCIAL.md
+    about: Learning and non-production evaluation are permitted; commercial/production reuse requires written authorization.

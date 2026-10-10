@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
-import {WIDTH,HEIGHT,FPS,DURATION,renderFrame,motionProbe} from './motion-scene.mjs';
+import {FPS,DURATION,renderFrame,motionProbe} from './motion-scene.mjs';
 const require=createRequire(import.meta.url);
 const sharp=process.env.SHARP_MODULE?require(process.env.SHARP_MODULE):require('sharp');
 const media=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../media');

@@ -9,7 +9,7 @@ const sharp=process.env.SHARP_MODULE ? require(process.env.SHARP_MODULE) : requi
 const dir=path.dirname(fileURLToPath(import.meta.url));
 const media=path.resolve(dir,'../media');
 const art='data:image/png;base64,'+(await fs.readFile(path.join(media,'fde-comic-art.png'))).toString('base64');
-const navy='#001f3f',teal='#007d86',blue='#3246ff',gray='#526578';
+const navy='#001f3f',teal='#007d86',gray='#526578';
 const W=1100,H=650;
 const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const copy={

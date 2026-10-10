@@ -1,5 +1,5 @@
 {
-  "name": "fde-web",
+  "name": "enterprise-ai-playbook",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -11,17 +11,19 @@
     "start": "node scripts/serve.mjs",
     "lint": "oxlint",
     "format": "oxfmt",
-    "postbuild": "node scripts/finalize-static.mjs",
+    "postbuild": "node scripts/finalize-static.mjs && node scripts/license-notices.mjs",
     "preview": "node scripts/serve.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node scripts/test.mjs",
-    "check": "npm run typecheck && npm run lint && npm test"
+    "check": "npm run typecheck && npm run lint && npm test",
+    "security:check": "node scripts/check-publication.mjs && node --test scripts/test-audit-policy.mjs",
+    "security:audit": "node scripts/audit-dependencies.mjs"
   },
   "dependencies": {
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
-    "react-server-dom-webpack": "19.2.6",
-    "vinext": "1.0.0-beta.5",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-server-dom-webpack": "19.2.8",
+    "vinext": "1.1.0",
     "@base-ui/react": "1.7.0",
     "@shadcn/react": "0.3.0",
     "class-variance-authority": "0.7.1",
@@ -30,32 +32,33 @@
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.2",
     "input-otp": "1.4.2",
+    "ipaddr.js": "2.5.0",
     "lucide-react": "1.31.0",
     "react-day-picker": "9.8.1",
     "react-resizable-panels": "4.5.8",
     "recharts": "3.8.0",
-    "shadcn": "4.18.0",
     "tailwind-merge": "3.6.0",
     "tw-animate-css": "1.4.0"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.37.1",
-    "@cloudflare/workers-types": "4.20260515.1",
     "@openai/sites-vite-plugin": "0.2.0",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
-    "@vitejs/plugin-rsc": "0.5.26",
-    "oxfmt": "0.61.0",
+    "@vitejs/plugin-rsc": "0.5.34",
+    "oxfmt": "0.72.0",
     "oxlint": "1.76.0",
     "oxlint-tsgolint": "7.0.2001",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
-    "vite": "8.0.13",
-    "wrangler": "4.92.0"
+    "vite": "8.3.4"
+  },
+  "overrides": {
+    "satori": { "fflate": "0.7.5" }
   },
   "type": "module",
-  "description": "Bilingual FDE business-capability website: delivery process and enterprise playbook."
+  "description": "Enterprise AI adoption: business use cases, delivery playbooks and FDE engineering education.",
+  "license": "LicenseRef-AIelsen-Learning-Evaluation-1.0"
 }

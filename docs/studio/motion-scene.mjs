@@ -40,7 +40,7 @@ function discover(t,w){
  // A hand-drawn selection circle grows around the useful evidence.
  s+=group(draw('M145 151C167 133 216 132 237 151C258 180 216 195 175 183C143 174 140 160 145 151',ease((t-.9)/1.1),C.blue,2),0,0,0,1-gather);
  const mx=170+60*Math.sin(t*1.3),my=171+19*Math.cos(t*1.7);
- let lens=`<circle cx="0" cy="0" r="38" fill="white" fill-opacity=".6" stroke="${C.ink}" stroke-width="5"/><circle cx="0" cy="0" r="31" fill="none" stroke="${C.line}" stroke-width="2"/>`+path('M26 29L65 70',C.ink,14)+path('M30 33L60 66',C.teal,6);
+ const lens=`<circle cx="0" cy="0" r="38" fill="white" fill-opacity=".6" stroke="${C.ink}" stroke-width="5"/><circle cx="0" cy="0" r="31" fill="none" stroke="${C.line}" stroke-width="2"/>`+path('M26 29L65 70',C.ink,14)+path('M30 33L60 66',C.teal,6);
  s+=group(lens,mx,my,9*Math.sin(t),inP*(1-ease((t-2.8)/.65)));
  for(let i=0;i<3;i++){
    const u=(t*.38+i*.31)%1;
@@ -61,7 +61,7 @@ function execute(t,w){
  const curves=[[[126,192],[187,192],[163,220],[220,220]],[[288,77],[288,132],[280,122],[280,163]],[[438,139],[385,139],[403,199],[339,205]],[[438,299],[377,299],[402,249],[339,238]],[[282,338],[282,309],[287,309],[287,276]]];
  let s='';
  curves.forEach((p,i)=>{
-  const d=`M${p[0]}C${p[1]} ${p[2]} ${p[3]}`;
+  const d=`M${p[0].join(',')}C${p[1].join(',')} ${p[2].join(',')} ${p[3].join(',')}`;
   s+=path(d,C.line,2)+draw(d,ease((t-i*.14)/.7),C.teal,2.5);
   const u=(t*.46+i*.19)%1,pt=curve(p,i===0?u:1-u);
   s+=miniDoc(pt[0]-11,pt[1]-14,-8+u*16,i===2?C.blue:C.teal);
@@ -133,7 +133,7 @@ function reuse(t,w){
   const slotY=179+i*57,open=(Math.sin((t*.7+i*.45)*Math.PI)+1)/2;
   s+=rect(126,slotY,255,42,C.paper,2,C.line)+rect(132-open*7,slotY+5,243,36,C.white,2,C.ink)+text(155-open*7,slotY+29,labels[i],13,C.ink,700)+path(`M316 ${slotY+18}H344V${slotY+24}H316Z`,C.teal,1.5);
   const u=(incoming+i*.33)%1;
-  let card=sheet(95,92,labels[i],i===2?C.blue:C.teal);
+  const card=sheet(95,92,labels[i],i===2?C.blue:C.teal);
   s+=group(card,mix(25+i*191,baseX+47+i*50,ease(u)),mix(27,slotY-10,ease(u)),mix((i-1)*13,0,u),1-ease((u-.73)/.27),mix(.9,.55,u));
  }
  s+=stamp(w.kit,166,374,186);

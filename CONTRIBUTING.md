@@ -1,12 +1,12 @@
 # 维护与协作 / Contributing
 
-本仓库用于 AIelsen FDE 服务站与学院的内容、工程维护。欢迎有仓库权限的协作者提交可验证的改进；这份说明不改变仓库访问权限或材料许可。
+欢迎为企业 AI 应用、FDE 课程、匿名案例及工程质量提交可验证的改进。使用源文件遵循 [学习与评估许可](LICENSING.md)，生产及商业复用需另行授权。
 
-This guide is for authorized repository collaborators. It does not grant repository access or a license to redistribute the original course materials.
+Contributions are welcome under the [project license](LICENSE). Keep third-party permissions and notices intact. No customer records or secrets belong in an issue or pull request.
 
 ## 先确认版本 / Start with the right branch
 
-完整集成版本目前在 `feat/fde-academy-20260908`。默认分支的项目介绍包含学院预览，但展示文档不等于学院代码已合并。
+完整集成版本在 `feat/agent-cases-20260910`；学院维护分支为 `feat/fde-academy-20260908`。对应用功能提交 PR 时请选择相应分支，默认分支介绍不代表所有模块已合并。安全修复须检查三个受支持分支。
 
 Read the [agent instructions](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/AGENTS.md), [Academy deployment guide](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOY-ACADEMY.md) and [hosting contract](https://github.com/NewenergyEric/FDE-web/blob/feat/fde-academy-20260908/DEPLOYMENT.md) before changing deployment behavior. Inspect the working tree and remote state; preserve unrelated work and never force-push.
 
@@ -18,7 +18,7 @@ Read the [agent instructions](https://github.com/NewenergyEric/FDE-web/blob/feat
 4. **保持视觉与语言。** 延续深蓝、青绿和教学画板风格；中英文保持范围一致，不声称中文详细讲义已全部英译。 / Preserve the editorial visual system and accurately describe language coverage.
 5. **保护隐私。** 不上传客户姓名、业务记录、内部地址、截图、原始研究、密钥或本机路径。只使用可公开的材料和最小合成复现。 / Use publication-safe material and minimal synthetic reproductions only.
 
-Use the content-improvement issue form for a learning problem. Use the bug form for a reproducible interface or build defect. Do not put suspected secrets or customer records in an issue; use an existing owner-approved private channel, not an invented contact address.
+Use the content-improvement issue form for a learning problem and the bug form for a reproducible defect. Follow [SECURITY.md](SECURITY.md) for private vulnerability reporting; never put suspected secrets or customer records in public reports.
 
 ## 编辑地图 / Editing map
 
@@ -41,7 +41,9 @@ Do not edit generated HTML. The four service PDFs are earlier reference editions
 For application or content changes, use Node 24.19+ and the committed lockfile:
 
 ```sh
-npm ci
+npm ci --ignore-scripts
+npm run security:check
+npm run security:audit
 npm run check
 npm run build
 npm test
@@ -54,3 +56,9 @@ For a documentation-only change, verify Markdown links and image rendering, bili
 The bundled service font is ready for deployment. When authoring new Chinese copy, its optional regeneration command is `node scripts/subset-font.mjs /path/to/NotoSansSC-VF.ttf`, with an appropriately licensed font and Python `fonttools` / `brotli`. Production builds do not require those font-authoring dependencies. Preserve upstream component code unless a task specifically calls for changing it.
 
 Pull requests should include scope, affected pages or documents, validation, and any limits. Use synthetic screenshots; record the exact commit and publish directory in a deployment handoff. A repository update is not permission to change hosting, DNS, access settings or production data.
+
+## Contribution rights / 投稿权利
+
+Only contribute work you own or are authorized to provide. By intentionally submitting an original contribution for inclusion, you license it under the root LICENSE and additionally grant the project copyright holders a non-exclusive, worldwide, irrevocable, royalty-free right to use, modify and sublicense that contribution as part of this project under separate commercial agreements. You retain ownership. This additional permission does not apply to identified third-party works; disclose their provenance and preserve their terms. If you cannot grant this permission, discuss scope before submitting. Do not add a restrictive or incompatible upstream work without agreement.
+
+提交原创贡献时，你保留著作权，并同意上述项目许可与商业再许可授权；第三方材料必须单独标识，不得声称代其授权。请在 PR 中明确确认。贡献不自动获得商用本项目全部内容的权利。
