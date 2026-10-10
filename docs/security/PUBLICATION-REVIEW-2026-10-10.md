@@ -30,7 +30,33 @@ Deeply nested attacker-controlled brace patterns can exhaust the Node call stack
 
 The [exception](dependency-exceptions.json) is limited to this exact advisory, package version and dependency chain and **expires 2026-10-24**. A new advisory, changed root version or expired review fails `npm run security:audit`. Tests verify failure behavior. This is a documented contextual mitigation, not a vulnerability fix. Do not run `npm audit fix --force`: its proposed rollback to obsolete Vinext would discard relevant fixes and compatibility.
 
+GitHub labels this dependency as `runtime` because Vinext is declared in npm's `dependencies`. The narrower exposure assessment above comes from inspecting the build-plugin call path and the supported static-only deployment, not from relabeling the advisory. The Dependabot alert remains open.
+
 The prior [RSC denial-of-service advisory](https://github.com/advisories/GHSA-wx67-qw84-cm4g) is addressed by 19.2.8. That server-endpoint attack path does not exist in a correctly deployed static export, but patched development/build dependencies are still required.
+
+## Verified publication state — 2026-10-10
+
+The renamed [enterprise-ai-playbook repository](https://github.com/NewenergyEric/enterprise-ai-playbook) is **public**. The old repository URL redirects; the production website, DNS and deployment configuration were not changed. The following are executable-source checkpoints verified before the final documentation/showcase-check follow-up:
+
+| Maintained branch | Audited checkpoint | Build / regression CI | Security CI including CodeQL | Public entry routes |
+| --- | --- | --- | --- | --- |
+| `main` | `b9d3743` | [Passed](https://github.com/NewenergyEric/enterprise-ai-playbook/actions/runs/38038203317) | [Passed](https://github.com/NewenergyEric/enterprise-ai-playbook/actions/runs/38038203335) | 7 |
+| `feat/fde-academy-20260908` | `d1fcfb9` | [Passed](https://github.com/NewenergyEric/enterprise-ai-playbook/actions/runs/38038203410) | [Passed](https://github.com/NewenergyEric/enterprise-ai-playbook/actions/runs/38038203350) | 92 |
+| `feat/agent-cases-20260910` | `76de3c7` | [Passed](https://github.com/NewenergyEric/enterprise-ai-playbook/actions/runs/38038230573) | [Passed](https://github.com/NewenergyEric/enterprise-ai-playbook/actions/runs/38038230512) | 110 |
+
+CodeQL's JavaScript/TypeScript and Python analyses at these checkpoints returned zero findings, with no analysis errors or warnings. Branch-specific open-alert queries were also empty. The first public scan had flagged `js/incomplete-multi-character-sanitization` in Academy's font-text collection: deleting tags with an empty replacement could join fragments. That output was a local font-character file, not a browser HTML sink; search results use DOM text properties. The implementation now preserves boundaries with spaces, documents that text extraction is **not** sanitization, and tests nested fragments and multilingual word boundaries. Both feature-branch rescans returned zero findings; the finding was not manually dismissed to obtain a green result.
+
+The final full-history snapshot fetched remote branches, including Dependabot proposals: **44 commits; 517 distinct blobs; 506 text versions including archive text; 6 PDF versions / 92 pages; 2 ZIP versions / 33 members; 33 image-metadata versions; 3 font binaries**. Gitleaks reported no secrets; the content audit had zero extraction errors. The only supplemental pattern categories were the known private-Toolkit repository references and a privacy scanner matching its own thread-URL rule. Eight historical Actions logs were separately scanned with no secret matches. This does not turn pattern matching or sampled image review into an exhaustive privacy guarantee.
+
+Confirmed through GitHub's API:
+
+- Private vulnerability reporting, Dependabot alerts/security updates, secret scanning and secret push protection are enabled. No open secret-scanning alerts were returned at verification.
+- Default Actions token permissions are read-only; Actions cannot approve pull requests. Workflow actions are commit-pinned and PR jobs have no production secrets.
+- An active ruleset blocks deletion and non-fast-forward updates for all three maintained branches. It does **not** require every change to pass a mandatory PR/status gate; authorized fast-forward pushes remain possible.
+- Advanced non-provider secret patterns and validity checks were **not** enabled. Asset-rights verification, credential validity and hosting penetration tests were not performed.
+- Dependabot's generated update PRs are proposals, not approved releases. None were automatically merged in this review; each needs compatibility and security review before adoption.
+
+For the next Agent: fetch the renamed remote and inspect the intended branch before working. Do not deploy `main` as if it contained the full Academy/cases release. The Academy branch retains its independently approved lead form, disabled unless both receiver and privacy-notice URLs are valid; the complete Agent-cases branch intentionally has no Toolkit entry. Do not merge that policy difference implicitly. Keep the reviewed asset boundary, obtain production authority separately, and revisit the remaining dependency advisory no later than **2026-10-24**.
 
 ## Reproduce the checks
 

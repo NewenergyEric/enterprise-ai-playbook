@@ -9,7 +9,7 @@ The README uses original, bilingual **18-second / 20 FPS / 360-frame** motion gr
 - `../media/fde-motion-zh.gif` and `fde-motion-en.gif`: current Chinese and English README animations.
 - Matching PNG files: static alternatives, with the corresponding language.
 - Matching JSON files: actual encoding metadata, size and motion-check counts.
-- `check-showcase.mjs`: links, language, proposal boundaries and encoded GIF timing checks.
+- `check-showcase.mjs`: public README links, language and licensing/security entrances on all maintained branches. Encoded GIF timing is also checked when `SHARP_MODULE` is set; the result reports whether that optional check ran. It does not depend on a separate Toolkit blueprint.
 - [Local preview](preview.html): Chinese/English switch, play and static controls. It starts static when reduced motion is requested; explicit Play starts the animation.
 
 The work itself moves: documents converge into a brief, packets travel between task and tools, charts/checks draw while a filmstrip advances, and files enter a reusable delivery kit. There are no multi-second still-frame holds. The loop starts within the first scene so its first frame already has visible content.

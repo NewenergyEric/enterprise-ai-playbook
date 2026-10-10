@@ -4,7 +4,9 @@ import {fileURLToPath} from 'node:url';
 import {createRequire} from 'node:module';
 import assert from 'node:assert/strict';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
-const docs=['README.md','README.en.md','ASSETS.md','docs/FDE-TOOLKIT.md','docs/FDE-TOOLKIT.en.md','docs/studio/README.md'];
+// Check the public showcase, not an unrelated Toolkit blueprint that is absent
+// from the maintained application branches.
+const docs=['README.md','README.en.md','ASSETS.md','docs/studio/README.md'];
 let refs=0;
 for(const file of docs){
  const t=await fs.readFile(path.join(root,file),'utf8');
@@ -21,10 +23,10 @@ const zh=await fs.readFile(path.join(root,'README.md'),'utf8'),en=await fs.readF
 assert(zh.includes('fde-motion-zh.gif')&&!zh.includes('fde-motion-en.gif'));
 assert(en.includes('fde-motion-en.gif')&&!en.includes('fde-motion-zh.gif'));
 assert(!/youtube\.com|youtu\.be|<iframe|<video/.test(zh+en),'No YouTube/embed block');
-const data=JSON.parse(await fs.readFile(path.join(root,'docs/toolkit-blueprint.json'),'utf8'));
-assert.equal(data.candidates.length,8);assert.equal(new Set(data.candidates.map(x=>x.id)).size,8);
-assert(data.candidates.every(x=>!x.installable&&!x.bundled&&!x.behaviorTested&&x.status==='candidate'&&x.upstreamUrl===null));
-assert.equal(data.publishedPackage,false);
+for(const text of [zh,en]){
+ assert(text.includes('LICENSING.md')&&text.includes('SECURITY.md'),'Public usage and security guidance');
+ assert(!text.includes('github.com/NewenergyEric/AIelsen-FDE-Toolkit'),'Do not advertise a private Toolkit download');
+}
 if(process.env.SHARP_MODULE){
  const sharp=createRequire(import.meta.url)(process.env.SHARP_MODULE);
  for(const lang of ['zh','en']){
@@ -36,4 +38,4 @@ if(process.env.SHARP_MODULE){
    assert.equal(record.uniqueSourceFrames,360);assert.equal(record.uniqueObjectStates,360);
  }
 }
-console.log(JSON.stringify({result:'pass',documents:docs.length,localReferences:refs,bilingualHeroes:true,noVideoEmbed:true,candidates:8,installableCandidates:0}));
+console.log(JSON.stringify({result:'pass',documents:docs.length,localReferences:refs,bilingualHeroes:true,noVideoEmbed:true,gifMetadataChecked:Boolean(process.env.SHARP_MODULE)}));
