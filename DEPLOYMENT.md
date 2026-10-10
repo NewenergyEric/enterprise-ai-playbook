@@ -1,10 +1,12 @@
 # Deployment Agent handoff / 部署 Agent 交接
 
-The additive Academy release is specified in [DEPLOY-ACADEMY.md](DEPLOY-ACADEMY.md). Follow that checklist as well: the root build now exports both the service site and `/academy/`, with 90 public entry routes. Keep using `dist/client` as the only publish directory.
+The additive Academy release is specified in [DEPLOY-ACADEMY.md](DEPLOY-ACADEMY.md). Follow that checklist as well: this branch exports the service site, optional Toolkit request pages and `/academy/`, with 92 public entry routes. The separate Agent-cases branch has 110 routes and intentionally has no Toolkit entry; do not merge these policies implicitly. Keep using `dist/client` as the only publish directory.
 
 ## Scope / 范围
 
-Target repository: https://github.com/NewenergyEric/FDE-web
+Target repository: https://github.com/NewenergyEric/enterprise-ai-playbook
+
+Public source access does not grant production or commercial-use rights. Read [LICENSING.md](LICENSING.md) and the [publication review](docs/security/PUBLICATION-REVIEW-2026-10-10.md) before deploying. Retain the existing production branch; repository publication is not deployment authorization.
 
 This is a **static marketing website**, not an Agent execution system. The user will arrange deployment separately. Do not upload reference projects, local caches, build-server artifacts or source research.
 
@@ -13,7 +15,7 @@ This is a **static marketing website**, not an Agent execution system. The user 
 ## Build / 构建
 
 1. Use Node.js 24.19+ and npm.
-2. Run npm ci.
+2. Run npm ci --ignore-scripts, then npm run security:check and npm run security:audit.
 3. Set SITE_URL to the real HTTPS origin, with no trailing slash or path.
 4. Run npm run check, npm run build, then npm test.
 5. Publish **dist/client** only.
@@ -24,7 +26,10 @@ PowerShell example (replace the example origin):
 $env:SITE_URL='https://your-actual-domain.example'
 # Optional: set only to the owner-approved HTTPS lead receiver.
 # $env:TOOLKIT_LEAD_ENDPOINT='https://your-approved-endpoint.example/lead'
-npm ci
+# $env:TOOLKIT_PRIVACY_URL='https://your-approved-site.example/privacy/'
+npm ci --ignore-scripts
+npm run security:check
+npm run security:audit
 npm run check
 npm run build
 npm test
@@ -75,7 +80,7 @@ Automated checks cover content structure, static rendering, document language, h
 - Check navigation, PDF downloads and editable brief downloads.
 - Verify real HTTP 404 behavior, response MIME types and no unexpected cross-origin requests.
 - Inspect canonical/hreflang/social preview against the final domain.
-- `/zh/toolkit/` and `/en/toolkit/` are the only contact-capture pages. They remain inert unless the build sets `TOOLKIT_LEAD_ENDPOINT` to an owner-approved HTTPS endpoint (localhost HTTP is allowed only for local review). The static site does not provide a mailbox, payment processor, CRM, rate limiter or data store.
+- `/zh/toolkit/` and `/en/toolkit/` are the only contact-capture pages. They remain inert unless the build sets both `TOOLKIT_LEAD_ENDPOINT` and `TOOLKIT_PRIVACY_URL` to valid, owner-approved public HTTPS URLs. Neither value may contain credentials, query strings or fragments; production loopback URLs are rejected. Development-only HTTP loopback is not a production option. The static site does not provide a mailbox, payment processor, CRM, rate limiter or data store.
 - The receiving-side contract, validation rules and release tests are documented in [docs/TOOLKIT-LEAD-ENDPOINT.md](docs/TOOLKIT-LEAD-ENDPOINT.md).
 - Before publication, verify endpoint ownership, origin allowlist, server-side validation, rate limiting, retention/deletion policy, consent wording and an operational response path. Never place Toolkit files, payment-card data, passwords or customer source material in the request.
 - Confirm publication rights for all materials and final business wording.

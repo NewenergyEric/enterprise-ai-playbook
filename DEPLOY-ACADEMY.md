@@ -2,7 +2,7 @@
 
 ## 目标与边界
 
-仓库：`https://github.com/NewenergyEric/FDE-web`
+仓库：`https://github.com/NewenergyEric/enterprise-ai-playbook`
 
 交付分支：`feat/fde-academy-20260908`
 
@@ -39,7 +39,10 @@ git switch --detach origin/feat/fde-academy-20260908
 $env:SITE_URL='https://fde.aielsen.com'
 # Optional, only after endpoint/privacy review:
 # $env:TOOLKIT_LEAD_ENDPOINT='https://your-approved-endpoint.example/lead'
-npm ci
+# $env:TOOLKIT_PRIVACY_URL='https://your-approved-site.example/privacy/'
+npm ci --ignore-scripts
+npm run security:check
+npm run security:audit
 npm run check
 npm run build
 npm test
@@ -68,7 +71,7 @@ npm run preview
 | 原服务 | `/zh/`、`/en/` | 两个首屏 CTA 分别进入场景 / 流程，不是学院 |
 | 原交付流程 | `/zh/process/`、`/en/process/` | 六个阶段保留，对应课程可打开 |
 | 原 Playbook | `/zh/playbook/#business-analysis` | 原 More 与搜索正常，相关实训随场景变化 |
-| 私有工具箱申请 | `/zh/toolkit/`、`/en/toolkit/` | 未配置 endpoint 时不提交；配置后只发送明确填写的联系方式与申请信息，不提供下载 |
+| 私有工具箱申请 | `/zh/toolkit/`、`/en/toolkit/` | 接收端或隐私说明 URL 缺失、无效时均不可提交；两项经审查配置后，只发送明确填写的联系方式与申请信息，不提供下载 |
 | 场景切换 | 九个场景逐一选择，切换中文/英文 | 原场景 hash 保留，两个相关学习入口均有效 |
 | 学院入口 | `/academy/` | 进入中文学院，有英文入口 |
 | 双语首页 | `/academy/zh/`、`/academy/en/` | 图片、字体、样式正常，返回主站正常 |

@@ -8,6 +8,7 @@ import {sources,sourceById} from '../content/sources.mjs';
 import {workshops} from '../content/workshops.mjs';
 import {notes,totalSections,preparation} from '../content/course.mjs';
 import {renderNotes} from './lesson-markdown.mjs';
+import {indexingText} from './indexing-text.mjs';
 import {boards,boardSvg,illustrateLecture} from './visual-boards.mjs';
 import {metric,gate,taskCost,difference,ActionSimulator} from '../public/assets/lab-logic.js';
 import {studyFor,studySearch} from './case-study-render.mjs';
@@ -15,6 +16,13 @@ import {readingById} from './reading-render.mjs';
 
 let checks=0;
 function check(name,fn){fn();checks++;console.log('PASS '+name);}
+check('text-only indexing preserves boundaries without joining tag fragments',()=>{
+ assert.equal(indexingText('<p>First</p><p>Second</p>'),' First  Second ');
+ assert.equal(indexingText('<p>中文</p><b>课程</b>'),' 中文  课程 ');
+ assert.equal(indexingText('<scr<script>ipt>alert(1)</scr</script>ipt>'),' ipt>alert(1) ipt>');
+ assert.ok(!indexingText('<scr<script>ipt>').includes('<script'));
+ assert.equal(indexingText('A &amp; B < unfinished'),'A &amp; B < unfinished');
+});
 check('curriculum completeness',()=>{
  assert.equal(weeks.length,12);assert.equal(weeks.flatMap(w=>w.lessons).length,48);
  assert.equal(new Set(weeks.map(w=>w.id)).size,12);

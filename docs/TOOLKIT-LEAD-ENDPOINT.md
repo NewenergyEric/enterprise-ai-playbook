@@ -1,8 +1,8 @@
 # Toolkit lead endpoint contract / 工具箱申请接收端契约
 
-This repository only contains the static form. It does not include a mailbox, CRM, payment processor or database. A deployment Agent may set `TOOLKIT_LEAD_ENDPOINT` to an owner-operated endpoint after privacy review. If the variable is absent or invalid, the form stays non-submitting and tells the visitor that nothing was sent.
+This repository only contains the static form. It does not include a mailbox, CRM, payment processor or database. A deployment Agent may set `TOOLKIT_LEAD_ENDPOINT` and `TOOLKIT_PRIVACY_URL` after privacy review. If either value is absent or invalid, the form stays non-submitting and tells the visitor that nothing was sent.
 
-本仓库只有静态表单，不包含邮箱、CRM、支付处理器或数据库。部署 Agent 只有在完成隐私审查后，才可以把 `TOOLKIT_LEAD_ENDPOINT` 设置为负责人控制的接收端。变量缺失或地址无效时，表单保持不可提交，并明确告诉访客没有发送任何信息。
+本仓库只有静态表单，不包含邮箱、CRM、支付处理器或数据库。部署 Agent 只有在完成隐私审查后，才可以配置负责人控制的接收端 `TOOLKIT_LEAD_ENDPOINT` 和真实隐私说明 `TOOLKIT_PRIVACY_URL`。任一变量缺失或地址无效时，表单保持不可提交，并明确告诉访客没有发送任何信息。
 
 ## Request body / 请求字段
 

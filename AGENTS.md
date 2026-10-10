@@ -10,7 +10,7 @@ Read `DEPLOY-ACADEMY.md` for the integration release and `DEPLOYMENT.md` for the
 - Academy is additive: `/academy/zh/` and `/academy/en/`. Its authored source is `academy/`; its public output is `dist/client/academy/`.
 - Preserve the established navy/teal editorial style and the illustrated teaching boards. Do not replace the Academy with summaries or claim all expanded notes are translated; detailed notes are currently Chinese.
 - Do not publish private source projects, original curriculum screenshots, client identities, internal paths, tokens, caches, authoring work or local notes. Do not read other local project directories to deploy this repository.
-- No hardcoded mailbox, learner account, accreditation, production AI service or measured ROI claim. The approved Toolkit request page may collect an email or WeChat ID only through the build-time `TOOLKIT_LEAD_ENDPOINT`; keep the endpoint external, HTTPS-only in production, rate-limited and privacy-reviewed. Never collect payment-card data or expose Toolkit files.
+- No hardcoded mailbox, learner account, accreditation, production AI service or measured ROI claim. The approved Toolkit request page may collect an email or WeChat ID only when both build-time `TOOLKIT_LEAD_ENDPOINT` and `TOOLKIT_PRIVACY_URL` are valid and owner-approved; keep them public HTTPS URLs without credentials, query strings or fragments. The receiver must be rate-limited and privacy-reviewed separately. Missing configuration must disable collection. Never collect payment-card data or expose Toolkit files.
 
 ## Workflow
 

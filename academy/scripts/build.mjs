@@ -7,6 +7,7 @@ import {sourcesPage} from './reading-render.mjs';
 import {home,curriculumPage,modulePage,pathsPage,resourcesPage,enterprisePage,cleanCopy} from './teaching-render.mjs';
 import {notes,totalSections} from '../content/course.mjs';
 import {renderNotes} from './lesson-markdown.mjs';
+import {indexingText} from './indexing-text.mjs';
 import {boards,boardSvg,viewer} from './visual-boards.mjs';
 import {phaseArt} from './field-illustrations.mjs';
 import {labsPage,guidePage} from './extra-pages.mjs';
@@ -19,7 +20,7 @@ if(root!==fileURLToPath(new URL('../dist',import.meta.url)))throw Error('Build m
 await rm(root,{recursive:true,force:true});await mkdir(root,{recursive:true});
 const manifest=[];let fontText='';
 const searchExtras={zh:[],en:[]};
-async function page(lang,slug,title,body){const html=cleanCopy(shell(lang,slug,title,body+viewer(lang)),lang).replace('</head>','<link rel="stylesheet" href="/assets/teaching.css"><link rel="stylesheet" href="/assets/visuals.css"><script type="module" src="/assets/visuals.js"></script></head>').replace('<script src="/assets/app.js" defer>','<script src="/assets/app.js" type="module">');const dest=path.join(root,lang,slug,'index.html');await mkdir(path.dirname(dest),{recursive:true});await writeFile(dest,html,'utf8');manifest.push('/'+lang+'/'+(slug?slug+'/':''));fontText+=html.replace(/<[^>]+>/g,'');if(['paths','labs','resources','enterprise','guide'].includes(slug))searchExtras[lang].push({title,type:lang==='zh'?'指南与资源':'Guide and resource',url:'/'+lang+'/'+slug+'/',description:title,text:body.replace(/<[^>]+>/g,' ')});}
+async function page(lang,slug,title,body){const html=cleanCopy(shell(lang,slug,title,body+viewer(lang)),lang).replace('</head>','<link rel="stylesheet" href="/assets/teaching.css"><link rel="stylesheet" href="/assets/visuals.css"><script type="module" src="/assets/visuals.js"></script></head>').replace('<script src="/assets/app.js" defer>','<script src="/assets/app.js" type="module">');const dest=path.join(root,lang,slug,'index.html');await mkdir(path.dirname(dest),{recursive:true});await writeFile(dest,html,'utf8');manifest.push('/'+lang+'/'+(slug?slug+'/':''));fontText+=indexingText(html);if(['paths','labs','resources','enterprise','guide'].includes(slug))searchExtras[lang].push({title,type:lang==='zh'?'指南与资源':'Guide and resource',url:'/'+lang+'/'+slug+'/',description:title,text:body.replace(/<[^>]+>/g,' ')});}
 for(const l of ['zh','en']){
  await page(l,'',l==='zh'?'FDE 交付实战课程':'FDE engineering and delivery',home(l));
  for(const [slug,zh,en,fn] of [['curriculum','课程大纲','Curriculum',curriculumPage],['cases','案例与业务实作','Cases and field practice',casesPage],['paths','学习前提与准备','Prerequisites',pathsPage],['labs','交互实验台','Interactive labs',labsPage],['resources','课程资料与工程实训包','Course materials',resourcesPage],['enterprise','企业共训','Enterprise learning',enterprisePage],['guide','讲师与结业指南','Instructor and capstone guide',guidePage],['glossary','关键概念','Concept atlas',glossaryPage],['sources','延伸阅读与技术资料','Reading and technical resources',sourcesPage]])await page(l,slug,l==='zh'?zh:en,fn(l));
