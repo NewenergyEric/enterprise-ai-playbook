@@ -1,111 +1,163 @@
-<p align="center"><a href="README.md">中文</a> · <strong>English</strong></p>
 <h1 align="center">Enterprise AI Playbook</h1>
-<p align="center"><strong>By AIelsen · Enterprise AI adoption, agent use cases and FDE delivery.</strong></p>
+<h2 align="center"><a href="https://fde.aielsen.com/">Explore the complete guide ↗ fde.aielsen.com</a></h2>
+<p align="center"><strong>Enterprise AI adoption · Workflows, critical decisions and practical FDE training</strong></p>
+<p align="center"><a href="README.md">中文</a> · <strong>English</strong></p>
+
 <p align="center">
-  <img src="docs/media/badge-bilingual.svg" alt="Chinese and English">
-  <img src="docs/media/badge-cases-en.svg" alt="9 anonymized Agent cases">
-  <img src="docs/media/badge-academy-en.svg" alt="12-week FDE curriculum">
-  <img src="docs/media/badge-static-en.svg" alt="Static deployment">
+  <a href="https://fde.aielsen.com/academy/en/"><strong>Enter FDE Academy</strong></a> ·
+  <a href="https://fde.aielsen.com/academy/en/curriculum/">12-week curriculum</a> ·
+  <a href="https://fde.aielsen.com/en/process/">Delivery workflow</a> ·
+  <a href="https://fde.aielsen.com/en/playbook/">Business playbook</a> ·
+  <a href="https://fde.aielsen.com/agent-cases/en/">Agent cases</a>
 </p>
+
 <p align="center">
-  <a href="https://fde.aielsen.com/en/">FDE services</a> ·
-  <a href="https://fde.aielsen.com/en/playbook/">Find your use case</a> ·
-  <a href="#see-an-agent-carry-the-work-through">Agent cases</a> ·
-  <a href="#build-the-capability-to-deliver">FDE Academy</a> ·
-  <a href="LICENSING.md">License</a> · <a href="SECURITY.md">Security</a>
+  <a href="https://fde.aielsen.com/en/"><img src="docs/media/fde-motion-en.gif" alt="Explore the complete guide: move from information and business judgment to agent workflows, verifiable deliverables and reusable methods." width="100%"></a>
 </p>
-<p align="center"><img src="docs/media/fde-motion-en.gif" alt="Continuous FDE animation: information converges into a brief, tasks travel through a workflow, deliverables unfold, and outputs become a reusable delivery kit." width="100%"></p>
-<p align="center"><sub>18 seconds of continuous motion · 20 FPS / 360 frames · Silent loop · <a href="docs/media/fde-motion-en.png">Static version</a> · <a href="docs/studio/README.md">Animation source and production notes</a></sub></p>
+<p align="center"><sub>A visual guide to the work · <a href="docs/media/fde-motion-en.png">Static version</a> · <a href="https://fde.aielsen.com/academy/en/resources/#visual-atlas">Teaching boards</a></sub></p>
 
-A Forward Deployed Engineer has to solve more than whether a model can answer. **Unclear requirements, fragmented knowledge, broken handoffs and untestable outputs** are often the real obstacles to putting AI into enterprise work.
+The hard part of enterprise AI is often connecting the work: **where inputs come from, what supports a decision, who takes the next step, and what counts as completion.**
 
-This repository connects our delivery approach, engineering practice and anonymized Agent cases. It shows both where AI may be useful and what actually happens between a request and a usable deliverable.
+Curated by AIelsen, this guide connects business use cases, field-delivery methods and engineering practice. Start with a business opportunity, or follow the FDE Academy project to learn how an existing product becomes a verifiable business capability.
 
-> **Complete website:** [`feat/agent-cases-20260910`](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910) includes services, Academy and Agent cases. `main` retains the services site and repository entrance; the Academy and case implementations remain on that integration branch. Security updates neither merge these modules nor deploy the live site. [Deployment agents: start here](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md).
-
-## Find your starting point
-
-| Your task | Start here | What you get |
-| --- | --- | --- |
-| Find a valuable business application | [Business Playbook](https://fde.aielsen.com/en/playbook/) | 9 plays and 66 in-context More applications: problems, inputs, methods, outputs and pilot evaluation |
-| See how an agent carries work forward | [9 Agent cases](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/agent-cases/README.md) | Business context, key decisions, successive actions, deliverables, comparisons and worksheets |
-| Train engineers to deliver | [FDE Academy](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy) | A 12-week curriculum, detailed notes, visual boards, interactive labs and engineering practice |
-| Take over and release the website | [Combined deployment guide](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) | Explicit branch, build commands, output directory, routes and acceptance checks |
-
-**Source-available for learning and non-production evaluation. Production use, paid training/consulting, resale and SaaS require written commercial authorization.** [License boundaries](LICENSING.md) · [Commercial authorization](COMMERCIAL.md)
-
-## See an agent carry the work through
-
-### Bella: from requirements, research and FAB to campaign copy and TVC
-
-The case does not start with the final image. It follows clarification, research, feedback, FAB development, campaign planning, copy, creative direction and storyboards, then compares earlier recommendations with the final public film. The emphasis is **an agent participating across the campaign workflow**, not treating a similar frame as proof of overall business impact.
-
-[Browse the case collection and maintenance guide →](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/agent-cases/README.md)
-
-| Case | Starting problem | Work carried forward | What the page explains |
-| --- | --- | --- | --- |
-| **Ruby · Creator partnerships** | A product needs relevant overseas creators | Channel selection → individual pitch → reply handling → commercial handoff | Why this creator, which collaboration angle, what happens next |
-| **Oliva · Product and after-sales support** | Information exists, but staff still have to hunt for it | Retrieve knowledge → draft in context → human correction → knowledge feedback | Answer grounding, service boundaries and how corrections improve the knowledge base |
-| **Steve · Engineering handoff** | Documentation and implemented analysis rules may differ | Inspect rules → identify discrepancies → mark unverified points → prepare handoff | What is supported, what needs testing and how the next engineer continues |
-| **Velia, Atlas, Nora, Leo and Iris** | Further marketing, product and business workflows | Scope follows the actual deliverables of each case | Problem framing, decisions, successive actions and usable outputs |
-
-The collection contains **20 Chinese/English pages, 28 bilingual diagrams and 18 editable worksheets**. Names are aliases. Method illustrations, scene artwork and genuine comparisons are distinguished on the pages. Deliverables are not sales or ROI evidence.
-
-## Build the capability to deliver
-
-| Training stage | Key decisions | Required outputs |
-| --- | --- | --- |
-| **W01–03 · Frame the problem** | Is it worth doing? Who decides? What is in scope? | Project brief, fact ledger, metric contract and scope |
-| **W04–06 · Connect the workflow** | Can the data support the decision? Are semantics and tool boundaries clear? | Adapters, data-quality report, ontology, tools and safety tests |
-| **W07–09 · Engineer delivery** | Where did it fail? What if a write has an unknown outcome? Who handles incidents? | Evaluation set, connectors, execution trace and runbook |
-| **W10–12 · Accept and reuse** | How should results be interpreted? What transfers to another project? | Acceptance evidence, retrospective, layered asset inventory and capstone |
-
-| Agent evaluation: locate the failing layer | Actions: a timeout does not mean nothing happened |
+| What you want to do | Start here |
 | --- | --- |
-| [![Layered evaluation teaching board](docs/media/evals-en.svg)](docs/media/evals-en.svg) | [![Execution-state teaching board](docs/media/states-en.svg)](docs/media/states-en.svg) |
+| Learn enterprise AI delivery systematically | [FDE Academy: curriculum, assignments and engineering practice](https://fde.aielsen.com/academy/en/) |
+| Move beyond a prototype into data, tools, evaluation and operations | [12-week engineering path](#fde-academy) · [Detailed learning guide](docs/FDE-ACADEMY.en.md) |
+| Find a concrete business application | [9 plays and 66 in-context More applications](https://fde.aielsen.com/en/playbook/) |
+| See how a request becomes a usable deliverable | [Six-step workflow](#workflow) · [Agent cases](#agent-cases) |
 
-The Academy includes **100 detailed Chinese lessons, 19 bilingual cases and exercises, 24 bilingual boards and 6 interactive labs**, plus 30 concepts, 57 case-linked assignments and offline Python practice. Counts describe learning content, not customers. **Expanded notes are currently Chinese**; English pages provide curriculum summaries, cases, boards and practice guidance.
+<a id="workflow"></a>
 
-[Lesson notes](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy/content/notes) · [Engineering practice kit](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy/practice-kit) · [Training brochure PDF](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
+## One workflow. Six critical decisions.
 
-## Publication scope and security
+A Forward Deployed Engineer connects business practice, product capabilities and engineering. Each step leaves an artifact that the next person can use.
 
-This is an enterprise AI adoption and delivery learning resource, not a production agent runtime. Separately maintained private toolkits are outside this publication and license.
+| Stage | Work to do | Critical decision | Artifact |
+| --- | --- | --- | --- |
+| **01 Frame the problem** | Reconstruct a recent task, its user, inputs, baseline and constraints | Is the problem worth solving? Would a rule or script be sufficient? | Opportunity brief, baseline and explicit exclusions |
+| **02 Reconstruct the work** | Observe a practitioner; record evidence, disagreements, exceptions and handoffs | Where does expertise matter? Is information missing, or is judgment missing? | Workflow map, fact ledger and responsibility map |
+| **03 Capture the method** | Specify inputs, decision rules, examples, counterexamples and tool contracts | Does the method work on fresh examples? What must not be guessed by a model? | Skill specification, evidence requirements and test cases |
+| **04 Connect the workflow** | Integrate data, business semantics, tools and the actual work entry point | When should the agent clarify, call a tool, stop or hand over? | Adapters, business tools, first output and execution traces |
+| **05 Validate the task** | Compare quality, time, rework, cost and final state on equivalent material | Did the job finish, or did the answer only sound convincing? Which layer failed? | Evaluation sets, version comparisons and failure cases |
+| **06 Hand over and reuse** | Document versions, dependencies and ownership; separate shared capabilities from tenant settings | What transfers, what needs adaptation, and what must remain private? | Runbook, asset register, product feedback and transfer conditions |
 
-The [publication review](docs/security/PUBLICATION-REVIEW-2026-10-10.md) documents history, downloadable artifacts, dependencies and automated checks. One upstream-unpatched build dependency advisory remains (reported as six high-severity dependency entries by npm), with narrow controls and an expiring review. This is not a zero-risk claim. [Report vulnerabilities privately](SECURITY.md).
+[Explore the full delivery workflow →](https://fde.aielsen.com/en/process/)
 
-## Run the complete version locally
+<a id="fde-academy"></a>
 
-Use **Node.js 24.19+**. Read the [learning and non-production evaluation license](LICENSING.md) before using the source.
+## FDE Academy: practice a complete delivery
 
-```sh
-git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/enterprise-ai-playbook.git
-cd enterprise-ai-playbook
-npm ci --ignore-scripts
-npm run security:check
-npm run security:audit
-npm run check
-npm run build
-npm test
-npm run preview
-```
+**Learn to explain, implement and verify an enterprise AI engagement.**
 
-Preview: `http://127.0.0.1:4179`. One build; the only publish directory is `dist/client/`.
+The Academy is for FDEs, solution architects, data and agent engineers, and business colleagues who shape requirements and acceptance. Its 12-week spine is a **synthetic retail member-operations project**:
 
-| Area | Chinese | English |
+> The business wants stronger repeat purchasing. CRM and POS identities disagree, operators distrust the proposed audience, and IT needs clear access and operational responsibilities. Establish the data and metric contracts first, deliver an advisory agent, then test controlled actions, failure recovery and acceptance.
+
+The learning unit is a complete chain: **business problem → data and semantics → agent tools → evaluation and controlled actions → acceptance and product feedback**.
+
+<p align="center">
+  <a href="https://fde.aielsen.com/academy/en/curriculum/"><img src="docs/media/badge-academy-en.svg" alt="12-week FDE curriculum"></a>
+  <img src="docs/media/badge-bilingual.svg" alt="Chinese and English">
+</p>
+
+### Twelve weeks, with a concrete artifact every week
+
+| Week / module | Decision to make | Engineering and delivery artifacts |
 | --- | --- | --- |
-| Services | `/zh/` | `/en/` |
-| Process / Playbook | `/zh/process/` · `/zh/playbook/` | `/en/process/` · `/en/playbook/` |
-| Academy | `/academy/zh/` | `/academy/en/` |
-| Agent cases | `/agent-cases/` | `/agent-cases/en/` |
+| [W01 · FDE role and project qualification](https://fde.aielsen.com/academy/en/curriculum/01/) | Is the project worth doing? Where does the standard product fit or fall short? | Fit memo, fit/gap register and environment checks |
+| [W02 · Discovery and business modeling](https://fde.aielsen.com/academy/en/curriculum/02/) | How do stakeholder accounts become evidence, conflicts and testable unknowns? | Interview ledger, stakeholder map and business-object draft |
+| [W03 · Metrics and delivery scope](https://fde.aielsen.com/academy/en/curriculum/03/) | What are the denominator, observation window and exclusions? What is out of scope? | Metric contract, executable checks and change rules |
+| [W04 · Data profiling and tenant adaptation](https://fde.aielsen.com/academy/en/curriculum/04/) | How do duplicates, missing values, refunds and late events affect the output? | Adapter, quality report, quarantine records and reconciliation |
+| [W05 · Ontology and the advisory agent](https://fde.aielsen.com/academy/en/curriculum/05/) | How are identities resolved? What belongs to computation, retrieval or the model? | Ontology, semantic configuration, segmentation/advice tools and agent traces |
+| [W06 · Data security and deployment design](https://fde.aielsen.com/academy/en/curriculum/06/) | Which fields and tools may be used, and where is access actually enforced? | Data-flow map, permission module, denial tests and architecture choices |
+| [W07 · Agent evaluation and scope change](https://fde.aielsen.com/academy/en/curriculum/07/) | Is the failure in data, tools, model behavior or the business rubric? | Normal/edge/adversarial sets, runner, version report and change proposal |
+| [W08 · Action agents and operational integration](https://fde.aielsen.com/academy/en/curriculum/08/) | How are duplicate effects prevented? How is the result checked after a timeout? | Simulated coupon/tag connectors, parameter binding, idempotency and status checks |
+| [W09 · Production engineering and launch review](https://fde.aielsen.com/academy/en/curriculum/09/) | Can the system stop, explain a failure and recover? Is the full cost counted? | Traces, failure drills, rollout/rollback plan and runbook |
+| [W10 · Attribution and project acceptance](https://fde.aielsen.com/academy/en/curriculum/10/) | What do technical success, adoption and business outcomes each establish? | Analysis scripts, observation/control design and three-layer acceptance |
+| [W11 · Retrospective and product feedback](https://fde.aielsen.com/academy/en/curriculum/11/) | What is tenant-specific, an industry template or a general product improvement? | Retrospective, asset layers, reproducible product feedback and transfer analysis |
+| [W12 · Capstone defense and competency review](https://fde.aielsen.com/academy/en/curriculum/12/) | Can someone else reproduce the work? Can you adapt it under a new constraint? | Evidence pack, normal/failure demonstrations and competency review |
 
-Do not overwrite the domain root with the standalone cases module or publish source/`dist/server`. Preserve business CTAs, 9 plays, all 66 More applications, language switching and genuine 404 responses. [Deployment checklist](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) · [CI runs](https://github.com/NewenergyEric/enterprise-ai-playbook/actions?query=branch%3Afeat%2Fagent-cases-20260910)
+### Follow one concrete task
 
-## Use and maintenance boundaries
+“Find members who have not returned recently and propose an action.” The course turns that request into six inspectable pieces of work.
 
-- This is a services, training and case-study website, not a hosted production agent platform. It does not offer learner accounts, cloud learning records or certification.
-- Original customer files, working-agent identities, internal paths and secrets are not included. Public references do not imply partnerships or endorsement.
-- Original work uses the **AIelsen Learning and Evaluation License 1.0**, not MIT or an OSI open-source license. [Third-party works](THIRD_PARTY_NOTICES.md) retain their own terms.
-- Animations illustrate methods. The owner has confirmed repository publication rights for the retained real comparison/product images; these may still identify their public sources and are not sublicensed for downstream reuse.
+| Critical point | What the learner does |
+| --- | --- |
+| **Clarify the business meaning** | Confirm the store, snapshot date, and whether inactivity means no visit or no valid purchase |
+| **Check identity and data** | Resolve CRM/POS mappings, refunds and duplicates; isolate unknowns explicitly |
+| **Supply evidence through tools** | `segment_members` returns a segment reference, exclusion counts, metric version and evidence snapshot |
+| **Separate advice from execution** | `propose_operation` proposes a constrained plan without issuing a coupon |
+| **Handle actions and exceptions** | Simulate preview, confirmation, idempotency and budget rechecks; query status after a timeout |
+| **Establish what was verified** | Report mechanism tests, real model traces, business review and untested behavior separately |
 
-[Contributing](CONTRIBUTING.md) · [Content notes](CONTENT-NOTES.md) · [Asset notes](ASSETS.md) · [Showcase maintenance](docs/studio/README.md)
+[Start with the W05 advisory agent](https://fde.aielsen.com/academy/en/curriculum/05/) · [Continue into W08 actions](https://fde.aielsen.com/academy/en/curriculum/08/)
+
+### Two boards for two easily confused engineering problems
+
+| Which layer actually failed? | Why is a timeout not permission to retry? |
+| --- | --- |
+| [![Layered evaluation across data, tools, model tasks and business use](docs/media/evals-en.svg)](https://fde.aielsen.com/academy/en/curriculum/07/) | [![Execution states, unknown outcomes, status checks and recovery](docs/media/states-en.svg)](https://fde.aielsen.com/academy/en/curriculum/08/) |
+
+Two course requirements follow: **check the final state, not just a fluent response; never average an authorization or execution failure away with good quality scores.**
+
+### Different roles, shared evidence
+
+| Role | Learning focus | Expected artifact |
+| --- | --- | --- |
+| FDE / solutions / product lead | All 12 weeks: discovery, adaptation, evaluation, delivery and reuse | An explainable, reproducible delivery portfolio |
+| Data and agent engineer | W03–09 and W12: contracts, tools, model integration, testing and operations | Code, tests, model traces and a recovery runbook |
+| Marketing / sales / operations / domain expert | W02, 03, 05, 07, 08, 10: task rules and usefulness | Task specifications, gold examples, rejection reasons and a business rubric |
+| Business leader / sponsor | W01, 03, 09, 10, 11: investment, responsibilities and acceptance | Pilot decision, acceptance criteria and ownership |
+| Career transition / new practitioner | Programming, SQL, APIs and Git before the full path | An honestly labeled training portfolio and capability gap map |
+
+[Prerequisites and preparation →](https://fde.aielsen.com/academy/en/paths/)
+
+### Learning materials and hands-on engineering
+
+| Material | How to use it |
+| --- | --- |
+| [100 expanded Chinese lecture sections](https://fde.aielsen.com/academy/en/curriculum/) | Study the method, interfaces, failure modes, required work and acceptance for each week |
+| [19 bilingual cases and field exercises](https://fde.aielsen.com/academy/en/cases/) | Work through 9 public cases and 10 synthetic exercises: problem, discovery, actions, decisions and assignments |
+| [24 bilingual teaching boards](https://fde.aielsen.com/academy/en/resources/#visual-atlas) | Inspect and download diagrams on semantics, tools, evaluation, action states, cost and asset layers |
+| [6 interactive labs](https://fde.aielsen.com/academy/en/labs/) | Change synthetic inputs to explore metric definitions, gates, cost, attribution and action boundaries |
+| [16 bilingual worksheets and the Python practice kit](https://fde.aielsen.com/academy/en/resources/) | Build a fit memo through to an evidence index; run 37 offline mechanism tests |
+| [30 concepts and further reading](https://fde.aielsen.com/academy/en/glossary/) | Connect terminology to business and engineering work, then follow primary references |
+
+The kit uses synthetic data and local simulations. It does not connect to real business systems or include a live model. Learners integrate a model separately in an authorized environment and report **mechanism tests separately from model-task results**. Expanded lecture notes are currently Chinese; English pages provide curriculum summaries, cases, boards and practice guidance.
+
+[Detailed learning guide](docs/FDE-ACADEMY.en.md) · [Capstone and review guidance](https://fde.aielsen.com/academy/en/guide/) · [Academy brochure PDF](https://fde.aielsen.com/academy/downloads/AIelsen-FDE-Academy-Brochure.pdf) · [Plan team learning](https://fde.aielsen.com/academy/en/enterprise/)
+
+<a id="agent-cases"></a>
+
+## Connect the course to concrete work
+
+The [business Playbook](https://fde.aielsen.com/en/playbook/) covers market entry, prospecting, creator partnerships, content, customer support, business analysis, store operations, expert research and enterprise knowledge. Each play starts with the user, available inputs and required output, then expands into in-context More applications.
+
+The [Agent case collection](https://fde.aielsen.com/agent-cases/en/) shows how work continues across steps:
+
+| Case | Work sequence | Reusable decision |
+| --- | --- | --- |
+| [Bella · Creative and integrated marketing](https://fde.aielsen.com/agent-cases/en/cases/bella/) | Brief → research → FAB → campaign/copy → storyboard → final-film comparison | Relate revisions to requirements and evidence, not only the final image |
+| [Ruby · Creator partnerships](https://fde.aielsen.com/agent-cases/en/cases/ruby/) | Channel research → fit → individual pitch → replies → commercial handoff | Turn a contact list into a defensible next action |
+| [Oliva · Product and after-sales support](https://fde.aielsen.com/agent-cases/en/cases/oliva/) | Organize sources → retrieve evidence → contextual answer → human correction → knowledge feedback | Match model/version/evidence and feed corrections back into maintenance |
+| [Steve · Engineering handoff](https://fde.aielsen.com/agent-cases/en/cases/steve/) | Inspect rules → find discrepancies → mark unknowns → hand over | Check what documentation says against what the system actually does |
+
+Velia, Atlas, Nora, Leo and Iris complete the nine anonymized cases: 20 Chinese/English pages, 28 bilingual diagrams and 18 worksheets. These explain methods and artifacts, not independently established business gains.
+
+## License and participation
+
+Personal learning, corporate internal learning and non-production evaluation are permitted. Production use, paid training/consulting, resale and SaaS require written commercial authorization. Original work uses the **AIelsen Learning and Evaluation License 1.0**: source-available, not MIT or OSI open source.
+
+[Usage boundaries](LICENSING.md) · [Commercial authorization](COMMERCIAL.md) · [Third-party materials](THIRD_PARTY_NOTICES.md) · [Contributing](CONTRIBUTING.md) · [Security and private reporting](SECURITY.md)
+
+Known dependency risks and review limits are documented in the [security review](docs/security/PUBLICATION-REVIEW-2026-10-10.md). Exercises use synthetic data. Public references and third-party materials do not imply partnerships or additional reuse rights.
+
+<details>
+<summary>Source files, local learning and contributions</summary>
+
+The [source and local-learning guide](docs/DEVELOPMENT.md) provides complete source entry points, editing locations and non-production preview instructions. [Asset notes](ASSETS.md) and [animation source](docs/studio/README.md) are available to maintainers.
+
+</details>
+
+<p align="center"><strong><a href="https://fde.aielsen.com/en/">Start with one concrete task → fde.aielsen.com</a></strong></p>
