@@ -1,0 +1,13 @@
+{
+  "language": "zh",
+  "width": 1100,
+  "height": 650,
+  "sourceFrames": 360,
+  "encodedFrames": 360,
+  "uniqueSourceFrames": 360,
+  "uniqueObjectStates": 360,
+  "durationMs": 18000,
+  "maxFrameDelayMs": 50,
+  "loop": 0,
+  "bytes": 3432529
+}

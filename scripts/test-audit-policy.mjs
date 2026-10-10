@@ -1,0 +1,17 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { evaluateAudit } from './audit-policy.mjs';
+const policy = { expiresOn: '2026-10-24', package: 'braces', version: '3.0.3', advisory: 'GHSA-vfj7-8cjw-p6xm', affectedChain: ['braces', 'vinext'] };
+const lock = { packages: { 'node_modules/braces': { version: '3.0.3' } } };
+const now = new Date('2026-10-10T00:00:00Z');
+const clean = () => ({ auditReportVersion: 2, metadata: { vulnerabilities: {} }, vulnerabilities: {} });
+const known = () => ({ ...clean(), vulnerabilities: { braces: { severity: 'high', via: [{ name: 'braces', severity: 'high', url: 'https://github.com/advisories/GHSA-vfj7-8cjw-p6xm' }] }, vinext: { severity: 'high', via: ['braces'] } } });
+test('clean response passes without an exception', () => assert.equal(evaluateAudit(clean(), policy, lock, now).accepted, false));
+test('only exact reviewed root and chain pass', () => assert.equal(evaluateAudit(known(), policy, lock, now).count, 2));
+test('new advisory fails', () => { const r = known(); r.vulnerabilities.braces.via[0].url += '-new'; assert.throws(() => evaluateAudit(r, policy, lock, now)); });
+test('critical severity fails', () => { const r = known(); r.vulnerabilities.braces.severity = 'critical'; assert.throws(() => evaluateAudit(r, policy, lock, now)); });
+test('new package fails', () => { const r = known(); r.vulnerabilities.other = { severity: 'high', via: ['braces'] }; assert.throws(() => evaluateAudit(r, policy, lock, now)); });
+test('expiry fails', () => assert.throws(() => evaluateAudit(known(), policy, lock, new Date('2026-10-25'))));
+test('version change fails', () => assert.throws(() => evaluateAudit(known(), policy, { packages: {} }, now)));
+test('registry error fails closed', () => assert.throws(() => evaluateAudit({ error: 'offline' }, policy, lock, now)));
+test('missing via root fails', () => { const r=known(); r.vulnerabilities.braces.via=['vinext']; assert.throws(() => evaluateAudit(r, policy, lock, now)); });

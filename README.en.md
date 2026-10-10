@@ -1,129 +1,111 @@
+<p align="center"><a href="README.md">中文</a> · <strong>English</strong></p>
+<h1 align="center">Enterprise AI Playbook</h1>
+<p align="center"><strong>By AIelsen · Enterprise AI adoption, agent use cases and FDE delivery.</strong></p>
 <p align="center">
-  <img src="docs/media/fde-cover.png" alt="AIelsen FDE — From field problems to working AI: discover, engineer, verify and reuse." width="100%">
+  <img src="docs/media/badge-bilingual.svg" alt="Chinese and English">
+  <img src="docs/media/badge-cases-en.svg" alt="9 anonymized Agent cases">
+  <img src="docs/media/badge-academy-en.svg" alt="12-week FDE curriculum">
+  <img src="docs/media/badge-static-en.svg" alt="Static deployment">
 </p>
-
 <p align="center">
-  <a href="README.md">中文</a> · <strong>English</strong><br>
   <a href="https://fde.aielsen.com/en/">FDE services</a> ·
-  <a href="agent-cases/README.md">Agent case studies</a> ·
-  <a href="academy">Academy source</a> ·
-  <a href="DEPLOY-AGENT-CASES.md">Combined deployment guide</a> ·
-  <a href="https://github.com/NewenergyEric/FDE-web/actions/workflows/verify.yml?query=branch%3Afeat%2Fagent-cases-20260910">Build checks</a>
+  <a href="https://fde.aielsen.com/en/playbook/">Find your use case</a> ·
+  <a href="#see-an-agent-carry-the-work-through">Agent cases</a> ·
+  <a href="#build-the-capability-to-deliver">FDE Academy</a> ·
+  <a href="LICENSING.md">License</a> · <a href="SECURITY.md">Security</a>
 </p>
+<p align="center"><img src="docs/media/fde-motion-en.gif" alt="Continuous FDE animation: information converges into a brief, tasks travel through a workflow, deliverables unfold, and outputs become a reusable delivery kit." width="100%"></p>
+<p align="center"><sub>18 seconds of continuous motion · 20 FPS / 360 frames · Silent loop · <a href="docs/media/fde-motion-en.png">Static version</a> · <a href="docs/studio/README.md">Animation source and production notes</a></sub></p>
 
-# AIelsen FDE
+A Forward Deployed Engineer has to solve more than whether a model can answer. **Unclear requirements, fragmented knowledge, broken handoffs and untestable outputs** are often the real obstacles to putting AI into enterprise work.
 
-**Understand the work. Engineer the system. Build the team's delivery capability.**
+This repository connects our delivery approach, engineering practice and anonymized Agent cases. It shows both where AI may be useful and what actually happens between a request and a usable deliverable.
 
-A Forward Deployed Engineer does more than make a model answer questions. The job is to understand the operating context, define meaningful measures, connect data and tools, and deliver something that stands up to both business and engineering review.
-
-This project connects **FDE services and an enterprise Playbook**, **FDE Academy** and **Agent case studies**. Services explain what is worth building; the Academy develops delivery skills; the cases trace how a brief becomes decisions, working outputs and a usable handoff.
-
-> **Complete edition:** services, Academy and Agent cases are integrated on [`feat/agent-cases-20260910`](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910). The branch retains the complete Academy and adds a bilingual “Agent Cases” navigation entry. Code delivery does not mean production deployment; an older `main` checkout does not include this complete edition. Follow the [combined deployment guide](DEPLOY-AGENT-CASES.md).
+> **Complete website:** [`feat/agent-cases-20260910`](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910) includes services, Academy and Agent cases. `main` retains the services site and repository entrance; the Academy and case implementations remain on that integration branch. Security updates neither merge these modules nor deploy the live site. [Deployment agents: start here](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md).
 
 ## Find your starting point
 
-| Audience | What you need to answer | Start here |
+| Your task | Start here | What you get |
 | --- | --- | --- |
-| Business leaders | Which AI applications belong in real work? How should a pilot be scoped and accepted? | [Enterprise Playbook](https://fde.aielsen.com/en/playbook/) · [Delivery process](https://fde.aielsen.com/en/process/) |
-| FDEs, AI and data engineers | How do discovery, data, agents, evaluation and production delivery fit together? | [Course source](academy/content) · [Engineering practice kit](academy/practice-kit) |
-| Solutions leads and training organizers | How do we develop independent delivery capability, beyond tool familiarity? | [Training brochure (Chinese)](academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf) · [Academy guide](academy/README.md) |
-| Developers and deployment agents | How do we maintain, verify and release an additive update? | [Deployment checklist](DEPLOY-AGENT-CASES.md) · [Contribution guide](CONTRIBUTING.md) |
+| Find a valuable business application | [Business Playbook](https://fde.aielsen.com/en/playbook/) | 9 plays and 66 in-context More applications: problems, inputs, methods, outputs and pilot evaluation |
+| See how an agent carries work forward | [9 Agent cases](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/agent-cases/README.md) | Business context, key decisions, successive actions, deliverables, comparisons and worksheets |
+| Train engineers to deliver | [FDE Academy](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy) | A 12-week curriculum, detailed notes, visual boards, interactive labs and engineering practice |
+| Take over and release the website | [Combined deployment guide](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) | Explicit branch, build commands, output directory, routes and acceptance checks |
 
-## See the work in nine Agent cases
+**Source-available for learning and non-production evaluation. Production use, paid training/consulting, resale and SaaS require written commercial authorization.** [License boundaries](LICENSING.md) · [Commercial authorization](COMMERCIAL.md)
 
-Each anonymized case includes a full Chinese and English narrative, scenario photography, working diagrams and an editable workbook. Follow **business problem → key decisions → continuous work → deliverables → before / after → reusable methods**.
+## See an agent carry the work through
 
-| Case | Work to explore |
-| --- | --- |
-| Bella · Integrated marketing | Brief, research and FAB through campaign copy, storyboards and TVC comparisons |
-| Ruby · Creator partnerships | Channel selection, personalized family-gaming pitches, replies and business handoff |
-| Oliva · Product and after-sales support | Source material and customer context become reviewable drafts and maintained knowledge |
-| Steve · Engineering handoff | Compare an advertising tool's documented rules with its actual behavior and open questions |
+### Bella: from requirements, research and FAB to campaign copy and TVC
 
-Velia, Atlas, Nora, Leo and Iris complete the collection. [Explore the case source and maintenance guide](agent-cases/README.md). The collection has 20 pages, 28 localized diagrams and 18 workbooks. Names are public aliases; illustrative scenes are distinct from original comparison evidence. Deliverables are not sales or ROI claims.
+The case does not start with the final image. It follows clarification, research, feedback, FAB development, campaign planning, copy, creative direction and storyboards, then compares earlier recommendations with the final public film. The emphasis is **an agent participating across the campaign workflow**, not treating a similar frame as proof of overall business impact.
 
-## The service and learning foundations
+[Browse the case collection and maintenance guide →](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/agent-cases/README.md)
 
-| FDE services & Playbook | FDE Academy |
-| --- | --- |
-| **Start with business value** | **Learn through the delivery lifecycle** |
-| 6 delivery stages with concrete work and outputs | 12 weekly modules; 100 detailed lecture sections in Chinese |
-| 9 core plays with 66 contextual applications inside each play's More tab | 19 bilingual studies: 9 public cases + 10 synthetic field exercises |
-| Business question → inputs → method → output → pilot evaluation | 24 bilingual teaching boards; 6 interactive browser labs |
-| Market entry, prospecting, creator partnerships, content, frontline service, business analysis, inventory planning, intelligence and knowledge reuse | 30 concepts; 22 primary readings; 16 editable worksheets per language |
-| Separate Process / Playbook reference PDFs and editable pilot briefs | 57 case-linked assignments; an offline Python kit; a 12-page training brochure |
+| Case | Starting problem | Work carried forward | What the page explains |
+| --- | --- | --- | --- |
+| **Ruby · Creator partnerships** | A product needs relevant overseas creators | Channel selection → individual pitch → reply handling → commercial handoff | Why this creator, which collaboration angle, what happens next |
+| **Oliva · Product and after-sales support** | Information exists, but staff still have to hunt for it | Retrieve knowledge → draft in context → human correction → knowledge feedback | Answer grounding, service boundaries and how corrections improve the knowledge base |
+| **Steve · Engineering handoff** | Documentation and implemented analysis rules may differ | Inspect rules → identify discrepancies → mark unverified points → prepare handoff | What is supported, what needs testing and how the next engineer continues |
+| **Velia, Atlas, Nora, Leo and Iris** | Further marketing, product and business workflows | Scope follows the actual deliverables of each case | Problem framing, decisions, successive actions and usable outputs |
 
-These are content counts, not customer counts, deployment counts or performance promises. Pages, cases and boards are bilingual. **The 100 expanded lecture sections are currently Chinese**; English modules provide overviews and workshops.
+The collection contains **20 Chinese/English pages, 28 bilingual diagrams and 18 editable worksheets**. Names are aliases. Method illustrations, scene artwork and genuine comparisons are distinguished on the pages. Deliverables are not sales or ROI evidence.
 
-## A delivery curriculum, not just a topic list
+## Build the capability to deliver
 
-The course follows a synthetic operating problem: from member engagement and data reconciliation to an advisory agent, bounded actions, production acceptance and reusable assets.
-
-| Phase | Decisions to make | Work to produce |
+| Training stage | Key decisions | Required outputs |
 | --- | --- | --- |
-| **W01–03 · Frame the work** | Is this worth doing? Who decides? Are metrics and scope explicit? | Qualification brief, evidence ledger, metric contract, scope statement |
-| **W04–06 · Build the chain** | Does the data support the decision? Are semantics consistent? Where do boundaries belong? | Adapter, quality report, ontology and tools, security tests |
-| **W07–09 · Engineer delivery** | Where did it fail? What if an action's result is unknown? Who handles production incidents? | Evaluation dataset and runner, action connector, execution traces, runbook |
-| **W10–12 · Accept and reuse** | How should outcomes be interpreted? Which changes are tenant-specific? | Acceptance evidence, retrospective, layered asset register, capstone |
+| **W01–03 · Frame the problem** | Is it worth doing? Who decides? What is in scope? | Project brief, fact ledger, metric contract and scope |
+| **W04–06 · Connect the workflow** | Can the data support the decision? Are semantics and tool boundaries clear? | Adapters, data-quality report, ontology, tools and safety tests |
+| **W07–09 · Engineer delivery** | Where did it fail? What if a write has an unknown outcome? Who handles incidents? | Evaluation set, connectors, execution trace and runbook |
+| **W10–12 · Accept and reuse** | How should results be interpreted? What transfers to another project? | Acceptance evidence, retrospective, layered asset inventory and capstone |
 
-### Inside the teaching boards
-
-These are actual course diagrams, not product mockups. Click either image to inspect the full-size board.
-
-| Evaluation: locate the failure | Actions: a timeout is not a failed write |
+| Agent evaluation: locate the failing layer | Actions: a timeout does not mean nothing happened |
 | --- | --- |
-| [![Course board showing separate evaluation of data, tools, model tasks and adoption](docs/media/evals-en.svg)](docs/media/evals-en.svg) | [![Course board showing committed, failed and unknown action outcomes with reconciliation](docs/media/states-en.svg)](docs/media/states-en.svg) |
-| **W07:** passing one layer does not establish that the others work. | **W08:** distinguish outcomes, reconcile unknowns, then decide whether to retry. |
+| [![Layered evaluation teaching board](docs/media/evals-en.svg)](docs/media/evals-en.svg) | [![Execution-state teaching board](docs/media/states-en.svg)](docs/media/states-en.svg) |
 
-### How the cases work
+The Academy includes **100 detailed Chinese lessons, 19 bilingual cases and exercises, 24 bilingual boards and 6 interactive labs**, plus 30 concepts, 57 case-linked assignments and offline Python practice. Counts describe learning content, not customers. **Expanded notes are currently Chinese**; English pages provide curriculum summaries, cases, boards and practice guidance.
 
-Every study follows **problem → discovery → actions → key decisions → worked example → module assignments → acceptance → reusable assets**.
+[Lesson notes](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy/content/notes) · [Engineering practice kit](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy/practice-kit) · [Training brochure PDF](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
 
-Aviation operations introduce business objects and integration boundaries. Enterprise knowledge applications lead into retrieval and layered evaluation. Service assistants raise questions about task resolution and escalation. Field exercises extend into market and account research, campaign review, business analysis, service and knowledge feedback.
+## Publication scope and security
 
-Reported public context retains its sources; teaching inferences are labeled separately. Exercise data is synthetic, not private customer records. [Explore case content](academy/content) · [Training brochure (Chinese)](academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
+This is an enterprise AI adoption and delivery learning resource, not a production agent runtime. Separately maintained private toolkits are outside this publication and license.
 
-## Run the complete edition locally
+The [publication review](docs/security/PUBLICATION-REVIEW-2026-10-10.md) documents history, downloadable artifacts, dependencies and automated checks. One upstream-unpatched build dependency advisory remains (reported as six high-severity dependency entries by npm), with narrow controls and an expiring review. This is not a zero-risk claim. [Report vulnerabilities privately](SECURITY.md).
 
-Use **Node.js 24.19+** and npm. Clone into a new directory rather than overwriting an existing working tree.
+## Run the complete version locally
+
+Use **Node.js 24.19+**. Read the [learning and non-production evaluation license](LICENSING.md) before using the source.
 
 ```sh
-git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/FDE-web.git
-cd FDE-web
-npm ci
+git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/enterprise-ai-playbook.git
+cd enterprise-ai-playbook
+npm ci --ignore-scripts
+npm run security:check
+npm run security:audit
 npm run check
 npm run build
 npm test
 npm run preview
 ```
 
-The repository is currently private; cloning requires access. Preview at `http://127.0.0.1:4179`.
+Preview: `http://127.0.0.1:4179`. One build; the only publish directory is `dist/client/`.
 
-| Experience | Chinese path | English path |
+| Area | Chinese | English |
 | --- | --- | --- |
 | Services | `/zh/` | `/en/` |
-| Delivery process | `/zh/process/` | `/en/process/` |
-| Enterprise Playbook | `/zh/playbook/` | `/en/playbook/` |
+| Process / Playbook | `/zh/process/` · `/zh/playbook/` | `/en/process/` · `/en/playbook/` |
 | Academy | `/academy/zh/` | `/academy/en/` |
-| Agent case studies | `/agent-cases/` | `/agent-cases/en/` |
-| Curriculum / cases / resources | `/academy/zh/curriculum/` · `/academy/zh/cases/` · `/academy/zh/resources/` | The same paths under `/academy/en/` |
+| Agent cases | `/agent-cases/` | `/agent-cases/en/` |
 
-For development: `npm run dev -- --host 127.0.0.1 --port 4178`. Restart dev after editing Academy source; validate the combined static build before release.
+Do not overwrite the domain root with the standalone cases module or publish source/`dist/server`. Preserve business CTAs, 9 plays, all 66 More applications, language switching and genuine 404 responses. [Deployment checklist](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) · [CI runs](https://github.com/NewenergyEric/enterprise-ai-playbook/actions?query=branch%3Afeat%2Fagent-cases-20260910)
 
-## For maintainers and deployment agents
+## Use and maintenance boundaries
 
-- **One build, one publish directory: `dist/client`.** The Academy is additive under `/academy/`, with separate styles and browser scripts. Preserve the existing business CTAs, 9 plays and 66 More applications.
-- Before a production build, set `SITE_URL` to the HTTPS origin without `/academy`. Deep links must resolve directly. Unknown paths must return a real HTTP 404, not a catch-all SPA homepage.
-- Stack: React / TypeScript / Vinext for the service site; native JavaScript static generation for the Academy. The website needs no model keys, database or backend. Python is only for offline practice and optional PDF maintenance.
-- Automated checks cover authored content, internal links, language fields, diagrams and static output. Visual, keyboard and live-host acceptance remain explicit release steps.
+- This is a services, training and case-study website, not a hosted production agent platform. It does not offer learner accounts, cloud learning records or certification.
+- Original customer files, working-agent identities, internal paths and secrets are not included. Public references do not imply partnerships or endorsement.
+- Original work uses the **AIelsen Learning and Evaluation License 1.0**, not MIT or an OSI open-source license. [Third-party works](THIRD_PARTY_NOTICES.md) retain their own terms.
+- Animations illustrate methods. The owner has confirmed repository publication rights for the retained real comparison/product images; these may still identify their public sources and are not sublicensed for downstream reuse.
 
-[Deployment and acceptance](DEPLOY-AGENT-CASES.md) · [Static hosting contract](DEPLOYMENT.md) · [Academy editing map](academy/README.md) · [Contribution guide](CONTRIBUTING.md)
-
-## Use and boundaries
-
-This is a service and engineering-training website, not a production agent platform, hosted LMS or accreditation service. Learning progress and notes stay in the current browser.
-
-Private client material and original research files do not belong in the repository. Public case references do not imply partnerships or endorsements. Service layers describe a modular delivery approach, not a promise that every module is already a purchasable standard product.
-
-**No open-source license has been granted** to the original curriculum, copy or design. Third-party dependencies and fonts retain their respective licenses. [Editorial boundaries](CONTENT-NOTES.md) · [Asset provenance](ASSETS.md)
+[Contributing](CONTRIBUTING.md) · [Content notes](CONTENT-NOTES.md) · [Asset notes](ASSETS.md) · [Showcase maintenance](docs/studio/README.md)

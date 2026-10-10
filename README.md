@@ -1,129 +1,121 @@
 <p align="center">
-  <img src="docs/media/fde-cover.png" alt="AIelsen FDE — 从业务现场到可验收的 AI 交付：发现问题、工程实现、验证结果、复用能力。" width="100%">
+  <strong>中文</strong> · <a href="README.en.md">English</a>
+</p>
+
+<h1 align="center">Enterprise AI Playbook</h1>
+<p align="center"><strong>AIelsen · 企业 AI 应用、Agent 案例与 FDE 交付方法。</strong></p>
+
+<p align="center">
+  <img src="docs/media/badge-bilingual.svg" alt="中文 / English">
+  <img src="docs/media/badge-cases.svg" alt="9 个匿名 Agent 案例">
+  <img src="docs/media/badge-academy.svg" alt="12 周 FDE 课程">
+  <img src="docs/media/badge-static.svg" alt="静态部署">
 </p>
 
 <p align="center">
-  <strong>中文</strong> · <a href="README.en.md">English</a><br>
-  <a href="https://fde.aielsen.com/zh/">FDE 服务站</a> ·
-  <a href="agent-cases/README.md">Agent 实战案例</a> ·
-  <a href="academy">学院课程源码</a> ·
-  <a href="DEPLOY-AGENT-CASES.md">完整部署指南</a> ·
-  <a href="https://github.com/NewenergyEric/FDE-web/actions/workflows/verify.yml?query=branch%3Afeat%2Fagent-cases-20260910">构建验证</a>
+  <a href="https://fde.aielsen.com/zh/">了解 FDE 服务</a> ·
+  <a href="https://fde.aielsen.com/zh/playbook/">寻找业务切入点</a> ·
+  <a href="#先看-agent-如何把一件事做完">看 Agent 案例</a> ·
+  <a href="#把交付方法练成团队能力">学习 FDE</a> ·
+  <a href="LICENSING.md">使用许可</a> · <a href="SECURITY.md">安全说明</a>
 </p>
 
-# AIelsen FDE
+<p align="center">
+  <img src="docs/media/fde-motion-zh.gif" alt="FDE 连续动画：资料聚合成简报，任务沿工作流传递，报告与分镜展开，成果归入可复用交付包。" width="100%">
+</p>
+<p align="center"><sub>18 秒连续动画 · 20 FPS / 360 帧 · 无声循环 · <a href="docs/media/fde-motion-zh.png">查看静态版</a> · <a href="docs/studio/README.md">动效源码与制作说明</a></sub></p>
 
-**把业务问题讲清楚，把系统做进真实工作，把交付变成团队能力。**
+FDE（Forward Deployed Engineer，前线部署工程师）要解决的，不只是模型能不能回答。**需求说不清、知识散落、工作交接断层、产出无法验收**，往往才是 AI 进入企业的真正难点。
 
-FDE（Forward Deployed Engineer，前线部署工程师）的工作，不止于让模型回答问题：还要理解现场、定义指标、接通数据与工具，并拿出业务和工程都能检验的结果。
+这里把我们的交付方法、工程训练和匿名 Agent 案例放在一起：你既能看到值得做什么，也能看清从需求到产物之间，具体做了哪些工作。
 
-这个项目把这套工作方式做成三个相互连接的入口：面向企业的 **FDE 服务与 Playbook**，面向工程师和交付团队的 **FDE Academy**，以及把实际工作展开的 **Agent 实战案例**。服务说明值得做什么，课程训练怎样交付，案例说明从需求到产物具体发生了什么。
+> **获取完整网站：** [`feat/agent-cases-20260910`](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910) 包含服务站、学院和案例集。`main` 保留服务站及仓库入口，完整学院和案例代码仍在上述集成分支。此次安全更新不合并产品模块、不部署线上网站。[部署 Agent 请从这里开始](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md)。
 
-> **完整版本入口：** 服务站、学院与案例集的集成代码位于 [`feat/agent-cases-20260910`](https://github.com/NewenergyEric/FDE-web/tree/feat/agent-cases-20260910)。该分支保留学院完整版本，新增主导航「Agent 案例 / Agent Cases」。代码交付不等于生产部署，不能从旧 `main` 构建后就认为包含全部内容。请按 [完整部署指南](DEPLOY-AGENT-CASES.md) 操作。
+## 30 秒找到你的入口
 
-## 从你关心的问题开始
-
-| 你是谁 | 你想解决什么 | 从这里开始 |
+| 你现在想做什么 | 打开什么 | 可以得到什么 |
 | --- | --- | --- |
-| 企业业务负责人 | 哪些 AI 应用能进入真实工作？如何界定试点与验收？ | [业务 Playbook](https://fde.aielsen.com/zh/playbook/) · [六阶段交付流程](https://fde.aielsen.com/zh/process/) |
-| FDE / AI / 数据工程师 | 怎样把访谈、数据、Agent、评估与生产交付连起来？ | [12 周课程与讲义](academy/content/notes) · [工程实训包](academy/practice-kit) |
-| 解决方案负责人 / 培训组织者 | 如何培养可独立交付的人，而不只培训工具操作？ | [培训介绍 PDF](academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf) · [学院内容说明](academy/README.md) |
-| 开发者 / 部署 Agent | 如何接手、验证和增量发布，同时保留业务站？ | [部署与验收清单](DEPLOY-AGENT-CASES.md) · [协作规范](CONTRIBUTING.md) |
+| 找到 AI 能切入的业务环节 | [业务 Playbook](https://fde.aielsen.com/zh/playbook/) | 9 类场景、66 个 More 应用，从痛点看到输入、方法、产出与试点评估 |
+| 看清 Agent 如何持续完成工作 | [9 个 Agent 案例](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/agent-cases/README.md) | 业务问题、关键判断、连续行动、交付物、前后变化与工作表 |
+| 训练能够独立交付的 FDE | [FDE Academy](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy) | 12 周课程、详细讲义、可视化画板、交互实验与工程实训 |
+| 接手、验证并增量发布网站 | [完整部署指南](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) | 明确分支、构建命令、发布目录、路由和回滚验收点 |
 
-## 从案例看到具体的工作
+**本仓库开放交付方法、课程与案例的源文件，供学习和非生产评估。生产使用、收费培训/咨询交付、转售或 SaaS 须取得书面商业授权。** [许可边界](LICENSING.md) · [商业授权](COMMERCIAL.md)
 
-九个匿名案例均有完整中英文页面、场景摄影、可放大的工作图解和可编辑工作表。沿着 **业务问题 → 关键判断 → 连续行动 → 交付物 → 前后变化 → 可复用方法** 阅读，而不是只看一张效果图。
+## 先看 Agent 如何把一件事做完
 
-| 案例 | 看什么 |
-| --- | --- |
-| Bella · 全案营销 | 从需求、研究和 FAB，走到全案文案、分镜与 TVC 对照 |
-| Ruby · 海外创作者合作 | 筛选频道，把家庭体感产品写成个性化 pitch，再处理回复和商务交接 |
-| Oliva · 产品与售后客服 | 接通资料、客户上下文、建议回复与人工修订，让客服有依据地回答 |
-| Steve · 工程交接 | 核对广告分析工具的文档与实际规则，说明待验证项并留下交接材料 |
+### Bella：从需求、研究与 FAB，一路做到文案与 TVC
 
-另有 Velia、Atlas、Nora、Leo、Iris；[查看九案目录与维护说明](agent-cases/README.md)。共 20 页、28 张双语图解、18 份工作表。展示化名不是真实 Agent 身份；场景插图与真实对照分别说明，交付材料不等于销售或收益证明。
+不是只展示最后一张图。案例展开需求澄清、研究、沟通反馈、FAB 提炼、全案策划、文案、创意与分镜，再把前期建议与最终公开成片做具体对照。重点是 **Agent 如何贯穿全案工作**，而不是把某个画面相似当作完整成效证明。
 
-## 服务与课程基础
+[查看 Bella 所在案例集与维护说明 →](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/agent-cases/README.md)
 
-| FDE 服务与 Playbook | FDE Academy |
-| --- | --- |
-| **从业务价值进入** | **沿完整交付过程训练** |
-| 6 阶段交付流程，明确各阶段的工作和交付物 | 12 周课程，100 节中文详细讲义 |
-| 9 个核心场景，66 个嵌入场景内的 More 应用 | 19 个双语案例与实作：9 个公开案例 + 10 个合成场景 |
-| 业务问题 → 输入 → 工作方法 → 产出 → 试点评估 | 24 张双语教学画板，6 个交互实验 |
-| 市场进入、客户开发、达人合作、内容生产、一线服务、经营分析、库存规划、情报和知识复用 | 30 个概念、22 项一手阅读资料、每种语言 16 份可编辑工作表 |
-| 独立的流程 / Playbook 参考 PDF 与试点简报模板 | 57 项案例关联作业、离线 Python 工程包与 12 页培训介绍 PDF |
+| 案例 | 工作从哪里开始 | Agent 做到哪里 | 页面里看什么 |
+| --- | --- | --- | --- |
+| **Ruby · 海外创作者合作** | 产品需要找到合适的内容创作者 | 频道筛选 → 个性化 pitch → 回复处理 → 商务交接 | 为什么选这个人、怎样写合作切口、如何推进下一步 |
+| **Oliva · 产品与售后客服** | 资料已经存在，客服却仍需到处翻找 | 知识检索 → 结合客户问题拟答 → 人工修订 → 知识反馈 | 答复依据、服务边界、返工如何回到知识库 |
+| **Steve · 工程交接** | 文档与工具实际规则未必一致 | 核对分析规则 → 找到差异 → 标注待验证项 → 留下交接材料 | 哪个判断有依据、什么还需验证、下一位工程师如何继续 |
+| **Velia、Atlas、Nora、Leo、Iris** | 更多营销、产品与业务工作 | 按各案实际交付范围展开 | 不同场景如何拆问题、组织行动与留下可用产物 |
 
-这些数字是内容规模，不是客户数量、落地项目数量或效果承诺。学院有中英文页面、案例和画板；**100 节扩展讲义目前为中文**，英文课程提供概要与实作指导。
+九案共有 **20 个中英文页面、28 张双语图解、18 份可编辑工作表**。展示名是化名；方法图解、场景插画和真实前后对照在页面中分别说明。案例材料不等于销售业绩或 ROI 证明。
 
-## 学的是交付，不只是知识点
+## 把交付方法练成团队能力
 
-课程沿着一个合成的业务任务推进：从会员运营问题与数据核对，走到建议型 Agent、受控业务动作、上线验收与资产复用。
+学院不是一份工具名词表，而是一条完整交付路径。
 
-| 阶段 | 关键判断 | 要交出的东西 |
+| 训练阶段 | 必须做出的判断 | 要交出的东西 |
 | --- | --- | --- |
-| **W01–03 · 判断问题** | 值不值得做？谁在做决定？指标与范围是否说清楚？ | 项目判断书、事实账本、指标契约、范围说明 |
-| **W04–06 · 建立链路** | 数据能否支持判断？业务语义是否一致？边界放在哪里？ | 数据适配器、质量报告、本体与工具、安全测试 |
-| **W07–09 · 工程交付** | 如何定位失败？写入结果未知怎么办？上线后谁来处理故障？ | 评估集与运行器、动作连接器、执行轨迹、运行手册 |
-| **W10–12 · 验收与复用** | 效果如何解释？哪些工作只属于这次客户适配？ | 验收证据包、复盘报告、分层资产清单、结业作品 |
+| **W01–03 · 判断问题** | 值不值得做？谁在做决定？如何界定范围？ | 项目判断书、事实账本、指标契约、范围说明 |
+| **W04–06 · 建立链路** | 数据是否支持判断？业务语义和工具边界是否清楚？ | 数据适配器、质量报告、本体与工具、安全测试 |
+| **W07–09 · 工程交付** | 失败在哪里？写入结果未知怎么办？谁来处理故障？ | 评估集、连接器、执行轨迹、运行手册 |
+| **W10–12 · 验收复用** | 如何解释效果？哪些能力能带到下个项目？ | 验收证据包、复盘报告、分层资产清单、结业作品 |
 
-### 教学画板预览
-
-下面是课程中的原始画板，可点击查看完整尺寸。它们把数据、工具和工程判断的关系画出来，再回到讲义中实现和验证。
-
-| Agent 评估：把失败定位到正确的一层 | 执行动作：超时不等于没有执行 |
+| Agent 评估：失败应定位到哪一层？ | 执行动作：超时不等于没有执行 |
 | --- | --- |
-| [![课程画板：数据、工具、模型任务与业务使用分层评估](docs/media/evals-zh.svg)](docs/media/evals-zh.svg) | [![课程画板：提交后的成功、失败、未知与回查状态](docs/media/states-zh.svg)](docs/media/states-zh.svg) |
-| 对应 **W07**：不同层的通过条件不同，不能只看一个总分。 | 对应 **W08**：区分状态，先回查，再决定是否重试。 |
+| [![分层评估教学画板](docs/media/evals-zh.svg)](docs/media/evals-zh.svg) | [![执行状态教学画板](docs/media/states-zh.svg)](docs/media/states-zh.svg) |
 
-### 案例如何使用
+课程包含 **100 节中文详细讲义、19 个双语案例与实作、24 张双语教学画板、6 个交互实验**，另有 30 个概念、57 项案例关联作业和离线 Python 实训。数字指内容规模，不是客户数量。**扩展讲义目前为中文**；英文版提供课程概要、案例、画板与实作指导。
 
-每个案例都按 **业务问题 → 发现过程 → 关键行动 → 判断取舍 → 示例 → 章节作业 → 验收 → 可复用资产** 展开。
+[课程与讲义](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy/content/notes) · [工程实训包](https://github.com/NewenergyEric/enterprise-ai-playbook/tree/feat/agent-cases-20260910/academy/practice-kit) · [培训介绍 PDF](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
 
-例如：从航空运营的数据协同讨论业务对象与适配边界；从企业知识应用讨论检索和分层评估；从服务型助手讨论任务解决率与升级路径。配套实作覆盖市场研究、客户研究、投放复盘、经营分析、服务与知识反馈等工作。
+## 公开范围与安全
 
-公开事实保留来源，课堂推演明确标注；合成数据用于练习，不冒充真实客户记录。[查看案例内容](academy/content) · [下载培训介绍 PDF](academy/public/downloads/AIelsen-FDE-Academy-Brochure.pdf)
+这里是企业 AI 采用与工程交付的学习资料，不是可直接接入客户数据的生产平台。独立维护的私有工具包不在本仓库的公开和许可范围内。
+
+[公开前安全审查](docs/security/PUBLICATION-REVIEW-2026-10-10.md)记录了历史、下载文件、依赖和自动化检查的覆盖范围。仍有一个上游未修复的构建期依赖风险（在 npm 中沿依赖链显示为 6 项高危），设有明确边界和到期复核；不声称“零风险”。[私密漏洞报告](SECURITY.md)
 
 ## 本地启动完整版本
 
-使用 **Node.js 24.19+** 和 npm。建议检出到新目录，不覆盖已有工作区。
+使用 **Node.js 24.19+**。先阅读 [学习与非生产评估许可](LICENSING.md)，再获取相应分支。
 
 ```sh
-git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/FDE-web.git
-cd FDE-web
-npm ci
+git clone --branch feat/agent-cases-20260910 https://github.com/NewenergyEric/enterprise-ai-playbook.git
+cd enterprise-ai-playbook
+npm ci --ignore-scripts
+npm run security:check
+npm run security:audit
 npm run check
 npm run build
 npm test
 npm run preview
 ```
 
-仓库目前为私有，克隆需要访问权限。预览地址为 `http://127.0.0.1:4179`。
+预览地址：`http://127.0.0.1:4179`。一次构建，唯一发布目录为 `dist/client/`。
 
-| 内容 | 中文路径 | English path |
+| 内容 | 中文 | English |
 | --- | --- | --- |
 | 服务站 | `/zh/` | `/en/` |
-| 交付流程 | `/zh/process/` | `/en/process/` |
-| 业务 Playbook | `/zh/playbook/` | `/en/playbook/` |
+| 流程 / Playbook | `/zh/process/` · `/zh/playbook/` | `/en/process/` · `/en/playbook/` |
 | 学院 | `/academy/zh/` | `/academy/en/` |
-| Agent 实战案例 | `/agent-cases/` | `/agent-cases/en/` |
-| 课程 / 案例 / 教学资源 | `/academy/zh/curriculum/` · `/academy/zh/cases/` · `/academy/zh/resources/` | 对应 `/academy/en/` 下的同名路径 |
+| Agent 案例 | `/agent-cases/` | `/agent-cases/en/` |
 
-开发模式：`npm run dev -- --host 127.0.0.1 --port 4178`。修改学院源文件后重启开发服务；完整验收以组合静态构建为准。
+部署不要用案例集覆盖域名根目录，不要发布源码或 `dist/server`。保留原业务 CTA、9 类场景、66 个 More 应用、中英文切换和真实 404。[完整验收清单](https://github.com/NewenergyEric/enterprise-ai-playbook/blob/feat/agent-cases-20260910/DEPLOY-AGENT-CASES.md) · [CI 运行记录](https://github.com/NewenergyEric/enterprise-ai-playbook/actions?query=branch%3Afeat%2Fagent-cases-20260910)
 
-## 给维护者和部署 Agent
+## 使用与维护边界
 
-- **一次构建，一个发布目录：`dist/client`。** 服务、学院 `/academy/` 和案例 `/agent-cases/` 共 110 条入口；各模块样式与脚本独立。保留原业务 CTA、9 个场景和 66 个 More 应用。入口和后续部署优先遵循 [DEPLOY-AGENT-CASES.md](DEPLOY-AGENT-CASES.md)。
-- 正式构建前设置 `SITE_URL` 为 HTTPS 域名，不附加 `/academy`。深层路由直接访问应可用，未知路径必须返回真实 404，不用 SPA 首页兜底。
-- 技术构成：React / TypeScript / Vinext 服务站 + 原生 JavaScript 静态学院。运行网站无需模型密钥、数据库或后端服务；Python 仅用于离线工程练习和可选 PDF 维护。
-- 内容、站内链接、双语字段、画板和静态输出由自动测试检查；视觉、键盘交互和实际部署仍需按清单验收。
+- 网站是服务介绍、工程培训和案例展示，不是已托管的生产 Agent 执行平台；没有学员账号、云端学习记录或认证服务。
+- 原始客户资料、真实 Agent 身份、内部路径与密钥不进入仓库。公开引用不表示合作或背书。
+- 原创内容采用 **AIelsen Learning and Evaluation License 1.0**，不是 MIT 或 OSI 开源许可；[第三方材料](THIRD_PARTY_NOTICES.md)保留自己的许可。
+- 动效为原创方法示意。真实对照图片经所有者确认可随仓库公开，但仍可能被反向识别；不授予第三方素材的再次利用权。
 
-[部署操作与验收](DEPLOY-AGENT-CASES.md) · [静态托管要求](DEPLOYMENT.md) · [学院编辑地图](academy/README.md) · [协作规范](CONTRIBUTING.md)
-
-## 内容使用与边界
-
-这是服务介绍与工程培训网站，不是生产 Agent 执行平台，也不包含学员账号、云端学习记录或正式认证服务。学习进度和笔记保存在当前浏览器。
-
-仓库不收录私有客户资料或原始研究材料；公开案例不代表与相关企业存在合作或背书。服务分层是模块化交付设计，不表示所有模块都已成为可直接购买的标准产品。
-
-原始课程、文案与设计**尚未授予开源许可**；第三方依赖和字体保留各自许可。[内容规范](CONTENT-NOTES.md) · [素材来源](ASSETS.md)
+[贡献与协作](CONTRIBUTING.md) · [内容规范](CONTENT-NOTES.md) · [素材说明](ASSETS.md) · [展示素材维护](docs/studio/README.md)
