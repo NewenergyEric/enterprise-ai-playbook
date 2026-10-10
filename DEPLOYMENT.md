@@ -1,5 +1,7 @@
 # Deployment Agent handoff / 部署 Agent 交接
 
+The current combined release is specified in [DEPLOY-AGENT-CASES.md](DEPLOY-AGENT-CASES.md). The root build exports the service site, `/academy/` and bilingual `/agent-cases/`, with 110 entry routes. Keep using `dist/client` as the only publish directory. The earlier Academy-specific checklist remains in [DEPLOY-ACADEMY.md](DEPLOY-ACADEMY.md).
+
 ## Scope / 范围
 
 Target repository: https://github.com/NewenergyEric/enterprise-ai-playbook
@@ -81,4 +83,4 @@ There is no analytics tracker or business-data submission form. A hosting provid
 
 ## Runtime note / 运行时说明
 
-The validated local build uses Node 24.19.0. An older Windows Node 24.13.0 runtime emitted a native libuv shutdown assertion, so avoid that combination. Do not suppress nonzero build exits: all seven expected pages must exist before deployment.
+The validated local build uses Node 24.19.0. An older Windows Node 24.13.0 runtime emitted a native libuv shutdown assertion, so avoid that combination. Do not suppress nonzero build exits: all 110 service, Academy and Agent case entry routes must exist before deployment.

@@ -14,7 +14,8 @@
     "postbuild": "node scripts/finalize-static.mjs && node scripts/license-notices.mjs",
     "preview": "node scripts/serve.mjs",
     "typecheck": "tsc --noEmit",
-    "test": "node scripts/test.mjs",
+    "test": "node scripts/test.mjs && node scripts/test-academy-integration.mjs && node scripts/test-agent-cases-integration.mjs && node scripts/test-toolkit-boundary.mjs",
+    "build:academy": "node scripts/build-academy.mjs",
     "check": "npm run typecheck && npm run lint && npm test",
     "security:check": "node scripts/check-publication.mjs && node --test scripts/test-audit-policy.mjs",
     "security:audit": "node scripts/audit-dependencies.mjs"
@@ -55,10 +56,12 @@
     "typescript": "5.9.3",
     "vite": "8.3.4"
   },
-  "overrides": {
-    "satori": { "fflate": "0.7.5" }
-  },
   "type": "module",
   "description": "Enterprise AI adoption: business use cases, delivery playbooks and FDE engineering education.",
-  "license": "LicenseRef-AIelsen-Learning-Evaluation-1.0"
+  "license": "LicenseRef-AIelsen-Learning-Evaluation-1.0",
+  "overrides": {
+    "satori": {
+      "fflate": "0.7.5"
+    }
+  }
 }

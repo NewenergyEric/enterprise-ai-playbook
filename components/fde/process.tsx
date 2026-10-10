@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Shell, CallToAction } from './shell';
 import { stages } from '@/lib/content';
+import { academyPath, stageLearning } from '@/lib/academy';
 import { localPath, type Lang } from '@/lib/site';
 export function ProcessPage({ lang }: { lang: Lang }) {
   const zh = lang === 'zh';
@@ -138,6 +139,21 @@ export function ProcessPage({ lang }: { lang: Lang }) {
                       {s.done[lang]}
                     </span>
                   </div>
+                  <a
+                    className="stage-learning"
+                    href={academyPath(
+                      lang,
+                      'curriculum/' + stageLearning[i].week,
+                    )}
+                  >
+                    <span>
+                      {zh
+                        ? 'FDE 学院 · 对应课程'
+                        : 'FDE ACADEMY · RELATED MODULE'}
+                    </span>
+                    W{stageLearning[i].week} / {stageLearning[i][lang]}{' '}
+                    <ArrowUpRight />
+                  </a>
                 </div>
               </article>
             ))}

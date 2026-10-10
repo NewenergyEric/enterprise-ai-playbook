@@ -3,6 +3,8 @@ import { useSyncExternalStore, type ReactNode } from 'react';
 import { ArrowUpRight, ArrowRight, Download } from 'lucide-react';
 import { localPath, type Lang, type View } from '@/lib/site';
 import { Brand } from './brand';
+import { academyPath } from '@/lib/academy';
+import { agentCasesPath } from '@/lib/agent-cases';
 import {
   subscribeFragment,
   getFragment,
@@ -58,6 +60,10 @@ export function Shell({
           >
             Playbook
           </a>
+          <a href={academyPath(lang)}>{zh ? 'FDE 学院' : 'FDE Academy'}</a>
+          <a href={agentCasesPath(lang)} hrefLang={zh ? 'zh-CN' : 'en'}>
+            {zh ? 'Agent 案例' : 'Agent Cases'}
+          </a>
         </nav>
         <div className="language" aria-label={zh ? '语言' : 'Language'}>
           {(['zh', 'en'] as Lang[]).map((l) => (
@@ -89,6 +95,18 @@ export function Shell({
             </p>
           </div>
           <div className="footer-links">
+            <a href={agentCasesPath(lang)} hrefLang={zh ? 'zh-CN' : 'en'}>
+              {zh ? 'Agent 实战案例' : 'Agent case studies'}
+              <ArrowUpRight />
+            </a>
+            <a href={academyPath(lang)}>
+              {zh ? 'FDE 学院' : 'FDE Academy'}
+              <ArrowUpRight />
+            </a>
+            <a href={academyPath(lang, 'enterprise')}>
+              {zh ? '企业共训' : 'Team learning'}
+              <ArrowUpRight />
+            </a>
             <a href={localPath(lang, 'process')}>
               {zh ? '交付流程' : 'Delivery process'}
               <ArrowUpRight />

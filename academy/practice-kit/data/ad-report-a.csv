@@ -1,0 +1,5 @@
+campaign_id,window,definition,spend_cny,conversions
+c01,2026-08-01/2026-08-07,order_created,1200,40
+c01,2026-08-01/2026-08-07,order_created,1200,40
+c02,2026-08-01/2026-08-07,order_created,800,25
+c03,2026-08-01/2026-08-07,order_created,600,15

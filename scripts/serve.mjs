@@ -18,6 +18,7 @@ const mime = {
   '.webp': 'image/webp',
   '.woff2': 'font/woff2',
   '.pdf': 'application/pdf',
+  '.zip': 'application/zip',
   '.md': 'text/markdown; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
   '.xml': 'application/xml; charset=utf-8',

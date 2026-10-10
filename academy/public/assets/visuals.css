@@ -1,0 +1,99 @@
+/* AIelsen visual field guide: editorial illustrations + exact engineering boards. */
+.hero-field-art{margin:0;border:1px solid #c4d9dc;background:#f3f7f6;overflow:hidden}
+.hero-field-art>img{display:block;width:100%;height:auto;aspect-ratio:5/3}
+.hero-field-art figcaption{display:grid;gap:8px;padding:22px 28px;border-top:1px solid #ccdddf}
+.hero-field-art figcaption>span{font:10px/1.6 Consolas,monospace;letter-spacing:.12em;color:var(--teal)}
+.hero-field-art figcaption strong{font-size:22px;line-height:1.5;font-weight:550}
+.hero-field-art figcaption p{font-size:12px;line-height:1.9;margin:0}
+.hero-field-art figcaption a{font-size:12px;color:var(--teal);margin-top:6px}
+.course-arc>a{padding:0 0 24px;overflow:hidden}
+.course-arc .phase-illustration{display:block;width:100%;height:auto;aspect-ratio:5/3;margin-bottom:20px;border-bottom:1px solid var(--line)}
+.course-arc .arc-number,.course-arc h3,.course-arc p{margin-left:22px;margin-right:22px}
+.course-arc h3{margin-top:15px}.course-arc p{padding-right:0}
+.teaching-module-card{grid-template-columns:192px minmax(0,1fr);gap:30px}
+.module-visual{position:relative;align-self:start;background:#f3f7f6;border:1px solid #d0e0e1}
+.module-visual .phase-illustration{display:block;width:100%;height:auto}
+.module-visual .week-no{font-size:38px;position:absolute;left:12px;top:6px;color:var(--ink)}
+.module-visual .week-phase{display:block;padding:10px 14px;border-top:1px solid #d0e0e1}
+.module-visual .deep-dive-label{padding:0 14px 10px;margin:0}
+.deep-links>a{padding:0 0 28px;overflow:hidden}
+.deep-links>a>img{display:block;width:100%;height:auto;margin:0 0 25px;aspect-ratio:16/8.5;object-fit:cover}
+.deep-links>a>span,.deep-links>a>h3,.deep-links>a>p,.deep-links>a>b{margin-left:28px;margin-right:28px}
+.lesson-panorama{display:grid;grid-template-columns:1fr 1.15fr;align-items:center;background:#f3f7f6;border:1px solid #c6dbdd;margin:0 0 28px;overflow:hidden}
+.lesson-panorama>div{padding:24px 0 24px 28px;position:relative;z-index:1}
+.lesson-panorama span{font:10px/1.7 Consolas,monospace;letter-spacing:.1em;color:var(--teal)}
+.lesson-panorama strong{display:block;font-size:23px;line-height:1.6;font-weight:550;margin:14px 0}
+.lesson-panorama p{font-size:12px;line-height:1.9;margin:0;max-width:240px}
+.lesson-panorama img{display:block;width:100%;height:auto;aspect-ratio:5/3}
+.board-navigation{display:grid;gap:0;margin:20px 0 29px;border-top:1px solid var(--line)}
+.board-navigation>span{font-size:10px;color:var(--teal);padding:15px 0 5px;font-weight:650}
+.board-navigation a{font-size:12px;line-height:1.7;display:flex;gap:8px;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.board-navigation a:hover{color:var(--teal)}
+.teaching-board{margin:40px 0 54px;border:1px solid #b8d1d4;background:#fff;scroll-margin-top:115px;box-shadow:0 10px 26px #12374806;min-width:0}
+.board-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:#e8f1f1;border-bottom:1px solid #c3d9da}
+.board-toolbar>span{font:10px/1.6 Consolas,monospace;letter-spacing:.1em;color:#325766}
+.board-toolbar button{font:12px/1.5 Field,sans-serif;border:0;background:none;color:#006d75;padding:8px 0;cursor:pointer;white-space:nowrap}
+.board-toolbar button:hover{text-decoration:underline;text-underline-offset:4px}
+.board-viewport{overflow:auto;scrollbar-width:thin;scrollbar-color:#7ea8af #edf4f3;max-width:100%;overscroll-behavior-x:contain}
+.board-image-trigger{display:block;width:100%;border:0;padding:0;background:transparent;cursor:zoom-in;text-align:left}
+.board-image-trigger>svg{display:block;width:100%;height:auto}
+.teaching-board figcaption{display:grid;grid-template-columns:52px 1fr;gap:14px;border-top:1px solid #d4e2e2;padding:23px 24px 15px}
+.board-number{font:24px/1.5 Georgia,serif;color:var(--teal)}
+.teaching-board figcaption strong{display:block;font-size:21px;line-height:1.6;font-weight:550;color:var(--ink)}
+.teaching-board figcaption p{font-size:13px;line-height:1.95;color:#435f6e;margin:9px 0 0;letter-spacing:0}
+.board-footer{display:flex;justify-content:space-between;gap:15px;padding:6px 24px 20px;font-size:10px;color:#526c7c}
+.board-footer a{color:var(--teal);white-space:nowrap}
+.board-gallery-section{background:#f0f5f5;border-block:1px solid #d0e0e0}
+.board-gallery-heading{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:40px}
+.board-gallery-heading h2{font-size:clamp(27px,3vw,40px);line-height:1.5;margin:16px 0}
+.board-gallery-heading p{font-size:14px;max-width:730px;line-height:2}
+.board-gallery-heading>a{white-space:nowrap;flex-shrink:0}
+.atlas-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.atlas-card{background:white;border:1px solid #bfd4d7;min-width:0;transition:border-color .15s,box-shadow .15s}
+.atlas-card:hover{border-color:var(--teal);box-shadow:0 8px 20px #0039420a}
+.atlas-card>button{display:block;position:relative;width:100%;padding:0;border:0;border-bottom:1px solid #ccdddd;background:#f6faf9;cursor:zoom-in;text-align:left}
+.atlas-card img{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.atlas-enlarge{position:absolute;right:10px;bottom:10px;width:30px;height:30px;border:1px solid #bed3d3;background:#fff;color:var(--teal);text-align:center;font:22px/28px Georgia,serif}
+.atlas-card>div{padding:19px 22px 22px}
+.atlas-card>div>span{font:10px/1.6 Consolas,monospace;letter-spacing:.09em;color:var(--teal)}
+.atlas-card h3{font-size:19px;line-height:1.7;font-weight:550;margin:12px 0 20px}
+.atlas-card>div>a{font-size:12px;color:var(--teal)}
+.visual-resource-feature{display:grid;grid-template-columns:1fr 1.1fr;gap:45px;align-items:center}
+.resource-preview-art{border:1px solid #b8d1d4;background:#f6faf9;padding:15px 0 22px;overflow:hidden}
+.resource-preview-art>img{display:block;width:100%;height:auto}
+.resource-preview-art>span,.resource-preview-art>strong,.resource-preview-art>a{display:block;margin:0 24px}
+.resource-preview-art>span{font:10px/1.7 Consolas,monospace;color:var(--teal);letter-spacing:.1em}
+.resource-preview-art>strong{font-size:24px;font-weight:550;margin-top:8px}
+.resource-preview-art>a{font-size:12px;color:var(--teal);margin-top:14px}
+.lecture-download-grid article{padding:0 24px 24px;overflow:hidden}
+.lecture-download-grid article>img{width:calc(100% + 48px);max-width:none;display:block;aspect-ratio:16/8;height:auto;object-fit:cover;margin:0 -24px 21px;border-bottom:1px solid var(--line)}
+.board-viewer{width:min(1180px,96vw);max-width:96vw;max-height:93dvh;padding:0;border:1px solid #7198a4;background:#f6faf9;color:var(--ink);box-shadow:0 24px 100px #00172850;overflow:auto}
+.board-viewer::backdrop{background:#001b35bb;backdrop-filter:blur(5px)}
+.board-viewer-bar{display:flex;gap:24px;align-items:center;justify-content:space-between;padding:18px 24px;background:#fff;border-bottom:1px solid #bfd4d8;position:sticky;top:0;z-index:2}
+.board-viewer-bar>strong{font-size:18px;font-weight:550;line-height:1.5}
+.board-viewer-bar>div{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.board-viewer-bar button,.board-viewer-bar a{font:12px/1.5 Field,sans-serif;color:var(--teal);border:1px solid #acc8ce;background:#fff;padding:10px 14px;cursor:pointer;white-space:nowrap}
+.board-viewer-bar button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.board-viewer-canvas{overflow:auto;max-height:68dvh;overscroll-behavior:contain;scrollbar-width:thin}
+.board-viewer-canvas>img{display:block;width:100%;height:auto;max-width:none}
+.board-viewer-canvas.actual-size>img{width:960px;min-width:960px}
+.board-viewer-caption{font-size:13px;line-height:1.9;padding:17px 24px;margin:0;background:white;border-top:1px solid #d0dede}
+.case-visual-intro{margin:0 0 35px}.case-visual-intro .lesson-panorama{margin-bottom:10px}.case-visual-intro>p{font-size:11px;line-height:1.8;color:var(--muted)}
+:is(.teaching-board,.atlas-card,.board-viewer,.board-navigation) :is(button,a,[tabindex]):focus-visible{outline:3px solid #3246db;outline-offset:4px}
+@media(min-width:1400px){.teaching-home .hero-grid{grid-template-columns:1fr 1.05fr;gap:65px}}
+@media(max-width:1100px){.atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.teaching-module-card{grid-template-columns:155px minmax(0,1fr);gap:24px}.course-arc>a{padding:0 0 20px}.course-arc .arc-number,.course-arc h3,.course-arc p{margin-left:16px;margin-right:16px}.board-viewport>svg{min-width:640px}}
+@media(max-width:900px){.board-navigation{display:none}.lecture-body .lesson-panorama{margin-top:0}.board-gallery-heading{align-items:start;flex-direction:column;gap:16px}.visual-resource-feature{gap:25px}.board-viewer-bar{align-items:start;gap:12px}.board-viewer-bar>strong{font-size:15px}.board-viewer-bar>div{gap:6px}.board-viewer-bar button,.board-viewer-bar a{padding:9px;font-size:11px}.board-viewer-caption{font-size:12px}}
+@media(max-width:620px){
+ .hero-field-art figcaption{padding:18px 20px}.hero-field-art figcaption strong{font-size:21px}.hero-field-art{margin-top:8px}
+ .course-arc .arc-number{font-size:18px}.course-arc h3{font-size:16px}.course-arc p{font-size:11px}.course-arc .phase-illustration{margin-bottom:15px}
+ .teaching-module-card{grid-template-columns:1fr;gap:22px}.module-visual{height:155px;overflow:hidden}.module-visual .phase-illustration{position:absolute;width:245px;right:-15px;top:-2px}.module-visual .week-no{position:relative;left:auto;top:auto;margin:17px 0 8px 18px;font-size:48px}.module-visual .week-phase{border:0;padding:0 18px}.module-visual .deep-dive-label{padding:4px 18px;position:relative}
+ .lesson-panorama{grid-template-columns:1fr;position:relative;min-height:185px}.lesson-panorama>div{padding:20px;width:65%;background:linear-gradient(90deg,#f3f7f6 65%,#f3f7f600)}.lesson-panorama strong{font-size:20px;margin:10px 0;max-width:170px}.lesson-panorama p{font-size:11px;max-width:175px}.lesson-panorama img{position:absolute;width:265px;right:-115px;bottom:0}
+ .teaching-board{margin:32px 0 42px}.board-toolbar{padding:8px 14px;gap:8px}.board-toolbar>span{font-size:8px;letter-spacing:.035em}.board-toolbar button{font-size:11px}.board-viewport::after{content:'↗  点击图片，放大阅读图解';font-size:10px;display:block;padding:9px 14px;color:#526c7c;background:#edf4f3;box-sizing:border-box;width:100%}
+ [lang=en] .board-viewport::after{content:'↗  Tap the diagram to read it at full size'}
+ .teaching-board figcaption{padding:18px 16px 13px;grid-template-columns:36px 1fr;gap:10px}.board-number{font-size:20px}.teaching-board figcaption strong{font-size:18px}.teaching-board figcaption p{font-size:12px}.board-footer{font-size:9px;padding:0 16px 18px}
+ .atlas-grid{grid-template-columns:1fr;gap:24px}.atlas-card>div{padding:18px 22px 22px}.atlas-card h3{font-size:21px}.board-gallery-heading h2{font-size:28px}.board-gallery-heading p{font-size:13px}
+ .visual-resource-feature{grid-template-columns:1fr;gap:32px}.deep-links>a>h3{font-size:25px}.deep-links>a>img{margin-bottom:20px}
+ .board-viewer{max-height:94dvh;width:96vw}.board-viewer-bar{flex-direction:column;padding:14px 16px;gap:13px}.board-viewer-bar>div{width:100%;justify-content:space-between}.board-viewer-bar button,.board-viewer-bar a{font-size:11px;padding:10px}.board-viewer-canvas{max-height:60dvh}.board-viewer-caption{padding:14px 16px;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){.atlas-card{transition:none}}
+@media print{.board-toolbar button,.board-viewer,.board-navigation{display:none}.board-viewport>svg{min-width:0}.teaching-board{break-inside:avoid;box-shadow:none}.board-viewport::after{display:none}.lecture-aside{display:none}.lecture-layout{display:block}.atlas-grid{grid-template-columns:repeat(2,1fr)}}

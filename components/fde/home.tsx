@@ -17,6 +17,7 @@ import {
 import { Shell, CallToAction } from './shell';
 import { Artifact } from './artifact';
 import { Architecture } from './architecture';
+import { AcademyTeaser } from './academy';
 import { faqs, plays } from '@/lib/content';
 import { localPath, type Lang } from '@/lib/site';
 
@@ -377,6 +378,7 @@ export function HomePage({ lang }: { lang: Lang }) {
           </a>
         </div>
       </section>
+      <AcademyTeaser lang={lang} />
       <section className="faq-section wrap" id="faq">
         <div>
           <p className="eyebrow">A FEW GOOD QUESTIONS</p>

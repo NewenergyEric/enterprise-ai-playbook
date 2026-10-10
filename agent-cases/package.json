@@ -1,0 +1,13 @@
+{
+  "name": "aielsen-agent-fieldnotes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Anonymized, business-first AIelsen Agent case studies",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node tools/check.mjs",
+    "start": "node tools/preview.mjs"
+  },
+  "engines": { "node": ">=24" }
+}

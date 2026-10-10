@@ -1,0 +1,4 @@
+campaign_id,window,definition,spend_cny,conversions
+c01,2026-08-01/2026-08-07,net_paid_after_refunds,1200,32
+c02,2026-08-01/2026-08-07,net_paid_after_refunds,800,23
+c03,2026-08-01/2026-08-07,net_paid_after_refunds,600,12
