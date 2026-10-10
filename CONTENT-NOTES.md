@@ -40,7 +40,7 @@ Production engagements should distinguish original evidence, business claims, pu
 
 ## Scope of the website
 
-This website explains services and methods. It does not run Agents, gather business inputs, send outreach, access customer systems or schedule consultations.
+This website explains services and methods. It does not run Agents, access customer systems or schedule consultations. The separate Toolkit request page may collect an explicitly entered email or WeChat ID and a small amount of qualification context only when an owner-approved `TOOLKIT_LEAD_ENDPOINT` is configured; it does not accept uploads, payment-card data, passwords or production credentials, and it never exposes the private Toolkit.
 
 The pilot brief is a downloadable Markdown template. The visitor completes it locally and shares it only through a channel they choose. Basic hosting access logs are distinct from business-data collection.
 

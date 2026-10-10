@@ -22,6 +22,8 @@ PowerShell example (replace the example origin):
 
 ```powershell
 $env:SITE_URL='https://your-actual-domain.example'
+# Optional: set only to the owner-approved HTTPS lead receiver.
+# $env:TOOLKIT_LEAD_ENDPOINT='https://your-approved-endpoint.example/lead'
 npm ci
 npm run check
 npm run build
@@ -54,6 +56,7 @@ Do **not** deploy dist/server. It contains build/runtime internals that are unne
 - /, /zh/, /en/
 - /zh/process/, /en/process/
 - /zh/playbook/, /en/playbook/
+- /zh/toolkit/, /en/toolkit/ (private Toolkit access request; no public download)
 - /en/playbook/#creator-partnerships
 - /zh/playbook/#business-analysis
 - /resources/pilot-brief-zh.md, /resources/pilot-brief-en.md
@@ -72,11 +75,13 @@ Automated checks cover content structure, static rendering, document language, h
 - Check navigation, PDF downloads and editable brief downloads.
 - Verify real HTTP 404 behavior, response MIME types and no unexpected cross-origin requests.
 - Inspect canonical/hreflang/social preview against the final domain.
-- Confirm contact details or any future lead form with the owner before adding them. No mailbox, calendar or submission endpoint has been invented.
+- `/zh/toolkit/` and `/en/toolkit/` are the only contact-capture pages. They remain inert unless the build sets `TOOLKIT_LEAD_ENDPOINT` to an owner-approved HTTPS endpoint (localhost HTTP is allowed only for local review). The static site does not provide a mailbox, payment processor, CRM, rate limiter or data store.
+- The receiving-side contract, validation rules and release tests are documented in [docs/TOOLKIT-LEAD-ENDPOINT.md](docs/TOOLKIT-LEAD-ENDPOINT.md).
+- Before publication, verify endpoint ownership, origin allowlist, server-side validation, rate limiting, retention/deletion policy, consent wording and an operational response path. Never place Toolkit files, payment-card data, passwords or customer source material in the request.
 - Confirm publication rights for all materials and final business wording.
 
-There is no analytics tracker or business-data submission form. A hosting provider may still record ordinary access logs; set the deployment privacy policy accordingly.
+There is no analytics tracker or business-data workspace submission. The optional Toolkit request form sends only the explicitly entered contact and qualification fields to the configured owner-operated endpoint; if the endpoint is unset, the form explains that nothing was submitted. A hosting provider may still record ordinary access logs; set the deployment privacy policy accordingly.
 
 ## Runtime note / 运行时说明
 
-The validated local build uses Node 24.19.0. An older Windows Node 24.13.0 runtime emitted a native libuv shutdown assertion, so avoid that combination. Do not suppress nonzero build exits: all 90 service and Academy entry routes must exist before deployment.
+The validated local build uses Node 24.19.0. An older Windows Node 24.13.0 runtime emitted a native libuv shutdown assertion, so avoid that combination. Do not suppress nonzero build exits: all 92 service, Toolkit and Academy entry routes must exist before deployment.

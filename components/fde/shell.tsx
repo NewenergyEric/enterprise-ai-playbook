@@ -60,6 +60,12 @@ export function Shell({
             Playbook
           </a>
           <a href={academyPath(lang)}>{zh ? 'FDE 学院' : 'FDE Academy'}</a>
+          <a
+            href={localPath(lang, 'toolkit')}
+            aria-current={view === 'toolkit' ? 'page' : undefined}
+          >
+            {zh ? 'FDE 工具箱' : 'FDE Toolkit'}
+          </a>
         </nav>
         <div className="language" aria-label={zh ? '语言' : 'Language'}>
           {(['zh', 'en'] as Lang[]).map((l) => (
@@ -97,6 +103,10 @@ export function Shell({
             </a>
             <a href={academyPath(lang, 'enterprise')}>
               {zh ? '企业共训' : 'Team learning'}
+              <ArrowUpRight />
+            </a>
+            <a href={localPath(lang, 'toolkit')}>
+              {zh ? '申请工具箱访问' : 'Request Toolkit access'}
               <ArrowUpRight />
             </a>
             <a href={localPath(lang, 'process')}>
@@ -170,6 +180,10 @@ export function CallToAction({ lang }: { lang: Lang }) {
             {zh
               ? '还没选好问题？浏览场景'
               : 'Need a starting point? Explore the plays'}
+            <ArrowRight />
+          </a>
+          <a className="text-link" href={localPath(lang, 'toolkit')}>
+            {zh ? '想把方法带回团队？申请工具箱访问' : 'Want reusable methods? Request Toolkit access'}
             <ArrowRight />
           </a>
           <small>

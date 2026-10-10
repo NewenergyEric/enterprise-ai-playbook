@@ -59,7 +59,7 @@ if (!built) {
 } else {
   const snapshot = await readSnapshot(root);
   const info = JSON.parse(snapshot.marker);
-  assert.equal(info.routes.length, 90);
+  assert.equal(info.routes.length, 92);
   assert.equal(info.academy.contentRoutes, 82);
   assert.equal(resolveSnapshot(snapshot, '/academy').location, '/academy/');
   assert.equal(
@@ -197,7 +197,7 @@ if (!built) {
   if (process.env.SITE_URL) {
     const origin = process.env.SITE_URL.replace(/\/$/, '');
     const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
-    assert.equal((sitemap.match(/<url>/g) || []).length, 88);
+    assert.equal((sitemap.match(/<url>/g) || []).length, 90);
     for (const route of info.routes.filter((p) => /\/(?:zh|en)\//.test(p)))
       assert.ok(sitemap.includes('<loc>' + origin + route + '</loc>'));
     const course = await readFile(
@@ -219,7 +219,7 @@ if (!built) {
     'No private/build/source directories published',
   );
   console.log(
-    `PASS · ${pages.size} HTML files, ${links} local links/assets/anchors, both search indexes, downloads, service returns and 90 public routes.`,
+    `PASS · ${pages.size} HTML files, ${links} local links/assets/anchors, both search indexes, downloads, service returns and 92 public routes.`,
   );
   if (process.env.TEST_BASE_URL) {
     const base = process.env.TEST_BASE_URL.replace(/\/$/, '');

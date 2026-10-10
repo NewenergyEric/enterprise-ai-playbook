@@ -37,6 +37,8 @@
 git fetch origin
 git switch --detach origin/feat/fde-academy-20260908
 $env:SITE_URL='https://fde.aielsen.com'
+# Optional, only after endpoint/privacy review:
+# $env:TOOLKIT_LEAD_ENDPOINT='https://your-approved-endpoint.example/lead'
 npm ci
 npm run check
 npm run build
@@ -48,7 +50,7 @@ npm run preview
 
 本地组合预览默认 `http://127.0.0.1:4179/`；`PORT` 可覆盖端口。`npm run dev` 也支持 `/academy/`，但修改学院源文件后需重启 dev。原独立预览端口不是这次组合部署的验收对象。
 
-构建会执行：主站静态导出 → 学院独立构建与回归测试 → `/academy/` 链接和搜索适配 → 合并 sitemap → 最后写入完整构建标记。可在 `dist/client/build-info.json` 核对 **90 条入口路由，其中学院有 82 个内容页面和一个语言入口**。不要手工复制页面或单独覆盖学院目录来代替组合构建。
+构建会执行：主站静态导出 → 学院独立构建与回归测试 → `/academy/` 链接和搜索适配 → 合并 sitemap → 最后写入完整构建标记。可在 `dist/client/build-info.json` 核对 **92 条入口路由，其中学院有 82 个内容页面和一个语言入口**。不要手工复制页面或单独覆盖学院目录来代替组合构建。
 
 ## 实际发布
 
@@ -57,7 +59,7 @@ npm run preview
 3. 目录请求使用 `index.html`。直接打开/刷新课程深层 URL 必须工作；不要配置 `/* → /index.html` 的 SPA 兜底。
 4. 不存在的主站和学院 URL 均返回真正的 HTTP 404。可对 `/academy/` 使用其 `404.html`，主站沿用根 `404.html`。若托管平台只支持一个错误页，可统一使用根错误页，但必须保留 404 状态。
 5. 正确提供 `.js`、`.css`、`.svg`、`.woff2`、`.pdf`、`.zip` 的 MIME 类型。新学院脚本、搜索 JSON、SVG 和 PDF 没有文件名 hash，不能设置长期 immutable 缓存。`public/_headers` 包含建议规则；不支持该文件的平台需配置等价规则。
-6. `SITE_URL` 必须只有域名，不能设置成 `https://fde.aielsen.com/academy`。根 `sitemap.xml` 已同时覆盖 6 个服务内容页和 82 个学院内容页；学院 canonical/hreflang 都包含 `/academy/`。不需要第二个子域名或第二套运行服务。
+6. `SITE_URL` 必须只有域名，不能设置成 `https://fde.aielsen.com/academy`。根 `sitemap.xml` 已同时覆盖 8 个服务 / Toolkit 内容页和 82 个学院内容页；学院 canonical/hreflang 都包含 `/academy/`。不需要第二个子域名或第二套运行服务。
 
 ## 上线必须逐项验收
 
@@ -66,6 +68,7 @@ npm run preview
 | 原服务 | `/zh/`、`/en/` | 两个首屏 CTA 分别进入场景 / 流程，不是学院 |
 | 原交付流程 | `/zh/process/`、`/en/process/` | 六个阶段保留，对应课程可打开 |
 | 原 Playbook | `/zh/playbook/#business-analysis` | 原 More 与搜索正常，相关实训随场景变化 |
+| 私有工具箱申请 | `/zh/toolkit/`、`/en/toolkit/` | 未配置 endpoint 时不提交；配置后只发送明确填写的联系方式与申请信息，不提供下载 |
 | 场景切换 | 九个场景逐一选择，切换中文/英文 | 原场景 hash 保留，两个相关学习入口均有效 |
 | 学院入口 | `/academy/` | 进入中文学院，有英文入口 |
 | 双语首页 | `/academy/zh/`、`/academy/en/` | 图片、字体、样式正常，返回主站正常 |
@@ -76,7 +79,7 @@ npm run preview
 | 营销 PDF | `/academy/downloads/AIelsen-FDE-Academy-Brochure.pdf` | 真实 PDF，可打开与下载 |
 | 工程实训 ZIP | `/academy/downloads/fde-practice-kit.zip` | 可下载解压，不是 HTML 错误页 |
 | 企业共训 | `/academy/zh/enterprise/` | 本地需求简报生成，不冒充在线提交 |
-| SEO | `/sitemap.xml`、课程 canonical/hreflang | 正式域名 + 正确路径，无 localhost |
+| SEO | `/sitemap.xml`、课程与 Toolkit canonical/hreflang | 正式域名 + 正确路径，无 localhost |
 | 错误页 | `/not-a-page/`、`/academy/not-a-page/` | HTTP 404，不伪装为首页 200 |
 | 设备 | 桌面、平板、手机；键盘 Tab / Enter / Esc | 可见入口、无横向溢出、画板可关闭 |
 

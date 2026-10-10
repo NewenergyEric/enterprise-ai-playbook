@@ -58,7 +58,7 @@ try {
       Buffer.from(metadataModule + '\n// public').toString('base64')
   );
   for (const lang of ['zh', 'en'])
-    for (const view of ['home', 'process', 'playbook']) {
+    for (const view of ['home', 'process', 'playbook', 'toolkit']) {
       const metadata = publicMetadata.pageMetadata(lang, view);
       assert.ok(metadata.title.endsWith(' · AIelsen FDE'));
       assert.equal(
@@ -226,7 +226,7 @@ assert.equal(
   plays[0].id,
 );
 for (const lang of ['zh', 'en'])
-  for (const view of ['home', 'process', 'playbook']) {
+  for (const view of ['home', 'process', 'playbook', 'toolkit']) {
     const route = localPath(lang, view);
     await access('app/(' + lang + ')' + route + 'page.tsx');
   }
@@ -281,6 +281,8 @@ if (built) {
     '/en/process/',
     '/zh/playbook/',
     '/en/playbook/',
+    '/zh/toolkit/',
+    '/en/toolkit/',
   ];
   for (const route of routes) {
     const html = await readFile(path.join(root, route, 'index.html'), 'utf8');
@@ -343,6 +345,6 @@ if (built) {
     }
   }
   console.log(
-    'PASS · 7 exported routes, correct document languages, metadata, headings and local resource links.',
+    'PASS · 9 exported routes, correct document languages, metadata, headings and local resource links.',
   );
 }
