@@ -1,163 +1,181 @@
 <h1 align="center">Enterprise AI Playbook</h1>
-<h2 align="center"><a href="https://fde.aielsen.com/">在线阅读完整指南 ↗ fde.aielsen.com</a></h2>
-<p align="center"><strong>企业 AI 应用与落地指南 · 工作流程、关键判断与 FDE 实战训练</strong></p>
-<p align="center"><strong>中文</strong> · <a href="README.en.md">English</a></p>
+<h2 align="center"><a href="https://fde.aielsen.com/">Explore the complete guide ↗ fde.aielsen.com</a></h2>
+<p align="center"><strong>Enterprise AI adoption · Workflows, critical decisions and practical FDE training</strong></p>
+<p align="center"><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a></p>
+
+**Connect a whole enterprise workflow: its inputs, critical decisions, next owner and definition of done.**
+
+> **Source-available for learning and evaluation.** Personal learning, corporate internal learning and non-production evaluation are permitted; production use, paid training or consulting deliverables, resale and SaaS require written commercial authorization. Licensed under [AIelsen Learning and Evaluation License 1.0](LICENSE), not MIT or an OSI-approved open-source license. [Usage boundaries](LICENSING.md) · [Third-party rights](THIRD_PARTY_NOTICES.md)
+
+## Why I put this together
+
+I'm [Eric (NewenergyEric)](https://github.com/NewenergyEric), the curator of Enterprise AI Playbook. My focus is how enterprises use AI to complete a concrete job: where inputs come from, what supports a decision, who takes the next step, and what counts as completion.
+
+I want the next practitioner to have a method they can study, try and inspect. This guide and FDE Academy follow six steps: choose the business problem, reconstruct the work, capture the method, assemble the workflow, validate with tasks, and hand over for reuse. Each step leaves an artifact the next person can use, with untested assumptions made explicit.
+
+## Start with the work you need to do
 
 <p align="center">
-  <a href="https://fde.aielsen.com/academy/zh/"><strong>进入 FDE 学院</strong></a> ·
-  <a href="https://fde.aielsen.com/academy/zh/curriculum/">12 周课程</a> ·
-  <a href="https://fde.aielsen.com/zh/process/">工作流程</a> ·
-  <a href="https://fde.aielsen.com/zh/playbook/">业务 Playbook</a> ·
-  <a href="https://fde.aielsen.com/agent-cases/">Agent 案例</a>
+  <a href="https://fde.aielsen.com/academy/en/"><strong>Enter FDE Academy</strong></a> ·
+  <a href="https://fde.aielsen.com/academy/en/curriculum/">12-week curriculum</a> ·
+  <a href="https://fde.aielsen.com/en/process/">Delivery workflow</a> ·
+  <a href="https://fde.aielsen.com/en/playbook/">Business playbook</a> ·
+  <a href="https://fde.aielsen.com/agent-cases/en/">Agent cases</a>
 </p>
 
 <p align="center">
-  <a href="https://fde.aielsen.com/"><img src="docs/media/fde-motion-zh.gif" alt="进入完整指南：从资料和业务判断，到 Agent 工作链、可验收成果与可复用方法。" width="100%"></a>
+  <a href="https://fde.aielsen.com/en/"><img src="docs/media/fde-motion-en.gif" alt="Explore the complete guide: move from information and business judgment to agent workflows, verifiable deliverables and reusable methods." width="100%"></a>
 </p>
-<p align="center"><sub>工作方法动态示意 · <a href="docs/media/fde-motion-zh.png">静态版</a> · <a href="https://fde.aielsen.com/academy/zh/resources/#visual-atlas">浏览教学画板</a></sub></p>
+<p align="center"><sub>A visual guide to the work · <a href="docs/media/fde-motion-en.png">Static version</a> · <a href="https://fde.aielsen.com/academy/en/resources/#visual-atlas">Teaching boards</a></sub></p>
 
-企业里真正难的，往往不是让模型多答一个问题，而是把一项工作接起来：**输入从哪里来，关键判断依据什么，谁负责下一步，结果怎样才算完成。**
+Pick a concrete task, then follow the FDE Academy project to learn how an existing product becomes a verifiable business capability. Workflows, lessons, engineering exercises, reviews and case analysis share the same chain of evidence.
 
-这份指南由 AIelsen 整理，把企业 AI 交付拆成可以学习、动手和检查的工作方法。你可以先找业务切入点，也可以沿 FDE 学院的项目主线，练习把已有产品适配成可验证的业务能力。
-
-| 你要解决的问题 | 从这里开始 |
+| What you want to do | Start here |
 | --- | --- |
-| 想系统学习企业 AI 交付 | [FDE 学院：课程、讲义、作业与工程实训](https://fde.aielsen.com/academy/zh/) |
-| 已有原型，希望补齐数据、工具、评估与运行能力 | [12 周工程路线](#fde-academy) · [详细学习指南](docs/FDE-ACADEMY.md) |
-| 想找到具体业务中的 AI 机会 | [9 类场景、66 个场景内 More 应用](https://fde.aielsen.com/zh/playbook/) |
-| 想看工作怎样从需求走到产出 | [六步工作流程](#workflow) · [Agent 案例](#agent-cases) |
+| Learn enterprise AI delivery systematically | [FDE Academy: curriculum, assignments and engineering practice](https://fde.aielsen.com/academy/en/) |
+| Move beyond a prototype into data, tools, evaluation and operations | [12-week engineering path](#fde-academy) · [Detailed learning guide](docs/FDE-ACADEMY.en.md) |
+| Find a concrete business application | [9 plays and 66 in-context More applications](https://fde.aielsen.com/en/playbook/) |
+| See how a request becomes a usable deliverable | [Six-step workflow](#workflow) · [Agent cases](#agent-cases) |
+
+**A first learning session:** [Choose a learning path](https://fde.aielsen.com/academy/en/paths/) → [Write a W01 project-fit memo](https://fde.aielsen.com/academy/en/curriculum/01/) → [Try the practice kit](https://fde.aielsen.com/academy/en/resources/) → [Review the evidence against the capstone criteria](https://fde.aielsen.com/academy/en/guide/). If you already have a business problem, pick a Playbook scenario and use the workflow to check inputs, decisions and acceptance.
+
+**Scope and evidence:** 9 business plays, 66 application scenarios, a 12-week Academy and 9 anonymized Agent cases. The 66 scenarios are starting points for learning and analysis, not 66 validated customer deployments. Course exercises use synthetic scenarios; cases retain their evidence and unverified boundaries.
 
 <a id="workflow"></a>
 
-## 一条工作链，六个关键判断
+## One workflow. Six critical decisions.
 
-FDE（Forward Deployed Engineer，前线部署工程师）连接业务现场、产品和工程。每一步都要留下能够被下一步使用的产物，而不只是会议结论。
+A Forward Deployed Engineer connects business practice, product capabilities and engineering. Each step leaves an artifact that the next person can use.
 
-| 阶段 | 具体工作 | 关键判断 | 留下什么 |
+| Stage | Work to do | Critical decision | Artifact |
 | --- | --- | --- | --- |
-| **01 选准业务问题** | 回看一次真实任务，明确使用者、输入、现状与约束 | 问题值得做吗？简单规则或脚本是否已经足够？ | 机会与范围卡、基线、不做清单 |
-| **02 还原真实工作** | 让使用者演示工作，记录事实、分歧、例外和交接 | 真正依赖经验的是哪一步？缺的是信息，还是判断？ | 工作图、事实账本、角色与责任 |
-| **03 沉淀专业方法** | 将经验写成输入要求、判断规则、样例、反例与工具契约 | 方法能否在新样本上成立？哪些规则不能交给模型猜？ | Skill 规格、证据要求、验证样本 |
-| **04 组装完整工作链** | 连接数据、业务语义、工具和工作入口 | 什么时候澄清、调用工具、停止或交给人？ | 数据适配器、业务工具、首份产物与运行轨迹 |
-| **05 用任务验证** | 用相同材料比较质量、耗时、返工、成本与最终状态 | 是回答好看，还是任务真的完成？失败发生在哪一层？ | 评估集、版本报告、失败样本与改进清单 |
-| **06 交接并复用** | 明确版本、依赖、维护责任，区分客户配置与通用能力 | 哪些可复用，哪些必须重配，哪些不应公开？ | 运行手册、资产清单、产品反馈与迁移条件 |
+| **01 Frame the problem** | Reconstruct a recent task, its user, inputs, baseline and constraints | Is the problem worth solving? Would a rule or script be sufficient? | Opportunity brief, baseline and explicit exclusions |
+| **02 Reconstruct the work** | Observe a practitioner; record evidence, disagreements, exceptions and handoffs | Where does expertise matter? Is information missing, or is judgment missing? | Workflow map, fact ledger and responsibility map |
+| **03 Capture the method** | Specify inputs, decision rules, examples, counterexamples and tool contracts | Does the method work on fresh examples? What must not be guessed by a model? | Skill specification, evidence requirements and test cases |
+| **04 Connect the workflow** | Integrate data, business semantics, tools and the actual work entry point | When should the agent clarify, call a tool, stop or hand over? | Adapters, business tools, first output and execution traces |
+| **05 Validate the task** | Compare quality, time, rework, cost and final state on equivalent material | Did the job finish, or did the answer only sound convincing? Which layer failed? | Evaluation sets, version comparisons and failure cases |
+| **06 Hand over and reuse** | Document versions, dependencies and ownership; separate shared capabilities from tenant settings | What transfers, what needs adaptation, and what must remain private? | Runbook, asset register, product feedback and transfer conditions |
 
-[展开六步流程与交付物 →](https://fde.aielsen.com/zh/process/)
+[Explore the full delivery workflow →](https://fde.aielsen.com/en/process/)
 
 <a id="fde-academy"></a>
 
-## FDE 学院：用一个项目练完整交付
+## FDE Academy: practice a complete delivery
 
-**从“会用模型”，到能解释并完成一次企业 AI 交付。**
+**Learn to explain, implement and verify an enterprise AI engagement.**
 
-学院面向 FDE、解决方案架构师、数据与 Agent 工程师，以及需要参与需求和验收的业务团队。主线是一个贯穿 12 周的**合成连锁零售会员运营项目**：
+The Academy is for FDEs, solution architects, data and agent engineers, and business colleagues who shape requirements and acceptance. Its 12-week spine is a **synthetic retail member-operations project**:
 
-> 业务希望改善复购，但 CRM 与 POS 身份不一致，运营不信任人群，IT 关心权限和运行责任。你要先把数据与指标说清，再交付建议型 Agent，随后验证受控执行、故障恢复与项目验收。
+> The business wants stronger repeat purchasing. CRM and POS identities disagree, operators distrust the proposed audience, and IT needs clear access and operational responsibilities. Establish the data and metric contracts first, deliver an advisory agent, then test controlled actions, failure recovery and acceptance.
 
-这里的训练对象不是“做一个聊天页面”，而是一条可追溯链路：**业务问题 → 数据与语义 → Agent 工具 → 评估与受控执行 → 验收与产品反馈**。
+The learning unit is a complete chain: **business problem → data and semantics → agent tools → evaluation and controlled actions → acceptance and product feedback**.
 
 <p align="center">
-  <a href="https://fde.aielsen.com/academy/zh/curriculum/"><img src="docs/media/badge-academy.svg" alt="12 周 FDE 课程"></a>
-  <img src="docs/media/badge-bilingual.svg" alt="中文与 English">
+  <a href="https://fde.aielsen.com/academy/en/curriculum/"><img src="docs/media/badge-academy-en.svg" alt="12-week FDE curriculum"></a>
+  <img src="docs/media/badge-bilingual.svg" alt="Chinese and English">
 </p>
 
-### 12 周，每周都有要交出的东西
+### Twelve weeks, with a concrete artifact every week
 
-| 周次 / 课程 | 要做出的关键判断 | 工程与交付成果 |
+| Week / module | Decision to make | Engineering and delivery artifacts |
 | --- | --- | --- |
-| [W01 · FDE 职责与项目判断](https://fde.aielsen.com/academy/zh/curriculum/01/) | 值不值得做？标准产品适配在哪里，缺口在哪里？ | 项目判断书、Fit/Gap 清单、教学环境自检 |
-| [W02 · 现场访谈与业务建模](https://fde.aielsen.com/academy/zh/curriculum/02/) | 如何把不同角色的说法转成事实、冲突和待验证项？ | 访谈证据账本、角色地图、业务对象草图 |
-| [W03 · 业务指标与交付范围](https://fde.aielsen.com/academy/zh/curriculum/03/) | 分母、观察窗与排除规则是什么？什么不在本期？ | 指标契约、计算测试、范围与变更约定 |
-| [W04 · 数据画像与客户适配](https://fde.aielsen.com/academy/zh/curriculum/04/) | 重复、缺失、退款、迟到数据怎样影响结果？ | 数据适配器、质量报告、隔离记录与对账结果 |
-| [W05 · 业务本体与建议型 Agent](https://fde.aielsen.com/academy/zh/curriculum/05/) | 身份如何消歧？计算、检索与模型各负责什么？ | 本体与指标配置、分群/建议工具、Agent v1 任务轨迹 |
-| [W06 · 数据安全与部署选型](https://fde.aielsen.com/academy/zh/curriculum/06/) | 哪些字段和工具允许被使用？权限在哪里真正执行？ | 数据流、权限模块、拒绝测试与架构取舍 |
-| [W07 · Agent 评估与需求变更](https://fde.aielsen.com/academy/zh/curriculum/07/) | 怎样区分数据、工具、模型与业务标准的问题？ | 正常/边界/对抗评估集、运行器、版本比较与变更方案 |
-| [W08 · 执行型 Agent 与业务闭环](https://fde.aielsen.com/academy/zh/curriculum/08/) | 如何避免重复执行？超时后怎样确认实际结果？ | 发券/标签模拟连接器、参数绑定、幂等与回查测试 |
-| [W09 · 生产工程与上线评审](https://fde.aielsen.com/academy/zh/curriculum/09/) | 出错能否停下来、查清楚、恢复？成本是否算全？ | Trace、故障演练、灰度与回退方案、运行手册 |
-| [W10 · 效果归因与项目验收](https://fde.aielsen.com/academy/zh/curriculum/10/) | 技术通过、业务采用和业务效果分别证明了什么？ | 分析脚本、对照与观察窗、三层验收材料 |
-| [W11 · 交付复盘与产品化沉淀](https://fde.aielsen.com/academy/zh/curriculum/11/) | 什么属于客户专属、行业模板或产品通用改进？ | 复盘、资产分层、带复现的产品反馈、迁移分析 |
-| [W12 · 结业答辩与能力复评](https://fde.aielsen.com/academy/zh/curriculum/12/) | 别人能否复现你的交付？新约束下还能否解释并修正？ | 完整证据包、正常与异常演示、作品说明与能力复评 |
+| [W01 · FDE role and project qualification](https://fde.aielsen.com/academy/en/curriculum/01/) | Is the project worth doing? Where does the standard product fit or fall short? | Fit memo, fit/gap register and environment checks |
+| [W02 · Discovery and business modeling](https://fde.aielsen.com/academy/en/curriculum/02/) | How do stakeholder accounts become evidence, conflicts and testable unknowns? | Interview ledger, stakeholder map and business-object draft |
+| [W03 · Metrics and delivery scope](https://fde.aielsen.com/academy/en/curriculum/03/) | What are the denominator, observation window and exclusions? What is out of scope? | Metric contract, executable checks and change rules |
+| [W04 · Data profiling and tenant adaptation](https://fde.aielsen.com/academy/en/curriculum/04/) | How do duplicates, missing values, refunds and late events affect the output? | Adapter, quality report, quarantine records and reconciliation |
+| [W05 · Ontology and the advisory agent](https://fde.aielsen.com/academy/en/curriculum/05/) | How are identities resolved? What belongs to computation, retrieval or the model? | Ontology, semantic configuration, segmentation/advice tools and agent traces |
+| [W06 · Data security and deployment design](https://fde.aielsen.com/academy/en/curriculum/06/) | Which fields and tools may be used, and where is access actually enforced? | Data-flow map, permission module, denial tests and architecture choices |
+| [W07 · Agent evaluation and scope change](https://fde.aielsen.com/academy/en/curriculum/07/) | Is the failure in data, tools, model behavior or the business rubric? | Normal/edge/adversarial sets, runner, version report and change proposal |
+| [W08 · Action agents and operational integration](https://fde.aielsen.com/academy/en/curriculum/08/) | How are duplicate effects prevented? How is the result checked after a timeout? | Simulated coupon/tag connectors, parameter binding, idempotency and status checks |
+| [W09 · Production engineering and launch review](https://fde.aielsen.com/academy/en/curriculum/09/) | Can the system stop, explain a failure and recover? Is the full cost counted? | Traces, failure drills, rollout/rollback plan and runbook |
+| [W10 · Attribution and project acceptance](https://fde.aielsen.com/academy/en/curriculum/10/) | What do technical success, adoption and business outcomes each establish? | Analysis scripts, observation/control design and three-layer acceptance |
+| [W11 · Retrospective and product feedback](https://fde.aielsen.com/academy/en/curriculum/11/) | What is tenant-specific, an industry template or a general product improvement? | Retrospective, asset layers, reproducible product feedback and transfer analysis |
+| [W12 · Capstone defense and competency review](https://fde.aielsen.com/academy/en/curriculum/12/) | Can someone else reproduce the work? Can you adapt it under a new constraint? | Evidence pack, normal/failure demonstrations and competency review |
 
-### 看一个具体任务怎样被拆开
+### Follow one concrete task
 
-“找一批最近没来的会员，给运营一个建议。”在课程里，这句话会被拆成六项工作，而不是直接交给模型生成活动文案。
+“Find members who have not returned recently and propose an action.” The course turns that request into six inspectable pieces of work.
 
-| 工作关键点 | 学员要完成的动作 |
+| Critical point | What the learner does |
 | --- | --- |
-| **先澄清业务含义** | 确认门店、截止日，以及“没来”按到店还是有效购买计算 |
-| **再核对对象与数据** | 处理 CRM/POS 身份映射、退款与重复记录；未知值明确隔离 |
-| **用业务工具提供证据** | `segment_members` 返回人群引用、排除原因、指标版本和证据快照 |
-| **把建议和执行分开** | `propose_operation` 生成带约束的方案，不产生发券副作用 |
-| **加入执行与异常处理** | 在本地模拟预览、确认、幂等、预算重检；超时先查状态，不盲目重发 |
-| **最后证明结果** | 分开报告机制测试、真实模型轨迹、业务判断与尚未验证的部分 |
+| **Clarify the business meaning** | Confirm the store, snapshot date, and whether inactivity means no visit or no valid purchase |
+| **Check identity and data** | Resolve CRM/POS mappings, refunds and duplicates; isolate unknowns explicitly |
+| **Supply evidence through tools** | `segment_members` returns a segment reference, exclusion counts, metric version and evidence snapshot |
+| **Separate advice from execution** | `propose_operation` proposes a constrained plan without issuing a coupon |
+| **Handle actions and exceptions** | Simulate preview, confirmation, idempotency and budget rechecks; query status after a timeout |
+| **Establish what was verified** | Report mechanism tests, real model traces, business review and untested behavior separately |
 
-[进入 W05 建议型 Agent](https://fde.aielsen.com/academy/zh/curriculum/05/) · [继续 W08 执行动作](https://fde.aielsen.com/academy/zh/curriculum/08/)
+[Start with the W05 advisory agent](https://fde.aielsen.com/academy/en/curriculum/05/) · [Continue into W08 actions](https://fde.aielsen.com/academy/en/curriculum/08/)
 
-### 两张画板，看清最容易混淆的工程问题
+### Two boards for two easily confused engineering problems
 
-| 失败到底发生在哪一层？ | 请求超时，为什么不能直接重试？ |
+| Which layer actually failed? | Why is a timeout not permission to retry? |
 | --- | --- |
-| [![数据、工具、模型任务和业务使用的分层评估](docs/media/evals-zh.svg)](https://fde.aielsen.com/academy/zh/curriculum/07/) | [![执行状态、结果未知、回查与恢复](docs/media/states-zh.svg)](https://fde.aielsen.com/academy/zh/curriculum/08/) |
+| [![Layered evaluation across data, tools, model tasks and business use](docs/media/evals-en.svg)](https://fde.aielsen.com/academy/en/curriculum/07/) | [![Execution states, unknown outcomes, status checks and recovery](docs/media/states-en.svg)](https://fde.aielsen.com/academy/en/curriculum/08/) |
 
-这对应课程中的两个要求：**不要用一段流畅回答代替最终状态检查；不要用平均质量分抵消越权或错误执行。**
+Two course requirements follow: **check the final state, not just a fluent response; never average an authorization or execution failure away with good quality scores.**
 
-### 不同角色，围绕同一份证据协作
+### Different roles, shared evidence
 
-| 角色 | 学习重点 | 应形成的成果 |
+| Role | Learning focus | Expected artifact |
 | --- | --- | --- |
-| FDE / 解决方案 / 产品负责人 | 完整 12 周：诊断、适配、评估、交付与复用 | 可解释、可复现的交付作品 |
-| 数据与 Agent 工程师 | W03–09、W12：契约、工具、模型接入、测试与运行 | 代码、测试、模型轨迹、故障恢复手册 |
-| 营销 / 销售 / 运营 / 领域专家 | W02、03、05、07、08、10：任务规则与结果判断 | 任务规格、黄金样例、拒绝理由、业务评估表 |
-| 业务负责人 / 管理者 | W01、03、09、10、11：投入、责任与验收 | 试点决策书、验收标准与责任约定 |
-| 转型者 / 新进入企业 AI 交付者 | 补齐编程、SQL、API、Git 基础后进入主线 | 标明训练边界的作品集与能力差距清单 |
+| FDE / solutions / product lead | All 12 weeks: discovery, adaptation, evaluation, delivery and reuse | An explainable, reproducible delivery portfolio |
+| Data and agent engineer | W03–09 and W12: contracts, tools, model integration, testing and operations | Code, tests, model traces and a recovery runbook |
+| Marketing / sales / operations / domain expert | W02, 03, 05, 07, 08, 10: task rules and usefulness | Task specifications, gold examples, rejection reasons and a business rubric |
+| Business leader / sponsor | W01, 03, 09, 10, 11: investment, responsibilities and acceptance | Pilot decision, acceptance criteria and ownership |
+| Career transition / new practitioner | Programming, SQL, APIs and Git before the full path | An honestly labeled training portfolio and capability gap map |
 
-[学习前提与准备 →](https://fde.aielsen.com/academy/zh/paths/)
+[Prerequisites and preparation →](https://fde.aielsen.com/academy/en/paths/)
 
-### 学习资料与工程实训
+### Learning materials and hands-on engineering
 
-| 资料 | 怎样使用 |
+| Material | How to use it |
 | --- | --- |
-| [100 个中文详细讲义单元](https://fde.aielsen.com/academy/zh/curriculum/) | 每周结合方法、接口、失败模式、必做作业与验收标准学习 |
-| [19 个双语案例与业务实作](https://fde.aielsen.com/academy/zh/cases/) | 9 个公开案例 + 10 个合成实作，按问题、发现、行动、判断和课程作业拆解 |
-| [24 张双语教学画板](https://fde.aielsen.com/academy/zh/resources/#visual-atlas) | 理解业务语义、工具、评估、执行状态、成本与资产分层，可放大和下载 |
-| [6 个交互实验](https://fde.aielsen.com/academy/zh/labs/) | 修改合成输入，观察指标口径、安全门、成本、归因与动作边界 |
-| [16 份双语工作表与 Python 实训包](https://fde.aielsen.com/academy/zh/resources/) | 从项目判断书做到证据索引；用 37 项离线测试检查工程机制 |
-| [30 个概念与延伸阅读](https://fde.aielsen.com/academy/zh/glossary/) | 把术语放回业务与工程上下文，沿课程进入一手参考资料 |
+| [100 expanded Chinese lecture sections](https://fde.aielsen.com/academy/en/curriculum/) | Study the method, interfaces, failure modes, required work and acceptance for each week |
+| [19 bilingual cases and field exercises](https://fde.aielsen.com/academy/en/cases/) | Work through 9 public cases and 10 synthetic exercises: problem, discovery, actions, decisions and assignments |
+| [24 bilingual teaching boards](https://fde.aielsen.com/academy/en/resources/#visual-atlas) | Inspect and download diagrams on semantics, tools, evaluation, action states, cost and asset layers |
+| [6 interactive labs](https://fde.aielsen.com/academy/en/labs/) | Change synthetic inputs to explore metric definitions, gates, cost, attribution and action boundaries |
+| [16 bilingual worksheets and the Python practice kit](https://fde.aielsen.com/academy/en/resources/) | Build a fit memo through to an evidence index; run 37 offline mechanism tests |
+| [30 concepts and further reading](https://fde.aielsen.com/academy/en/glossary/) | Connect terminology to business and engineering work, then follow primary references |
 
-工程包使用合成数据和本地模拟，不连接真实业务系统，也不内置真实模型。学员需自行在获授权环境完成模型接入，并把**机制测试结果与模型任务结果分开报告**。扩展讲义目前为中文；英文版提供课程概要、案例、画板与实作指导。
+The kit uses synthetic data and local simulations. It does not connect to real business systems or include a live model. Learners integrate a model separately in an authorized environment and report **mechanism tests separately from model-task results**. Expanded lecture notes are currently Chinese; English pages provide curriculum summaries, cases, boards and practice guidance.
 
-[阅读完整学习指南](docs/FDE-ACADEMY.md) · [查看结业答辩标准](https://fde.aielsen.com/academy/zh/guide/) · [下载学院介绍 PDF](https://fde.aielsen.com/academy/downloads/AIelsen-FDE-Academy-Brochure.pdf) · [规划团队共训](https://fde.aielsen.com/academy/zh/enterprise/)
+[Detailed learning guide](docs/FDE-ACADEMY.en.md) · [Capstone and review guidance](https://fde.aielsen.com/academy/en/guide/) · [Academy brochure PDF](https://fde.aielsen.com/academy/downloads/AIelsen-FDE-Academy-Brochure.pdf) · [Plan team learning](https://fde.aielsen.com/academy/en/enterprise/)
 
 <a id="agent-cases"></a>
 
-## 从课程方法，回到具体工作
+## Connect the course to concrete work
 
-[业务 Playbook](https://fde.aielsen.com/zh/playbook/)围绕市场、获客、创作者合作、内容、客服、经营分析、门店运营、专家研究和企业知识展开。每个场景先回答“给谁用、用什么材料、交出什么”，再看场景内的 More 应用。
+The [business Playbook](https://fde.aielsen.com/en/playbook/) covers market entry, prospecting, creator partnerships, content, customer support, business analysis, store operations, expert research and enterprise knowledge. Each play starts with the user, available inputs and required output, then expands into in-context More applications.
 
-[Agent 案例集](https://fde.aielsen.com/agent-cases/)则展开连续工作过程：
+The [Agent case collection](https://fde.aielsen.com/agent-cases/en/) shows how work continues across steps:
 
-| 案例 | 工作如何推进 | 值得复用的关键点 |
+| Case | Work sequence | Reusable decision |
 | --- | --- | --- |
-| [Bella · 创意与整合营销](https://fde.aielsen.com/agent-cases/cases/bella/) | 需求 → 研究 → FAB → 策划与文案 → 分镜 → 成片对照 | 每轮修改如何回到原始需求与证据，而不只评价最后一张图 |
-| [Ruby · 海外创作者合作](https://fde.aielsen.com/agent-cases/cases/ruby/) | 筛选频道 → 判断适配 → 个性化 pitch → 回复处理 → 商务交接 | 把“找到名单”推进到下一步可执行的合作判断 |
-| [Oliva · 产品与售后客服](https://fde.aielsen.com/agent-cases/cases/oliva/) | 资料整理 → 检索依据 → 情境答复 → 人工修订 → 知识反馈 | 型号、版本与证据对应；纠错进入下一轮知识维护 |
-| [Steve · 工程交接](https://fde.aielsen.com/agent-cases/cases/steve/) | 核对规则 → 找出差异 → 标明待验证项 → 留下交接材料 | 将“文档写了什么”与“系统实际上怎样做”分开验证 |
+| [Bella · Creative and integrated marketing](https://fde.aielsen.com/agent-cases/en/cases/bella/) | Brief → research → FAB → campaign/copy → storyboard → final-film comparison | Relate revisions to requirements and evidence, not only the final image |
+| [Ruby · Creator partnerships](https://fde.aielsen.com/agent-cases/en/cases/ruby/) | Channel research → fit → individual pitch → replies → commercial handoff | Turn a contact list into a defensible next action |
+| [Oliva · Product and after-sales support](https://fde.aielsen.com/agent-cases/en/cases/oliva/) | Organize sources → retrieve evidence → contextual answer → human correction → knowledge feedback | Match model/version/evidence and feed corrections back into maintenance |
+| [Steve · Engineering handoff](https://fde.aielsen.com/agent-cases/en/cases/steve/) | Inspect rules → find discrepancies → mark unknowns → hand over | Check what documentation says against what the system actually does |
 
-另有 Velia、Atlas、Nora、Leo、Iris，共 9 个匿名案例、20 个中英文页面、28 张双语图解与 18 份工作表。案例展示工作方法与产物，不将其等同于经独立验证的业务增益。
+Velia, Atlas, Nora, Leo and Iris complete the nine anonymized cases: 20 Chinese/English pages, 28 bilingual diagrams and 18 worksheets. These explain methods and artifacts, not independently established business gains.
 
-## 使用许可与参与
+## License and participation
 
-个人学习、企业内部学习及非生产评估可以使用；生产使用、收费培训/咨询交付、转售或 SaaS 须取得书面商业授权。项目采用 **AIelsen Learning and Evaluation License 1.0**，属于源码可见，不是 MIT 或 OSI 开源许可。
+Personal learning, corporate internal learning and non-production evaluation are permitted. Production use, paid training/consulting, resale and SaaS require written commercial authorization. Original work uses the **AIelsen Learning and Evaluation License 1.0**: source-available, not MIT or OSI open source.
 
-[使用边界](LICENSING.md) · [商业授权](COMMERCIAL.md) · [第三方材料](THIRD_PARTY_NOTICES.md) · [贡献指南](CONTRIBUTING.md) · [安全政策与私密报告](SECURITY.md)
+[Usage boundaries](LICENSING.md) · [Commercial authorization](COMMERCIAL.md) · [Third-party materials](THIRD_PARTY_NOTICES.md) · [Contributing](CONTRIBUTING.md) · [Security and private reporting](SECURITY.md)
 
-已知依赖风险与审查范围见[安全审查记录](docs/security/PUBLICATION-REVIEW-2026-10-10.md)。课程使用合成练习；公开案例引用与第三方素材不代表合作关系或额外的素材再利用授权。
+Known dependency risks and review limits are documented in the [security review](docs/security/PUBLICATION-REVIEW-2026-10-10.md). Exercises use synthetic data. Public references and third-party materials do not imply partnerships or additional reuse rights.
+
+GitHub's `NOASSERTION` means it has not identified this custom license as a standard SPDX license; it does not mean the repository is unlicensed. Internal learning does not cover live business operations. You may apply what you learn in independently authored implementations without reusing protected project materials. The full [LICENSE](LICENSE) governs.
 
 <details>
-<summary>查看源文件、本地学习与贡献方式</summary>
+<summary>Source files, local learning and contributions</summary>
 
-[源文件与本地学习指南](docs/DEVELOPMENT.md)说明课程、案例和工具的维护位置、完整源码入口及非生产预览方法。[视觉素材说明](ASSETS.md)与[动效源码](docs/studio/README.md)供内容维护者使用。
+The [source and local-learning guide](docs/DEVELOPMENT.md) provides complete source entry points, editing locations and non-production preview instructions. [Asset notes](ASSETS.md) and [animation source](docs/studio/README.md) are available to maintainers.
+
+[Bilingual sharing and release drafts](marketing/campaigns/enterprise-ai-playbook-20261011/README.md) · [Presentation and metadata review](docs/SHOWCASE-REVIEW-2026-10-11.md)
 
 </details>
 
-<p align="center"><strong><a href="https://fde.aielsen.com/">从一项具体工作开始 → fde.aielsen.com</a></strong></p>
+<p align="center"><strong><a href="https://fde.aielsen.com/en/">Start with one concrete task → fde.aielsen.com</a></strong></p>

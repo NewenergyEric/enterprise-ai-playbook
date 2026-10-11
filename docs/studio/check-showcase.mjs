@@ -6,7 +6,9 @@ import assert from 'node:assert/strict';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 // Check the public showcase, not an unrelated Toolkit blueprint that is absent
 // from the maintained application branches.
-const docs=['README.md','README.en.md','ASSETS.md','docs/studio/README.md','docs/FDE-ACADEMY.md','docs/FDE-ACADEMY.en.md','docs/DEVELOPMENT.md','CONTRIBUTING.md','academy/README.md'];
+const docs=['README.md','README.zh-CN.md','README.en.md','ASSETS.md','docs/studio/README.md','docs/FDE-ACADEMY.md','docs/FDE-ACADEMY.en.md','docs/DEVELOPMENT.md','CONTRIBUTING.md','academy/README.md','docs/brand/README.md','LICENSING.md'];
+for (const name of ['README.md','social-copy.md','release-and-discussions.md','github-and-profile.md'])
+ docs.push('marketing/campaigns/enterprise-ai-playbook-20261011/'+name);
 let refs=0;
 for(const file of docs){
  const t=await fs.readFile(path.join(root,file),'utf8');
@@ -19,7 +21,11 @@ for(const file of docs){
    await fs.access(target);refs++;
  }
 }
-const zh=await fs.readFile(path.join(root,'README.md'),'utf8'),en=await fs.readFile(path.join(root,'README.en.md'),'utf8');
+const zh=await fs.readFile(path.join(root,'README.zh-CN.md'),'utf8'),en=await fs.readFile(path.join(root,'README.md'),'utf8');
+const legacy=await fs.readFile(path.join(root,'README.en.md'),'utf8');
+assert.equal(legacy.replaceAll('\r\n','\n').trimEnd(),en.replaceAll('\r\n','\n').trimEnd(),'Preserve the complete English compatibility copy and its anchors');
+assert(zh.includes('href="README.md">English</a>')&&en.includes('href="README.zh-CN.md">简体中文</a>'),'Language switches point to the maintained defaults');
+assert(zh.includes('为什么整理这份指南')&&en.includes('Why I put this together'),'Explain the author’s purpose without invented experience');
 assert(zh.includes('fde-motion-zh.gif')&&!zh.includes('fde-motion-en.gif'));
 assert(en.includes('fde-motion-en.gif')&&!en.includes('fde-motion-zh.gif'));
 assert(!/youtube\.com|youtu\.be|<iframe|<video/.test(zh+en),'No YouTube/embed block');
@@ -30,6 +36,8 @@ for(const text of [zh,en]){
  for(let week=1;week<=12;week++) assert(text.includes(`/curriculum/${String(week).padStart(2,'0')}/`),'All 12 weekly learning entrances');
  assert(!/feat\/(?:fde-academy|agent-cases)|dist\/client|npm (?:ci|run build)|DEPLOYMENT\.md/.test(text),'README focuses on reader workflows, not deployment handoff');
  assert(text.includes('LICENSING.md')&&text.includes('SECURITY.md'),'Public usage and security guidance');
+ assert(text.indexOf('AIelsen Learning and Evaluation License 1.0')<text.indexOf('<img'),'License scope precedes the hero');
+ assert(text.includes('NOASSERTION')&&text.includes('THIRD_PARTY_NOTICES.md'),'Explain custom-license recognition and third-party rights');
  assert(!text.includes('github.com/NewenergyEric/AIelsen-FDE-Toolkit'),'Do not advertise a private Toolkit download');
 }
 if(process.env.SHARP_MODULE){

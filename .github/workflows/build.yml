@@ -25,6 +25,7 @@ jobs:
       - run: npm run check
       - run: npm run build
       - run: npm test
+      - run: node scripts/check-presentation-seo.mjs
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: fde-static-site

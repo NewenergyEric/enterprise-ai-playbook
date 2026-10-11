@@ -1,6 +1,6 @@
 # FDE Academy · From a business problem to an accepted delivery
 
-[Learn online](https://fde.aielsen.com/academy/en/) · [12-week curriculum](https://fde.aielsen.com/academy/en/curriculum/) · [中文](FDE-ACADEMY.md) · [Guide home](../README.en.md)
+[Learn online](https://fde.aielsen.com/academy/en/) · [12-week curriculum](https://fde.aielsen.com/academy/en/curriculum/) · [中文](FDE-ACADEMY.md) · [Guide home](../README.md)
 
 A Forward Deployed Engineer connects field discovery, product capabilities, business judgment and engineering constraints. The outcome is a working capability with evidence that someone else can inspect and operate.
 

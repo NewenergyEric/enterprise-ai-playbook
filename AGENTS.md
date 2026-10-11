@@ -35,6 +35,6 @@ Only read [DEPLOYMENT.md](DEPLOYMENT.md) when changing build or hosting behavior
 - Case paths and links: `lib/agent-cases.ts`, `components/fde/case-links.tsx`.
 - Case assembly/tests: `scripts/assemble-agent-cases.mjs`, `scripts/test-agent-cases-integration.mjs`.
 - Request UI/configuration: `components/fde/toolkit-access.tsx`, `lib/lead-endpoint.ts`; tests: `scripts/test-lead-endpoint.mjs`, `scripts/test-toolkit-boundary.mjs`.
-- Public GitHub presentation: `README.md`, `README.en.md`, `docs/FDE-ACADEMY*.md`; verify with `node docs/studio/check-showcase.mjs`.
+- Public GitHub presentation: English `README.md`, Chinese `README.zh-CN.md`, and the identical English compatibility copy `README.en.md`; keep claims and language links aligned. `docs/FDE-ACADEMY*.md` are the learning guides. Verify with `node docs/studio/check-showcase.mjs`.
 
 Academy runtime assets stay relative to `import.meta.url` or CSS. The assembler prefixes generated HTML and search URLs; return-to-service links intentionally leave the Academy prefix. Do not use blind global path replacements.

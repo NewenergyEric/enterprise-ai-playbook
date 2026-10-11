@@ -348,6 +348,13 @@ function addMetadata(html, route, origin) {
       `<link rel="canonical" href="${url}">`,
       `<meta property="og:url" content="${url}">`,
     );
+    if (!meta.has('og:image'))
+      extra.push(
+        `<meta property="og:image" content="${escapeXML(origin + '/og.png')}">`,
+        '<meta property="og:image:alt" content="AIelsen FDE: Expertise. Engineered.">',
+      );
+    if (!meta.has('twitter:card'))
+      extra.push('<meta name="twitter:card" content="summary_large_image">');
     for (const [language, alternate] of alternates)
       extra.push(
         `<link rel="alternate" hreflang="${language}" href="${escapeXML(origin + alternate)}">`,
@@ -356,6 +363,10 @@ function addMetadata(html, route, origin) {
   extra.push(
     `<meta property="og:locale" content="${english ? 'en_US' : 'zh_CN'}">`,
   );
+  if (!meta.has('og:type'))
+    extra.push('<meta property="og:type" content="website">');
+  if (!meta.has('og:site_name'))
+    extra.push('<meta property="og:site_name" content="AIelsen Agent Field Notes">');
   if (!meta.has('og:title'))
     extra.push(
       `<meta property="og:title" content="${escapeSourceAttribute(title)}">`,

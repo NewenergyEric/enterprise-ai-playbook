@@ -13,7 +13,7 @@
 ## Repository assets
 
 - `../media/fde-cover.png`: original AIelsen FDE repository cover, 1600 × 800. Abstract field-to-delivery diagram, not a customer environment or product screenshot.
-- `../media/evals-*.svg`, `../media/states-*.svg`: unchanged exports of the Academy's original bilingual teaching boards. Their source is `academy/scripts/visual-boards.mjs` on the integration branch.
+- `../media/evals-*.svg`, `../media/states-*.svg`: unchanged exports of the Academy's original bilingual teaching boards. Their source is `academy/scripts/visual-boards.mjs` on `main`.
 - `render-cover.py`: optional authoring utility for the cover. It is not imported by the website or run during deployment.
 
 The cover uses Instrument Sans and IBM Plex Mono, both under SIL OFL 1.1. Only the raster artwork is distributed here, not font files. Font attribution: the Instrument Sans Project Authors and IBM Corp. See the licenses accompanying your font distribution. The Academy boards retain their existing font fallback and source provenance.
@@ -30,6 +30,6 @@ README images are relative GitHub assets, not externally hosted badges. They do 
 
 ## Maintaining the repository home
 
-Keep `README.md` and `README.en.md` aligned. The current main-branch presentation explicitly points to the Academy integration branch; when that code is actually merged, update the branch note and clone command together. Do not remove this distinction based only on a planned deployment.
+Maintain English in `README.md` and Chinese in `README.zh-CN.md`, with language switches at the top. Keep `README.en.md` identical to the English default so existing links, including section anchors, continue to work. Run `node docs/studio/check-showcase.mjs` after editing. All modules are now integrated on `main`; a repository update does not establish what is deployed at the public origin.
 
 Keep these assets under `docs/`, not `public/`. Repository decoration must not alter website routes, deployment configuration, privacy settings or original-content licensing.

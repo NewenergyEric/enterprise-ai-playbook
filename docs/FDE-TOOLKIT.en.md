@@ -2,7 +2,7 @@
 
 > **Archived method and selection proposal.** The candidate states below and in the JSON blueprint are historical, not a current install or release manifest. Private Toolkit contents are not published in this repository; begin with the [FDE Academy learning guide](FDE-ACADEMY.en.md) to study the workflows.
 
-[中文](FDE-TOOLKIT.md) · [Repository home](../README.en.md) · [Machine-readable proposal](toolkit-blueprint.json)
+[中文](FDE-TOOLKIT.md) · [Repository home](../README.md) · [Machine-readable proposal](toolkit-blueprint.json)
 
 **Select capabilities by the work an FDE needs to finish, and require a verifiable deliverable.**
 

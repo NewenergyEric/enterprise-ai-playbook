@@ -5,16 +5,16 @@ if (siteURL && !/^https?:\/\//.test(siteURL))
   throw new Error('SITE_URL must be an absolute HTTP(S) URL.');
 const titles = {
   home: {
-    zh: '让专业判断，成为企业能力',
-    en: 'Turn expertise into business capability',
+    zh: '企业 AI 应用指南 · 工作流程与 FDE 学院',
+    en: 'Enterprise AI Playbook · Workflows and FDE Academy',
   },
   process: {
-    zh: 'FDE 交付流程 · 从真实问题到持续能力',
-    en: 'The FDE process · From real work to lasting capability',
+    zh: '六步 FDE 工作流程 · 判断、验证与交接',
+    en: 'Six-step FDE workflow · Decisions, validation and handoff',
   },
   playbook: {
-    zh: '企业 Playbook · 详细打法与更多业务场景',
-    en: 'Enterprise Playbook · Detailed plays and more opportunities',
+    zh: '企业 AI Playbook · 9 类业务与 66 个应用场景',
+    en: 'Enterprise AI Playbook · 9 plays and 66 application scenarios',
   },
   toolkit: {
     zh: 'FDE 工具箱 · 申请私有访问',
@@ -23,16 +23,16 @@ const titles = {
 };
 const descriptions = {
   home: {
-    zh: '把市场洞察、岗位经验与专业方法，转化为可用的业务产出、企业 Skill 与岗位 Agent。',
-    en: 'Turn market insight, frontline know-how and professional methods into useful outputs, enterprise Skills and role Agents.',
+    zh: '从一项具体工作开始，学习企业如何使用 AI。六步工作流程、9 类业务应用、Agent 案例与 12 周 FDE 学院，连接业务判断、工程实训与证据评审。',
+    en: 'Learn how enterprises use AI through six-step workflows, business scenarios and Agent cases. Follow a 12-week FDE Academy with hands-on practice and evidence reviews.',
   },
   process: {
-    zh: '看清真实工作，沉淀专业方法，组装工作链，用同一批任务验证价值，留下可复用的能力。',
-    en: 'Understand real work, capture methods, assemble workflows and evaluate on comparable tasks. Leave your team with reusable capability.',
+    zh: '从选准业务问题到交接复用，沿六步工作流程明确输入、关键判断、责任人与验收证据，并进入对应的 FDE 学院课程与实训。',
+    en: 'Follow six steps from choosing a business problem to reusable handoff. Define inputs, decisions, owners and acceptance evidence, with links to FDE Academy practice.',
   },
   playbook: {
-    zh: '探索市场进入、客户开发、红人合作、内容、一线服务、经营分析、供应链、情报与知识复用，在各场景的 More 中查看具体应用、专业方法和交付产物。',
-    en: 'Explore practical applications within nine business plays, from market entry and sales to operations and knowledge reuse. Each More tab connects real work to methods and useful outputs.',
+    zh: '从 9 类业务、66 个应用场景中选择一项任务，核对输入、专业方法与交付产物，再进入课程和案例分析。场景用于学习与分析，不等于已验证客户案例。',
+    en: 'Explore 9 business plays and 66 application scenarios: inputs, methods and deliverables linked to courses and case analysis. Scenarios are not validated customer deployments.',
   },
   toolkit: {
     zh: '申请 AIelsen FDE 工具箱的私有预览或购买咨询。工具包不公开下载，访问范围、版本与支付方式在审核后单独确认。',
@@ -67,7 +67,7 @@ export function pageMetadata(lang: Lang, view: View): Metadata {
       type: 'website',
       locale: lang === 'zh' ? 'zh_CN' : 'en_US',
       alternateLocale: [lang === 'zh' ? 'en_US' : 'zh_CN'],
-      siteName: 'AIelsen FDE / Business Capability',
+      siteName: 'Enterprise AI Playbook / AIelsen FDE',
       ...(siteURL
         ? {
             url: siteURL + path,

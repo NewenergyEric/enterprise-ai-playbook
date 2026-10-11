@@ -17,7 +17,7 @@
 | Agent workflow cases / Agent 工作案例 | [Case module guide](../agent-cases/README.md), `agent-cases/content/`, `agent-cases/content/en/` |
 | Service/learning/case navigation / 导航与关联 | `components/fde/`, `lib/academy.ts`, `lib/agent-cases.ts` |
 | Optional request UI and URL safeguards / 可选申请界面与安全校验 | `components/fde/toolkit-access.tsx`, `lib/lead-endpoint.ts` |
-| GitHub reader experience / 仓库读者入口 | `README.md`, `README.en.md`, `docs/media/`, [motion source](studio/README.md) |
+| GitHub reader experience / 仓库读者入口 | English `README.md`, 中文 `README.zh-CN.md`, English compatibility copy `README.en.md`, `docs/media/`, [motion source](studio/README.md) |
 
 ## Run a non-production copy / 本地学习预览
 

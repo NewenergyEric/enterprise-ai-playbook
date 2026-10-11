@@ -2,7 +2,7 @@
 
 > **历史方法与选型设计稿。** 下文和机器可读设计稿保留当时的候选状态，不作为当前安装或发布清单。私有工具包不随本仓库公开；学习工作流程请先阅读 [FDE 学院指南](FDE-ACADEMY.md)。
 
-[English](FDE-TOOLKIT.en.md) · [返回首页](../README.md) · [机器可读设计稿](toolkit-blueprint.json)
+[English](FDE-TOOLKIT.en.md) · [返回首页](../README.zh-CN.md) · [机器可读设计稿](toolkit-blueprint.json)
 
 **目标：让 FDE 按“要完成的工作”选能力，并拿到可核对的交付物。**
 

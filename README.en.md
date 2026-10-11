@@ -1,7 +1,19 @@
 <h1 align="center">Enterprise AI Playbook</h1>
 <h2 align="center"><a href="https://fde.aielsen.com/">Explore the complete guide ↗ fde.aielsen.com</a></h2>
 <p align="center"><strong>Enterprise AI adoption · Workflows, critical decisions and practical FDE training</strong></p>
-<p align="center"><a href="README.md">中文</a> · <strong>English</strong></p>
+<p align="center"><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a></p>
+
+**Connect a whole enterprise workflow: its inputs, critical decisions, next owner and definition of done.**
+
+> **Source-available for learning and evaluation.** Personal learning, corporate internal learning and non-production evaluation are permitted; production use, paid training or consulting deliverables, resale and SaaS require written commercial authorization. Licensed under [AIelsen Learning and Evaluation License 1.0](LICENSE), not MIT or an OSI-approved open-source license. [Usage boundaries](LICENSING.md) · [Third-party rights](THIRD_PARTY_NOTICES.md)
+
+## Why I put this together
+
+I'm [Eric (NewenergyEric)](https://github.com/NewenergyEric), the curator of Enterprise AI Playbook. My focus is how enterprises use AI to complete a concrete job: where inputs come from, what supports a decision, who takes the next step, and what counts as completion.
+
+I want the next practitioner to have a method they can study, try and inspect. This guide and FDE Academy follow six steps: choose the business problem, reconstruct the work, capture the method, assemble the workflow, validate with tasks, and hand over for reuse. Each step leaves an artifact the next person can use, with untested assumptions made explicit.
+
+## Start with the work you need to do
 
 <p align="center">
   <a href="https://fde.aielsen.com/academy/en/"><strong>Enter FDE Academy</strong></a> ·
@@ -16,9 +28,7 @@
 </p>
 <p align="center"><sub>A visual guide to the work · <a href="docs/media/fde-motion-en.png">Static version</a> · <a href="https://fde.aielsen.com/academy/en/resources/#visual-atlas">Teaching boards</a></sub></p>
 
-The hard part of enterprise AI is often connecting the work: **where inputs come from, what supports a decision, who takes the next step, and what counts as completion.**
-
-Curated by AIelsen, this guide connects business use cases, field-delivery methods and engineering practice. Start with a business opportunity, or follow the FDE Academy project to learn how an existing product becomes a verifiable business capability.
+Pick a concrete task, then follow the FDE Academy project to learn how an existing product becomes a verifiable business capability. Workflows, lessons, engineering exercises, reviews and case analysis share the same chain of evidence.
 
 | What you want to do | Start here |
 | --- | --- |
@@ -26,6 +36,10 @@ Curated by AIelsen, this guide connects business use cases, field-delivery metho
 | Move beyond a prototype into data, tools, evaluation and operations | [12-week engineering path](#fde-academy) · [Detailed learning guide](docs/FDE-ACADEMY.en.md) |
 | Find a concrete business application | [9 plays and 66 in-context More applications](https://fde.aielsen.com/en/playbook/) |
 | See how a request becomes a usable deliverable | [Six-step workflow](#workflow) · [Agent cases](#agent-cases) |
+
+**A first learning session:** [Choose a learning path](https://fde.aielsen.com/academy/en/paths/) → [Write a W01 project-fit memo](https://fde.aielsen.com/academy/en/curriculum/01/) → [Try the practice kit](https://fde.aielsen.com/academy/en/resources/) → [Review the evidence against the capstone criteria](https://fde.aielsen.com/academy/en/guide/). If you already have a business problem, pick a Playbook scenario and use the workflow to check inputs, decisions and acceptance.
+
+**Scope and evidence:** 9 business plays, 66 application scenarios, a 12-week Academy and 9 anonymized Agent cases. The 66 scenarios are starting points for learning and analysis, not 66 validated customer deployments. Course exercises use synthetic scenarios; cases retain their evidence and unverified boundaries.
 
 <a id="workflow"></a>
 
@@ -153,10 +167,14 @@ Personal learning, corporate internal learning and non-production evaluation are
 
 Known dependency risks and review limits are documented in the [security review](docs/security/PUBLICATION-REVIEW-2026-10-10.md). Exercises use synthetic data. Public references and third-party materials do not imply partnerships or additional reuse rights.
 
+GitHub's `NOASSERTION` means it has not identified this custom license as a standard SPDX license; it does not mean the repository is unlicensed. Internal learning does not cover live business operations. You may apply what you learn in independently authored implementations without reusing protected project materials. The full [LICENSE](LICENSE) governs.
+
 <details>
 <summary>Source files, local learning and contributions</summary>
 
 The [source and local-learning guide](docs/DEVELOPMENT.md) provides complete source entry points, editing locations and non-production preview instructions. [Asset notes](ASSETS.md) and [animation source](docs/studio/README.md) are available to maintainers.
+
+[Bilingual sharing and release drafts](marketing/campaigns/enterprise-ai-playbook-20261011/README.md) · [Presentation and metadata review](docs/SHOWCASE-REVIEW-2026-10-11.md)
 
 </details>
 

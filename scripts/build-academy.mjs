@@ -60,7 +60,7 @@ export function adaptAcademyHTML(html, route, origin) {
     const canonical = escapeXML(origin + route);
     adapted = adapted.replace(
       '</head>',
-      `<link rel="canonical" href="${canonical}"><meta property="og:url" content="${canonical}"></head>`,
+      `<link rel="canonical" href="${canonical}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${escapeXML(origin + '/og.png')}"><meta property="og:image:alt" content="AIelsen FDE: Expertise. Engineered."><meta name="twitter:card" content="summary_large_image"></head>`,
     );
   }
   return adapted;

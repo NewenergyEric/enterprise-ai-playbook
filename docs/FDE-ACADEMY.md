@@ -1,6 +1,6 @@
 # FDE 学院 · 从业务问题到可验收的交付
 
-[在线学习](https://fde.aielsen.com/academy/zh/) · [12 周课程](https://fde.aielsen.com/academy/zh/curriculum/) · [English](FDE-ACADEMY.en.md) · [返回指南首页](../README.md)
+[在线学习](https://fde.aielsen.com/academy/zh/) · [12 周课程](https://fde.aielsen.com/academy/zh/curriculum/) · [English](FDE-ACADEMY.en.md) · [返回指南首页](../README.zh-CN.md)
 
 FDE 的工作不是替客户演示一个更聪明的聊天框，而是在业务现场找到值得解决的问题，把产品、数据、专业判断与工程约束连起来，再证明这条工作链确实能用。
 

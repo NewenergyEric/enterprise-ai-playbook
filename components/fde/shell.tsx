@@ -129,6 +129,10 @@ export function Shell({
               {zh ? '下载资料' : 'Resources'}
               <ArrowUpRight />
             </a>
+            <a href="https://github.com/NewenergyEric/enterprise-ai-playbook">
+              {zh ? 'GitHub · 学习指南与源码' : 'GitHub · Guide and source'}
+              <ArrowUpRight />
+            </a>
           </div>
         </div>
         <div className="wrap footer-bottom">

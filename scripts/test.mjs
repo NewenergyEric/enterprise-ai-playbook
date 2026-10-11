@@ -63,7 +63,7 @@ try {
       assert.ok(metadata.title.endsWith(' · AIelsen FDE'));
       assert.equal(
         metadata.openGraph.siteName,
-        'AIelsen FDE / Business Capability',
+        'Enterprise AI Playbook / AIelsen FDE',
       );
       assert.equal(metadata.icons.icon, '/favicon.svg?v=aielsen');
       assert.equal(

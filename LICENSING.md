@@ -26,4 +26,6 @@ The license applies to original code, documentation, teaching materials and temp
 
 ## Why “source-available” rather than “open source”?
 
-The [Open Source Definition](https://opensource.org/osd) does not permit restrictions on commercial fields of use. Our learning/evaluation grant intentionally retains those restrictions. We therefore describe the project accurately as **source-available**, even when the repository is public. GitHub may display “Other” for this custom license; that is not an error and should not be replaced with MIT to obtain a badge.
+The [Open Source Definition](https://opensource.org/osd) does not permit restrictions on commercial fields of use. Our learning/evaluation grant intentionally retains those restrictions. We therefore describe the project accurately as **source-available**, even when the repository is public. GitHub may display “Other” or the SPDX field `NOASSERTION` for this custom license. This is a license-recognition result, not a statement that the repository has no license. The root [LICENSE](LICENSE) remains in force; do not replace it with MIT to obtain a badge.
+
+GitHub 的 `NOASSERTION` 不代表无许可证，也不扩大使用范围。个人学习、企业内部学习与非生产评估适用现有许可；生产、收费培训或咨询交付、转售、SaaS 仍需书面商业授权。

@@ -32,7 +32,7 @@ Use the content-improvement issue form for a learning problem and the bug form f
 | Agent 工作案例 / Agent work cases | [Case source map](agent-cases/README.md) |
 | 可选申请界面 / Optional request UI | `components/fde/toolkit-access.tsx`, `lib/lead-endpoint.ts` |
 | 服务站样式 / Service styles | `app/globals.css`, `app/site.css` |
-| GitHub 展示 / Repository presentation | `README.md`, `README.en.md`, `docs/media/`, `docs/brand/` |
+| GitHub 展示 / Repository presentation | English `README.md`, 中文 `README.zh-CN.md`, English compatibility copy `README.en.md`, `docs/media/`, `docs/brand/` |
 
 不要直接维护构建生成的 HTML。当前四份服务 PDF 是较早的参考版：其中 Playbook 为 8 个场景，网站为 9 个；不能把它们描述成当前网站的逐页导出。
 
