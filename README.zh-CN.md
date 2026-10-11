@@ -165,6 +165,8 @@ FDE（Forward Deployed Engineer，前线部署工程师）连接业务现场、�
 
 [使用边界](LICENSING.md) · [商业授权](COMMERCIAL.md) · [第三方材料](THIRD_PARTY_NOTICES.md) · [贡献指南](CONTRIBUTING.md) · [安全政策与私密报告](SECURITY.md)
 
+参与讨论：[先选一项企业工作](https://github.com/NewenergyEric/enterprise-ai-playbook/discussions/22) · [评审可复现的交付证据](https://github.com/NewenergyEric/enterprise-ai-playbook/discussions/23)。
+
 已知依赖风险与审查范围见[安全审查记录](docs/security/PUBLICATION-REVIEW-2026-10-10.md)。课程使用合成练习；公开案例引用与第三方素材不代表合作关系或额外的素材再利用授权。
 
 GitHub 的 `NOASSERTION` 表示未将这份自定义许可识别为标准 SPDX 许可，不表示项目没有许可证。内部学习许可不包含真实业务执行；学习方法后独立编写自己的实现不受本许可对项目材料复用的限制。以 [LICENSE](LICENSE) 完整条款为准。
@@ -174,7 +176,7 @@ GitHub 的 `NOASSERTION` 表示未将这份自定义许可识别为标准 SPDX �
 
 [源文件与本地学习指南](docs/DEVELOPMENT.md)说明课程、案例和工具的维护位置、完整源码入口及非生产预览方法。[视觉素材说明](ASSETS.md)与[动效源码](docs/studio/README.md)供内容维护者使用。
 
-[中英文传播与发布草稿](marketing/campaigns/enterprise-ai-playbook-20261011/README.md) · [展示与元数据检查记录](docs/SHOWCASE-REVIEW-2026-10-11.md)
+[中英文传播与发布记录](marketing/campaigns/enterprise-ai-playbook-20261011/README.md) · [学习与发布检查清单](docs/RELEASE-CHECKLIST.md) · [展示与元数据检查记录](docs/SHOWCASE-REVIEW-2026-10-11.md)
 
 </details>
 

@@ -7,6 +7,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 // Check the public showcase, not an unrelated Toolkit blueprint that is absent
 // from the maintained application branches.
 const docs=['README.md','README.zh-CN.md','README.en.md','ASSETS.md','docs/studio/README.md','docs/FDE-ACADEMY.md','docs/FDE-ACADEMY.en.md','docs/DEVELOPMENT.md','CONTRIBUTING.md','academy/README.md','docs/brand/README.md','LICENSING.md'];
+docs.push('docs/RELEASE-CHECKLIST.md');
 for (const name of ['README.md','social-copy.md','release-and-discussions.md','github-and-profile.md'])
  docs.push('marketing/campaigns/enterprise-ai-playbook-20261011/'+name);
 let refs=0;

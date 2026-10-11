@@ -165,6 +165,8 @@ Personal learning, corporate internal learning and non-production evaluation are
 
 [Usage boundaries](LICENSING.md) · [Commercial authorization](COMMERCIAL.md) · [Third-party materials](THIRD_PARTY_NOTICES.md) · [Contributing](CONTRIBUTING.md) · [Security and private reporting](SECURITY.md)
 
+Join the discussion: [Choose a first enterprise task](https://github.com/NewenergyEric/enterprise-ai-playbook/discussions/22) · [Review reproducible delivery evidence](https://github.com/NewenergyEric/enterprise-ai-playbook/discussions/23).
+
 Known dependency risks and review limits are documented in the [security review](docs/security/PUBLICATION-REVIEW-2026-10-10.md). Exercises use synthetic data. Public references and third-party materials do not imply partnerships or additional reuse rights.
 
 GitHub's `NOASSERTION` means it has not identified this custom license as a standard SPDX license; it does not mean the repository is unlicensed. Internal learning does not cover live business operations. You may apply what you learn in independently authored implementations without reusing protected project materials. The full [LICENSE](LICENSE) governs.
@@ -174,7 +176,7 @@ GitHub's `NOASSERTION` means it has not identified this custom license as a stan
 
 The [source and local-learning guide](docs/DEVELOPMENT.md) provides complete source entry points, editing locations and non-production preview instructions. [Asset notes](ASSETS.md) and [animation source](docs/studio/README.md) are available to maintainers.
 
-[Bilingual sharing and release drafts](marketing/campaigns/enterprise-ai-playbook-20261011/README.md) · [Presentation and metadata review](docs/SHOWCASE-REVIEW-2026-10-11.md)
+[Bilingual sharing and publication record](marketing/campaigns/enterprise-ai-playbook-20261011/README.md) · [Learning and release checklist](docs/RELEASE-CHECKLIST.md) · [Presentation and metadata review](docs/SHOWCASE-REVIEW-2026-10-11.md)
 
 </details>
 

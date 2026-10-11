@@ -21,6 +21,8 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci --ignore-scripts
+      - run: npm run security:check
+      - run: npm run security:audit
       - run: node docs/studio/check-showcase.mjs
       - run: npm run check
       - run: npm run build

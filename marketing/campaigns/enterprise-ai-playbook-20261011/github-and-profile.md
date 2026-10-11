@@ -2,14 +2,14 @@
 type: profile-copy
 campaign: enterprise-ai-playbook-20261011
 date: 2026-10-11
-status: repository-metadata-applied-profile-draft
+status: repository-metadata-and-profile-applied
 ---
 
 # GitHub 展示与个人主页联动
 
 ## Repository About
 
-已于 2026-10-11 应用并回读核验下列 description、website 和 topics。个人主页片段仍为草稿。
+已于 2026-10-11 应用并回读核验下列 description、website 和 topics。2026-10-12 的 [profile 更新](https://github.com/NewenergyEric/NewenergyEric/commit/3db34bd)在现有 FDE 卡片内补齐中英文学院、案例和许可入口，保留其余个人介绍、媒体与项目。下方片段保留为编辑参考，线上实际内容以该提交为准。
 
 **Description（直接粘贴）：**
 
@@ -53,5 +53,5 @@ Source-available. Personal learning, corporate internal learning and non-product
 
 1. 仓库顶部：保留官网为第一个醒目入口，随后放学院、课程、流程、Playbook 和案例；作者名链接到公开 GitHub profile。
 2. 网站：沿用现有页脚视觉，加入仓库入口；学院、主站与案例保留现有互链。源码改动须单独部署后才会出现在生产网站。
-3. 个人主页：经确认后放入上述片段，并选择是否置顶仓库。本次不修改、不置顶。
+3. 个人主页：中英文 FDE 卡片已更新，中文兼容副本同步；未调整置顶顺序。
 4. 传播时优先链接可直接阅读或操作的对应页面；不把私有 Toolkit 作为公开下载赠品，不启用未配置的联系收集。

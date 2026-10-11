@@ -2,20 +2,20 @@
 type: campaign-brief
 campaign: enterprise-ai-playbook-20261011
 date: 2026-10-11
-status: draft
+status: github-launch-social-manual
 ---
 
 # Enterprise AI Playbook · 双语传播包
 
-渠道文案、Release/Discussion 与个人主页片段是草稿；About/topics 已应用，状态见对应文件。保存到仓库不表示已向渠道发布，不表示已创建 tag、Release 或 Discussion，也不表示网站已经部署。
+About/topics、[两条双语讨论](release-and-discussions.md)和[个人主页联动](github-and-profile.md)已应用。Release 文案作为发布编辑存档；实际标签与附件以 [GitHub Releases](https://github.com/NewenergyEric/enterprise-ai-playbook/releases) 为准。X、LinkedIn 等社交文案由 Eric 自行发布，没有通过 Metricool 发布或排期。网站部署是单独的交付状态。
 
-Channel copy, Release/Discussion text and profile snippets are drafts; About/topics have been applied as recorded in the metadata file. Repository publication does not publish a channel post, create a tag/Release/Discussion, or deploy the website.
+About/topics, two bilingual discussions and the profile links have been applied. Release copy is retained as an editorial record; check GitHub Releases for published tags and assets. Eric will publish social copy manually; nothing was posted or scheduled through Metricool. Website deployment is tracked separately.
 
 | 文件 | 内容 |
 | --- | --- |
 | [中英文渠道文案](social-copy.md) | X、LinkedIn、公众号、即刻、HN、V2EX、Dev.to |
-| [Release 与 Discussion](release-and-discussions.md) | 候选发布说明、两条双语讨论开场稿 |
-| [GitHub 与个人主页](github-and-profile.md) | About、topics、个人 profile README 联动文案 |
+| [Release 与 Discussion](release-and-discussions.md) | 发布说明编辑存档、已发布的两条双语讨论 |
+| [GitHub 与个人主页](github-and-profile.md) | About、topics、已应用的个人 profile README 联动 |
 
 ## 事实与表述边界
 
@@ -31,7 +31,7 @@ Channel copy, Release/Discussion text and profile snippets are drafts; About/top
 
 README、About 的官网字段、内部导航、canonical、hreflang、sitemap 使用干净 URL。渠道草稿链接采用 `utm_source` + `utm_medium` + `utm_campaign=enterprise_ai_playbook`；不带个人身份、邮箱或公司标识。UTM 仅标记来源，不表示已安装统计系统，也不承诺已获得访问或转化数据。
 
-用户另行确认后，才可发布渠道内容、创建 tag/Release/Discussion、启用 Discussions，或改动独立个人主页仓库。Release 候选名不改变应用包版本，不代表生产成熟度。发布前检查目标 commit 的 CI 和线上入口，不以本地构建替代线上核验。
+用户于 2026-10-12 要求继续完善 GitHub 发布、官网交付和 profile，随后选择自行发布社交渠道。`v1.0.0` 是学习资料的发布标签，不改变私有构建包版本，也不代表生产认证。发布前检查目标 commit 的 CI 和线上入口，不以本地构建替代线上核验。部署仍须明确现有托管目标，不能猜测服务器或覆盖其他站点。
 
 ## 可比较的标题方向
 

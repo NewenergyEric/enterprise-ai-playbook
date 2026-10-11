@@ -2,12 +2,12 @@
 type: release-and-discussion-drafts
 campaign: enterprise-ai-playbook-20261011
 date: 2026-10-11
-status: draft
+status: release-editorial-record-discussions-published
 ---
 
-# Release 与 Discussion 草稿
+# Release 编辑存档与已发布的 Discussion
 
-**尚未创建 tag、Release 或 Discussion，未启用 Discussions。** 用户确认发布动作后才执行。`v1.0.0` 仅为 Brief 提出的候选标签；发布时由维护者确认标签名、目标提交及该提交的 CI，不改变当前包版本，也不代表生产认证。
+Discussions 已开启，两条双语讨论已发布：[第一项企业任务 #22](https://github.com/NewenergyEric/enterprise-ai-playbook/discussions/22)、[可复现证据 #23](https://github.com/NewenergyEric/enterprise-ai-playbook/discussions/23)。下文保留双语编辑文案；实际 Release、标签和附件以 [Releases 页面](https://github.com/NewenergyEric/enterprise-ai-playbook/releases) 为准。`v1.0.0` 是学习资料发布标签，不改变当前私有构建包版本，也不代表生产认证。
 
 ## Release title · 候选标题
 
