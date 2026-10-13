@@ -17,8 +17,8 @@ const titles = {
     en: 'Enterprise AI Playbook · 9 plays and 66 application scenarios',
   },
   toolkit: {
-    zh: 'FDE 工具箱 · 申请私有访问',
-    en: 'FDE Toolkit · Request private access',
+    zh: 'FDE 工具箱 · 给 Agent 选工具，从一件工作开始',
+    en: 'FDE Toolkit · Put your agent to work',
   },
 };
 const descriptions = {
@@ -35,8 +35,8 @@ const descriptions = {
     en: 'Explore 9 business plays and 66 application scenarios: inputs, methods and deliverables linked to courses and case analysis. Scenarios are not validated customer deployments.',
   },
   toolkit: {
-    zh: '申请 AIelsen FDE 工具箱的私有预览或购买咨询。工具包不公开下载，访问范围、版本与支付方式在审核后单独确认。',
-    en: 'Request a private preview or purchase conversation for the AIelsen FDE Toolkit. The toolkit is not publicly downloadable; access, version and payment details are confirmed after review.',
+    zh: '从市场研究、内容营销、创作者合作或工程交接开始。留下邮箱，和 Eric 聊聊适合你的 Agent 工具与 Skills。',
+    en: 'Start with research, marketing, creator partnerships or engineering handoff. Leave your email to discuss the right agent tools and Skills with Eric.',
   },
 };
 export function pageMetadata(lang: Lang, view: View): Metadata {

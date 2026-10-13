@@ -1,74 +1,46 @@
-# Toolkit lead endpoint contract / 工具箱申请接收端契约
+# Toolkit email enquiry contract / 工具箱邮箱咨询
 
-This repository only contains the static form. It does not include a mailbox, CRM, payment processor or database. A deployment Agent may set `TOOLKIT_LEAD_ENDPOINT` and `TOOLKIT_PRIVACY_URL` after privacy review. If either value is absent or invalid, the form stays non-submitting and tells the visitor that nothing was sent.
+The public website contains a static, bilingual email form. It does not include a mailbox, receiver, database or private Toolkit contents. The reviewed receiver is deployed separately. Both `TOOLKIT_LEAD_ENDPOINT` and `TOOLKIT_PRIVACY_URL` must be owner-approved public HTTPS URLs before enabling collection. Without both values, fields and submission remain disabled.
 
-本仓库只有静态表单，不包含邮箱、CRM、支付处理器或数据库。部署 Agent 只有在完成隐私审查后，才可以配置负责人控制的接收端 `TOOLKIT_LEAD_ENDPOINT` 和真实隐私说明 `TOOLKIT_PRIVACY_URL`。任一变量缺失或地址无效时，表单保持不可提交，并明确告诉访客没有发送任何信息。
+本页只收邮箱和选填的工作需求，不再询问微信、组织、职位或购买意向。访客勾选同意后才提交。网页配置中不能出现收件邮箱路由、SMTP 凭据、令牌、密码或签名地址。接收接口和隐私页地址仍由 `lib/lead-endpoint.ts` 在序列化前校验，不接受 URL 用户信息、查询字符串、片段或生产回环地址。
 
-## Request body / 请求字段
+## Request and response
 
-### Publication security update (2026-10-10)
-
-Set **both** `TOOLKIT_LEAD_ENDPOINT` and `TOOLKIT_PRIVACY_URL` before enabling collection. Both must be public HTTPS URLs without userinfo, query strings or fragments; production loopback URLs are rejected. Never put a password, API key, signed token or private routing information in either value: configuration is embedded in public static output. Sanitization happens on the server/build side before client props are serialized.
-
-The privacy notice must identify the data controller, purpose, fields, retention period and a usable deletion/withdrawal channel. Missing/invalid configuration disables submission visibly. This code update does not supply or approve such a notice or receiving service. Browser requests omit credentials, reject redirects, time out after 15 seconds and require an explicit JSON `{ "ok": true }` acknowledgement. A timeout means receipt is unknown, not that a request could not have reached the receiver. Do not automatically retry or send the payload to an alternative endpoint.
-
-启用前须配置接收端和真实的隐私说明地址。生产地址不得包含密码、查询令牌或片段，也不能是本机回环地址。隐私说明和服务端的数据保留、删除、限流等措施仍须负责人审查；前端校验不能替代它们。
-
-The browser sends JSON over `POST` with `Content-Type: application/json`:
+POST JSON to the configured endpoint, normally on the same website origin at `/api/toolkit-contact`:
 
 ```json
 {
-  "email": "",
-  "wechat": "",
-  "organization": "",
-  "role": "",
-  "interest": "private-preview",
-  "useCase": "",
-  "language": "zh",
+  "method": "email",
+  "contact": "reader@example.test",
+  "message": "A weekly industry brief.",
+  "locale": "en",
   "consent": true,
-  "source": "fde-web-toolkit-access",
-  "website": ""
+  "website": "",
+  "submissionId": "caller-generated-UUID-v4",
+  "formOpenedAt": 0,
+  "captchaToken": "",
+  "source": "fde-toolkit",
+  "policyVersion": "fde-toolkit-2026-10-13"
 }
 ```
 
-The endpoint must validate again; browser validation is only a usability layer.
+`formOpenedAt` is the client timestamp when the form opened; the zero above is a schema example, not a valid submission. The recipient is fixed in private server configuration and must never be accepted from the request. Limit email to 254 characters and message to 500. Validate syntax, exact field names, `source`, `policyVersion`, locale, consent, UUID and the honeypot on the server. Store consent time and policy version with the encrypted note.
 
-- At least one of `email` and `wechat` is required. Normalize whitespace and cap lengths before storage.
-- Validate email syntax, but do not use email as an account credential.
-- Accept `interest` only from the documented values: `private-preview`, `purchase`, `team-adaptation`.
-- Cap `useCase` and treat it as untrusted text. Reject scripts, HTML and unexpected JSON fields where practical.
-- Require `consent === true`, record the consent timestamp and policy version, and provide deletion/withdrawal handling.
-- Require `source === "fde-web-toolkit-access"` and ignore the honeypot when it is empty; reject or silently discard non-empty honeypot submissions.
-- Never accept file uploads, passwords, payment-card data, access tokens, customer exports or production credentials.
+After the receiver durably queues the note, return HTTP 202 with `{"ok":true,"status":"queued","requestId":"opaque-receipt-id"}`. This means the note is queued, not that a notification reached the owner's mailbox. The browser requires all three acknowledgement fields, clears the form only on success, and retains the draft and submission ID when receipt is unknown. It never automatically retries or falls back to another receiver. Browser requests omit credentials, reject redirects, omit referrers and time out after 15 seconds.
 
-## Response / 返回
+The receiver exposes a sibling GET endpoint formed by appending `-config`: `/api/toolkit-contact-config`. Return only `{"available":true,"siteKey":""}`. An empty site key uses the existing minimum-time heuristic, honeypot and persistent quotas; it is not equivalent to a CAPTCHA. If a real Turnstile key is configured, the widget loads only after consent and the receiver validates its token, hostname and `fde_toolkit_contact` action. Incomplete key pairs fail closed. The optional widget follows [Cloudflare's explicit rendering API](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/).
 
-Return a short JSON response and an appropriate status code:
+## Receiver and privacy requirements
 
-```json
-{ "ok": true, "requestId": "owner-generated-non-sensitive-id" }
-```
+- Use an independent FDE queue and data key; do not read or reuse another product's visitor records or encryption key.
+- Allow only the approved website Origin. Keep the API behind the website's same-origin reverse proxy; arbitrary origins and recipients are rejected.
+- Enforce persistent request, contact, intake, queue and notification limits; cap body bytes. Store contact payloads with authenticated encryption. Logs contain only event names, opaque references and counts.
+- Keep one submission idempotent across retries. Queue accepted notes before acknowledging; retain them through SMTP outages and retry with bounded backoff. Successful SMTP acceptance removes the contact payload from the website queue.
+- The reviewed private receiver expires queued notes after 30 days and supports withdrawal by receipt reference. Mailbox retention and the withdrawal response are separate operator duties. The owner must approve the published privacy notice, retention and deletion procedure before enabling collection.
+- Do not expose private repositories, Skill bodies, packages, attachments, payment information, secrets or raw customer data. Submission does not grant Toolkit access or subscribe anyone to marketing.
 
-Do not return Toolkit URLs, repository paths, internal review notes or a payment link from an unauthenticated form submission. A `4xx` response should contain only a generic validation message; a `5xx` response should not disclose stack traces.
+## Verification
 
-## Required server controls / 服务端门禁
+Use synthetic contacts and a local SMTP sink only: bilingual email-only requests, optional empty message, invalid email, absent consent, bad source/policy, unknown fields, oversized body, honeypot, disallowed origins, duplicate submissions, quota exhaustion, receiver outage, timeout/ambiguous acknowledgement and queue restart. Verify drafts survive errors, success is only an acknowledged queue state, withdrawal and retention work, and no contact appears in public assets or logs. Production notification delivery is a separate check by the authorized operator.
 
-1. Allow CORS only for the owner-approved production origin and an explicitly approved local preview origin. Reject arbitrary `Origin` values.
-2. Apply IP and contact-based rate limits, a payload-size limit and bot protection. The honeypot is not a complete bot defense.
-3. Use HTTPS, encrypted storage and least-privilege access. Do not write contact values to request logs, analytics events or error traces.
-4. Define a retention period, deletion path and owner for the email/WeChat data before enabling the endpoint.
-5. Keep the endpoint separate from payment collection. After human review, send the buyer to a separately approved checkout or invoice flow; do not turn the static form into a payment form.
-6. Keep Toolkit packages behind private access control. The endpoint may create a review ticket, but it must not expose GitHub private URLs, ZIP files or raw audit reports to the browser.
-7. Monitor failures without recording the submitted contact. Return `429` for rate limits and keep the client message generic.
-
-## Release test / 上线前测试
-
-Use synthetic contacts only:
-
-- valid email-only, WeChat-only and both-contact submissions;
-- malformed email, missing contact, missing consent, oversized fields and non-empty honeypot;
-- repeated requests to confirm rate limiting;
-- disallowed origins and missing/invalid endpoint configuration;
-- confirm no request log, response, static HTML or public asset contains a Toolkit file path or submitted contact.
-
-The endpoint is not part of this repository's automated test suite. Record its owner-approved test evidence outside the public website repository before enabling it in a production build.
+Keep receiver code and private operational evidence outside this public static website repository. Publish only the complete website export; the private receiver is not part of `dist/client/`.

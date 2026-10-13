@@ -114,7 +114,7 @@ export function Shell({
               <ArrowUpRight />
             </a>
             <a href={localPath(lang, 'toolkit')}>
-              {zh ? '申请工具箱访问' : 'Request Toolkit access'}
+              {zh ? '聊聊工具箱' : 'Talk about the Toolkit'}
               <ArrowUpRight />
             </a>
             <a href={localPath(lang, 'process')}>
@@ -200,7 +200,7 @@ export function CallToAction({ lang }: { lang: Lang }) {
               : 'Pilot brief: editable Markdown · Complete locally · No data upload'}
           </small>
           <a className="text-link" href={localPath(lang, 'toolkit')}>
-            {zh ? '想把方法带回团队？申请工具箱访问' : 'Want reusable methods? Request Toolkit access'}
+            {zh ? '想把方法带回团队？聊聊工具箱' : 'Bring these methods to your team. Talk about the Toolkit'}
             <ArrowRight />
           </a>
         </div>

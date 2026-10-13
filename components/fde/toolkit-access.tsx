@@ -1,393 +1,136 @@
 'use client';
 
-import { type SyntheticEvent, useState } from 'react';
-import {
-  ArrowRight,
-  Check,
-  CheckCircle2,
-  LockKeyhole,
-  Mail,
-  MessageCircle,
-  ShieldCheck,
-} from 'lucide-react';
+import { type SyntheticEvent, useEffect, useRef, useState } from 'react';
+import { ArrowRight, ArrowUpRight, Check, Mail, MoveUpRight } from 'lucide-react';
 import { Shell } from './shell';
+import { ToolkitVerification } from './toolkit-verification';
 import { localPath, type Lang } from '@/lib/site';
+import './toolkit-access.css';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
+const examples = [
+  { label: ['市场研究', 'Market research'], detail: ['把资料变成有依据的研究简报', 'Turn sources into a grounded research brief'], note: ['我想用 Agent 整理市场资料，做出有来源的研究简报。', 'I want my agent to turn market sources into a research brief with references.'] },
+  { label: ['内容与营销', 'Content & marketing'], detail: ['从产品信息，走到一份可执行的内容计划', 'Go from product information to a content plan'], note: ['我想把产品信息整理成内容计划，再和团队一起打磨。', 'I want to turn product information into a content plan my team can refine.'] },
+  { label: ['创作者合作', 'Creator partnerships'], detail: ['理清合作要求、候选人和下一步', 'Organize the brief, candidates and next steps'], note: ['我想梳理创作者合作的要求、候选人和跟进事项。', 'I want to organize a creator brief, candidates and follow-up work.'] },
+  { label: ['工程与交接', 'Engineering & handoff'], detail: ['让工作规则、交付清单和接续记录跟上', 'Keep working rules and handoff notes together'], note: ['我想给 Agent 配上工作规则，并把交付和交接记录整理好。', 'I want to equip my agent with working rules and clear delivery and handoff notes.'] },
+];
 
-function limit(value: string, length: number) {
-  return value.trim().slice(0, length);
-}
-
-export function ToolkitAccessPage({
-  lang,
-  leadEndpoint,
-  privacyUrl,
-}: {
-  lang: Lang;
-  leadEndpoint: string;
-  privacyUrl: string;
-}) {
+export function ToolkitAccessPage({ lang, leadEndpoint, privacyUrl }: { lang: Lang; leadEndpoint: string; privacyUrl: string }) {
   const zh = lang === 'zh';
-  const endpoint = leadEndpoint;
-  return (
-    <Shell lang={lang} view="toolkit">
-      <section className="toolkit-hero wrap">
-        <div className="toolkit-hero-copy">
-          <p className="eyebrow">
-            <span /> PRIVATE TOOLKIT ACCESS
-          </p>
-          <h1>
-            {zh ? (
-              <>
-                把可复用的工作方法，
-                <br />
-                交给真正要用的人。
-              </>
-            ) : (
-              <>
-                Put reusable methods
-                <br />
-                in the hands of the team using them.
-              </>
-            )}
-          </h1>
-          <p className="toolkit-hero-intro">
-            {zh
-              ? 'AIelsen FDE Toolkit 是面向真实业务任务的私有工具箱：把研究、营销、创作者合作、知识工作与工程交接整理成可选择、可组合、可核对的 Skill。它不提供公开下载，也不把未完成的能力包装成“全部可用”。'
-              : 'The AIelsen FDE Toolkit is a private toolbox for real business work: research, marketing, creator partnerships, knowledge work and engineering handoffs, organized as selectable, composable and reviewable Skills. It is not publicly downloadable, and it does not present unfinished capability as universally ready.'}
-          </p>
-          <div className="toolkit-hero-notes">
-            <span>
-              <LockKeyhole />
-              {zh ? '私有发行' : 'Private distribution'}
-            </span>
-            <span>
-              <ShieldCheck />
-              {zh ? '先审查，再交付' : 'Review before delivery'}
-            </span>
-            <span>
-              <CheckCircle2 />
-              {zh ? '版本与平台分开' : 'Generic + platform editions'}
-            </span>
-          </div>
-        </div>
-        <div className="toolkit-hero-card" aria-label={zh ? '工具箱交付范围' : 'Toolkit delivery scope'}>
-          <div className="toolkit-card-topline">
-            <span>FDE / TOOLKIT</span>
-            <span>ACCESS 01</span>
-          </div>
-          <div className="toolkit-card-stack">
-            <div>
-              <small>{zh ? '通用技能正文' : 'GENERIC SKILL BODY'}</small>
-              <strong>{zh ? '任务与判断' : 'Tasks & judgment'}</strong>
-              <span>{zh ? '保留原始方法，独立维护' : 'Original methods, maintained separately'}</span>
-            </div>
-            <div>
-              <small>{zh ? '平台发行版' : 'PLATFORM EDITION'}</small>
-              <strong>WorkBuddy</strong>
-              <span>{zh ? '字段、资源与测试包单独校验' : 'Fields, resources and test kit checked separately'}</span>
-            </div>
-            <div>
-              <small>{zh ? '交付门禁' : 'DELIVERY GATE'}</small>
-              <strong>{zh ? '审核 · 版本 · 访问' : 'Review · version · access'}</strong>
-              <span>{zh ? '支付与访问方式在确认后提供' : 'Payment and access details follow confirmation'}</span>
-            </div>
-          </div>
-          <p>
-            {zh
-              ? '不收集银行卡、密码、客户原始文件或生产系统权限。'
-              : 'No card data, passwords, raw client files or production credentials are collected.'}
-          </p>
-        </div>
-      </section>
-
-      <section className="toolkit-access-grid wrap" id="request-access">
-        <div className="toolkit-access-copy">
-          <p className="eyebrow">01 / REQUEST A PRIVATE CONVERSATION</p>
-          <h2>
-            {zh ? (
-              <>
-                先说清楚你要解决的工作，
-                <br />
-                再决定哪一版值得交付。
-              </>
-            ) : (
-              <>
-                Start with the work to improve.
-                <br />
-                Choose the right edition after review.
-              </>
-            )}
-          </h2>
-          <p>
-            {zh
-              ? '留下邮箱或微信后，我们会先确认使用场景、团队角色、发行版和交付边界，再单独沟通试用、购买与后续支持。联系方式只用于这次工具箱申请，不会被放进公开页面。'
-              : 'After you leave an email or WeChat ID, we first confirm the use case, team role, edition and delivery boundary, then discuss preview, purchase and support privately. Your contact is used for this toolkit request only and is never published.'}
-          </p>
-          <ol className="toolkit-steps">
-            <li>
-              <span>01</span>
-              <div>
-                <strong>{zh ? '确认工作场景' : 'Confirm the work'}</strong>
-                <p>{zh ? '例如研究简报、全案营销、创作者合作或工程交接。' : 'For example: research briefs, full-funnel campaigns, creator work or engineering handoff.'}</p>
-              </div>
-            </li>
-            <li>
-              <span>02</span>
-              <div>
-                <strong>{zh ? '审查与匹配版本' : 'Review and match an edition'}</strong>
-                <p>{zh ? '核对资料边界、平台字段、依赖与已知限制。' : 'Check data boundaries, platform fields, dependencies and known limits.'}</p>
-              </div>
-            </li>
-            <li>
-              <span>03</span>
-              <div>
-                <strong>{zh ? '私下提供报价与访问方式' : 'Share pricing and access privately'}</strong>
-                <p>{zh ? '支付在独立流程中处理；此页不收银行卡信息。' : 'Payment is handled in a separate flow; this page never collects card details.'}</p>
-              </div>
-            </li>
-          </ol>
-          <a className="text-link" href={localPath(lang)}>
-            {zh ? '先回到 FDE 服务站' : 'Return to the FDE service site'}
-            <ArrowRight />
-          </a>
-        </div>
-        <ToolkitAccessForm lang={lang} endpoint={endpoint} privacyUrl={privacyUrl} />
-      </section>
-
-      <section className="toolkit-boundaries wrap">
-        <div>
-          <p className="eyebrow">02 / WHAT THIS REQUEST IS — AND IS NOT</p>
-          <h2>{zh ? '一个合格的访问请求，应该让双方都更安全。' : 'A good access request makes both sides safer.'}</h2>
-        </div>
-        <div className="toolkit-boundary-grid">
-          <article>
-            <Check />
-            <h3>{zh ? '会得到什么' : 'What you can expect'}</h3>
-            <p>{zh ? '针对你的任务推荐版本、明确的使用边界、可核对的交付说明，以及后续支持方式。' : 'An edition recommendation for your work, clear usage boundaries, reviewable delivery notes and a defined support path.'}</p>
-          </article>
-          <article>
-            <LockKeyhole />
-            <h3>{zh ? '不会在这里发生什么' : 'What does not happen here'}</h3>
-            <p>{zh ? '不会公开展示 Toolkit 文件，不会要求客户上传原始资料，也不会在表单中处理密码、银行卡或生产权限。' : 'Toolkit files are not exposed, raw client material is not requested, and passwords, card data or production access never belong in this form.'}</p>
-          </article>
-          <article>
-            <ShieldCheck />
-            <h3>{zh ? '为什么要先审查' : 'Why review comes first'}</h3>
-            <p>{zh ? '不同 Skill 的依赖、许可、平台兼容性和任务风险不同。先匹配再交付，才能把“能读”与“适合你的工作”区分开。' : 'Skills differ in dependencies, provenance, platform compatibility and task risk. Matching before delivery separates “can be read” from “fit for your work”.'}</p>
-          </article>
-        </div>
-      </section>
-    </Shell>
-  );
-}
-
-function ToolkitAccessForm({
-  lang,
-  endpoint,
-  privacyUrl,
-}: {
-  lang: Lang;
-  endpoint: string;
-  privacyUrl: string;
-}) {
-  const zh = lang === 'zh';
+  const textIndex = zh ? 0 : 1;
+  const [email, setEmail] = useState('');
+  const [note, setNote] = useState('');
+  const [consent, setConsent] = useState(false);
   const [state, setState] = useState<FormState>('idle');
-  const [message, setMessage] = useState('');
-  const [form, setForm] = useState({
-    email: '',
-    wechat: '',
-    organization: '',
-    role: '',
-    interest: 'private-preview',
-    useCase: '',
-    consent: false,
-    website: '',
-  });
+  const [error, setError] = useState('');
+  const [receipt, setReceipt] = useState('');
+  const [captchaToken, setCaptchaToken] = useState('');
+  const [verificationAttempt, setVerificationAttempt] = useState(0);
+  const openedAt = useRef(0);
+  useEffect(() => { openedAt.current = Date.now(); }, []);
+  const pending = useRef(false);
+  const submission = useRef<{ id: string; payload: string } | null>(null);
+  const honeypot = useRef<HTMLInputElement>(null);
+  const noteField = useRef<HTMLTextAreaElement>(null);
+  const busy = state === 'submitting';
+  const enabled = Boolean(leadEndpoint && privacyUrl);
 
-  function update(field: keyof typeof form, value: string | boolean) {
-    setForm((current) => ({ ...current, [field]: value }));
-    if (state !== 'idle') {
-      setState('idle');
-      setMessage('');
-    }
+  function edit() { setState('idle'); setError(''); }
+  function chooseExample(value: string) {
+    if (busy || state === 'success') return;
+    setNote(value); edit(); noteField.current?.focus();
   }
 
   async function submit(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
-    const email = limit(form.email, 254);
-    const wechat = limit(form.wechat, 80);
-    if (!endpoint) {
-      setState('error');
-      setMessage(
-        zh
-          ? '申请暂未开放；你的信息没有被提交。'
-          : 'Requests are not open yet; nothing was submitted.',
-      );
-      return;
-    }
-    if (!email && !wechat) {
-      setState('error');
-      setMessage(zh ? '请至少填写邮箱或微信。' : 'Add an email address or a WeChat ID.');
-      return;
-    }
-    if (email && !/^\S+@\S+\.\S+$/.test(email)) {
-      setState('error');
-      setMessage(zh ? '请检查邮箱格式。' : 'Check the email format.');
-      return;
-    }
-    if (!form.consent) {
-      setState('error');
-      setMessage(zh ? '请先同意我们仅为本次申请联系你。' : 'Consent to contact you about this request first.');
-      return;
-    }
-    if (form.website.trim()) return;
-    setState('submitting');
-    setMessage('');
+    if (pending.current || !enabled || state === 'success') return;
+    if (!email.trim() || !consent) return;
+    pending.current = true; setState('submitting'); setError('');
+    const data = { method: 'email', contact: email.trim(), message: note.trim(), locale: lang, consent: true, website: honeypot.current?.value || '', source: 'fde-toolkit', policyVersion: 'fde-toolkit-2026-10-13' };
+    const payload = JSON.stringify(data);
+    if (submission.current?.payload !== payload) submission.current = { id: crypto.randomUUID(), payload };
     try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        credentials: 'omit',
-        redirect: 'error',
-        referrerPolicy: 'no-referrer',
-        signal: AbortSignal.timeout(15000),
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          email,
-          wechat,
-          organization: limit(form.organization, 160),
-          role: limit(form.role, 120),
-          interest: form.interest,
-          useCase: limit(form.useCase, 1200),
-          language: lang,
-          consent: true,
-          source: 'fde-web-toolkit-access',
-          website: '',
-        }),
+      const response = await fetch(leadEndpoint, {
+        method: 'POST', credentials: 'omit', redirect: 'error', referrerPolicy: 'no-referrer',
+        signal: AbortSignal.timeout(15000), headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...data, submissionId: submission.current.id, captchaToken, formOpenedAt: openedAt.current }),
       });
-      if (!response.ok || (await response.json()).ok !== true)
-        throw new Error('lead endpoint did not confirm receipt');
-      setState('success');
-      setMessage(
-        zh
-          ? '申请已收到。我们会先做范围与安全审查，再通过你留下的联系方式沟通版本、报价与访问方式。'
-          : 'Request received. We will review scope and safety first, then use your chosen contact to discuss the edition, pricing and access.',
-      );
-    } catch {
+      const result = await response.json().catch(() => null);
+      if (!response.ok || result?.ok !== true || result?.status !== 'queued' || typeof result?.requestId !== 'string') {
+        const code = result?.error?.code;
+        throw new Error(code === 'RATE_LIMITED' ? 'RATE_LIMITED' : code === 'VERIFICATION_REQUIRED' ? 'VERIFICATION_REQUIRED' : 'UNKNOWN');
+      }
+      setReceipt(result.requestId); setState('success'); setEmail(''); setNote(''); setConsent(false);
+      submission.current = null;
+    } catch (cause) {
+      const code = cause instanceof Error ? cause.message : '';
       setState('error');
-      setMessage(
-        zh
-          ? '暂时无法确认接收结果，请稍后再检查或重试；未上传 Toolkit 文件。'
-          : 'Receipt could not be confirmed. Check again or retry later; no Toolkit files were uploaded.',
-      );
+      setError(code === 'RATE_LIMITED'
+        ? (zh ? '纸条送得有点快，请稍后再试。你填写的内容还在。' : 'A few too many notes. Try again later; your draft is still here.')
+        : code === 'VERIFICATION_REQUIRED'
+          ? (zh ? '请完成验证，或稍等几秒再试。你填写的内容还在。' : 'Complete the verification, or wait a few seconds and try again. Your draft is still here.')
+          : (zh ? '暂未确认收到。你填写的内容还在，可以稍后重试；同一张纸条会去重。' : 'Receipt is not confirmed. Your draft is still here. You can retry later; the same note is deduplicated.'));
+    } finally {
+      pending.current = false; setCaptchaToken(''); setVerificationAttempt(value => value + 1);
     }
   }
 
-  const disabled = !endpoint || state === 'submitting' || state === 'success';
-  return (
-    <form className="toolkit-form" onSubmit={submit} noValidate>
-      <div className="toolkit-form-topline">
-        <span>{zh ? '私有访问申请' : 'Private access request'}</span>
-        <span>
-          <LockKeyhole /> {zh ? '安全边界' : 'Safety first'}
-        </span>
-      </div>
-      <div className="toolkit-form-fields">
-        <label>
-          <span>{zh ? '工作邮箱' : 'Work email'}</span>
-          <input
-            type="email"
-            name="email"
-            autoComplete="email"
-            value={form.email}
-            onChange={(event) => update('email', event.target.value)}
-            placeholder={zh ? '至少填写邮箱或微信' : 'Email or WeChat is required'}
-            maxLength={254}
-          />
-        </label>
-        <label>
-          <span>{zh ? '微信号（可选）' : 'WeChat ID (optional)'}</span>
-          <input
-            type="text"
-            name="wechat"
-            autoComplete="off"
-            value={form.wechat}
-            onChange={(event) => update('wechat', event.target.value)}
-            placeholder={zh ? '不方便留邮箱时可填写' : 'Use this if email is not convenient'}
-            maxLength={80}
-          />
-        </label>
-        <label>
-          <span>{zh ? '组织 / 团队（可选）' : 'Organization / team (optional)'}</span>
-          <input
-            type="text"
-            name="organization"
-            autoComplete="organization"
-            value={form.organization}
-            onChange={(event) => update('organization', event.target.value)}
-            maxLength={160}
-          />
-        </label>
-        <label>
-          <span>{zh ? '你的角色（可选）' : 'Your role (optional)'}</span>
-          <input
-            type="text"
-            name="role"
-            autoComplete="organization-title"
-            value={form.role}
-            onChange={(event) => update('role', event.target.value)}
-            maxLength={120}
-          />
-        </label>
-        <label>
-          <span>{zh ? '你想先了解什么' : 'What are you exploring?'}</span>
-          <select name="interest" value={form.interest} onChange={(event) => update('interest', event.target.value)}>
-            <option value="private-preview">{zh ? '私有预览' : 'Private preview'}</option>
-            <option value="purchase">{zh ? '购买与授权' : 'Purchase and licensing'}</option>
-            <option value="team-adaptation">{zh ? '团队适配 / FDE 共建' : 'Team adaptation / FDE co-build'}</option>
-          </select>
-        </label>
-        <label className="toolkit-form-wide">
-          <span>{zh ? '准备解决的工作（可选）' : 'Work you want to improve (optional)'}</span>
-          <textarea
-            name="useCase"
-            rows={4}
-            value={form.useCase}
-            onChange={(event) => update('useCase', event.target.value)}
-            placeholder={zh ? '例如：把研究、FAB、文案和 TVC 变成一条可复用的营销工作链。不要粘贴客户原始资料。' : 'For example: connect research, FAB, copy and TVC into a reusable marketing workflow. Do not paste raw client material.'}
-            maxLength={1200}
-          />
-        </label>
-      </div>
-      <label className="toolkit-consent">
-        <input type="checkbox" name="consent" checked={form.consent} onChange={(event) => update('consent', event.target.checked)} />
-        <span>{zh ? '我同意 AIelsen 仅为本次工具箱申请联系我，并理解访问与支付需另行确认。' : 'I agree that AIelsen may contact me about this toolkit request, with access and payment confirmed separately.'}</span>
-      </label>
-      {privacyUrl ? <p><a href={privacyUrl} target="_blank" rel="noopener noreferrer">{zh ? '阅读隐私说明与删除联系方式的方法 ↗' : 'Read the privacy and contact-deletion notice ↗'}</a></p> : null}
-      {!endpoint ? <output>{zh ? '申请暂未开放；此表单不会提交信息。' : 'Requests are not open yet. This form will not submit information.'}</output> : null}
-      <label className="toolkit-honeypot" aria-hidden="true">
-        <span>Website</span>
-        <input tabIndex={-1} autoComplete="off" name="website" value={form.website} onChange={(event) => update('website', event.target.value)} />
-      </label>
-      <div className="toolkit-form-actions">
-        <button type="submit" className="button-link primary" disabled={disabled}>
-          {state === 'submitting' ? (zh ? '正在提交…' : 'Sending…') : zh ? '提交私有访问申请' : 'Request private access'}
-          <ArrowRight />
-        </button>
-        <small>{zh ? '不上传 Toolkit 文件 · 不收集支付卡信息' : 'No Toolkit upload · No card data collected'}</small>
-      </div>
-      {message ? (
-        <output className={'toolkit-form-message ' + (state === 'success' ? 'success' : 'error')}>
-          {state === 'success' ? <CheckCircle2 /> : <ShieldCheck />}
-          {message}
-        </output>
-      ) : null}
-      <div className="toolkit-form-support">
-        <span><Mail /> {zh ? '邮箱' : 'Email'}</span>
-        <span><MessageCircle /> {zh ? '微信' : 'WeChat'}</span>
-        <span><ShieldCheck /> {zh ? '人工审查' : 'Human review'}</span>
-      </div>
-    </form>
-  );
+  return <Shell lang={lang} view="toolkit">
+    <div className="toolkit-page">
+      {leadEndpoint.startsWith('http://127.0.0.1:') ? <p className="tk-preview-note">{zh ? '本地演示 · 纸条只在内存中接收，不发送邮件' : 'Local preview · Notes stay in memory. No email is sent.'}</p> : null}
+      <section className="tk-desk wrap" aria-labelledby="toolkit-title">
+        <div className="tk-story">
+          <p className="tk-kicker"><span aria-hidden="true" />FDE TOOLKIT <span className="tk-kicker-rule" /> {zh ? '从一件工作开始' : 'ONE PIECE OF WORK'}</p>
+          <h1 id="toolkit-title">{zh ? <>Agent 装好了，<br />接下来，<span className="tk-title-mark">做点实事。</span></> : <>Your agent is ready.<br />Let’s put it<br /><span className="tk-title-mark">to work.</span></>}</h1>
+          <p className="tk-intro">{zh ? '给它合适的工具，也给它清楚的做事方法。FDE Tool 把研究、营销和交付中的工作方法整理成 Skills，帮你从眼前这件事开始。' : 'Give it the right tools and a clear way of working. FDE Tool brings research, marketing and delivery methods into Skills, starting with the work in front of you.'}</p>
+          <a className="tk-mobile-contact" href="#request-access">{zh ? '给 Eric 留个邮箱' : 'Leave Eric a note'}<ArrowRight aria-hidden="true" /></a>
+          <div className="tk-worklist" aria-labelledby="tk-worklist-title">
+            <p id="tk-worklist-title" className="tk-list-title">{zh ? '你想先做哪件事？点一项，写进纸条。' : 'What are you working on? Pick an idea for your note.'}</p>
+            {examples.map((example, index) => <button key={example.label[1]} className="tk-example" type="button" onClick={() => chooseExample(example.note[textIndex])} disabled={busy || state === 'success'}>
+              <span className="tk-example-number">0{index + 1}</span><span><strong>{example.label[textIndex]}</strong><span>{example.detail[textIndex]}</span></span><MoveUpRight aria-hidden="true" />
+            </button>)}
+          </div>
+          <p className="tk-margin-note">{zh ? '不必先想清所有需求。一件想做成的事，就够开始聊。' : 'You do not need a complete brief. One task is enough to start.'}</p>
+        </div>
+
+        <div className="tk-letter-wrap" id="request-access">
+          <div className="tk-paper-tab" aria-hidden="true">{zh ? '留给 Eric 的一页' : 'A NOTE FOR ERIC'} <span>↘</span></div>
+          <section className="toolkit-form tk-letter" aria-labelledby="tk-contact-title">
+            <div className="tk-letter-head"><span>TO: ERIC / FDE</span><span className="tk-stamp" aria-hidden="true"><Mail /><span>LET’S<br />TALK</span></span></div>
+            <h2 id="tk-contact-title">{zh ? <>留个邮箱，<span className="tk-title-phrase">聊聊你的工作。</span></> : 'Leave your email. Tell me about the work.'}</h2>
+            <p className="tk-letter-intro">{zh ? '我会通过邮箱和你沟通，看看哪些工具适合、怎么开始。' : 'I’ll follow up by email to discuss which tools fit and where to start.'}</p>
+            {state === 'success' ? <div className="tk-success" aria-live="polite" tabIndex={-1}>
+              <span className="tk-received-stamp"><Check aria-hidden="true" />{zh ? '已收到' : 'RECEIVED'}</span>
+              <h3>{zh ? '你的纸条收好了。' : 'Your note is in.'}</h3>
+              <p>{zh ? 'Eric 会通过你留下的邮箱，和你聊聊这件工作。' : 'Eric will follow up at the email you left to talk about the work.'}</p>
+              <p className="tk-receipt">{zh ? '回执' : 'Reference'} · {receipt}</p>
+              <a href={localPath(lang, 'playbook')} className="tk-inline-link">{zh ? '先逛逛业务场景' : 'Explore some business scenarios'}<ArrowUpRight aria-hidden="true" /></a>
+            </div> : <form onSubmit={submit} aria-busy={busy}>
+              <fieldset disabled={busy || !enabled} className="tk-fields">
+                <legend className="tk-sr-only">{zh ? '邮箱与工作需求' : 'Email and work enquiry'}</legend>
+                <label htmlFor="tk-email">{zh ? '你的邮箱' : 'Your email'}</label>
+                <input id="tk-email" name="email" type="email" required maxLength={254} autoComplete="email" autoCapitalize="none" spellCheck={false} value={email} placeholder="you@example.com" onChange={event => { setEmail(event.target.value); edit(); }} aria-describedby="tk-privacy" />
+                <label htmlFor="tk-note">{zh ? '想让 Agent 帮你做什么？' : 'What would you like your agent to help with?'}<span>{zh ? '选填' : 'Optional'}</span></label>
+                <textarea ref={noteField} id="tk-note" name="message" rows={3} maxLength={500} value={note} placeholder={zh ? '比如：每周整理行业信息，给团队做一份简报。' : 'For example: a weekly industry brief for my team.'} onChange={event => { setNote(event.target.value); edit(); }} aria-describedby="tk-note-hint" />
+                <p className="tk-field-hint" id="tk-note-hint">{zh ? '写个大概就好，不用放客户资料或账号信息。' : 'A rough idea is enough. Leave out client files and account details.'}</p>
+                <div className="tk-trap" aria-hidden="true"><label htmlFor="tk-website">Website</label><input ref={honeypot} id="tk-website" name="website" tabIndex={-1} autoComplete="off" /></div>
+                <label className="tk-consent"><input type="checkbox" name="consent" checked={consent} required onChange={event => { setConsent(event.target.checked); edit(); }} /><span>{zh ? '可以通过邮箱回复我这次咨询。' : 'You may email me about this enquiry.'}</span></label>
+                {enabled ? <ToolkitVerification endpoint={leadEndpoint} lang={lang} active={consent} resetKey={verificationAttempt} onToken={setCaptchaToken} /> : null}
+                <button type="submit" className="tk-submit" disabled={busy || !enabled}>{busy ? (zh ? '正在送出纸条…' : 'Sending your note…') : (zh ? '留个邮箱，聊聊工具' : 'Let’s talk tools')}<ArrowRight aria-hidden="true" /></button>
+              </fieldset>
+              {!enabled ? <output className="tk-unavailable">{zh ? '邮箱登记暂未开放；此表单不会提交信息。' : 'Email enquiries are not open yet. This form will not submit information.'}</output> : null}
+              {error ? <p className="tk-error" role="alert">{error}</p> : null}
+              <p className="tk-privacy" id="tk-privacy">{zh ? '只用于这次沟通，不公开展示，也不订阅营销邮件。' : 'For this conversation only. Never displayed publicly or added to a marketing list.'}{privacyUrl ? <> <a href={privacyUrl} target="_blank" rel="noopener noreferrer">{zh ? '隐私与删除说明' : 'Privacy & deletion'}</a></> : null}</p>
+            </form>}
+            <div className="tk-letter-signoff"><span>{zh ? '先聊工作，再选工具。' : 'The work first. The tools second.'}</span><strong>Eric <span>↗</span></strong></div>
+          </section>
+        </div>
+      </section>
+
+      <section className="tk-next wrap" aria-labelledby="tk-next-title">
+        <div><p className="tk-kicker">BEFORE WE TALK</p><h2 id="tk-next-title">{zh ? '先看看，AI 能接手哪些工作。' : 'See where AI can help with the work.'}</h2><p>{zh ? 'FDE 指南里有业务场景、交付方法和学习路径。工具箱的使用方式与支持范围，我们按你的任务沟通。' : 'The FDE guide covers business scenarios, delivery methods and learning paths. We’ll discuss Toolkit access and support around your task.'}</p></div>
+        <a className="tk-guide-link" href={localPath(lang)}>{zh ? '浏览 FDE 指南' : 'Explore the FDE guide'}<ArrowUpRight aria-hidden="true" /></a>
+      </section>
+    </div>
+  </Shell>;
 }

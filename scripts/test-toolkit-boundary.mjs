@@ -29,7 +29,7 @@ if(built){
   assert(html.includes(lang==='zh'?'Agent 案例':'Agent Cases'),'Request pages retain Agent case navigation');
   assert(html.includes(lang==='zh'?'FDE 学院':'FDE Academy'),'Request pages retain Academy navigation');
   if(!process.env.TOOLKIT_LEAD_ENDPOINT || !process.env.TOOLKIT_PRIVACY_URL){
-   assert(html.includes(lang==='zh'?'申请暂未开放；此表单不会提交信息。':'Requests are not open yet. This form will not submit information.'),'Unconfigured builds explicitly disable collection');
+   assert(html.includes(lang==='zh'?'邮箱登记暂未开放；此表单不会提交信息。':'Email enquiries are not open yet. This form will not submit information.'),'Unconfigured builds explicitly disable collection');
    assert(/<button[^>]*type="submit"[^>]*disabled/.test(html),'Unconfigured submit is disabled');
   }
  }
