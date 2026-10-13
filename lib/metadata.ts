@@ -17,8 +17,8 @@ const titles = {
     en: 'Enterprise AI Playbook · 9 plays and 66 application scenarios',
   },
   toolkit: {
-    zh: 'FDE 工具箱 · 给 Agent 选工具，从一件工作开始',
-    en: 'FDE Toolkit · Put your agent to work',
+    zh: 'FDE 工具箱 · 你需要什么样的技能呢？',
+    en: 'FDE Toolkit · What skills do you need?',
   },
 };
 const descriptions = {
@@ -35,8 +35,8 @@ const descriptions = {
     en: 'Explore 9 business plays and 66 application scenarios: inputs, methods and deliverables linked to courses and case analysis. Scenarios are not validated customer deployments.',
   },
   toolkit: {
-    zh: '从市场研究、内容营销、创作者合作或工程交接开始。留下邮箱，和 Eric 聊聊适合你的 Agent 工具与 Skills。',
-    en: 'Start with research, marketing, creator partnerships or engineering handoff. Leave your email to discuss the right agent tools and Skills with Eric.',
+    zh: '你需要市场研究、内容营销、创作者合作还是工程交付技能？留下邮箱，和 Eric 聊聊适合你的 Agent Skills、使用方式与支持范围。',
+    en: 'What skills do you need: research, marketing, creator partnerships or engineering delivery? Leave your email to discuss suitable agent Skills, usage and support with Eric.',
   },
 };
 export function pageMetadata(lang: Lang, view: View): Metadata {

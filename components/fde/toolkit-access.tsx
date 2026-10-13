@@ -80,55 +80,55 @@ export function ToolkitAccessPage({ lang, leadEndpoint, privacyUrl }: { lang: La
       {leadEndpoint.startsWith('http://127.0.0.1:') ? <p className="tk-preview-note">{zh ? '本地演示 · 纸条只在内存中接收，不发送邮件' : 'Local preview · Notes stay in memory. No email is sent.'}</p> : null}
       <section className="tk-desk wrap" aria-labelledby="toolkit-title">
         <div className="tk-story">
-          <p className="tk-kicker"><span aria-hidden="true" />FDE TOOLKIT <span className="tk-kicker-rule" /> {zh ? '从一件工作开始' : 'ONE PIECE OF WORK'}</p>
-          <h1 id="toolkit-title">{zh ? <>Agent 装好了，<br />接下来，<span className="tk-title-mark">做点实事。</span></> : <>Your agent is ready.<br />Let’s put it<br /><span className="tk-title-mark">to work.</span></>}</h1>
-          <p className="tk-intro">{zh ? '给它合适的工具，也给它清楚的做事方法。FDE Tool 把研究、营销和交付中的工作方法整理成 Skills，帮你从眼前这件事开始。' : 'Give it the right tools and a clear way of working. FDE Tool brings research, marketing and delivery methods into Skills, starting with the work in front of you.'}</p>
+          <p className="tk-kicker"><span aria-hidden="true" />FDE TOOLKIT <span className="tk-kicker-rule" /> {zh ? '给 Agent 选技能' : 'SKILLS FOR YOUR AGENT'}</p>
+          <h1 id="toolkit-title">{zh ? <>你需要什么样的<br /><span className="tk-title-mark">技能呢？</span></> : <>What skills<br /><span className="tk-title-mark">do you need?</span></>}</h1>
+          <p className="tk-intro">{zh ? '市场研究、内容营销、创作者合作，还是工程交付？FDE Tool 把这些工作方法整理成 Skills，帮你为 Agent 选到合适的技能。' : 'Market research, content marketing, creator partnerships or engineering delivery? FDE Tool brings these working methods into Skills to help you find the right capabilities for your agent.'}</p>
           <a className="tk-mobile-contact" href="#request-access">{zh ? '给 Eric 留个邮箱' : 'Leave Eric a note'}<ArrowRight aria-hidden="true" /></a>
           <div className="tk-worklist" aria-labelledby="tk-worklist-title">
-            <p id="tk-worklist-title" className="tk-list-title">{zh ? '你想先做哪件事？点一项，写进纸条。' : 'What are you working on? Pick an idea for your note.'}</p>
+            <p id="tk-worklist-title" className="tk-list-title">{zh ? '你想了解哪类技能？点一项，写进纸条。' : 'Which skills interest you? Pick a starting point for your note.'}</p>
             {examples.map((example, index) => <button key={example.label[1]} className="tk-example" type="button" onClick={() => chooseExample(example.note[textIndex])} disabled={busy || state === 'success'}>
               <span className="tk-example-number">0{index + 1}</span><span><strong>{example.label[textIndex]}</strong><span>{example.detail[textIndex]}</span></span><MoveUpRight aria-hidden="true" />
             </button>)}
           </div>
-          <p className="tk-margin-note">{zh ? '不必先想清所有需求。一件想做成的事，就够开始聊。' : 'You do not need a complete brief. One task is enough to start.'}</p>
+          <p className="tk-margin-note">{zh ? '不确定技能叫什么也没关系。说说你想解决的问题就好。' : 'You do not need to know the skill’s name. Just tell me what you want help with.'}</p>
         </div>
 
         <div className="tk-letter-wrap" id="request-access">
           <div className="tk-paper-tab" aria-hidden="true">{zh ? '留给 Eric 的一页' : 'A NOTE FOR ERIC'} <span>↘</span></div>
           <section className="toolkit-form tk-letter" aria-labelledby="tk-contact-title">
             <div className="tk-letter-head"><span>TO: ERIC / FDE</span><span className="tk-stamp" aria-hidden="true"><Mail /><span>LET’S<br />TALK</span></span></div>
-            <h2 id="tk-contact-title">{zh ? <>留个邮箱，<span className="tk-title-phrase">聊聊你的工作。</span></> : 'Leave your email. Tell me about the work.'}</h2>
-            <p className="tk-letter-intro">{zh ? '我会通过邮箱和你沟通，看看哪些工具适合、怎么开始。' : 'I’ll follow up by email to discuss which tools fit and where to start.'}</p>
+            <h2 id="tk-contact-title">{zh ? <>留个邮箱，<span className="tk-title-phrase">聊聊你需要的技能。</span></> : 'Leave your email. Tell me which skills you need.'}</h2>
+            <p className="tk-letter-intro">{zh ? '我会通过邮箱和你沟通，介绍适合的 Skills、使用方式和支持范围。' : 'I’ll follow up by email to discuss suitable Skills, how to use them and what support is available.'}</p>
             {state === 'success' ? <div className="tk-success" aria-live="polite" tabIndex={-1}>
               <span className="tk-received-stamp"><Check aria-hidden="true" />{zh ? '已收到' : 'RECEIVED'}</span>
               <h3>{zh ? '你的纸条收好了。' : 'Your note is in.'}</h3>
-              <p>{zh ? 'Eric 会通过你留下的邮箱，和你聊聊这件工作。' : 'Eric will follow up at the email you left to talk about the work.'}</p>
+              <p>{zh ? 'Eric 会通过你留下的邮箱，和你聊聊所需技能与使用方式。' : 'Eric will follow up at the email you left to discuss the skills you need and how to use them.'}</p>
               <p className="tk-receipt">{zh ? '回执' : 'Reference'} · {receipt}</p>
               <a href={localPath(lang, 'playbook')} className="tk-inline-link">{zh ? '先逛逛业务场景' : 'Explore some business scenarios'}<ArrowUpRight aria-hidden="true" /></a>
             </div> : <form onSubmit={submit} aria-busy={busy}>
               <fieldset disabled={busy || !enabled} className="tk-fields">
-                <legend className="tk-sr-only">{zh ? '邮箱与工作需求' : 'Email and work enquiry'}</legend>
+                <legend className="tk-sr-only">{zh ? '邮箱与技能需求' : 'Email and skills enquiry'}</legend>
                 <label htmlFor="tk-email">{zh ? '你的邮箱' : 'Your email'}</label>
                 <input id="tk-email" name="email" type="email" required maxLength={254} autoComplete="email" autoCapitalize="none" spellCheck={false} value={email} placeholder="you@example.com" onChange={event => { setEmail(event.target.value); edit(); }} aria-describedby="tk-privacy" />
-                <label htmlFor="tk-note">{zh ? '想让 Agent 帮你做什么？' : 'What would you like your agent to help with?'}<span>{zh ? '选填' : 'Optional'}</span></label>
-                <textarea ref={noteField} id="tk-note" name="message" rows={3} maxLength={500} value={note} placeholder={zh ? '比如：每周整理行业信息，给团队做一份简报。' : 'For example: a weekly industry brief for my team.'} onChange={event => { setNote(event.target.value); edit(); }} aria-describedby="tk-note-hint" />
+                <label htmlFor="tk-note">{zh ? '你需要哪类技能？' : 'What kinds of skills do you need?'}<span>{zh ? '选填' : 'Optional'}</span></label>
+                <textarea ref={noteField} id="tk-note" name="message" rows={3} maxLength={500} value={note} placeholder={zh ? '比如：市场研究类，能帮我每周整理行业信息、生成简报。' : 'For example: market research skills for a weekly industry brief.'} onChange={event => { setNote(event.target.value); edit(); }} aria-describedby="tk-note-hint" />
                 <p className="tk-field-hint" id="tk-note-hint">{zh ? '写个大概就好，不用放客户资料或账号信息。' : 'A rough idea is enough. Leave out client files and account details.'}</p>
                 <div className="tk-trap" aria-hidden="true"><label htmlFor="tk-website">Website</label><input ref={honeypot} id="tk-website" name="website" tabIndex={-1} autoComplete="off" /></div>
                 <label className="tk-consent"><input type="checkbox" name="consent" checked={consent} required onChange={event => { setConsent(event.target.checked); edit(); }} /><span>{zh ? '可以通过邮箱回复我这次咨询。' : 'You may email me about this enquiry.'}</span></label>
                 {enabled ? <ToolkitVerification endpoint={leadEndpoint} lang={lang} active={consent} resetKey={verificationAttempt} onToken={setCaptchaToken} /> : null}
-                <button type="submit" className="tk-submit" disabled={busy || !enabled}>{busy ? (zh ? '正在送出纸条…' : 'Sending your note…') : (zh ? '留个邮箱，聊聊工具' : 'Let’s talk tools')}<ArrowRight aria-hidden="true" /></button>
+                <button type="submit" className="tk-submit" disabled={busy || !enabled}>{busy ? (zh ? '正在送出纸条…' : 'Sending your note…') : (zh ? '留个邮箱，聊聊技能' : 'Let’s talk skills')}<ArrowRight aria-hidden="true" /></button>
               </fieldset>
               {!enabled ? <output className="tk-unavailable">{zh ? '邮箱登记暂未开放；此表单不会提交信息。' : 'Email enquiries are not open yet. This form will not submit information.'}</output> : null}
               {error ? <p className="tk-error" role="alert">{error}</p> : null}
               <p className="tk-privacy" id="tk-privacy">{zh ? '只用于这次沟通，不公开展示，也不订阅营销邮件。' : 'For this conversation only. Never displayed publicly or added to a marketing list.'}{privacyUrl ? <> <a href={privacyUrl} target="_blank" rel="noopener noreferrer">{zh ? '隐私与删除说明' : 'Privacy & deletion'}</a></> : null}</p>
             </form>}
-            <div className="tk-letter-signoff"><span>{zh ? '先聊工作，再选工具。' : 'The work first. The tools second.'}</span><strong>Eric <span>↗</span></strong></div>
+            <div className="tk-letter-signoff"><span>{zh ? '从你的需要，选合适的技能。' : 'Find the skills that fit your needs.'}</span><strong>Eric <span>↗</span></strong></div>
           </section>
         </div>
       </section>
 
       <section className="tk-next wrap" aria-labelledby="tk-next-title">
-        <div><p className="tk-kicker">BEFORE WE TALK</p><h2 id="tk-next-title">{zh ? '先看看，AI 能接手哪些工作。' : 'See where AI can help with the work.'}</h2><p>{zh ? 'FDE 指南里有业务场景、交付方法和学习路径。工具箱的使用方式与支持范围，我们按你的任务沟通。' : 'The FDE guide covers business scenarios, delivery methods and learning paths. We’ll discuss Toolkit access and support around your task.'}</p></div>
+        <div><p className="tk-kicker">BEFORE WE TALK</p><h2 id="tk-next-title">{zh ? '还没想好？从业务场景找一找。' : 'Find ideas in your day-to-day work.'}</h2><p>{zh ? 'FDE 指南里有业务场景、交付方法和学习路径。先找到与你相关的工作，再一起看看需要哪些 Skills。' : 'Explore business scenarios, delivery methods and learning paths in the FDE guide. Find the work that matters to you, then we can discuss which Skills fit.'}</p></div>
         <a className="tk-guide-link" href={localPath(lang)}>{zh ? '浏览 FDE 指南' : 'Explore the FDE guide'}<ArrowUpRight aria-hidden="true" /></a>
       </section>
     </div>
